@@ -18,11 +18,19 @@
 		</data>
 		<key>Headers/GeolocationHandler.h</key>
 		<data>
-		4Q24I5GNiYbVXagXjkW59R3GUB8=
+		n6yn7qmqdq8XNVeKPmnvJX0MgBc=
+		</data>
+		<key>Headers/GeolocationHandler_Test.h</key>
+		<data>
+		Y1xw1/WD6rEe4YzrND3x7ULvaP0=
 		</data>
 		<key>Headers/GeolocatorPlugin.h</key>
 		<data>
 		bL/kiHEeKYmPKVhiz1ymJzQFUX4=
+		</data>
+		<key>Headers/GeolocatorPlugin_Test.h</key>
+		<data>
+		gaLffp6TSzmyINPdUr1Cv1vLDHs=
 		</data>
 		<key>Headers/LocationAccuracyHandler.h</key>
 		<data>
@@ -46,7 +54,7 @@
 		</data>
 		<key>Headers/PermissionHandler.h</key>
 		<data>
-		5202wozEVwNPdgl3uezTTbGeDlg=
+		NQKIK4CfdX2Qbt5jRzn6v1Xhjlc=
 		</data>
 		<key>Headers/PermissionUtils.h</key>
 		<data>
@@ -60,6 +68,10 @@
 		<data>
 		ovSpl0OxB31nY5Tn66ZaMeHeC1k=
 		</data>
+		<key>Headers/geolocator-umbrella.h</key>
+		<data>
+		VXyxDIinJlDGWNPJJdWSUxRzfaA=
+		</data>
 		<key>Headers/geolocator_apple-umbrella.h</key>
 		<data>
 		M+wmoL/mtA07i0eorJZae4nJRQY=
@@ -70,7 +82,7 @@
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		Gy5vpxa5a5/YjCuk09lBkPhyP1k=
+		NLQCcZHUXHVDtciVXgIh5fDoJCQ=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -112,11 +124,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4Q24I5GNiYbVXagXjkW59R3GUB8=
+			n6yn7qmqdq8XNVeKPmnvJX0MgBc=
 			</data>
 			<key>hash2</key>
 			<data>
-			+GErmMZJPLEQwkdb+lmfe6pSkEMHlxmTBWioyEcn7Zc=
+			rOHx8V0nDU7C7BQgup6LCdJ2SjZ0kqOAVw0IRPzDz0M=
+			</data>
+		</dict>
+		<key>Headers/GeolocationHandler_Test.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Y1xw1/WD6rEe4YzrND3x7ULvaP0=
+			</data>
+			<key>hash2</key>
+			<data>
+			EEKLNxugjVk2+vFl+PeLZ9UcmRP8/9K4L+rXU5p8fgE=
 			</data>
 		</dict>
 		<key>Headers/GeolocatorPlugin.h</key>
@@ -128,6 +151,17 @@
 			<key>hash2</key>
 			<data>
 			DsmWw1s60BGSzEtRHq94xQowZaDFt0c0A3B5VbXUsg0=
+			</data>
+		</dict>
+		<key>Headers/GeolocatorPlugin_Test.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			gaLffp6TSzmyINPdUr1Cv1vLDHs=
+			</data>
+			<key>hash2</key>
+			<data>
+			fdSkkcScg39SykZhnzp8CZgPMFSclONFMyYwMkqE3ZM=
 			</data>
 		</dict>
 		<key>Headers/LocationAccuracyHandler.h</key>
@@ -189,11 +223,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5202wozEVwNPdgl3uezTTbGeDlg=
+			NQKIK4CfdX2Qbt5jRzn6v1Xhjlc=
 			</data>
 			<key>hash2</key>
 			<data>
-			DYw1FL2/rapLFlLFxwngOVvvu9bpSRlcafveqq+YGHI=
+			4g7HWyNsAGg51oGsdtwjJX9V1pLkKTY/zcyE9tuQuo0=
 			</data>
 		</dict>
 		<key>Headers/PermissionUtils.h</key>
@@ -229,6 +263,17 @@
 			VSKsfdTgBaOF6M5yNLC9vF8vn0ynLKBT6qVfUfX9/gQ=
 			</data>
 		</dict>
+		<key>Headers/geolocator-umbrella.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			VXyxDIinJlDGWNPJJdWSUxRzfaA=
+			</data>
+			<key>hash2</key>
+			<data>
+			3Qb3pZWmYMFLasl8dcK0uaxdOGWTo+4Qu4aDEkncIZo=
+			</data>
+		</dict>
 		<key>Headers/geolocator_apple-umbrella.h</key>
 		<dict>
 			<key>hash</key>
@@ -244,11 +289,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Gy5vpxa5a5/YjCuk09lBkPhyP1k=
+			NLQCcZHUXHVDtciVXgIh5fDoJCQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			GAWRSBKuO0R+E4Ni7OYPwOXb//KDlcxzXVDVVPxY37A=
+			ogvfZwdVZsGObEeIcyHeir8FGKKDOhnHK4Z8sPgZH8k=
 			</data>
 		</dict>
 	</dict>
