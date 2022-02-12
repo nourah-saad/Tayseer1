@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/nourahaldosari/AndroidStudioProjects/tayseer2/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-sw/values-sw.xml",
+            "outputFile": "/Users/almaha/Documents/GitHub/Tayseer1/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-sw/values-sw.xml",
             "map": [
                 {
-                    "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/f5fd684b42647ebb8010700f26b424af/jetified-play-services-basement-18.0.0/res/values-sw/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "195",
-                        "endColumns": "141",
-                        "endOffsets": "336"
-                    },
-                    "to": {
-                        "startLines": "10",
-                        "startColumns": "4",
-                        "startOffsets": "1278",
-                        "endColumns": "145",
-                        "endOffsets": "1419"
-                    }
-                },
-                {
-                    "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/b48eb12e4a1386bfe3aa0e9022526428/jetified-play-services-base-17.1.0/res/values-sw/values.xml",
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/2cd47c5e7ab28841ea7a996dbee41228/jetified-play-services-base-17.1.0/res/values-sw/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -38,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/f4bea62e654082ad54f433ebc0ccad55/core-1.6.0/res/values-sw/values-sw.xml",
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/cc91cf130b386aac8a252a7bb5e33ef9/jetified-play-services-basement-18.0.0/res/values-sw/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "141",
+                        "endOffsets": "336"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1278",
+                        "endColumns": "145",
+                        "endOffsets": "1419"
+                    }
+                },
+                {
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/values-sw/values-sw.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

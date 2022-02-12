@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/nourahaldosari/AndroidStudioProjects/tayseer2/build/google_maps_flutter/intermediates/res/merged/debug/values-v16/values-v16.xml",
+            "outputFile": "/Users/almaha/Documents/GitHub/Tayseer1/build/google_maps_flutter/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/f4bea62e654082ad54f433ebc0ccad55/core-1.6.0/res/values-v16/values-v16.xml",
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -16,10 +16,10 @@
             ]
         },
         {
-            "outputFile": "/Users/nourahaldosari/AndroidStudioProjects/tayseer2/build/google_maps_flutter/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
+            "outputFile": "/Users/almaha/Documents/GitHub/Tayseer1/build/google_maps_flutter/intermediates/res/merged/debug/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/f4bea62e654082ad54f433ebc0ccad55/core-1.6.0/res/values-v16/values-v16.xml",
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/values-v16/values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

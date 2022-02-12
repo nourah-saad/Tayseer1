@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/nourahaldosari/AndroidStudioProjects/tayseer2/build/google_maps_flutter/intermediates/incremental/mergeDebugResources/merged.dir/values-pl/values-pl.xml",
+            "outputFile": "/Users/almaha/Documents/GitHub/Tayseer1/build/google_maps_flutter/intermediates/incremental/mergeDebugResources/merged.dir/values-pl/values-pl.xml",
             "map": [
                 {
-                    "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/9a5744c475f1a43bcc80541c5443fc46/jetified-play-services-basement-17.0.0/res/values-pl/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "198",
-                        "endOffsets": "445"
-                    },
-                    "to": {
-                        "startLines": "10",
-                        "startColumns": "4",
-                        "startOffsets": "1253",
-                        "endColumns": "198",
-                        "endOffsets": "1447"
-                    }
-                },
-                {
-                    "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/c81f97a3c3710bfa81224069679eb465/jetified-play-services-base-17.0.0/res/values-pl/values.xml",
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/233f4a80b78c27f9dcbf8eb1f89a9e30/jetified-play-services-base-17.0.0/res/values-pl/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -38,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/f4bea62e654082ad54f433ebc0ccad55/core-1.6.0/res/values-pl/values-pl.xml",
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/e3c0216fa8fed62f9ff7007f459d905c/jetified-play-services-basement-17.0.0/res/values-pl/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "198",
+                        "endOffsets": "445"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1253",
+                        "endColumns": "198",
+                        "endOffsets": "1447"
+                    }
+                },
+                {
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/values-pl/values-pl.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -57,27 +57,10 @@
             ]
         },
         {
-            "outputFile": "/Users/nourahaldosari/AndroidStudioProjects/tayseer2/build/google_maps_flutter/intermediates/res/merged/debug/values-pl/values-pl.xml",
+            "outputFile": "/Users/almaha/Documents/GitHub/Tayseer1/build/google_maps_flutter/intermediates/res/merged/debug/values-pl/values-pl.xml",
             "map": [
                 {
-                    "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/9a5744c475f1a43bcc80541c5443fc46/jetified-play-services-basement-17.0.0/res/values-pl/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "198",
-                        "endOffsets": "445"
-                    },
-                    "to": {
-                        "startLines": "10",
-                        "startColumns": "4",
-                        "startOffsets": "1253",
-                        "endColumns": "198",
-                        "endOffsets": "1447"
-                    }
-                },
-                {
-                    "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/c81f97a3c3710bfa81224069679eb465/jetified-play-services-base-17.0.0/res/values-pl/values.xml",
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/233f4a80b78c27f9dcbf8eb1f89a9e30/jetified-play-services-base-17.0.0/res/values-pl/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -94,7 +77,24 @@
                     }
                 },
                 {
-                    "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/f4bea62e654082ad54f433ebc0ccad55/core-1.6.0/res/values-pl/values-pl.xml",
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/e3c0216fa8fed62f9ff7007f459d905c/jetified-play-services-basement-17.0.0/res/values-pl/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "198",
+                        "endOffsets": "445"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1253",
+                        "endColumns": "198",
+                        "endOffsets": "1447"
+                    }
+                },
+                {
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/values-pl/values-pl.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

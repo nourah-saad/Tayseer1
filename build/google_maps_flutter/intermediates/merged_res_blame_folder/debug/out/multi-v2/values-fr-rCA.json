@@ -1,27 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/nourahaldosari/AndroidStudioProjects/tayseer2/build/google_maps_flutter/intermediates/res/merged/debug/values-fr-rCA/values-fr-rCA.xml",
+            "outputFile": "/Users/almaha/Documents/GitHub/Tayseer1/build/google_maps_flutter/intermediates/res/merged/debug/values-fr-rCA/values-fr-rCA.xml",
             "map": [
                 {
-                    "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/f4bea62e654082ad54f433ebc0ccad55/core-1.6.0/res/values-fr-rCA/values-fr-rCA.xml",
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/e3c0216fa8fed62f9ff7007f459d905c/jetified-play-services-basement-17.0.0/res/values-fr-rCA/values.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "219",
+                        "endOffsets": "470"
                     },
                     "to": {
-                        "startLines": "20",
+                        "startLines": "10",
                         "startColumns": "4",
-                        "startOffsets": "3006",
-                        "endColumns": "100",
-                        "endOffsets": "3102"
+                        "startOffsets": "1326",
+                        "endColumns": "219",
+                        "endOffsets": "1541"
                     }
                 },
                 {
-                    "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/c81f97a3c3710bfa81224069679eb465/jetified-play-services-base-17.0.0/res/values-fr-rCA/values.xml",
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/233f4a80b78c27f9dcbf8eb1f89a9e30/jetified-play-services-base-17.0.0/res/values-fr-rCA/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -38,46 +38,46 @@
                     }
                 },
                 {
-                    "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/9a5744c475f1a43bcc80541c5443fc46/jetified-play-services-basement-17.0.0/res/values-fr-rCA/values.xml",
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/values-fr-rCA/values-fr-rCA.xml",
                     "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "251",
-                        "endColumns": "219",
-                        "endOffsets": "470"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "10",
+                        "startLines": "20",
                         "startColumns": "4",
-                        "startOffsets": "1326",
-                        "endColumns": "219",
-                        "endOffsets": "1541"
+                        "startOffsets": "3006",
+                        "endColumns": "100",
+                        "endOffsets": "3102"
                     }
                 }
             ]
         },
         {
-            "outputFile": "/Users/nourahaldosari/AndroidStudioProjects/tayseer2/build/google_maps_flutter/intermediates/incremental/mergeDebugResources/merged.dir/values-fr-rCA/values-fr-rCA.xml",
+            "outputFile": "/Users/almaha/Documents/GitHub/Tayseer1/build/google_maps_flutter/intermediates/incremental/mergeDebugResources/merged.dir/values-fr-rCA/values-fr-rCA.xml",
             "map": [
                 {
-                    "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/f4bea62e654082ad54f433ebc0ccad55/core-1.6.0/res/values-fr-rCA/values-fr-rCA.xml",
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/e3c0216fa8fed62f9ff7007f459d905c/jetified-play-services-basement-17.0.0/res/values-fr-rCA/values.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "219",
+                        "endOffsets": "470"
                     },
                     "to": {
-                        "startLines": "20",
+                        "startLines": "10",
                         "startColumns": "4",
-                        "startOffsets": "3006",
-                        "endColumns": "100",
-                        "endOffsets": "3102"
+                        "startOffsets": "1326",
+                        "endColumns": "219",
+                        "endOffsets": "1541"
                     }
                 },
                 {
-                    "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/c81f97a3c3710bfa81224069679eb465/jetified-play-services-base-17.0.0/res/values-fr-rCA/values.xml",
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/233f4a80b78c27f9dcbf8eb1f89a9e30/jetified-play-services-base-17.0.0/res/values-fr-rCA/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -94,20 +94,20 @@
                     }
                 },
                 {
-                    "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/9a5744c475f1a43bcc80541c5443fc46/jetified-play-services-basement-17.0.0/res/values-fr-rCA/values.xml",
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/values-fr-rCA/values-fr-rCA.xml",
                     "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "251",
-                        "endColumns": "219",
-                        "endOffsets": "470"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "10",
+                        "startLines": "20",
                         "startColumns": "4",
-                        "startOffsets": "1326",
-                        "endColumns": "219",
-                        "endOffsets": "1541"
+                        "startOffsets": "3006",
+                        "endColumns": "100",
+                        "endOffsets": "3102"
                     }
                 }
             ]
