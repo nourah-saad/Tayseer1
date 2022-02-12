@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "988777245550",
+    "project_id": "tayseer2-3ac5e",
+    "storage_bucket": "tayseer2-3ac5e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988777245550:android:5fddad7fc990c9c7186f7f",
+        "android_client_info": {
+          "package_name": "com.ksu.tayseer2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "988777245550-hl0cnsgmegtbcjo3tdl4dq6t9e64stj8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsUrsxE03vPLLzPnzGOBiuDQxQ_Bey_JI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "988777245550-hl0cnsgmegtbcjo3tdl4dq6t9e64stj8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

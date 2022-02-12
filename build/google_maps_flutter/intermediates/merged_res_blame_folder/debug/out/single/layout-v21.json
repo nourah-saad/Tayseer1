@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/nourahaldosari/AndroidStudioProjects/tayseer2/build/google_maps_flutter/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/f4bea62e654082ad54f433ebc0ccad55/core-1.6.0/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/nourahaldosari/AndroidStudioProjects/tayseer2/build/google_maps_flutter/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/f4bea62e654082ad54f433ebc0ccad55/core-1.6.0/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/nourahaldosari/AndroidStudioProjects/tayseer2/build/google_maps_flutter/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/f4bea62e654082ad54f433ebc0ccad55/core-1.6.0/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/Users/nourahaldosari/AndroidStudioProjects/tayseer2/build/google_maps_flutter/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/f4bea62e654082ad54f433ebc0ccad55/core-1.6.0/res/layout-v21/notification_template_icon_group.xml"
+    }
+]
