@@ -28,8 +28,10 @@ class _HomePageState extends State<HomePage> {
           canvasColor: const Color(0xFF85BBC2),
         ),
         child: MyDrawer(
-          name: driverModelCurrentInfo!.name,
-          email: driverModelCurrentInfo!.email,
+          name: 'khawla',
+          //driverModelCurrentInfo!.name,
+          email: 'khawlaff5@gmail.com'
+          //driverModelCurrentInfo!.email,
         ),
       ),
       backgroundColor: const Color(0xFF85BBC2),
