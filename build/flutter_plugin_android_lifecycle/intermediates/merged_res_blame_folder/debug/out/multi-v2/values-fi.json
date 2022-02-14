@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/nourahaldosari/AndroidStudioProjects/tayseer2/build/flutter_plugin_android_lifecycle/intermediates/res/merged/debug/values-fi/values-fi.xml",
+            "outputFile": "C:\\Users\\rawan\\Desktop\\uni\\level7\\444\\TryIt\\Counter\\Tayseer1\\build\\flutter_plugin_android_lifecycle\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fi\\values-fi.xml",
             "map": [
                 {
-                    "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/f4bea62e654082ad54f433ebc0ccad55/core-1.6.0/res/values-fi/values-fi.xml",
+                    "source": "C:\\Users\\rawan\\.gradle\\caches\\transforms-2\\files-2.1\\7c6ec111d24f4df63cb024cbd0c44696\\core-1.6.0\\res\\values-fi\\values-fi.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -16,10 +16,10 @@
             ]
         },
         {
-            "outputFile": "/Users/nourahaldosari/AndroidStudioProjects/tayseer2/build/flutter_plugin_android_lifecycle/intermediates/incremental/mergeDebugResources/merged.dir/values-fi/values-fi.xml",
+            "outputFile": "C:\\Users\\rawan\\Desktop\\uni\\level7\\444\\TryIt\\Counter\\Tayseer1\\build\\flutter_plugin_android_lifecycle\\intermediates\\res\\merged\\debug\\values-fi\\values-fi.xml",
             "map": [
                 {
-                    "source": "/Users/nourahaldosari/.gradle/caches/transforms-2/files-2.1/f4bea62e654082ad54f433ebc0ccad55/core-1.6.0/res/values-fi/values-fi.xml",
+                    "source": "C:\\Users\\rawan\\.gradle\\caches\\transforms-2\\files-2.1\\7c6ec111d24f4df63cb024cbd0c44696\\core-1.6.0\\res\\values-fi\\values-fi.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

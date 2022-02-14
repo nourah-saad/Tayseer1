@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tayseer2/Tracking/Tracking.dart';
 import 'package:tayseer2/tapPages/chat.dart';
 import 'package:tayseer2/tapPages/home.dart';
 import 'package:tayseer2/tapPages/my_account.dart';
@@ -23,6 +24,7 @@ class _MainScreenState extends State<MainScreen>
 
   @override
   void initState() {
+    requestPermission();
     super.initState();
 
     tabController = TabController(length: 4, vsync: this);
