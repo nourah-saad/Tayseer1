@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
         child: MyDrawer(
           name: 'khawla',
           //driverModelCurrentInfo!.name,
-          email: 'khawlaff5@gmail.com'
+          email: 'khawlaff5@gmail.com',
           //driverModelCurrentInfo!.email,
         ),
       ),

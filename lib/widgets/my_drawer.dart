@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tayseer2/global/global.dart';
 import 'package:tayseer2/splashScreen/splash_screen.dart';
+import 'package:tayseer2/view_accidents/view_accidents_widget.dart';
 
 class MyDrawer extends StatefulWidget {
   String? name;
@@ -68,7 +69,15 @@ class _MyDrawerState extends State<MyDrawer> {
 
           //drawer body
           GestureDetector(
-            onTap: () {},
+            onTap: ()async {
+            await Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ViewAccidentsWidget(),
+                        ),
+                        (r) => false,
+                      );
+        },
             child: const ListTile(
               leading: Icon(
                 Icons.article_outlined,
