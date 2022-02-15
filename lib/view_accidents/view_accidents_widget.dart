@@ -167,11 +167,12 @@ accidents.insert(count++, value3);
                       decoration: BoxDecoration(
                         color: Color(0xFF85BBC2),
                         borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: Colors.black),
                         shape: BoxShape.rectangle,
                       ),
-                      child: Row(
+                      child: Column(
                                
-                              crossAxisAlignment: CrossAxisAlignment.end, 
+                             crossAxisAlignment: CrossAxisAlignment.end, 
                             //  mainAxisSize: MainAxisSize.max,
                               children: [
 
@@ -180,43 +181,122 @@ accidents.insert(count++, value3);
                                    
                                    crossAxisAlignment: CrossAxisAlignment.end, 
                                     children: [
-                                Padding(
+                                      Row(
+  crossAxisAlignment: CrossAxisAlignment.start, 
+                               children: [
+                                 Expanded(child:  Padding(
                                  
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 20, 0, 0),
+                                      0, 20, 10, 0),
                                   child: Text(
-                                    ' الموقع : ${data[i]['location']} ', textAlign: TextAlign.right ,
+                                    '${data[i]['location']}', textAlign: TextAlign.right ,
                                     
                                     style: TextStyle(
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w600,
+                                       fontSize: 18,
                                       
                                     ),
                                   ),
-                                ),
-                                Padding(
+                                  ),
+                                  ), 
+                                    Padding(
+                                 
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 5, 0, 0),
+                                      0, 20, 10, 0),
                                   child: Text(
-                                    ' ${data[i]['time']} : التاريخ', 
-                                    textAlign: TextAlign.right,
+                                    ': الموقع ', textAlign: TextAlign.right ,
+                                    
                                     style: TextStyle(
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w600,
+                                       fontSize: 18,
+                                      
                                     ),
                                   ),
-                                ),
-                                Padding(
+                                  ),
+                                  
+                                  
+                                  
+                                  ],),
+
+                                  
+
+                                          Row(
+  crossAxisAlignment: CrossAxisAlignment.start, 
+                               children: [
+                                 Expanded(child:  Padding(
+                                 
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 5, 0, 0),
+                                      0, 7, 10, 0),
                                   child: Text(
-                                    ' ${data[i]['id']} : الوقت',
+                                    '${data[i]['time']}', textAlign: TextAlign.right ,
+                                    
                                     style: TextStyle(
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w600,
+                                       fontSize: 18,
+                                      
                                     ),
                                   ),
-                                ),
+                                  ),
+                                  ), 
+                                    Padding(
+                                 
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 7, 10, 0),
+                                  child: Text(
+                                    ': التاريخ ', textAlign: TextAlign.right ,
+                                    
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w600,
+                                       fontSize: 18,
+                                      
+                                    ),
+                                  ),
+                                  ),
+          
+                                  ],),
+
+                                      Row(
+  crossAxisAlignment: CrossAxisAlignment.start, 
+                               children: [
+                                 Expanded(child:  Padding(
+                                 
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 7, 10, 0),
+                                  child: Text(
+                                    '${data[i]['id']}', textAlign: TextAlign.right ,
+                                    
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w600,
+                                       fontSize: 18,
+                                      
+                                    ),
+                                  ),
+                                  ),
+                                  ), 
+                                    Padding(
+                                 
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 7, 10, 0),
+                                  child: Text(
+                                    ': الوقت ', textAlign: TextAlign.right ,
+                                    
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w600,
+                                       fontSize: 18,
+                                      
+                                    ),
+                                  ),
+                                  ),
+          
+                                  ],),
+                             
+                          
                                     ],),
 
                               ],
