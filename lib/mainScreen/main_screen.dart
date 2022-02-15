@@ -5,6 +5,9 @@ import 'package:tayseer2/tapPages/home.dart';
 import 'package:tayseer2/tapPages/my_account.dart';
 import 'package:tayseer2/tapPages/notifications.dart';
 
+import '../notification/Involvment.dart';
+import '../notification/initialization.dart';
+
 class MainScreen extends StatefulWidget {
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -25,6 +28,8 @@ class _MainScreenState extends State<MainScreen>
   @override
   void initState() {
     requestPermission();
+    setUpnotification();
+    monitorInvolvment();
     super.initState();
 
     tabController = TabController(length: 4, vsync: this);

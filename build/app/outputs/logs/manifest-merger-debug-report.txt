@@ -1,16 +1,18 @@
 -- Merging decision tree log ---
 application
 INJECTED from C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\android\app\src\main\AndroidManifest.xml:7:4-41:19
-MERGED from [:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-17:19
-MERGED from [:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-17:19
-MERGED from [:firebase_auth] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
-MERGED from [:firebase_auth] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_database] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_database] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
 MERGED from [:cloud_firestore] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
 MERGED from [:cloud_firestore] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-17:19
+MERGED from [:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-17:19
+MERGED from [:firebase_auth] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_auth] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_core] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_core] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
+MERGED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-26:19
+MERGED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-26:19
 MERGED from [:location] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-16:19
 MERGED from [:location] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-16:19
 MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\f1195c55bb29746a0f4a442a99ad0adf\jetified-window-1.0.0-beta04\AndroidManifest.xml:24:5-31:19
@@ -65,6 +67,8 @@ MERGED from [androidx.core:core:1.6.0] C:\Users\rawan\.gradle\caches\transforms-
 MERGED from [androidx.core:core:1.6.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7c6ec111d24f4df63cb024cbd0c44696\core-1.6.0\AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\8dd2f32afaf5b219854a155233201377\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\8dd2f32afaf5b219854a155233201377\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\10e2a29b1cadc5df9b10d19e0a65770f\jetified-threetenabp-1.2.3\AndroidManifest.xml:7:5-20
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\10e2a29b1cadc5df9b10d19e0a65770f\jetified-threetenabp-1.2.3\AndroidManifest.xml:7:5-20
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.6.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7c6ec111d24f4df63cb024cbd0c44696\core-1.6.0\AndroidManifest.xml:24:18-86
 	android:name
@@ -75,14 +79,15 @@ INJECTED from C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\andro
 INJECTED from C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\android\app\src\main\AndroidManifest.xml:1:1-42:12
 INJECTED from C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\android\app\src\main\AndroidManifest.xml:1:1-42:12
 MERGED from C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\android\app\src\main\AndroidManifest.xml:1:1-42:12
-MERGED from [:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-19:12
-MERGED from [:firebase_auth] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:firebase_database] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:cloud_firestore] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
+MERGED from [:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-19:12
+MERGED from [:firebase_auth] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:firebase_core] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
+MERGED from [:geolocator_android] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:google_maps_flutter] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
-MERGED from [:geolocator_android] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-28:12
 MERGED from [:fluttertoast] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\fluttertoast\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:location] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-18:12
 MERGED from [:permission_handler] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\permission_handler\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
@@ -99,6 +104,7 @@ MERGED from [com.google.firebase:firebase-appcheck-interop:16.0.0-beta04] C:\Use
 MERGED from [com.google.firebase:firebase-installations:17.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\3a31ceb8e7450c955b23b804a9ac17d6\jetified-firebase-installations-17.0.0\AndroidManifest.xml:2:1-24:12
 MERGED from [com.google.firebase:firebase-common:20.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7d89ca10f1cdfdc7d7953b0cad752c89\jetified-firebase-common-20.0.0\AndroidManifest.xml:15:1-40:12
 MERGED from [androidx.core:core-ktx:1.3.2] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\d398a773c21687442854d93f9d59e5cf\jetified-core-ktx-1.3.2\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.media:media:1.1.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\c54344d3644d1340f60442a541d3c323\media-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\cf8453be5885859cbca27b86901b5887\jetified-play-services-maps-17.0.0\AndroidManifest.xml:17:1-38:12
 MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\80bb0554130c04716d5987165cfffd82\jetified-play-services-location-17.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-auth-api-phone:17.4.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\da19b37809f8057c9df6993317b32dcb\jetified-play-services-auth-api-phone-17.4.0\AndroidManifest.xml:2:1-7:12
@@ -138,15 +144,16 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\rawan\.g
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\1f9c2cb07695e06e6ed23de90fa0170a\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\9960116b889c771633b45c9e15493f35\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\dbf2e521d41c76676a22e67bc1b880e2\jetified-firebase-components-17.0.0\AndroidManifest.xml:15:1-23:12
-MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\c5c3e54a49cb63a156067cc5396b53cb\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\8dd2f32afaf5b219854a155233201377\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\c5c3e54a49cb63a156067cc5396b53cb\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\51e9f2b05652e43d44a9aee8269e114f\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\a062089b88aaf6da3c34e8dc4754dbc4\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7ade2a4be3e91f7e51e3a34817e2a398\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\c0e1df096afeee9ef7cb4c7981cbc2fc\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7b1ad8e817a3b184c406032bfe7d7d3c\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7613c99168f915f3fccf6b980345204a\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
 MERGED from [io.grpc:grpc-android:1.41.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\01c2d17740624db361f55bb28d43dd56\jetified-grpc-android-1.41.0\AndroidManifest.xml:2:1-13:12
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\10e2a29b1cadc5df9b10d19e0a65770f\jetified-threetenabp-1.2.3\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7613c99168f915f3fccf6b980345204a\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\b946045824c98b3a3db9f9786102cf6a\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:17:1-24:12
 INJECTED from C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\android\app\src\debug\AndroidManifest.xml:1:1-7:12
 INJECTED from C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\android\app\src\debug\AndroidManifest.xml:1:1-7:12
@@ -181,22 +188,24 @@ uses-sdk
 INJECTED from C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\android\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\android\app\src\main\AndroidManifest.xml
-MERGED from [:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:firebase_auth] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:firebase_auth] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_database] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_database] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:cloud_firestore] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:cloud_firestore] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:firebase_auth] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:firebase_auth] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:geolocator_android] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:geolocator_android] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:google_maps_flutter] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:google_maps_flutter] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:geolocator_android] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
-MERGED from [:geolocator_android] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:fluttertoast] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\fluttertoast\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:fluttertoast] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\fluttertoast\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:location] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
@@ -229,6 +238,8 @@ MERGED from [com.google.firebase:firebase-common:20.0.0] C:\Users\rawan\.gradle\
 MERGED from [com.google.firebase:firebase-common:20.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7d89ca10f1cdfdc7d7953b0cad752c89\jetified-firebase-common-20.0.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core-ktx:1.3.2] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\d398a773c21687442854d93f9d59e5cf\jetified-core-ktx-1.3.2\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.core:core-ktx:1.3.2] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\d398a773c21687442854d93f9d59e5cf\jetified-core-ktx-1.3.2\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.media:media:1.1.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\c54344d3644d1340f60442a541d3c323\media-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.1.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\c54344d3644d1340f60442a541d3c323\media-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\cf8453be5885859cbca27b86901b5887\jetified-play-services-maps-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\cf8453be5885859cbca27b86901b5887\jetified-play-services-maps-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\80bb0554130c04716d5987165cfffd82\jetified-play-services-location-17.0.0\AndroidManifest.xml:5:5-44
@@ -307,10 +318,10 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\User
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\9960116b889c771633b45c9e15493f35\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\dbf2e521d41c76676a22e67bc1b880e2\jetified-firebase-components-17.0.0\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-components:17.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\dbf2e521d41c76676a22e67bc1b880e2\jetified-firebase-components-17.0.0\AndroidManifest.xml:19:5-21:41
-MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\c5c3e54a49cb63a156067cc5396b53cb\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\c5c3e54a49cb63a156067cc5396b53cb\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\8dd2f32afaf5b219854a155233201377\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\8dd2f32afaf5b219854a155233201377\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\c5c3e54a49cb63a156067cc5396b53cb\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\c5c3e54a49cb63a156067cc5396b53cb\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\51e9f2b05652e43d44a9aee8269e114f\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\51e9f2b05652e43d44a9aee8269e114f\interpolator-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\a062089b88aaf6da3c34e8dc4754dbc4\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
@@ -321,10 +332,12 @@ MERGED from [androidx.print:print:1.0.0] C:\Users\rawan\.gradle\caches\transform
 MERGED from [androidx.print:print:1.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\c0e1df096afeee9ef7cb4c7981cbc2fc\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7b1ad8e817a3b184c406032bfe7d7d3c\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7b1ad8e817a3b184c406032bfe7d7d3c\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7613c99168f915f3fccf6b980345204a\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:7:5-9:41
-MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7613c99168f915f3fccf6b980345204a\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:7:5-9:41
 MERGED from [io.grpc:grpc-android:1.41.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\01c2d17740624db361f55bb28d43dd56\jetified-grpc-android-1.41.0\AndroidManifest.xml:7:5-9:41
 MERGED from [io.grpc:grpc-android:1.41.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\01c2d17740624db361f55bb28d43dd56\jetified-grpc-android-1.41.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\10e2a29b1cadc5df9b10d19e0a65770f\jetified-threetenabp-1.2.3\AndroidManifest.xml:5:5-44
+MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\10e2a29b1cadc5df9b10d19e0a65770f\jetified-threetenabp-1.2.3\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7613c99168f915f3fccf6b980345204a\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7613c99168f915f3fccf6b980345204a\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\b946045824c98b3a3db9f9786102cf6a\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\b946045824c98b3a3db9f9786102cf6a\jetified-annotation-experimental-1.1.0\AndroidManifest.xml:20:5-22:41
 INJECTED from C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\android\app\src\debug\AndroidManifest.xml
@@ -359,6 +372,48 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.0.2] C:
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.0.2] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\f3a2fd1a504ae70efa28c7a8dfa944b3\jetified-play-services-measurement-sdk-api-20.0.2\AndroidManifest.xml:23:5-67
 	android:name
 		ADDED from C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\android\app\src\debug\AndroidManifest.xml:6:22-64
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [:firebase_database] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
+MERGED from [:cloud_firestore] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
+MERGED from [:cloud_firestore] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-16:19
+MERGED from [:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-16:19
+MERGED from [:firebase_auth] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_auth] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_core] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_core] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
+MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\28f00132fff1c369e2338edba642437c\jetified-firebase-auth-21.0.1\AndroidManifest.xml:74:9-80:19
+MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\28f00132fff1c369e2338edba642437c\jetified-firebase-auth-21.0.1\AndroidManifest.xml:74:9-80:19
+MERGED from [com.google.firebase:firebase-firestore:24.0.1] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\e56272b5838516d157700df180cfc0af\jetified-firebase-firestore-24.0.1\AndroidManifest.xml:17:9-23:19
+MERGED from [com.google.firebase:firebase-firestore:24.0.1] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\e56272b5838516d157700df180cfc0af\jetified-firebase-firestore-24.0.1\AndroidManifest.xml:17:9-23:19
+MERGED from [com.google.firebase:firebase-database:20.0.3] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\6b1c3236b9028791a2da5739119dc391\jetified-firebase-database-20.0.3\AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.firebase:firebase-database:20.0.3] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\6b1c3236b9028791a2da5739119dc391\jetified-firebase-database-20.0.3\AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.android.gms:play-services-measurement-api:20.0.2] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7b8e06d0f50addf56106688eb7e34194\jetified-play-services-measurement-api-20.0.2\AndroidManifest.xml:27:9-33:19
+MERGED from [com.google.android.gms:play-services-measurement-api:20.0.2] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7b8e06d0f50addf56106688eb7e34194\jetified-play-services-measurement-api-20.0.2\AndroidManifest.xml:27:9-33:19
+MERGED from [com.google.firebase:firebase-installations:17.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\3a31ceb8e7450c955b23b804a9ac17d6\jetified-firebase-installations-17.0.0\AndroidManifest.xml:15:9-21:19
+MERGED from [com.google.firebase:firebase-installations:17.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\3a31ceb8e7450c955b23b804a9ac17d6\jetified-firebase-installations-17.0.0\AndroidManifest.xml:15:9-21:19
+MERGED from [com.google.firebase:firebase-common:20.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7d89ca10f1cdfdc7d7953b0cad752c89\jetified-firebase-common-20.0.0\AndroidManifest.xml:33:9-37:35
+MERGED from [com.google.firebase:firebase-common:20.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7d89ca10f1cdfdc7d7953b0cad752c89\jetified-firebase-common-20.0.0\AndroidManifest.xml:33:9-37:35
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\28f00132fff1c369e2338edba642437c\jetified-firebase-auth-21.0.1\AndroidManifest.xml:76:13-37
+	tools:targetApi
+		ADDED from [com.google.firebase:firebase-common:20.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7d89ca10f1cdfdc7d7953b0cad752c89\jetified-firebase-common-20.0.0\AndroidManifest.xml:37:13-32
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:20.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7d89ca10f1cdfdc7d7953b0cad752c89\jetified-firebase-common-20.0.0\AndroidManifest.xml:35:13-43
+	android:name
+		ADDED from [:firebase_database] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:8:18-89
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.database.FlutterFirebaseAppRegistrar
+ADDED from [:firebase_database] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
+	android:value
+		ADDED from [:firebase_database] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
+	android:name
+		ADDED from [:firebase_database] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-127
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar
+ADDED from [:cloud_firestore] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
+	android:value
+		ADDED from [:cloud_firestore] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
+	android:name
+		ADDED from [:cloud_firestore] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-134
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-79
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\28f00132fff1c369e2338edba642437c\jetified-firebase-auth-21.0.1\AndroidManifest.xml:24:5-79
@@ -395,36 +450,6 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.0.2] C:
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.0.2] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\f3a2fd1a504ae70efa28c7a8dfa944b3\jetified-play-services-measurement-sdk-api-20.0.2\AndroidManifest.xml:25:5-68
 	android:name
 		ADDED from [:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:9:22-65
-service#com.google.firebase.components.ComponentDiscoveryService
-ADDED from [:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-16:19
-MERGED from [:firebase_auth] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
-MERGED from [:firebase_auth] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
-MERGED from [:firebase_database] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
-MERGED from [:firebase_database] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
-MERGED from [:cloud_firestore] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
-MERGED from [:cloud_firestore] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
-MERGED from [:firebase_core] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
-MERGED from [:firebase_core] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
-MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\28f00132fff1c369e2338edba642437c\jetified-firebase-auth-21.0.1\AndroidManifest.xml:74:9-80:19
-MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\28f00132fff1c369e2338edba642437c\jetified-firebase-auth-21.0.1\AndroidManifest.xml:74:9-80:19
-MERGED from [com.google.firebase:firebase-firestore:24.0.1] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\e56272b5838516d157700df180cfc0af\jetified-firebase-firestore-24.0.1\AndroidManifest.xml:17:9-23:19
-MERGED from [com.google.firebase:firebase-firestore:24.0.1] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\e56272b5838516d157700df180cfc0af\jetified-firebase-firestore-24.0.1\AndroidManifest.xml:17:9-23:19
-MERGED from [com.google.firebase:firebase-database:20.0.3] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\6b1c3236b9028791a2da5739119dc391\jetified-firebase-database-20.0.3\AndroidManifest.xml:29:9-35:19
-MERGED from [com.google.firebase:firebase-database:20.0.3] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\6b1c3236b9028791a2da5739119dc391\jetified-firebase-database-20.0.3\AndroidManifest.xml:29:9-35:19
-MERGED from [com.google.android.gms:play-services-measurement-api:20.0.2] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7b8e06d0f50addf56106688eb7e34194\jetified-play-services-measurement-api-20.0.2\AndroidManifest.xml:27:9-33:19
-MERGED from [com.google.android.gms:play-services-measurement-api:20.0.2] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7b8e06d0f50addf56106688eb7e34194\jetified-play-services-measurement-api-20.0.2\AndroidManifest.xml:27:9-33:19
-MERGED from [com.google.firebase:firebase-installations:17.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\3a31ceb8e7450c955b23b804a9ac17d6\jetified-firebase-installations-17.0.0\AndroidManifest.xml:15:9-21:19
-MERGED from [com.google.firebase:firebase-installations:17.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\3a31ceb8e7450c955b23b804a9ac17d6\jetified-firebase-installations-17.0.0\AndroidManifest.xml:15:9-21:19
-MERGED from [com.google.firebase:firebase-common:20.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7d89ca10f1cdfdc7d7953b0cad752c89\jetified-firebase-common-20.0.0\AndroidManifest.xml:33:9-37:35
-MERGED from [com.google.firebase:firebase-common:20.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7d89ca10f1cdfdc7d7953b0cad752c89\jetified-firebase-common-20.0.0\AndroidManifest.xml:33:9-37:35
-	android:exported
-		ADDED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\28f00132fff1c369e2338edba642437c\jetified-firebase-auth-21.0.1\AndroidManifest.xml:76:13-37
-	tools:targetApi
-		ADDED from [com.google.firebase:firebase-common:20.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7d89ca10f1cdfdc7d7953b0cad752c89\jetified-firebase-common-20.0.0\AndroidManifest.xml:37:13-32
-	android:directBootAware
-		ADDED from [com.google.firebase:firebase-common:20.0.0] C:\Users\rawan\.gradle\caches\transforms-2\files-2.1\7d89ca10f1cdfdc7d7953b0cad752c89\jetified-firebase-common-20.0.0\AndroidManifest.xml:35:13-43
-	android:name
-		ADDED from [:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:12:18-89
 meta-data#com.google.firebase.components:io.flutter.plugins.firebase.analytics.FlutterFirebaseAppRegistrar
 ADDED from [:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-15:85
 	android:value
@@ -437,24 +462,58 @@ ADDED from [:firebase_auth] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\
 		ADDED from [:firebase_auth] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
 	android:name
 		ADDED from [:firebase_auth] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-124
-meta-data#com.google.firebase.components:io.flutter.plugins.firebase.database.FlutterFirebaseAppRegistrar
-ADDED from [:firebase_database] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
-	android:value
-		ADDED from [:firebase_database] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
-	android:name
-		ADDED from [:firebase_database] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_database\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-127
-meta-data#com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar
-ADDED from [:cloud_firestore] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
-	android:value
-		ADDED from [:cloud_firestore] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
-	android:name
-		ADDED from [:cloud_firestore] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-134
 meta-data#com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar
 ADDED from [:firebase_core] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
 	android:value
 		ADDED from [:firebase_core] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
 	android:name
 		ADDED from [:firebase_core] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-124
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-81
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-78
+uses-permission#android.permission.VIBRATE
+ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-66
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-63
+uses-permission#android.permission.USE_FULL_SCREEN_INTENT
+ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:9:22-78
+uses-permission#android.permission.SCHEDULE_EXACT_ALARM
+ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-79
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:10:22-76
+receiver#com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver
+ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:13:9-15:40
+	android:exported
+		ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-37
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-97
+receiver#com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver
+ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-25:20
+	android:exported
+		ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-37
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-101
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.MY_PACKAGE_REPLACED+action:name:android.intent.action.QUICKBOOT_POWERON+action:name:com.htc.intent.action.QUICKBOOT_POWERON
+ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-24:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:20:17-79
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:20:25-76
+action#android.intent.action.MY_PACKAGE_REPLACED
+ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:21:17-84
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:21:25-81
+action#android.intent.action.QUICKBOOT_POWERON
+ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:22:17-82
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:22:25-79
+action#com.htc.intent.action.QUICKBOOT_POWERON
+ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:23:17-82
+	android:name
+		ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:23:25-79
 service#com.lyokone.location.FlutterLocationService
 ADDED from [:location] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:11:9-15:56
 	android:enabled
