@@ -25,6 +25,8 @@ com/baseflow/geolocator/location/LocationClient.java
  com.baseflow.geolocator.location.LocationClient
 com/baseflow/geolocator/location/GeolocationManager.java
  com.baseflow.geolocator.location.GeolocationManager
+com/baseflow/geolocator/location/BackgroundNotification.java
+ com.baseflow.geolocator.location.BackgroundNotification
 com/baseflow/geolocator/permission/PermissionUtils.java
  com.baseflow.geolocator.permission.PermissionUtils
 com/baseflow/geolocator/LocationServiceHandlerImpl.java
@@ -37,10 +39,18 @@ com/baseflow/geolocator/utils/Utils.java
  com.baseflow.geolocator.utils.Utils
 com/baseflow/geolocator/GeolocatorPlugin.java
  com.baseflow.geolocator.GeolocatorPlugin
+ com.baseflow.geolocator.GeolocatorPlugin$1
 com/baseflow/geolocator/permission/PermissionResultCallback.java
  com.baseflow.geolocator.permission.PermissionResultCallback
+com/baseflow/geolocator/GeolocatorLocationService.java
+ com.baseflow.geolocator.GeolocatorLocationService
+ com.baseflow.geolocator.GeolocatorLocationService$LocalBinder
 com/baseflow/geolocator/location/LocationServiceListener.java
  com.baseflow.geolocator.location.LocationServiceListener
+com/baseflow/geolocator/location/NotificationImportance.java
+ com.baseflow.geolocator.location.NotificationImportance
+com/baseflow/geolocator/location/ForegroundNotificationOptions.java
+ com.baseflow.geolocator.location.ForegroundNotificationOptions
 com/baseflow/geolocator/location/LocationServiceStatusReceiver.java
  com.baseflow.geolocator.location.LocationServiceStatusReceiver
 com/baseflow/geolocator/errors/ErrorCallback.java
@@ -55,5 +65,7 @@ com/baseflow/geolocator/location/LocationManagerClient.java
  com.baseflow.geolocator.location.LocationManagerClient$1
 com/baseflow/geolocator/StreamHandlerImpl.java
  com.baseflow.geolocator.StreamHandlerImpl
+com/baseflow/geolocator/location/AndroidIconResource.java
+ com.baseflow.geolocator.location.AndroidIconResource
 com/baseflow/geolocator/location/FlutterLocationServiceListener.java
  com.baseflow.geolocator.location.FlutterLocationServiceListener
