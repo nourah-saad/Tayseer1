@@ -17,14 +17,14 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController emailTextEditingController = TextEditingController();
+  TextEditingController didTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
    late bool passwordVisibility;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   validateForm() {
-    if (emailTextEditingController.text.isEmpty) {
+    if (didTextEditingController.text.isEmpty) {
       Fluttertoast.showToast(msg: "ID is required");
     } else if (passwordTextEditingController.text.isEmpty) {
       Fluttertoast.showToast(msg: "Password is required.");
@@ -47,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
      DatabaseReference ref =
         FirebaseDatabase.instance.ref("drivers");
-        Query query = ref..child("did").orderByChild("did").equalTo(emailTextEditingController.text.trim());
+        Query query = ref..child("did").orderByChild("did").equalTo(didTextEditingController.text.trim());
         DataSnapshot event = await query.get();
         print(event.exists);
      
@@ -67,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
           
     final User? firebaseUser = (await fAuth
             .signInWithEmailAndPassword(
-      email: emailTextEditingController.text.trim(),
+      email: '${didTextEditingController.text.trim()}@gmail.com',
       password: passwordTextEditingController.text.trim(),
     )
             .catchError((msg) {
@@ -135,12 +135,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               TextField(
-                controller: emailTextEditingController,
+                controller: didTextEditingController,
                 keyboardType: TextInputType.emailAddress,
                 style: const TextStyle(color: Colors.black),
                 decoration: const InputDecoration(
                   labelText: "رقم الهوية/الإقامة",
-                  
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.black),
                   ),

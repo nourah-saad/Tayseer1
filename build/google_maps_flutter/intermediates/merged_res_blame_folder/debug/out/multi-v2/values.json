@@ -1,29 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/afnan/Documents/GitHub/Tayseer1/build/google_maps_flutter/intermediates/res/merged/debug/values/values.xml",
+            "outputFile": "/Users/raghad/Documents/GitHub/Tayseer1/build/google_maps_flutter/intermediates/res/merged/debug/values/values.xml",
             "map": [
                 {
-                    "source": "/Users/afnan/.gradle/caches/transforms-2/files-2.1/5e9cfb2ce4dd09a25b3d7b49f9b49cb5/jetified-play-services-maps-17.0.0/res/values/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "165",
-                        "endLines": "62",
-                        "endColumns": "20",
-                        "endOffsets": "1582"
-                    },
-                    "to": {
-                        "startLines": "296",
-                        "startColumns": "4",
-                        "startOffsets": "18648",
-                        "endLines": "354",
-                        "endColumns": "20",
-                        "endOffsets": "20065"
-                    }
-                },
-                {
-                    "source": "/Users/afnan/.gradle/caches/transforms-2/files-2.1/e3c0216fa8fed62f9ff7007f459d905c/jetified-play-services-basement-17.0.0/res/values/values.xml",
+                    "source": "/Users/raghad/.gradle/caches/transforms-2/files-2.1/e3c0216fa8fed62f9ff7007f459d905c/jetified-play-services-basement-17.0.0/res/values/values.xml",
                     "from": {
                         "startLines": "4,7",
                         "startColumns": "0,0",
@@ -40,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/Users/afnan/.gradle/caches/transforms-2/files-2.1/233f4a80b78c27f9dcbf8eb1f89a9e30/jetified-play-services-base-17.0.0/res/values/values.xml",
+                    "source": "/Users/raghad/.gradle/caches/transforms-2/files-2.1/233f4a80b78c27f9dcbf8eb1f89a9e30/jetified-play-services-base-17.0.0/res/values/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,33,46",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -59,7 +40,7 @@
                     }
                 },
                 {
-                    "source": "/Users/afnan/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/values/values.xml",
+                    "source": "/Users/raghad/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/values/values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,89,90,94,95,96,97,104,111,159,191,228",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -78,7 +59,26 @@
                     }
                 },
                 {
-                    "source": "/Users/afnan/.gradle/caches/transforms-2/files-2.1/c15149140bcc27b70424f541b52a2f41/jetified-window-1.0.0-beta04/res/values/values.xml",
+                    "source": "/Users/raghad/.gradle/caches/transforms-2/files-2.1/5e9cfb2ce4dd09a25b3d7b49f9b49cb5/jetified-play-services-maps-17.0.0/res/values/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "165",
+                        "endLines": "62",
+                        "endColumns": "20",
+                        "endOffsets": "1582"
+                    },
+                    "to": {
+                        "startLines": "296",
+                        "startColumns": "4",
+                        "startOffsets": "18648",
+                        "endLines": "354",
+                        "endColumns": "20",
+                        "endOffsets": "20065"
+                    }
+                },
+                {
+                    "source": "/Users/raghad/.gradle/caches/transforms-2/files-2.1/c15149140bcc27b70424f541b52a2f41/jetified-window-1.0.0-beta04/res/values/values.xml",
                     "from": {
                         "startLines": "2,7,8,9,10,11,19,23,34,51",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -99,29 +99,10 @@
             ]
         },
         {
-            "outputFile": "/Users/afnan/Documents/GitHub/Tayseer1/build/google_maps_flutter/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/Users/raghad/Documents/GitHub/Tayseer1/build/google_maps_flutter/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
                 {
-                    "source": "/Users/afnan/.gradle/caches/transforms-2/files-2.1/5e9cfb2ce4dd09a25b3d7b49f9b49cb5/jetified-play-services-maps-17.0.0/res/values/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "165",
-                        "endLines": "62",
-                        "endColumns": "20",
-                        "endOffsets": "1582"
-                    },
-                    "to": {
-                        "startLines": "296",
-                        "startColumns": "4",
-                        "startOffsets": "18648",
-                        "endLines": "354",
-                        "endColumns": "20",
-                        "endOffsets": "20065"
-                    }
-                },
-                {
-                    "source": "/Users/afnan/.gradle/caches/transforms-2/files-2.1/e3c0216fa8fed62f9ff7007f459d905c/jetified-play-services-basement-17.0.0/res/values/values.xml",
+                    "source": "/Users/raghad/.gradle/caches/transforms-2/files-2.1/e3c0216fa8fed62f9ff7007f459d905c/jetified-play-services-basement-17.0.0/res/values/values.xml",
                     "from": {
                         "startLines": "4,7",
                         "startColumns": "0,0",
@@ -138,7 +119,7 @@
                     }
                 },
                 {
-                    "source": "/Users/afnan/.gradle/caches/transforms-2/files-2.1/233f4a80b78c27f9dcbf8eb1f89a9e30/jetified-play-services-base-17.0.0/res/values/values.xml",
+                    "source": "/Users/raghad/.gradle/caches/transforms-2/files-2.1/233f4a80b78c27f9dcbf8eb1f89a9e30/jetified-play-services-base-17.0.0/res/values/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,33,46",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -157,7 +138,7 @@
                     }
                 },
                 {
-                    "source": "/Users/afnan/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/values/values.xml",
+                    "source": "/Users/raghad/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/values/values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,89,90,94,95,96,97,104,111,159,191,228",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -176,7 +157,26 @@
                     }
                 },
                 {
-                    "source": "/Users/afnan/.gradle/caches/transforms-2/files-2.1/c15149140bcc27b70424f541b52a2f41/jetified-window-1.0.0-beta04/res/values/values.xml",
+                    "source": "/Users/raghad/.gradle/caches/transforms-2/files-2.1/5e9cfb2ce4dd09a25b3d7b49f9b49cb5/jetified-play-services-maps-17.0.0/res/values/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "165",
+                        "endLines": "62",
+                        "endColumns": "20",
+                        "endOffsets": "1582"
+                    },
+                    "to": {
+                        "startLines": "296",
+                        "startColumns": "4",
+                        "startOffsets": "18648",
+                        "endLines": "354",
+                        "endColumns": "20",
+                        "endOffsets": "20065"
+                    }
+                },
+                {
+                    "source": "/Users/raghad/.gradle/caches/transforms-2/files-2.1/c15149140bcc27b70424f541b52a2f41/jetified-window-1.0.0-beta04/res/values/values.xml",
                     "from": {
                         "startLines": "2,7,8,9,10,11,19,23,34,51",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",

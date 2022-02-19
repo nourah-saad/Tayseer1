@@ -49,7 +49,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
     final User? firebaseUser = (await fAuth
             .createUserWithEmailAndPassword(
-      email: emailTextEditingController.text.trim(),
+      email: '${didTextEditingController.text.trim()}@gmail.com',
       password: passwordTextEditingController.text.trim(),
     )
             .catchError((msg) {
@@ -304,4 +304,5 @@ class _SignUpScreenState extends State<SignUpScreen> {
       ),
     );
   }
+  
 }
