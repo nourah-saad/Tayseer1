@@ -20,15 +20,15 @@
 16    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 16-->C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\android\app\src\main\AndroidManifest.xml:5:5-81
 16-->C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\android\app\src\main\AndroidManifest.xml:5:22-78
-17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-17-->[:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-79
-17-->[:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-76
-18    <uses-permission android:name="android.permission.WAKE_LOCK" />
-18-->[:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-68
-18-->[:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:9:22-65
-19    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-19-->[:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-81
-19-->[:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-78
+17    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+17-->C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\android\app\src\main\AndroidManifest.xml:6:5-80
+17-->C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\android\app\src\main\AndroidManifest.xml:6:22-78
+18    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+18-->[:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-79
+18-->[:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-76
+19    <uses-permission android:name="android.permission.WAKE_LOCK" />
+19-->[:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-68
+19-->[:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_analytics\intermediates\library_manifest\debug\AndroidManifest.xml:9:22-65
 20    <uses-permission android:name="android.permission.VIBRATE" />
 20-->[:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-66
 20-->[:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-63
