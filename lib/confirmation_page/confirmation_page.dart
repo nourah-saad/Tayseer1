@@ -18,8 +18,12 @@ class ConfirmationPageWidget extends StatefulWidget {
 class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
   @override
   void initState() {
-    getDetails(widget.accidentID);
+    getData();
     super.initState();
+  }
+
+  void getData() async {
+    await getDetails(widget.accidentID);
   }
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -250,19 +254,18 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
   getDetails(String ID) {
     FirebaseFirestore.instance
         .collection('Accident')
-        .where('AccID', isEqualTo: 'AA')
+        .where('AccID', isEqualTo: ID)
         .snapshots()
         .listen((docs) {
       docs.docs.forEach((doc) {
         setState(() async {
-          driverName = doc.data()!['DriverName'];
-          driverPlate = doc.data()!['driverPlate'];
-          driverCar = doc.data()!['driverCarType'];
-          driverCarColor = doc.data()!['driverCarColor'];
-          GeoPoint loc = (doc.data()!['location'] as GeoPoint);
+          driverName = doc.data()['DriverName'];
+          driverPlate = doc.data()['driverPlate'];
+          driverCar = doc.data()['driverCarType'];
+          driverCarColor = doc.data()['driverCarColor'];
+          GeoPoint loc = (doc.data()['location'] as GeoPoint);
           List<Placemark> placemarks =
               await placemarkFromCoordinates(loc.latitude, loc.longitude);
-          print('vvmgkg ${placemarks[0].street}');
           accidentLocation = '${placemarks[0].street!}';
         });
       });

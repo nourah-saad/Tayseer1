@@ -2,10 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tayseer2/infoHandler/app_info.dart';
+import 'package:tayseer2/navigationService.dart';
 import 'package:tayseer2/splashScreen/splash_screen.dart';
-
-import 'authintication/signup_screen.dart';
-import 'mapScreen/map_screen.dart';
 
 //Nourah saad
 void main() async {
@@ -17,6 +15,7 @@ void main() async {
       child: ChangeNotifierProvider(
         create: (context) => AppInfo(),
         child: MaterialApp(
+          navigatorKey: navigationService.navigatorKey,
           title: 'Drivers App',
           theme: ThemeData(
             primarySwatch: Colors.blue,
