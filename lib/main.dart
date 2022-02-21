@@ -5,6 +5,7 @@ import 'package:tayseer2/infoHandler/app_info.dart';
 import 'package:tayseer2/splashScreen/splash_screen.dart';
 
 import 'authintication/signup_screen.dart';
+
 import 'mapScreen/map_screen.dart';
 
 //Nourah saad
