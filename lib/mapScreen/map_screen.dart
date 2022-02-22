@@ -1,10 +1,12 @@
 import 'dart:async';
 
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:tayseer2/assistants/assistant_methods.dart';
+import 'package:tayseer2/global/global.dart';
 import 'package:tayseer2/infoHandler/app_info.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_geofire/flutter_geofire.dart';
@@ -25,11 +27,16 @@ class _MapScreenState extends State<MapScreen> {
 
   double searchLocationContainerHeight = 220;
 
-  Position? userCurrentPosition;
+  Position? driverCurrentPosition;
   var geoLocator = Geolocator();
 
   LocationPermission? _locationPermission;
   double bottomPaddingOfMap = 0;
+
+//Online Offline
+  String statusText = "Now Offline";
+  Color buttonColor = Colors.grey;
+  bool isDriverActive = false;
 
   checkIfLocationPermissionAllowed() async {
     _locationPermission = await Geolocator.requestPermission();
@@ -42,10 +49,10 @@ class _MapScreenState extends State<MapScreen> {
   locateUserPosition() async {
     Position cPosition = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
-    userCurrentPosition = cPosition;
+    driverCurrentPosition = cPosition;
 
-    LatLng latLngPosition =
-        LatLng(userCurrentPosition!.latitude, userCurrentPosition!.longitude);
+    LatLng latLngPosition = LatLng(
+        driverCurrentPosition!.latitude, driverCurrentPosition!.longitude);
 
     CameraPosition cameraPosition =
         CameraPosition(target: latLngPosition, zoom: 14); //zoom
@@ -55,11 +62,30 @@ class _MapScreenState extends State<MapScreen> {
 
     String humanReadableAddress =
         await AssistantMethods.searchAddressForGeographicCoOrdinates(
-            userCurrentPosition!, context);
+            driverCurrentPosition!, context);
     print("this is your address = " + humanReadableAddress);
   }
 
-  
+  driverIsOnlineNow() async {
+    Position pos = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high,
+    );
+    driverCurrentPosition = pos;
+
+    Geofire.initialize("activeDrivers");
+
+    Geofire.setLocation(currentFirebaseUser!.uid,
+        driverCurrentPosition!.latitude, driverCurrentPosition!.longitude);
+
+    DatabaseReference ref = FirebaseDatabase.instance
+        .ref()
+        .child("drivers")
+        .child(currentFirebaseUser!.uid)
+        .child("newRideStatus");
+
+    ref.set("idle"); //searching for ride request
+    ref.onValue.listen((event) {});
+  }
 
   @override
   void initState() {
@@ -91,6 +117,15 @@ class _MapScreenState extends State<MapScreen> {
               locateUserPosition();
             },
           ),
+
+          //ui for online offline driver
+          statusText != "Now Online"
+              ? Container(
+                  height: MediaQuery.of(context).size.height,
+                  width: double.infinity,
+                  color: Colors.black87,
+                )
+              : Container(),
 
           //ui for searching location
           Positioned(
