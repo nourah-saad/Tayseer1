@@ -13,21 +13,7 @@ setUpnotification() async {
   var initilizationsSettings =
       InitializationSettings(android: androidInitilize, iOS: iOSinitilize);
   flutterLocalNotificationsPlugin.initialize(initilizationsSettings,
-      onSelectNotification:
-          clicked /*(payload) async {
-      if (payload != null) {
-        print('clicked payl $payload');
-        await navigator!.push<void>(
-          MaterialPageRoute<void>(
-            builder: (BuildContext context) =>
-                ConfirmationPageWidget(accidentID: payload),
-          ),
-        );
-      } else {
-        print('not clicked');
-      }
-    },*/
-      );
+      onSelectNotification: clicked);
 }
 
 Future<void> clicked(String? payload) async {
@@ -49,10 +35,13 @@ Future showNotification(
     required payload}) async {
   String title = 'تأكيد الحادث';
   String body = status == 'ques'
-      ? 'يرجى النقر لتأكيد انضمامك في حادث مروري أو الرفض '
-      : 'Involvment has been $status';
-  var AndroidDetails =
-      AndroidNotificationDetails("", "", importance: Importance.high);
+      ? 'يدعوك $driverName لتأكيد وقوع حادث، يرجى النقر للتأكيد أو الرفض'
+      : 'تم $status من قبل $involvedName';
+  var AndroidDetails = AndroidNotificationDetails(
+    "",
+    "",
+    importance: Importance.high,
+  );
   var iOSDetails = IOSNotificationDetails();
   var notificationDetails =
       NotificationDetails(android: AndroidDetails, iOS: iOSDetails);

@@ -1,15 +1,21 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:get/get.dart';
 //import 'package:geocoding/geocoding.dart';
 import '../FlutterFlow/FlutterFlowTheme.dart';
 import '../FlutterFlow/FlutterFlowWidgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ConfirmationPageWidget extends StatefulWidget {
-  const ConfirmationPageWidget({Key? key, required this.accidentID})
+  ConfirmationPageWidget({Key? key, required this.accidentID})
       : super(key: key);
   final String accidentID;
+
+  String driverName = "";
+  String driverPlate = '';
+  String driverCar = '';
+  String driverCarColor = '';
+  String accidentLocation = '';
 
   @override
   _ConfirmationPageWidgetState createState() => _ConfirmationPageWidgetState();
@@ -18,20 +24,11 @@ class ConfirmationPageWidget extends StatefulWidget {
 class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
   @override
   void initState() {
-    getData();
+    getDetails();
     super.initState();
   }
 
-  void getData() async {
-    await getDetails(widget.accidentID);
-  }
-
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  String driverName = "";
-  String driverPlate = '';
-  String driverCar = '';
-  String driverCarColor = '';
-  String accidentLocation = '';
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +61,7 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
-                          ' اسم المبلغ: $driverName',
+                          ' اسم المبلغ: ${widget.driverName}',
                           style: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Poppins',
                             fontSize: 18,
@@ -81,7 +78,7 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
-                          'رقم اللوحة: $driverPlate',
+                          'رقم اللوحة: ${widget.driverPlate}',
                           style: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Poppins',
                             fontSize: 18,
@@ -98,7 +95,7 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
-                          'نوع السيارة: $driverCar',
+                          'نوع السيارة: ${widget.driverCar}',
                           style: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Poppins',
                             fontSize: 18,
@@ -115,7 +112,7 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
-                          'لون السيارة: $driverCarColor',
+                          'لون السيارة: ${widget.driverCarColor}',
                           style: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Poppins',
                             fontSize: 18,
@@ -133,7 +130,7 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
                         width: MediaQuery.of(context).size.width,
                         padding: EdgeInsets.fromLTRB(10, 10, 20, 0),
                         child: Text(
-                          'موقع الحادث: $accidentLocation',
+                          'موقع الحادث: ${widget.accidentLocation}',
                           style: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Poppins',
                             fontSize: 18,
@@ -158,6 +155,13 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
                               child: FFButtonWidget(
                                 onPressed: () {
                                   print('Button pressed ...');
+                                  Navigator.pop(context);
+                                  update('jRejected');
+                                  SnackBar snackbar = SnackBar(
+                                      content: Text('تم الرفض بنجاح',
+                                          textAlign: TextAlign.center));
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackbar);
                                 },
                                 text: 'رفض',
                                 options: FFButtonOptions(
@@ -187,6 +191,14 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
                               child: FFButtonWidget(
                                 onPressed: () {
                                   print('Button pressed ...');
+                                  Navigator.pop(context);
+                                  update('jAccepted');
+                                  //Get.snackbar('', 'تم التأكيد بنجاح');
+                                  SnackBar snackbar = SnackBar(
+                                      content: Text('تم التأكيد بنجاح',
+                                          textAlign: TextAlign.center));
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackbar);
                                 },
                                 text: 'تأكيد',
                                 options: FFButtonOptions(
@@ -251,24 +263,38 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
     );
   }
 
-  getDetails(String ID) {
+  update(String status) {
     FirebaseFirestore.instance
         .collection('Accident')
-        .where('AccID', isEqualTo: ID)
-        .snapshots()
-        .listen((docs) {
-      docs.docs.forEach((doc) {
-        setState(() async {
-          driverName = doc.data()['DriverName'];
-          driverPlate = doc.data()['driverPlate'];
-          driverCar = doc.data()['driverCarType'];
-          driverCarColor = doc.data()['driverCarColor'];
-          GeoPoint loc = (doc.data()['location'] as GeoPoint);
-          List<Placemark> placemarks =
-              await placemarkFromCoordinates(loc.latitude, loc.longitude);
-          accidentLocation = '${placemarks[0].street!}';
-        });
+        .doc('${widget.accidentID}')
+        .get()
+        .then((value) => value.reference.update({'status': status}));
+  }
+
+  getDetails() {
+    FirebaseFirestore.instance
+        .collection('Accident')
+        .doc('${widget.accidentID}')
+        .get()
+        .then((doc) {
+      setState(() {
+        widget.driverName = doc.data()!['DriverName'];
+        widget.driverPlate = doc.data()!['driverPlate'];
+        widget.driverCar = doc.data()!['driverCarType'];
+        widget.driverCarColor = doc.data()!['driverCarColor'];
+        GeoPoint loc = (doc.data()!['location'] as GeoPoint);
+        getLocationName(loc);
+        /**/
       });
+    });
+  }
+
+  void getLocationName(GeoPoint loc) async {
+    List<Placemark> placemarks =
+        await placemarkFromCoordinates(loc.latitude, loc.longitude);
+
+    setState(() {
+      widget.accidentLocation = '${placemarks[0].street!}';
     });
   }
 }

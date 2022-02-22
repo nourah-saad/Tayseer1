@@ -83,9 +83,8 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
       child: RaisedButton(
         onPressed: onPressed,
         shape: RoundedRectangleBorder(
-          borderRadius:
-              BorderRadius.circular(widget.options.borderRadius ?? 28),
-          side: widget.options.borderSide ?? BorderSide.none,
+          borderRadius: BorderRadius.circular(widget.options.borderRadius),
+          side: widget.options.borderSide,
         ),
         textColor: widget.options.textStyle.color,
         color: widget.options.color,

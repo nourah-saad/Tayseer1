@@ -4,6 +4,8 @@ import 'package:tayseer2/global/global.dart';
 import 'package:tayseer2/mapScreen/map_screen.dart';
 import 'package:tayseer2/widgets/my_drawer.dart';
 
+import '../confirmation_page/confirmation_page.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -28,9 +30,9 @@ class _HomePageState extends State<HomePage> {
           canvasColor: const Color(0xFF85BBC2),
         ),
         child: MyDrawer(
-          name: driverModelCurrentInfo!.name,
-          email: driverModelCurrentInfo!.email,
-        ),
+            //  name: driverModelCurrentInfo!.name,
+            //   email: driverModelCurrentInfo!.email,
+            ),
       ),
       backgroundColor: const Color(0xFF85BBC2),
       body: Stack(
@@ -58,7 +60,12 @@ class _HomePageState extends State<HomePage> {
             child: ElevatedButton(
               onPressed: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (c) => MapScreen()));
+                    context,
+                    MaterialPageRoute(
+                        builder: (c) =>
+                            MapScreen() /*ConfirmationPageWidget(
+                            accidentID: 'AA')*/
+                        ));
               },
               style: ElevatedButton.styleFrom(
                 primary: const Color(0xFFD8EBEE),

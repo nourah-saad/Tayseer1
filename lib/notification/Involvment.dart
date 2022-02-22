@@ -30,11 +30,11 @@ monitorInvolvment() {
     print('${value.docs.length} here2l');
     value.docs.forEach((element) {
       showNotification(
-          status: 'accepted',
+          status: 'القبول',
           driverName: element.data()['DriverName'],
           involvedName: element.data()['involvedName'],
           payload: element.data()['AccID']);
-      element.reference.update({'status': 'accepted'});
+      element.reference.update({'status': 'مقبول'});
     });
   });
 
@@ -47,11 +47,11 @@ monitorInvolvment() {
     print('${value.docs.length} herel');
     value.docs.forEach((element) {
       showNotification(
-          status: 'rejected',
+          status: 'الرفض',
           driverName: element.data()['DriverName'],
           involvedName: element.data()['involvedName'],
           payload: element.data()['AccID']);
-      element.reference.update({'status': 'recieved'});
+      element.reference.update({'status': 'مرفوض'});
     });
   });
 }
