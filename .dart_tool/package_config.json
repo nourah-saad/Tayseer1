@@ -164,6 +164,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_geofire",
+      "rootUri": "file:///Users/nourahaldosari/FlutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_geofire-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_lints",
       "rootUri": "file:///Users/nourahaldosari/FlutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lints-1.0.4",
       "packageUri": "lib/",
@@ -536,7 +542,7 @@
       "languageVersion": "2.15"
     }
   ],
-  "generated": "2022-02-21T10:58:22.193519Z",
+  "generated": "2022-02-22T09:41:58.511996Z",
   "generator": "pub",
   "generatorVersion": "2.16.1"
 }

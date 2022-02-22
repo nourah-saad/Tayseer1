@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:tayseer2/assistants/assistant_methods.dart';
 import 'package:tayseer2/infoHandler/app_info.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_geofire/flutter_geofire.dart';
 
 class MapScreen extends StatefulWidget {
   @override
@@ -57,6 +58,8 @@ class _MapScreenState extends State<MapScreen> {
             userCurrentPosition!, context);
     print("this is your address = " + humanReadableAddress);
   }
+
+  
 
   @override
   void initState() {
