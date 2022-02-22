@@ -1,5 +1,3 @@
-
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +17,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController didTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
-   late bool passwordVisibility;
+  late bool passwordVisibility;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -43,28 +41,21 @@ class _LoginScreenState extends State<LoginScreen> {
           );
         });
 
+    DatabaseReference ref = FirebaseDatabase.instance.ref("drivers");
+    Query query = ref
+      ..child("did")
+          .orderByChild("did")
+          .equalTo(didTextEditingController.text.trim());
+    DataSnapshot event = await query.get();
+    print(event.exists);
 
+    // if(query.get()==null){
+    //  print("SSs");
 
-     DatabaseReference ref =
-        FirebaseDatabase.instance.ref("drivers");
-        Query query = ref..child("did").orderByChild("did").equalTo(didTextEditingController.text.trim());
-        DataSnapshot event = await query.get();
-        print(event.exists);
-     
-        
-        // if(query.get()==null){
-         //  print("SSs");
-        
-     //}
-       
-        
-     // Query query = driversRef.child("did").orderByChild("did").equalTo( emailTextEditingController.text.trim());
-      
+    //}
 
-    
+    // Query query = driversRef.child("did").orderByChild("did").equalTo( emailTextEditingController.text.trim());
 
-        
-          
     final User? firebaseUser = (await fAuth
             .signInWithEmailAndPassword(
       email: '${didTextEditingController.text.trim()}@gmail.com',
@@ -72,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
     )
             .catchError((msg) {
       Navigator.pop(context);
-      Fluttertoast.showToast(msg: "رقم الهوية/الإقامة او كلمةالسر غير صحيحه"  );
+      Fluttertoast.showToast(msg: "رقم الهوية/الإقامة او كلمةالسر غير صحيحه");
     }))
         .user;
 
@@ -100,109 +91,117 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   @override
- @override
+  @override
   Widget build(BuildContext context) {
     return Form(
       key: formKey,
       autovalidateMode: AutovalidateMode.always,
       child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: const Color(0xFF85BBC2),
-        body: Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(0, 130, 0, 0),
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 1,
-            decoration: const BoxDecoration(
-              color: Color(0xFFD8EBEE),
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(0),
-                bottomRight: Radius.circular(0),
-                topLeft: Radius.circular(30),
-                topRight: Radius.circular(30),
+          key: scaffoldKey,
+          backgroundColor: const Color(0xFF85BBC2),
+          body: Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(0, 130, 0, 0),
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 1,
+              decoration: const BoxDecoration(
+                color: Color(0xFFD8EBEE),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(0),
+                  bottomRight: Radius.circular(0),
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                ),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                    child: Image.asset(
+                      'images/logo2.PNG',
+                      width: MediaQuery.of(context).size.width * 0.7,
+                      height: 100,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  TextField(
+                    controller: didTextEditingController,
+                    keyboardType: TextInputType.emailAddress,
+                    style: const TextStyle(color: Colors.black),
+                    decoration: const InputDecoration(
+                      labelText: "رقم الهوية/الإقامة",
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black),
+                      ),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black),
+                      ),
+                      hintStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 10,
+                      ),
+                      labelStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  TextField(
+                    controller: passwordTextEditingController,
+                    keyboardType: TextInputType.text,
+                    obscureText: true,
+                    style: const TextStyle(color: Colors.black),
+                    decoration: const InputDecoration(
+                      labelText: "كلمة السر",
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black),
+                      ),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black),
+                      ),
+                      hintStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 10,
+                      ),
+                      labelStyle: TextStyle(
+                        color: Colors.black,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      validateForm();
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: const Color(0xFF85BBC2),
+                    ),
+                    child: const Text(
+                      "تسجيل الدخول",
+                      style: TextStyle(
+                        color: Colors.black54,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    child: const Text(
+                      "ليس لديك حساب؟ إنشاء حساب",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (c) => SignUpScreen()));
+                    },
+                  ),
+                ],
               ),
             ),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
-                  child: Image.asset(
-                    'images/logo2.PNG',
-                    width: MediaQuery.of(context).size.width * 0.7,
-                    height: 100,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              TextField(
-                controller: didTextEditingController,
-                keyboardType: TextInputType.emailAddress,
-                style: const TextStyle(color: Colors.black),
-                decoration: const InputDecoration(
-                  labelText: "رقم الهوية/الإقامة",
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black),
-                  ),
-                  hintStyle: TextStyle(
-                    color: Colors.black,
-                    fontSize: 10,
-                  ),
-                  labelStyle: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14,
-                  ),
-                ),
-              ),
-              TextField(
-                controller: passwordTextEditingController,
-                keyboardType: TextInputType.text,
-                obscureText: true,
-                style: const TextStyle(color: Colors.black),
-                decoration: const InputDecoration(
-                  labelText: "كلمة السر",
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black),
-                  ),
-                  hintStyle: TextStyle(
-                    color: Colors.black,
-                    fontSize: 10,
-                  ),
-                  labelStyle: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  validateForm();
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: const Color(0xFF85BBC2),
-                ),
-                child: const Text(
-                  "تسجيل الدخول",
-                  style: TextStyle(
-                    color: Colors.black54,
-                    fontSize: 18,
-                  ),
-                ),
-              ),
-             
-            ],
-          ),
-        ),
-        )
-      ),
+          )),
     );
   }
 }
