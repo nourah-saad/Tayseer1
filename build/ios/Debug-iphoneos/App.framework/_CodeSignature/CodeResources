@@ -10,7 +10,7 @@
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		VdBFy9dJF74nQ0nymcpN+HxA7+4=
+		Rdab702prJ4lZBlMcktB7ULxmoo=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		4j3Eq/lw057EHs6SaXbh0t+mvzs=
+		lGzuEKBGJG8P7L9CbSkYUCHYYMw=
 		</data>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
@@ -42,11 +42,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-<<<<<<< HEAD
-		vFTj3KW34qSZUEWz7yYhESVhGPk=
-=======
-		U0Us1tlaqgdhWJy5UoxWVvEpIjY=
->>>>>>> parent of 686c067 (online - offline drivers)
+		KLTHXI4Xe11bi81I5GYkfwPFkV8=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -83,11 +79,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			VdBFy9dJF74nQ0nymcpN+HxA7+4=
+			Rdab702prJ4lZBlMcktB7ULxmoo=
 			</data>
 			<key>hash2</key>
 			<data>
-			js3Dsl79xzEJrXNl9Cg6DrEegkBk+d5Qwf+w7qkXw48=
+			pigksrQO/JGl5LutNANIssYDSuE2piuE6b0VsUVCrYo=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -105,11 +101,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4j3Eq/lw057EHs6SaXbh0t+mvzs=
+			lGzuEKBGJG8P7L9CbSkYUCHYYMw=
 			</data>
 			<key>hash2</key>
 			<data>
-			tsxUGM3Icov6IioPGJXJLcFWrvNNdZz3yxiwTqZlJ0M=
+			wSV8B0H0bE+ZuXfAojpkDqw65mJxArJxAjP/ga5nna8=
 			</data>
 		</dict>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
@@ -171,19 +167,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-<<<<<<< HEAD
-			vFTj3KW34qSZUEWz7yYhESVhGPk=
+			KLTHXI4Xe11bi81I5GYkfwPFkV8=
 			</data>
 			<key>hash2</key>
 			<data>
-			xm1/DziU5i8k18zYtYnwyEF1lxljBdlcAtvFzg4TZxI=
-=======
-			U0Us1tlaqgdhWJy5UoxWVvEpIjY=
-			</data>
-			<key>hash2</key>
-			<data>
-			m/Zgpq93Ho1m+uDkvMIwh3ng0zRwoZktbTN4PSWZJJo=
->>>>>>> parent of 686c067 (online - offline drivers)
+			icO5AA67MOecjyTr/8QZH/PTUNP7OtNeycJiZXbZxxI=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
