@@ -110,7 +110,11 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
+<<<<<<< HEAD
 		S/sVuhMUc9IvT0v+4gPWMSxHu5s=
+=======
+		8//D1I7jh/9IatrdQDkildQETZQ=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -118,7 +122,11 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
+<<<<<<< HEAD
 		xieeV/w9hIwQCYVG25Vdrl5P0Ag=
+=======
+		u2eRWzu6Qadwo/OhDe8bW8VxBrI=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
@@ -130,7 +138,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/NOTICES.Z</key>
 		<data>
-		lGzuEKBGJG8P7L9CbSkYUCHYYMw=
+		4j3Eq/lw057EHs6SaXbh0t+mvzs=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
@@ -154,7 +162,11 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
+<<<<<<< HEAD
 		vFTj3KW34qSZUEWz7yYhESVhGPk=
+=======
+		U0Us1tlaqgdhWJy5UoxWVvEpIjY=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -186,7 +198,11 @@
 		</data>
 		<key>Frameworks/FBLPromises.framework/FBLPromises</key>
 		<data>
+<<<<<<< HEAD
 		oN1uDe8ZFRJDERaJg/b7130+oyo=
+=======
+		q+66N1Lue5fiexJkmzaH2UoW84U=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/FBLPromises.framework/Info.plist</key>
 		<data>
@@ -198,7 +214,11 @@
 		</data>
 		<key>Frameworks/FirebaseAuth.framework/FirebaseAuth</key>
 		<data>
+<<<<<<< HEAD
 		Xq2O+f3cMH0mZOZD2HVNKsgxzas=
+=======
+		OedRwTNXWf3ypdeLaPMlyNA9ChA=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/FirebaseAuth.framework/Info.plist</key>
 		<data>
@@ -210,7 +230,11 @@
 		</data>
 		<key>Frameworks/FirebaseCore.framework/FirebaseCore</key>
 		<data>
+<<<<<<< HEAD
 		FH52r/6ZTfydC4o59NEYfwTmaXw=
+=======
+		m6jnuZOZ+V58k0Xd4D42non4lKw=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/FirebaseCore.framework/Info.plist</key>
 		<data>
@@ -222,7 +246,11 @@
 		</data>
 		<key>Frameworks/FirebaseCoreDiagnostics.framework/FirebaseCoreDiagnostics</key>
 		<data>
+<<<<<<< HEAD
 		9UO8/y6wSRdn0Z+3ue0P0yktT4s=
+=======
+		GoL2CDvSZp97U51EF+fUeo448TA=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/FirebaseCoreDiagnostics.framework/Info.plist</key>
 		<data>
@@ -234,7 +262,11 @@
 		</data>
 		<key>Frameworks/FirebaseDatabase.framework/FirebaseDatabase</key>
 		<data>
+<<<<<<< HEAD
 		bVl91tSaIFvEd6uHJWecT7a0/jA=
+=======
+		JtuNsJaaZiGe2J/ELYSq5lI98zE=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/FirebaseDatabase.framework/Info.plist</key>
 		<data>
@@ -246,7 +278,11 @@
 		</data>
 		<key>Frameworks/FirebaseFirestore.framework/FirebaseFirestore</key>
 		<data>
+<<<<<<< HEAD
 		8PgkmLvJoSkuqzEldxpugMTL/Zk=
+=======
+		79Ogl+1TvzRZgNEIN699kcrkDuw=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/FirebaseFirestore.framework/Info.plist</key>
 		<data>
@@ -258,7 +294,11 @@
 		</data>
 		<key>Frameworks/FirebaseInstallations.framework/FirebaseInstallations</key>
 		<data>
+<<<<<<< HEAD
 		OKEcyTNRA4ekynrNrsDSld3xcFQ=
+=======
+		RUpE+FVOYA/Ch6QHRdLO9sdmibI=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/FirebaseInstallations.framework/Info.plist</key>
 		<data>
@@ -270,7 +310,7 @@
 		</data>
 		<key>Frameworks/Flutter.framework/Flutter</key>
 		<data>
-		gfEzt0g836YQhMgya4TD6Px4qpo=
+		v4oN7WLP9glzoQk+m6ZjKQrtjNY=
 		</data>
 		<key>Frameworks/Flutter.framework/Headers/Flutter.h</key>
 		<data>
@@ -354,7 +394,11 @@
 		</data>
 		<key>Frameworks/GTMSessionFetcher.framework/GTMSessionFetcher</key>
 		<data>
+<<<<<<< HEAD
 		qt+J4w+OyaiyDSA8t2g5AncpSxk=
+=======
+		utcnSKP6lJWL290J7p2b31q2vH0=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/GTMSessionFetcher.framework/Info.plist</key>
 		<data>
@@ -364,6 +408,7 @@
 		<data>
 		tnQuiaKXo0LRFs8OBydvQC7j4GE=
 		</data>
+<<<<<<< HEAD
 		<key>Frameworks/GeoFire.framework/GeoFire</key>
 		<data>
 		PcK0q9u500h0fxdHAblip2Z7v78=
@@ -379,6 +424,11 @@
 		<key>Frameworks/GoogleDataTransport.framework/GoogleDataTransport</key>
 		<data>
 		mpwdzdznzWA8W4qdD4YF2EEnLp8=
+=======
+		<key>Frameworks/GoogleDataTransport.framework/GoogleDataTransport</key>
+		<data>
+		nJbtuYHWxn1EIYGNx76QsPqdWrk=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/GoogleDataTransport.framework/Info.plist</key>
 		<data>
@@ -390,7 +440,11 @@
 		</data>
 		<key>Frameworks/GoogleUtilities.framework/GoogleUtilities</key>
 		<data>
+<<<<<<< HEAD
 		ngzYFPVTdjGri2tsCmb6Cugs+hs=
+=======
+		+2yn85FDzC136AMDT9PBPtyfJjs=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/GoogleUtilities.framework/Info.plist</key>
 		<data>
@@ -406,7 +460,11 @@
 		</data>
 		<key>Frameworks/Toast.framework/Toast</key>
 		<data>
+<<<<<<< HEAD
 		T/rQTgfyCY8aOevYyjsNCqC3pb8=
+=======
+		wUZJpgHBEEUydhfyaRqpsUwMbaw=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/Toast.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -422,31 +480,43 @@
 		</data>
 		<key>Frameworks/absl.framework/absl</key>
 		<data>
+<<<<<<< HEAD
 		UhFEtnizrUhPDNA7yJNfsV18HCs=
+=======
+		FGNb/z4TKt4bCVPYJvbOm2912LM=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/fluttertoast.framework/Info.plist</key>
 		<data>
-		Oiux/FihosT0BY3uzuPfhivJAbk=
+		ufS5iqRxGNsXXhNW97oMl62enYY=
 		</data>
 		<key>Frameworks/fluttertoast.framework/_CodeSignature/CodeResources</key>
 		<data>
-		lZutW+7/tL0xNoXa8u9/B2MRtRg=
+		igd4W4QJKW41+4JzFl8c0pQ3bMo=
 		</data>
 		<key>Frameworks/fluttertoast.framework/fluttertoast</key>
 		<data>
+<<<<<<< HEAD
 		JB/VuM1oH6xwOBt8Hqksc3JLQD4=
+=======
+		kz/iAqsAQSqbCjlrM4J1m67CcVY=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/geolocator_apple.framework/Info.plist</key>
 		<data>
-		3QX2Rn/HGea3YHxQBsveirg759Q=
+		TTylTR+faV3E5i6DiacnKhvUL+k=
 		</data>
 		<key>Frameworks/geolocator_apple.framework/_CodeSignature/CodeResources</key>
 		<data>
-		1a4tzhfIiGIno9tjoA4M00kdIaM=
+		T00ZYM+xQQ9kY69MeHPhekgjOb0=
 		</data>
 		<key>Frameworks/geolocator_apple.framework/geolocator_apple</key>
 		<data>
+<<<<<<< HEAD
 		bk72u7HEtfyNxHpzxWpBaHU1Ey4=
+=======
+		n08ppusJSXufCiWLCU2ggrkxlFI=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/grpc.framework/Info.plist</key>
 		<data>
@@ -458,7 +528,11 @@
 		</data>
 		<key>Frameworks/grpc.framework/grpc</key>
 		<data>
+<<<<<<< HEAD
 		CR7C4S2IEFkrQFnqTvLoR0ba4RM=
+=======
+		GwuIL//RbLg87A7yzXhdz+wulE0=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/grpcpp.framework/Info.plist</key>
 		<data>
@@ -478,7 +552,11 @@
 		</data>
 		<key>Frameworks/grpcpp.framework/grpcpp</key>
 		<data>
+<<<<<<< HEAD
 		AC52Xcg2E2YY5UkGHl77E9boykI=
+=======
+		PNqAENFrE7Jf+7zCL5CDAt+a/NU=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/leveldb.framework/Info.plist</key>
 		<data>
@@ -490,7 +568,11 @@
 		</data>
 		<key>Frameworks/leveldb.framework/leveldb</key>
 		<data>
+<<<<<<< HEAD
 		AK9txDHiaqGMvQn6KeXOby0B66w=
+=======
+		KJWrtPR4kWMZr9wKcg9+nQ8iR5Q=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/nanopb.framework/Info.plist</key>
 		<data>
@@ -502,7 +584,11 @@
 		</data>
 		<key>Frameworks/nanopb.framework/nanopb</key>
 		<data>
+<<<<<<< HEAD
 		GhNKyQyF1H3+Iodr2OpYxioQwtg=
+=======
+		yyKTflh1DdAliPdjGx/au3Vgp/Q=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/openssl_grpc.framework/Info.plist</key>
 		<data>
@@ -514,7 +600,11 @@
 		</data>
 		<key>Frameworks/openssl_grpc.framework/openssl_grpc</key>
 		<data>
+<<<<<<< HEAD
 		nj1atG80CzjTrTdABAom0YghwnU=
+=======
+		BmYKhIxiKKENO0D8EgaxirIqb1Q=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/path_provider_ios.framework/Info.plist</key>
 		<data>
@@ -526,7 +616,11 @@
 		</data>
 		<key>Frameworks/path_provider_ios.framework/path_provider_ios</key>
 		<data>
+<<<<<<< HEAD
 		mM3zuSAnYtrPYM5F/Pnc59PdOcM=
+=======
+		St+cxrzmibhtuTCOUZ/PbL5FXW0=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>Frameworks/url_launcher_ios.framework/Info.plist</key>
 		<data>
@@ -538,7 +632,11 @@
 		</data>
 		<key>Frameworks/url_launcher_ios.framework/url_launcher_ios</key>
 		<data>
+<<<<<<< HEAD
 		HBsFg5V2mdMAf4rzGpJbYPvpGRQ=
+=======
+		iBSghbhMGlFBzjnV/bdVWqOggF8=
+>>>>>>> parent of 686c067 (online - offline drivers)
 		</data>
 		<key>GoogleMaps.bundle/GMSCacheStorage.momd/Storage.mom</key>
 		<data>
@@ -1638,11 +1736,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			S/sVuhMUc9IvT0v+4gPWMSxHu5s=
 			</data>
 			<key>hash2</key>
 			<data>
 			ecdfLmjiS7Wes2KQtKfGJ7mtSM6V4zpW32UqlmuA5h4=
+=======
+			8//D1I7jh/9IatrdQDkildQETZQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			mPzUpiv2pXWxF3dQ/wO3MFjjwzY0IeDZIaT33K8KRHQ=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -1660,11 +1766,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			xieeV/w9hIwQCYVG25Vdrl5P0Ag=
 			</data>
 			<key>hash2</key>
 			<data>
 			u1lN72JQ75bGOwD0h3nWc8hyAJwJOCET9WRqseFd5Xk=
+=======
+			u2eRWzu6Qadwo/OhDe8bW8VxBrI=
+			</data>
+			<key>hash2</key>
+			<data>
+			P0EKhTp/LxXEdZ+oDHpL1+ZcLZNpArx0p0T4wcS/His=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
@@ -1693,11 +1807,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lGzuEKBGJG8P7L9CbSkYUCHYYMw=
+			4j3Eq/lw057EHs6SaXbh0t+mvzs=
 			</data>
 			<key>hash2</key>
 			<data>
-			wSV8B0H0bE+ZuXfAojpkDqw65mJxArJxAjP/ga5nna8=
+			tsxUGM3Icov6IioPGJXJLcFWrvNNdZz3yxiwTqZlJ0M=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/fonts/MaterialIcons-Regular.otf</key>
@@ -1759,11 +1873,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			vFTj3KW34qSZUEWz7yYhESVhGPk=
 			</data>
 			<key>hash2</key>
 			<data>
 			xm1/DziU5i8k18zYtYnwyEF1lxljBdlcAtvFzg4TZxI=
+=======
+			U0Us1tlaqgdhWJy5UoxWVvEpIjY=
+			</data>
+			<key>hash2</key>
+			<data>
+			m/Zgpq93Ho1m+uDkvMIwh3ng0zRwoZktbTN4PSWZJJo=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -1847,11 +1969,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			oN1uDe8ZFRJDERaJg/b7130+oyo=
 			</data>
 			<key>hash2</key>
 			<data>
 			F7bLHjQK9thia3LvOnq9LscamxsSdaVXKj/0/6CvKRE=
+=======
+			q+66N1Lue5fiexJkmzaH2UoW84U=
+			</data>
+			<key>hash2</key>
+			<data>
+			OvumO8mbaeIRLTegmhSrCok3nm1IZd704gdVtqwjmbw=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/FBLPromises.framework/Info.plist</key>
@@ -1880,11 +2010,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			Xq2O+f3cMH0mZOZD2HVNKsgxzas=
 			</data>
 			<key>hash2</key>
 			<data>
 			NV8wi1RRF6EEYKYitxZrVry0LjaZQ3XmBxmRMBw6dHo=
+=======
+			OedRwTNXWf3ypdeLaPMlyNA9ChA=
+			</data>
+			<key>hash2</key>
+			<data>
+			up/PqLRMXaqT9t+0E9ddCnKzzZTswyebwQq/bQvRGsA=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/FirebaseAuth.framework/Info.plist</key>
@@ -1913,11 +2051,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			FH52r/6ZTfydC4o59NEYfwTmaXw=
 			</data>
 			<key>hash2</key>
 			<data>
 			G62QpQhSHT4A2Y9/xYX5ZzfQlNG1+xJyRrhSDVqPQ0I=
+=======
+			m6jnuZOZ+V58k0Xd4D42non4lKw=
+			</data>
+			<key>hash2</key>
+			<data>
+			wFCQkMylHB49N04UEkHmdKA1ibLiEA+utCC8c50JYG0=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/FirebaseCore.framework/Info.plist</key>
@@ -1946,11 +2092,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			9UO8/y6wSRdn0Z+3ue0P0yktT4s=
 			</data>
 			<key>hash2</key>
 			<data>
 			1wIFp6x49rgAS/17/vjUBCK6HSYNLXJbpd3hO+eX8lc=
+=======
+			GoL2CDvSZp97U51EF+fUeo448TA=
+			</data>
+			<key>hash2</key>
+			<data>
+			xeY+mhKFekmVuwKv9s5a8sO2dbWj4aCfOFEMiu33lbA=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/FirebaseCoreDiagnostics.framework/Info.plist</key>
@@ -1979,11 +2133,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			bVl91tSaIFvEd6uHJWecT7a0/jA=
 			</data>
 			<key>hash2</key>
 			<data>
 			NEGRwWaJ3MT8Zf/e6Byv7VCwMtDf+X+pMu1NUHLaBO4=
+=======
+			JtuNsJaaZiGe2J/ELYSq5lI98zE=
+			</data>
+			<key>hash2</key>
+			<data>
+			mmrmHFkZWF0uHF/cYTqPn5Gqql34LJkbBa0YNaYXLj4=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/FirebaseDatabase.framework/Info.plist</key>
@@ -2012,11 +2174,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			8PgkmLvJoSkuqzEldxpugMTL/Zk=
 			</data>
 			<key>hash2</key>
 			<data>
 			9XBgszyNBTsvFzg6/rccmb33Z5OCamk5ztQoRPv43aA=
+=======
+			79Ogl+1TvzRZgNEIN699kcrkDuw=
+			</data>
+			<key>hash2</key>
+			<data>
+			y6dNYr2+F1g/2KfWQ4fU5tPrPB6ZQRqO9CMVzLa77EE=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/FirebaseFirestore.framework/Info.plist</key>
@@ -2045,11 +2215,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			OKEcyTNRA4ekynrNrsDSld3xcFQ=
 			</data>
 			<key>hash2</key>
 			<data>
 			tcmz2TFg0OfUEnJho+0PYT99JOPCzHgGazHgVhNU5RU=
+=======
+			RUpE+FVOYA/Ch6QHRdLO9sdmibI=
+			</data>
+			<key>hash2</key>
+			<data>
+			j6DaxGAX6pAk5BblCtcQ5nJ03aK+9BiPioB63fVbP+w=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/FirebaseInstallations.framework/Info.plist</key>
@@ -2078,11 +2256,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			gfEzt0g836YQhMgya4TD6Px4qpo=
+			v4oN7WLP9glzoQk+m6ZjKQrtjNY=
 			</data>
 			<key>hash2</key>
 			<data>
-			1H/7DO1hwp8vJHKBBrQ9bNS0Eq5giedyaHodGCTxVfY=
+			qFnjMBd2DtWgIyPbVdX+4RmEqdfX4Q5d5BNO1d4Q74I=
 			</data>
 		</dict>
 		<key>Frameworks/Flutter.framework/Headers/Flutter.h</key>
@@ -2309,11 +2487,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			qt+J4w+OyaiyDSA8t2g5AncpSxk=
 			</data>
 			<key>hash2</key>
 			<data>
 			MYnupZhYRfHz5caIrW9UmO+PQp6FqS0M/DPjhRRh2lA=
+=======
+			utcnSKP6lJWL290J7p2b31q2vH0=
+			</data>
+			<key>hash2</key>
+			<data>
+			qrWxeRxqqtJ1fHk/dhaSADxQT4fsH9H/FphwmzE4OAE=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/GTMSessionFetcher.framework/Info.plist</key>
@@ -2338,6 +2524,7 @@
 			uW4LhncBzlovEBL3q4IP5m2gwO3q+F3s3e94OKjw78s=
 			</data>
 		</dict>
+<<<<<<< HEAD
 		<key>Frameworks/GeoFire.framework/GeoFire</key>
 		<dict>
 			<key>hash</key>
@@ -2371,15 +2558,25 @@
 			E/jPpGZKb9DiKmfroiTUy+XBlCNqj9vjJiueoBeNj7w=
 			</data>
 		</dict>
+=======
+>>>>>>> parent of 686c067 (online - offline drivers)
 		<key>Frameworks/GoogleDataTransport.framework/GoogleDataTransport</key>
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			mpwdzdznzWA8W4qdD4YF2EEnLp8=
 			</data>
 			<key>hash2</key>
 			<data>
 			speVagrY3dm3zbgm9z1iXWShCEi/fsSPJNXymIxPvYE=
+=======
+			nJbtuYHWxn1EIYGNx76QsPqdWrk=
+			</data>
+			<key>hash2</key>
+			<data>
+			RhSe5f/YA8dQM0qwzlveZ5kVhEwn5RIBJNPLHNNbO3A=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/GoogleDataTransport.framework/Info.plist</key>
@@ -2408,11 +2605,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			ngzYFPVTdjGri2tsCmb6Cugs+hs=
 			</data>
 			<key>hash2</key>
 			<data>
 			/h8X3y3VHlLGhjFWOuOetK33Qy9wBov090GHBM19WTE=
+=======
+			+2yn85FDzC136AMDT9PBPtyfJjs=
+			</data>
+			<key>hash2</key>
+			<data>
+			xrwDpiSDkItGqOUv7l8WN4B8LEM6Ud+F69Ook+6u760=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/GoogleUtilities.framework/Info.plist</key>
@@ -2452,11 +2657,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			T/rQTgfyCY8aOevYyjsNCqC3pb8=
 			</data>
 			<key>hash2</key>
 			<data>
 			PhTqbBrt4lVZkMJh9yjrAv2kZdS3iB5jCtS//hnFEiM=
+=======
+			wUZJpgHBEEUydhfyaRqpsUwMbaw=
+			</data>
+			<key>hash2</key>
+			<data>
+			B6Sla9Jm+zB17DVibw3ETYRFZoBm0novkgiHB5wi8xE=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/Toast.framework/_CodeSignature/CodeResources</key>
@@ -2496,77 +2709,101 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			UhFEtnizrUhPDNA7yJNfsV18HCs=
 			</data>
 			<key>hash2</key>
 			<data>
 			j1s72xG/HKPv4QbUdpWG2y89aPkOkmIO9b0qLFr+qY8=
+=======
+			FGNb/z4TKt4bCVPYJvbOm2912LM=
+			</data>
+			<key>hash2</key>
+			<data>
+			KDpbnynKUS7Y5JFzWDje9zr0iQ1GQgJ486xs9iXyowg=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/fluttertoast.framework/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Oiux/FihosT0BY3uzuPfhivJAbk=
+			ufS5iqRxGNsXXhNW97oMl62enYY=
 			</data>
 			<key>hash2</key>
 			<data>
-			Ii/7I2XRcnD04ruc+jOFwRg5OHrlT3Mr/NfWCH+kIqY=
+			INFw0skPIqacDs4oVsOWuvy5cJ9AmaIgJF5lei7jUxk=
 			</data>
 		</dict>
 		<key>Frameworks/fluttertoast.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lZutW+7/tL0xNoXa8u9/B2MRtRg=
+			igd4W4QJKW41+4JzFl8c0pQ3bMo=
 			</data>
 			<key>hash2</key>
 			<data>
-			P+A5senrPjM2IZ1hMxbagwdf+g5XfQ7ftTrzsPiM5gs=
+			Q/DsbeYXHayNNhlDJ/lehFyNjWJKicf6FJVi/jT8cM8=
 			</data>
 		</dict>
 		<key>Frameworks/fluttertoast.framework/fluttertoast</key>
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			JB/VuM1oH6xwOBt8Hqksc3JLQD4=
 			</data>
 			<key>hash2</key>
 			<data>
 			ZEz8YbF6zn5soXnhOPqWAY86uc92oiCia/z5+W0Lc2A=
+=======
+			kz/iAqsAQSqbCjlrM4J1m67CcVY=
+			</data>
+			<key>hash2</key>
+			<data>
+			qEVLA1aJbUHqCym+e/jcs0Tzd/sHAh5XF0I9D+ruJb4=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/geolocator_apple.framework/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3QX2Rn/HGea3YHxQBsveirg759Q=
+			TTylTR+faV3E5i6DiacnKhvUL+k=
 			</data>
 			<key>hash2</key>
 			<data>
-			4PLNTloFpkoE7b45dQDRRpOYrty3tCQN5s413acZFrM=
+			1IjJ9xDtfDwrxevSebesAJdsHuXBfnxCH9lkf/pdl4Y=
 			</data>
 		</dict>
 		<key>Frameworks/geolocator_apple.framework/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			1a4tzhfIiGIno9tjoA4M00kdIaM=
+			T00ZYM+xQQ9kY69MeHPhekgjOb0=
 			</data>
 			<key>hash2</key>
 			<data>
-			6sJ8jcHb5X1+oCFZU+iADJdmK7sU/NuagPB3/uxdJPQ=
+			NvUi2orFQezZXBbd36TeoCZNqGmEZ8ogm6icZKD43DA=
 			</data>
 		</dict>
 		<key>Frameworks/geolocator_apple.framework/geolocator_apple</key>
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			bk72u7HEtfyNxHpzxWpBaHU1Ey4=
 			</data>
 			<key>hash2</key>
 			<data>
 			mpUO2MUYKenlhXs4VLhWV858kfAg8pEGyNgid6BaiM8=
+=======
+			n08ppusJSXufCiWLCU2ggrkxlFI=
+			</data>
+			<key>hash2</key>
+			<data>
+			vskQtyORlHcLMl/Y2B9Vx09XS22Qzepvev+pzCy9owI=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/grpc.framework/Info.plist</key>
@@ -2595,11 +2832,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			CR7C4S2IEFkrQFnqTvLoR0ba4RM=
 			</data>
 			<key>hash2</key>
 			<data>
 			345iA/kUTEmi2sNIWoahrfY3MP+1RyeiiJVTsB852wI=
+=======
+			GwuIL//RbLg87A7yzXhdz+wulE0=
+			</data>
+			<key>hash2</key>
+			<data>
+			aUluQ1NtHld4vQ2gwuiVqTHBKVoz6d0SFrCdnHJG2qk=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/grpcpp.framework/Info.plist</key>
@@ -2650,11 +2895,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			AC52Xcg2E2YY5UkGHl77E9boykI=
 			</data>
 			<key>hash2</key>
 			<data>
 			ri9+yJlvGxWjY/BonoDRFG06wj5BgXAJjh99v1iUkWM=
+=======
+			PNqAENFrE7Jf+7zCL5CDAt+a/NU=
+			</data>
+			<key>hash2</key>
+			<data>
+			iURlAoPdKtMt/nz+AtEIpz1hQbZK0orm0LmDBd7NWrU=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/leveldb.framework/Info.plist</key>
@@ -2683,11 +2936,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			AK9txDHiaqGMvQn6KeXOby0B66w=
 			</data>
 			<key>hash2</key>
 			<data>
 			wM4EJ0z8MsL5z6lX6MfB6UOWm75BRJ5F6jBFbpnrG6U=
+=======
+			KJWrtPR4kWMZr9wKcg9+nQ8iR5Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			DjE2x/I2IwwuYBUPfOgc7AAFEtGXGWb8AXIKfUCFJIc=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/nanopb.framework/Info.plist</key>
@@ -2716,11 +2977,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			GhNKyQyF1H3+Iodr2OpYxioQwtg=
 			</data>
 			<key>hash2</key>
 			<data>
 			asV66th+NR9umI9j/3hSFajSX1gNIusWqMT3qGcdaOE=
+=======
+			yyKTflh1DdAliPdjGx/au3Vgp/Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			ETsrtjGMTK8zOSDjgk1qWj9QALqaWA9kVH4WJSAIrXY=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/openssl_grpc.framework/Info.plist</key>
@@ -2749,11 +3018,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			nj1atG80CzjTrTdABAom0YghwnU=
 			</data>
 			<key>hash2</key>
 			<data>
 			oNKHeY+0O5VOYIVxxpLYfLwTvofTLOSIZ1+eVk7MZGk=
+=======
+			BmYKhIxiKKENO0D8EgaxirIqb1Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			o0dcaps4wJ5yHffumG/XMuBxTTC9ynUG3VAmCqcDF5M=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/path_provider_ios.framework/Info.plist</key>
@@ -2782,11 +3059,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			mM3zuSAnYtrPYM5F/Pnc59PdOcM=
 			</data>
 			<key>hash2</key>
 			<data>
 			ckCLZpkJ2R5eJH+c1Wp70mHkyjXRjRbNo/yKTH2ivBU=
+=======
+			St+cxrzmibhtuTCOUZ/PbL5FXW0=
+			</data>
+			<key>hash2</key>
+			<data>
+			9gGQ4S8qa6fHFNxpLSu7H3eEddiOOfZkuta36HAAMxc=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>Frameworks/url_launcher_ios.framework/Info.plist</key>
@@ -2815,11 +3100,19 @@
 		<dict>
 			<key>hash</key>
 			<data>
+<<<<<<< HEAD
 			HBsFg5V2mdMAf4rzGpJbYPvpGRQ=
 			</data>
 			<key>hash2</key>
 			<data>
 			9g3qUs7hmed5vt/2sCPGGNabc/numRTxxLi2kXgOwN8=
+=======
+			iBSghbhMGlFBzjnV/bdVWqOggF8=
+			</data>
+			<key>hash2</key>
+			<data>
+			8rxsWNhlUvP72r8XFUGWdC987iAqT5krQK/KoqtPhx8=
+>>>>>>> parent of 686c067 (online - offline drivers)
 			</data>
 		</dict>
 		<key>GoogleMaps.bundle/GMSCacheStorage.momd/Storage.mom</key>
