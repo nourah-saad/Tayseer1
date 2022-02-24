@@ -57,7 +57,7 @@ loadFCM() async {
     channel = const AndroidNotificationChannel(
       'high_importance_channel', // id
       'Tayseer notifications', // title
-      importance: Importance.high,
+      importance: Importance.max,
     );
 
     await flutterLocalNotificationsPlugin
@@ -79,7 +79,12 @@ listenFCM() async {
     RemoteNotification? notification = message.notification;
     AndroidNotification? android = message.notification?.android;
     if (notification != null && android != null && !kIsWeb) {
-      show(notification);
+      // show(notification);
+      Navigator.push(
+          navigationService.navigatorKey.currentContext!,
+          MaterialPageRoute(
+              builder: (context) => ConfirmationPageWidget(
+                  accidentID: '${message.data['accID']}')));
     }
   });
 
@@ -89,7 +94,11 @@ listenFCM() async {
   RemoteMessage? initialMessage =
       await FirebaseMessaging.instance.getInitialMessage();
   if (initialMessage != null) {
-    show(initialMessage.notification);
+    Navigator.push(
+        navigationService.navigatorKey.currentContext!,
+        MaterialPageRoute(
+            builder: (context) => ConfirmationPageWidget(
+                accidentID: '${initialMessage.data['accID']}')));
   }
 }
 
@@ -142,6 +151,7 @@ Future<void> sendNotification(receiver, title, msg, accID) async {
       body: jsonEncode(
         <String, dynamic>{
           'notification': <String, dynamic>{
+            "android_channel_id": 'high_importance_channel',
             'body': msg,
             'title': title,
           },
