@@ -4,6 +4,23 @@
             "outputFile": "C:\\Users\\rawan\\Desktop\\uni\\level7\\444\\TryIt\\Counter\\Tayseer1\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ka\\values-ka.xml",
             "map": [
                 {
+                    "source": "C:\\Users\\rawan\\.gradle\\caches\\transforms-2\\files-2.1\\05f2777bce3b2590ffb1296bd286c954\\jetified-firebase-messaging-23.0.0\\res\\values-ka\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "207",
+                        "endColumns": "74",
+                        "endOffsets": "281"
+                    },
+                    "to": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "2755",
+                        "endColumns": "78",
+                        "endOffsets": "2829"
+                    }
+                },
+                {
                     "source": "C:\\Users\\rawan\\.gradle\\caches\\transforms-2\\files-2.1\\028e2af049aff9ad02b583c22895ed29\\jetified-play-services-base-17.1.0\\res\\values-ka\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
@@ -30,11 +47,11 @@
                         "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "20",
+                        "startLines": "21",
                         "startColumns": "4",
-                        "startOffsets": "2755",
+                        "startOffsets": "2834",
                         "endColumns": "100",
-                        "endOffsets": "2851"
+                        "endOffsets": "2930"
                     }
                 },
                 {

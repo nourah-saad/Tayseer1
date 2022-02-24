@@ -30,11 +30,11 @@
                         "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "20",
+                        "startLines": "21",
                         "startColumns": "4",
-                        "startOffsets": "2766",
+                        "startOffsets": "2839",
                         "endColumns": "100",
-                        "endOffsets": "2862"
+                        "endOffsets": "2935"
                     }
                 },
                 {
@@ -52,6 +52,23 @@
                         "startOffsets": "105,218,420,555,672,874,1005,1143,1417,1626,1741,1932,2069,2273,2460,2559,2652",
                         "endColumns": "112,201,134,116,201,130,137,127,208,114,190,136,203,186,98,92,113",
                         "endOffsets": "213,415,550,667,869,1000,1138,1266,1621,1736,1927,2064,2268,2455,2554,2647,2761"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\rawan\\.gradle\\caches\\transforms-2\\files-2.1\\05f2777bce3b2590ffb1296bd286c954\\jetified-firebase-messaging-23.0.0\\res\\values-kn\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "207",
+                        "endColumns": "68",
+                        "endOffsets": "275"
+                    },
+                    "to": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "2766",
+                        "endColumns": "72",
+                        "endOffsets": "2834"
                     }
                 }
             ]
