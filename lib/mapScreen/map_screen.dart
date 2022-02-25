@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:tayseer2/assistants/assistant_methods.dart';
 import 'package:tayseer2/infoHandler/app_info.dart';
 import 'package:provider/provider.dart';
+import 'package:tayseer2/reoert_an_accident/select_your_car.dart';
 
 class MapScreen extends StatefulWidget {
   @override
@@ -67,7 +68,13 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar( 
+         iconTheme: IconThemeData(
+    color: Color(0xFF46494D), //change your color here
+  ),
+        
+        backgroundColor: Color(0xFF85BBC2),
+        title: Text('حدد موقع الحادث' , style: TextStyle(color:  Color(0xFF46494D), fontSize: 25 ,fontFamily: 'Poppins',),),),
       body: Stack(
         children: [
           GoogleMap(
@@ -137,7 +144,7 @@ class _MapScreenState extends State<MapScreen> {
                                                 .userPickUpLocation!
                                                 .locationName!)
                                             .substring(0,
-                                                44) + //عدد الاحرف اللي تطلع في الخريطة
+                                                43) + //عدد الاحرف اللي تطلع في الخريطة
                                         "..."
                                     : "not getting address",
                                 style: const TextStyle(
@@ -161,10 +168,15 @@ class _MapScreenState extends State<MapScreen> {
                       const SizedBox(height: 16.0),
 
                       ElevatedButton(
+                        
                         child: const Text(
-                          "التالي",
+                          "التالي", style: TextStyle(color:  Color(0xFF46494D), fontSize: 17 ,fontFamily: 'Poppins',),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+
+                            Navigator.push(
+                    context, MaterialPageRoute(builder: (c) => select_your_carWidget()));
+                        },
                         style: ElevatedButton.styleFrom(
                             primary: const Color(0xFF85BBC2),
                             textStyle: const TextStyle(

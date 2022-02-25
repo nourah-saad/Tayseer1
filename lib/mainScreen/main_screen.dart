@@ -63,7 +63,7 @@ class _MainScreenState extends State<MainScreen>
         ],
         unselectedItemColor: Colors.black54,
         selectedItemColor: Colors.black,
-        backgroundColor: const Color(0xFFD8EBEE),
+        backgroundColor: Color(0xFF85BBC2),
         type: BottomNavigationBarType.fixed,
         selectedLabelStyle: const TextStyle(fontSize: 14),
         showUnselectedLabels: true,

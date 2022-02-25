@@ -3,31 +3,26 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 
-//import 'package:tayseer/home_page/home_page_widget.dart';
-
-
 import 'package:flutter/material.dart';
-//import 'package:google_fonts/google_fonts.dart';
-//import 'package:get/get.dart';
+
 import 'package:intl/intl.dart';
 import 'package:date_format/date_format.dart';
 
 import '../mainScreen/main_screen.dart';
 
-class ViewAccidentsWidget extends StatefulWidget {
-  const ViewAccidentsWidget({Key? key}) : super(key: key);
+class select_involved_carWidget extends StatefulWidget {
+  const select_involved_carWidget({Key? key}) : super(key: key);
 
   @override
-  _ViewAccidentsWidgetState createState() => _ViewAccidentsWidgetState();
+  _select_involved_carWidgetState createState() => _select_involved_carWidgetState();
 }
 
-class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
+class _select_involved_carWidgetState extends State<select_involved_carWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  List accidents = [];
-  var location;
-  var time;
-  var id;
-  var dataaa= 'new ' ;
+  List cars = [];
+
+  var car_color , car_model , car_number ;
+ 
    final databaseRef = FirebaseDatabase.instance.ref();
   final Future<FirebaseApp> _future = Firebase.initializeApp();
 
@@ -62,23 +57,24 @@ Map<dynamic, dynamic> Avalues = ADatabaseEvent.snapshot.value as Map;
       print('${key} : ${values}');
  setState(() {
            if(key == 'Location')
-           location = '${values.toString()}';
+           car_model = '${values.toString()}';
             if(key == 'Date_time')
-           time = '${values.toString()}';
+           car_color = '${values.toString()}';
             if(key == 'Date_time')
-           id = '${values.toString()}';
+           car_number = '${values.toString()}';
  
               value = {
-          'location': '${location}',
-          'time': '${time}',
-          'id': '${time}',
+          'car_model': '${car_model}',
+          'car_color': '${car_color}',
+          'car_number': '${car_number}',
+           'in' :'سارية',
          
         };
         
       });
 
     });
- accidents.insert(count++, value); 
+ cars.insert(count++, value); 
     });
 
 
@@ -87,66 +83,40 @@ Map<dynamic, dynamic> Avalues = ADatabaseEvent.snapshot.value as Map;
     });
     
 
-    
-/* 
-
-      setState(() {
-           if(key == 'Location')
-           location = '${values.toString()}';
-            if(key == 'Date_time')
-           time = '${values.toString()}';
-            if(key == 'Date_time')
-           id = '${values.toString()}';
- 
-             var value = {
-          'location': '${location}',
-          'time': '${time}',
-          'id': '${time}',
-         
-        };
-        accidents.insert(count++, value); 
-      });
-   
-       */
-      // print('${key} : ${values}');
-     //R accidents.insert(count++, values);
+  
          var value1 = {
-          'location': 'اضغط هنا',
-          'time': '89-feb-21',
-          'id': '15:40:10',
+          'car_model': ' تويوتا',
+          'car_color': 'كحلي',
+          'car_number': 'ا ب ع ٦٦٦٣',
+          'in' :'سارية',
          
         };
                  var value2 = {
-          'location': 'اضغط هنا',
-          'time': '89-feb-21',
-          'id': '15:40:10',
+          'car_model': ' مرسيدس',
+          'car_color': 'اسود',
+          'car_number': 'ق ل ب ٥٥٥٥',
+           'in' :'سارية',
          
         };
                          value3 = {
-          'location': 'اضغط هنا',
-          'time': '89-feb-21',
-          'id': '15:40:10',
+          'car_model': ' هونداي',
+          'car_color': 'ابيض',
+          'car_number': 'س د ر ٨٩٠٠',
+           'in' :'سارية',
          
         };
      
               var value4 = {
-          'location': 'اضغط هنا',
-          'time': '89-feb-21',
-          'id': '15:40:10',
+          'car_model': ' هونداي',
+          'car_color': 'احمر',
+          'car_number': 'ا س س ٩٩٨٨',
+           'in' :'سارية',
          
         };
-accidents.insert(count++, value1);
-accidents.insert(count++, value2);
-accidents.insert(count++, value3);
-accidents.insert(count++, value4);
-
-//accidents.insert(count++, value);
-  // });
-   
-     //    } );
-      
-
-    
+cars.insert(count++, value1);
+cars.insert(count++, value2);
+cars.insert(count++, value3);
+cars.insert(count++, value4);
 
    }
   @override
@@ -170,7 +140,7 @@ accidents.insert(count++, value4);
                   topRight: Radius.circular(30),
                 ),
               ),
-              child: accidentChild(accidents),
+              child: accidentChild(cars),
             ),
           ),
           Padding(
@@ -200,7 +170,7 @@ accidents.insert(count++, value4);
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                   child: Text(
-                    'البلاغات السابقة',
+                    '  حدد السيارة المشاركة بالحادث',
                     textAlign: TextAlign.center,
 
                     style:  TextStyle(fontSize: 30 , color:  Color(0xFF46494D) , fontFamily: 'Poppins', ),
@@ -230,7 +200,7 @@ accidents.insert(count++, value4);
                     padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
                     child: Container(
                       width: 360,
-                      height: 140,
+                      height: 200,
                       decoration: BoxDecoration(
                         color: Color(0xFF85BBC2),
                         borderRadius: BorderRadius.circular(10),
@@ -256,7 +226,7 @@ accidents.insert(count++, value4);
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 7, 10, 0),
                                   child: Text(
-                                    '${data[i]['location']}', textAlign: TextAlign.right ,
+                                    '${data[i]['car_model']}', textAlign: TextAlign.right ,
                                     
                                     style: TextStyle(
                                       fontFamily: 'Poppins',
@@ -272,7 +242,7 @@ accidents.insert(count++, value4);
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 7, 10, 0),
                                   child: Text(
-                                    ': الموقع ', textAlign: TextAlign.right ,
+                                    ': نوع السيارة ', textAlign: TextAlign.right ,
                                     
                                     style: TextStyle(
                                       fontFamily: 'Poppins',
@@ -297,7 +267,7 @@ accidents.insert(count++, value4);
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 7, 10, 0),
                                   child: Text(
-                                    '${data[i]['time']}', textAlign: TextAlign.right ,
+                                    '${data[i]['car_color']}', textAlign: TextAlign.right ,
                                     
                                     style: TextStyle(
                                       fontFamily: 'Poppins',
@@ -313,7 +283,7 @@ accidents.insert(count++, value4);
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 7, 10, 0),
                                   child: Text(
-                                    ': التاريخ ', textAlign: TextAlign.right ,
+                                    ': اللون ', textAlign: TextAlign.right ,
                                     
                                     style: TextStyle(
                                       fontFamily: 'Poppins',
@@ -344,34 +314,7 @@ SizedBox(
 
      ]
                              ),
-                                 Row( children: [
-                                 ElevatedButton(
-                                   
-  style: ElevatedButton.styleFrom(
-    
-  onPrimary: Colors.black87,
-  primary: Color(0xFF92D9E3),
-  fixedSize: Size(129, 20),
-  padding: EdgeInsets.symmetric(horizontal: 16),
-  
-    
-  shape: const RoundedRectangleBorder(
-    borderRadius: BorderRadius.all(Radius.circular( 12)),
-  ),),
-  
-  onPressed: () {  print('Data : ${data}'); },
-  child: Text('عرض التقرير', 
-    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w600,
-                                       fontSize: 17,
-                                      
-                                    ),
-  
-  
-  ),
-)
-                                  ] ), 
+                                 
                                   
           
                                   ],),
@@ -382,7 +325,7 @@ SizedBox(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 7, 10, 0),
                                   child: Text(
-                                    '${data[i]['id']}', textAlign: TextAlign.right ,
+                                    '${data[i]['car_number']}', textAlign: TextAlign.right ,
                                     
                                     style: TextStyle(
                                       fontFamily: 'Poppins',
@@ -398,7 +341,7 @@ SizedBox(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 7, 10, 0),
                                   child: Text(
-                                    ': الوقت ', textAlign: TextAlign.right ,
+                                    ': رقم اللوحة ', textAlign: TextAlign.right ,
                                     
                                     style: TextStyle(
                                       fontFamily: 'Poppins',
@@ -417,16 +360,84 @@ SizedBox(
                                   
                                   
                                   ),
-                         
-                             
-                             
+              
 
-
-
-
-
+             Row(
+  crossAxisAlignment: CrossAxisAlignment.start, 
+                               children: [
+                                 Expanded(child:  Padding(
+                                 
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 7, 10, 0),
+                                  child: Text(
+                                    '${data[i]['in']}', textAlign: TextAlign.right ,
+                                    
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w600,
+                                       fontSize: 18,
+                                      
+                                    ),
+                                  ),
+                                  ),
+                                  ), 
+                                    Padding(
+                                 
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 7, 10, 0),
+                                  child: Text(
+                                    ': حالة التأمين ', textAlign: TextAlign.right ,
+                                    
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w600,
+                                       fontSize: 18,
+                                      
+                                    ),
+                                  ),
+                                  ),
+          
+                                  ],),
 
                                     ],),
+                                           const SizedBox(
+            height: 16.0,
+          ),
+
+           Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,      
+                           children: [
+                                         Align(
+                                           alignment:Alignment.center,
+                                           child: ElevatedButton(
+                                   
+  style: ElevatedButton.styleFrom(
+    
+  onPrimary: Colors.black87,
+  primary: Color(0xFF92D9E3),
+  fixedSize: Size(129, 20),
+  padding: EdgeInsets.symmetric(horizontal: 16),
+  
+    
+  shape: const RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(Radius.circular( 12)),
+  ),),
+  
+  onPressed: () {  print('Data : ${data}'); },
+  child: Text('اختيار ', 
+    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w600,
+                                       fontSize: 17,
+                                      
+                                    ),
+  
+  
+  ),
+), )
+                             
+
+],),
 
                               ],
                             ),
