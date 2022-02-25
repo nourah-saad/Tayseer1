@@ -1,4 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
+
 //import 'package:tayseer/home_page/home_page_widget.dart';
 
 
@@ -21,6 +25,11 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
   var location;
   var time;
   var id;
+  var dataaa= 'new ' ;
+   final databaseRef = FirebaseDatabase.instance.ref();
+  final Future<FirebaseApp> _future = Firebase.initializeApp();
+
+
 @override
   void initState() {
    addtolist();
@@ -30,25 +39,75 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
    void addtolist() async{
 
        int count = 0;
-   /*  var exists = await FirebaseFirestore.instance
-        .collection('Accident').snapshots()
-        .listen((event) {
-      event.docs.forEach((element) async {
-        setState(() {
-          location = element.data()['Location'].toString();
-          time = element.data()['Date_time'].toString();
-          id = element.id.toString();
-        });
-String dtime = DateFormat(DateFormat.YEAR_ABBR_MONTH_WEEKDAY_DAY).format(DateTime.now());
-String ddtime = DateFormat.Hms().format(DateTime.now());
 
-  var value = {
-          'location': 'اضغط هنا',
-          'time': '${dtime}',
-          'id': '${ddtime}',
+ var value3;
+        final userProfileDetails = await FirebaseDatabase.instance
+        .ref()
+        .child("Accident")
+        .once()
+        .then((DatabaseEvent DatabaseEvent) {
+Map<dynamic, dynamic> values = DatabaseEvent.snapshot.value as Map;
+    values.forEach((key, values) async {
+ var value;
+
+     final accidentsy =  await FirebaseDatabase.instance
+        .ref()
+        .child("Accident").child('${key}')
+        .once()
+        .then(( ADatabaseEvent) {
+Map<dynamic, dynamic> Avalues = ADatabaseEvent.snapshot.value as Map;
+    Avalues.forEach((key, values) {
+      print('${key} : ${values}');
+ setState(() {
+           if(key == 'Location')
+           location = '${values.toString()}';
+            if(key == 'Date_time')
+           time = '${values.toString()}';
+            if(key == 'Date_time')
+           id = '${values.toString()}';
+ 
+              value = {
+          'location': '${location}',
+          'time': '${time}',
+          'id': '${time}',
          
-        }; */
+        };
+        
+      });
 
+    });
+ accidents.insert(count++, value); 
+    });
+
+
+    });
+
+    });
+    
+
+    
+/* 
+
+      setState(() {
+           if(key == 'Location')
+           location = '${values.toString()}';
+            if(key == 'Date_time')
+           time = '${values.toString()}';
+            if(key == 'Date_time')
+           id = '${values.toString()}';
+ 
+             var value = {
+          'location': '${location}',
+          'time': '${time}',
+          'id': '${time}',
+         
+        };
+        accidents.insert(count++, value); 
+      });
+   
+       */
+      // print('${key} : ${values}');
+     //R accidents.insert(count++, values);
          var value1 = {
           'location': 'اضغط هنا',
           'time': '89-feb-21',
@@ -61,17 +120,23 @@ String ddtime = DateFormat.Hms().format(DateTime.now());
           'id': '15:40:10',
          
         };
-                     var value3 = {
+                         value3 = {
           'location': 'اضغط هنا',
           'time': '89-feb-21',
           'id': '15:40:10',
          
         };
-
+     
+              var value4 = {
+          'location': 'اضغط هنا',
+          'time': '89-feb-21',
+          'id': '15:40:10',
+         
+        };
 accidents.insert(count++, value1);
 accidents.insert(count++, value2);
 accidents.insert(count++, value3);
-
+accidents.insert(count++, value4);
 
 //accidents.insert(count++, value);
   // });
@@ -163,7 +228,7 @@ accidents.insert(count++, value3);
                     padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
                     child: Container(
                       width: 360,
-                      height: 150,
+                      height: 140,
                       decoration: BoxDecoration(
                         color: Color(0xFF85BBC2),
                         borderRadius: BorderRadius.circular(10),
@@ -187,7 +252,7 @@ accidents.insert(count++, value3);
                                  Expanded(child:  Padding(
                                  
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 20, 10, 0),
+                                      0, 7, 10, 0),
                                   child: Text(
                                     '${data[i]['location']}', textAlign: TextAlign.right ,
                                     
@@ -203,7 +268,7 @@ accidents.insert(count++, value3);
                                     Padding(
                                  
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 20, 10, 0),
+                                      0, 7, 10, 0),
                                   child: Text(
                                     ': الموقع ', textAlign: TextAlign.right ,
                                     
@@ -262,6 +327,54 @@ accidents.insert(count++, value3);
                                       Row(
   crossAxisAlignment: CrossAxisAlignment.start, 
                                children: [
+
+                                 Row(
+  crossAxisAlignment: CrossAxisAlignment.start, 
+                               children: [
+                                     Row(
+     children: [
+SizedBox(
+  width: 17,
+  
+  
+)
+
+
+     ]
+                             ),
+                                 Row( children: [
+                                 ElevatedButton(
+                                   
+  style: ElevatedButton.styleFrom(
+    
+  onPrimary: Colors.black87,
+  primary: Color(0xFF92D9E3),
+  fixedSize: Size(129, 20),
+  padding: EdgeInsets.symmetric(horizontal: 16),
+  
+    
+  shape: const RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(Radius.circular( 12)),
+  ),),
+  
+  onPressed: () {  print('Data : ${data}'); },
+  child: Text('عرض التقرير', 
+    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w600,
+                                       fontSize: 17,
+                                      
+                                    ),
+  
+  
+  ),
+)
+                                  ] ), 
+                                  
+          
+                                  ],),
+
+
                                  Expanded(child:  Padding(
                                  
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -293,10 +406,24 @@ accidents.insert(count++, value3);
                                     ),
                                   ),
                                   ),
-          
-                                  ],),
+                
+
+
+                                  ],
+                                  
+                                  
+                                  
+                                  
+                                  ),
+                         
                              
-                          
+                             
+
+
+
+
+
+
                                     ],),
 
                               ],
