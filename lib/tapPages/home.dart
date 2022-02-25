@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tayseer2/assistants/assistant_methods.dart';
 import 'package:tayseer2/global/global.dart';
 import 'package:tayseer2/mapScreen/map_screen.dart';
+import 'package:tayseer2/notification/notification.dart';
 import 'package:tayseer2/widgets/my_drawer.dart';
 
 import '../confirmation_page/confirmation_page.dart';
@@ -16,6 +18,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
+    requestPermission();
+    loadFCM();
+    listenFCM();
+    setToken();
     super.initState();
   }
 
@@ -58,14 +64,15 @@ class _HomePageState extends State<HomePage> {
           ),
           Center(
             child: ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
+                /* await sendNotification(
+                    'mPa4lBrPpwQrXg5wL6h5I4mTE9Z2',
+                    'تأكيد الحادث',
+                    'يدعوك نورة لتأكيد وقوع حادث، يرجى النقر للتأكيد أو الرفض',
+                    'JzE3EMuXgUP7FO8TfGlz');
+                print('lllcalled');*/
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (c) =>
-                            MapScreen() /*ConfirmationPageWidget(
-                            accidentID: 'AA')*/
-                        ));
+                    context, MaterialPageRoute(builder: (c) => MapScreen()));
               },
               style: ElevatedButton.styleFrom(
                 primary: const Color(0xFFD8EBEE),
