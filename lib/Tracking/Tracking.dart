@@ -45,7 +45,9 @@ getcurrentLocation() async {
           GeoPoint(currentLocation.latitude!, currentLocation.longitude!),
       'time':
           DateTime.fromMillisecondsSinceEpoch((currentLocation.time)!.toInt()),
-      'speed': currentLocation.speed
+      'speed': currentLocation.speed,
+      'lat': currentLocation.latitude,
+      'long': currentLocation.longitude
     });
   });
 }

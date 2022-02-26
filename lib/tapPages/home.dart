@@ -4,6 +4,7 @@ import 'package:tayseer2/assistants/assistant_methods.dart';
 import 'package:tayseer2/global/global.dart';
 import 'package:tayseer2/mapScreen/map_screen.dart';
 import 'package:tayseer2/notification/notification.dart';
+import 'package:tayseer2/selectInvolvedCars.dart/selectInvolvedCars.dart';
 import 'package:tayseer2/widgets/my_drawer.dart';
 
 import '../confirmation_page/confirmation_page.dart';
@@ -72,7 +73,11 @@ class _HomePageState extends State<HomePage> {
                     'JzE3EMuXgUP7FO8TfGlz');
                 print('lllcalled');*/
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (c) => MapScreen()));
+                    context,
+                    MaterialPageRoute(
+                        builder:
+                            (c) => /*MapScreen()*/ SelectCarInvolvedCarsPageWidget(
+                                accTime: DateTime(2022, 02, 15, 19, 00, 10))));
               },
               style: ElevatedButton.styleFrom(
                 primary: const Color(0xFFD8EBEE),
