@@ -65,19 +65,13 @@ class _HomePageState extends State<HomePage> {
           ),
           Center(
             child: ElevatedButton(
-              onPressed: () async {
-                /* await sendNotification(
-                    'mPa4lBrPpwQrXg5wL6h5I4mTE9Z2',
-                    'تأكيد الحادث',
-                    'يدعوك نورة لتأكيد وقوع حادث، يرجى النقر للتأكيد أو الرفض',
-                    'JzE3EMuXgUP7FO8TfGlz');
-                print('lllcalled');*/
+              onPressed: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder:
                             (c) => /*MapScreen()*/ SelectCarInvolvedCarsPageWidget(
-                                accTime: DateTime(2022, 02, 15, 19, 00, 10))));
+                                accTime: DateTime(2022, 02, 26, 20, 50, 10))));
               },
               style: ElevatedButton.styleFrom(
                 primary: const Color(0xFFD8EBEE),

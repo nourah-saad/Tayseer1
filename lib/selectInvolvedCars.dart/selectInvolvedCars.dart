@@ -4,9 +4,12 @@ import 'package:location/location.dart';
 import 'package:tayseer2/Tracking/Tracking.dart';
 import 'package:tayseer2/notification/notification.dart';
 
+import '../Driver/Driver.dart';
 import '../FlutterFlow/FlutterFlowTheme.dart';
 import '../FlutterFlow/FlutterFlowWidgets.dart';
 import 'package:flutter/material.dart';
+
+import 'DriverDetails.dart';
 
 class SelectCarInvolvedCarsPageWidget extends StatefulWidget {
   const SelectCarInvolvedCarsPageWidget({Key? key, required this.accTime})
@@ -21,9 +24,12 @@ class SelectCarInvolvedCarsPageWidget extends StatefulWidget {
 class _SelectCarInvolvedCarsPageWidgetState
     extends State<SelectCarInvolvedCarsPageWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  List<Driver> involvedDrivers = [];
+  List<String> involvedDriversIDs = [];
 
   @override
   void initState() {
+    involvedDrivers.clear();
     getCars();
     super.initState();
   }
@@ -53,113 +59,22 @@ class _SelectCarInvolvedCarsPageWidgetState
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
-                    child: Container(
-                      width: 300,
-                      height: 180,
-                      decoration: BoxDecoration(
-                        color: Color(0xFF85BBC2),
-                        borderRadius: BorderRadius.circular(10),
-                        shape: BoxShape.rectangle,
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 130, 0, 0),
-                                child: Text(
-                                  '||||||',
-                                  style: FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        60, 130, 0, 0),
-                                    child: FFButtonWidget(
-                                      onPressed: () {
-                                        print('Button pressed ...');
-                                      },
-                                      text: 'اختيار',
-                                      options: FFButtonOptions(
-                                        width: 130,
-                                        height: 40,
-                                        color: Color(0xFF92D9E3),
-                                        textStyle:
-                                            FlutterFlowTheme.title1.override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 16,
-                                        ),
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1,
-                                        ),
-                                        borderRadius: 12,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                                child: Text(
-                                  'نوع السيارة:',
-                                  style: FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
-                                child: Text(
-                                  'لون السيارة:',
-                                  style: FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
-                                child: Text(
-                                  'رقم اللوحة:',
-                                  style: FlutterFlowTheme.bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                      padding: EdgeInsetsDirectional.fromSTEB(5, 50, 5, 0),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height * 0.55,
+                        child: ListView.builder(
+                          itemCount: involvedDrivers.length,
+                          itemBuilder: (context, index) {
+                            return DriverDetails(
+                              driverName: involvedDrivers[index].driverName,
+                              driverID: involvedDrivers[index].driverID,
+                            );
+                          },
+                        ),
+                      )),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
                     child: FFButtonWidget(
                       onPressed: () {
                         print('Button pressed ...');
@@ -245,7 +160,7 @@ class _SelectCarInvolvedCarsPageWidgetState
 
     await FirebaseFirestore.instance
         .collection('Tracking')
-        .where(FieldPath.documentId, isNotEqualTo: user.uid)
+        //.where(FieldPath.documentId, isNotEqualTo: user.uid)
         .get()
         .then((value) {
       value.docs.forEach((element) {
@@ -262,8 +177,17 @@ class _SelectCarInvolvedCarsPageWidgetState
               if (((doc.data()['time'] as Timestamp).toDate())
                       .isAfter(lowestTime) &&
                   ((doc.data()['time'] as Timestamp).toDate())
-                      .isBefore(greatTime))
+                      .isBefore(greatTime) &&
+                  !involvedDriversIDs.contains(element.reference.id)) {
                 print('found user ${doc.reference.parent} ');
+                setState(() {
+                  involvedDriversIDs.add('${element.reference.id}');
+                  involvedDrivers.add(Driver(
+                      driverID: element.reference.id,
+                      driverName: element.data()['name']));
+                  print('driver name ${element.reference.id}');
+                });
+              }
             }
           });
         }); // not this user

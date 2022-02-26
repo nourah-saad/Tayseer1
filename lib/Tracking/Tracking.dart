@@ -32,11 +32,14 @@ getcurrentLocation() async {
   location.onLocationChanged.listen((LocationData currentLocation) {
     FirebaseFirestore.instance
         .collection('Tracking')
-        .doc('${FirebaseAuth.instance.currentUser!.email}')
-        .set({'email': '${FirebaseAuth.instance.currentUser!.email}'});
+        .doc('${FirebaseAuth.instance.currentUser!.uid}')
+        .set({
+      'email': '${FirebaseAuth.instance.currentUser!.email}',
+      'name': 'نورة' //change it
+    }); // change it
     FirebaseFirestore.instance
         .collection('Tracking')
-        .doc('${FirebaseAuth.instance.currentUser!.email}')
+        .doc('${FirebaseAuth.instance.currentUser!.uid}')
         .collection('locations')
         .doc(
             '${DateTime.fromMillisecondsSinceEpoch((currentLocation.time)!.toInt())}')
