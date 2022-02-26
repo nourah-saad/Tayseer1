@@ -3,6 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:tayseer2/notification/notification.dart';
+
+import '../Driver/getName.dart';
 
 List<LocationClass> list = [];
 Location location = new Location();
@@ -29,14 +32,14 @@ requestPermission() async {
 }
 
 getcurrentLocation() async {
-  location.onLocationChanged.listen((LocationData currentLocation) {
+  location.onLocationChanged.listen((LocationData currentLocation) async {
     FirebaseFirestore.instance
         .collection('Tracking')
         .doc('${FirebaseAuth.instance.currentUser!.uid}')
         .set({
       'email': '${FirebaseAuth.instance.currentUser!.email}',
-      'name': 'نورة' //change it
-    }); // change it
+      'name': await getName(user.uid)
+    });
     FirebaseFirestore.instance
         .collection('Tracking')
         .doc('${FirebaseAuth.instance.currentUser!.uid}')

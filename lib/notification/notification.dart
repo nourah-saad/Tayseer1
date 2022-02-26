@@ -6,6 +6,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:tayseer2/confirmation_loading_page/confirmed.dart';
 import 'package:tayseer2/navigationService.dart';
 import 'package:http/http.dart' as http;
 
@@ -78,13 +79,29 @@ listenFCM() async {
   FirebaseMessaging.onMessage.listen((RemoteMessage message) {
     RemoteNotification? notification = message.notification;
     AndroidNotification? android = message.notification?.android;
+    print('mmmmyy ${message.data['type']}');
     if (notification != null && android != null && !kIsWeb) {
-      // show(notification);
-      Navigator.push(
-          navigationService.navigatorKey.currentContext!,
-          MaterialPageRoute(
-              builder: (context) => ConfirmationPageWidget(
-                  accidentID: '${message.data['accID']}')));
+      switch (message.data['type']) {
+        case 'ques':
+          Navigator.push(
+              navigationService.navigatorKey.currentContext!,
+              MaterialPageRoute(
+                  builder: (context) => ConfirmationPageWidget(
+                        accidentID: '${message.data['accID']}',
+                        sender: message.data['sender'],
+                      )));
+          break;
+
+        case 'accept':
+        case 'denied':
+          Navigator.push(
+              navigationService.navigatorKey.currentContext!,
+              MaterialPageRoute(
+                  builder: (context) => ConfirmedPage(
+                        status: message.data['type'],
+                      )));
+          break;
+      }
     }
   });
 
@@ -98,7 +115,9 @@ listenFCM() async {
         navigationService.navigatorKey.currentContext!,
         MaterialPageRoute(
             builder: (context) => ConfirmationPageWidget(
-                accidentID: '${initialMessage.data['accID']}')));
+                  accidentID: '${initialMessage.data['accID']}',
+                  sender: initialMessage.data['sender'],
+                )));
   }
 }
 
@@ -130,13 +149,21 @@ void notificationPressed(RemoteMessage message) {
   Navigator.push(
       navigationService.navigatorKey.currentContext!,
       MaterialPageRoute(
-          builder: (context) =>
-              ConfirmationPageWidget(accidentID: '${message.data['accID']}')));
+          builder: (context) => ConfirmationPageWidget(
+                accidentID: '${message.data['accID']}',
+                sender: message.data['sender'],
+              )));
 }
 
 var postUrl = "https://fcm.googleapis.com/fcm/send";
 
-Future<void> sendNotification(receiver, title, msg, accID) async {
+Future<void> sendNotification(
+    {required receiver,
+    required title,
+    required msg,
+    required accID,
+    required sender,
+    required type}) async {
   String token = await getRecieverToken(receiver);
   print('token : $token');
 
@@ -160,7 +187,9 @@ Future<void> sendNotification(receiver, title, msg, accID) async {
             'click_action': 'FLUTTER_NOTIFICATION_CLICK',
             'id': '1',
             'status': 'done',
-            'accID': '$accID'
+            'accID': '$accID',
+            'sender': sender,
+            'type': '$type'
           },
           "to": token,
         },

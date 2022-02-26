@@ -1,13 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:get/get.dart';
+import 'package:tayseer2/notification/notification.dart';
 //import 'package:geocoding/geocoding.dart';
 import '../FlutterFlow/FlutterFlowTheme.dart';
 import '../FlutterFlow/FlutterFlowWidgets.dart';
 import 'package:flutter/material.dart';
 
 class ConfirmationPageWidget extends StatefulWidget {
-  ConfirmationPageWidget({Key? key, required this.accidentID})
+  ConfirmationPageWidget(
+      {Key? key, required this.accidentID, required this.sender})
       : super(key: key);
   final String accidentID;
 
@@ -16,6 +18,7 @@ class ConfirmationPageWidget extends StatefulWidget {
   String driverCar = '';
   String driverCarColor = '';
   String accidentLocation = '';
+  String sender;
 
   @override
   _ConfirmationPageWidgetState createState() => _ConfirmationPageWidgetState();
@@ -156,12 +159,20 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
                                 onPressed: () {
                                   print('Button pressed ...');
                                   Navigator.pop(context);
-                                  update('jRejected');
+                                  update('مرفوض');
                                   SnackBar snackbar = SnackBar(
                                       content: Text('تم الرفض بنجاح',
                                           textAlign: TextAlign.center));
                                   ScaffoldMessenger.of(context)
                                       .showSnackBar(snackbar);
+                                  sendNotification(
+                                    receiver: widget.sender,
+                                    title: 'تأكيد الحادث',
+                                    msg: 'تم الرفض من قبل الطرف الآخر بنجاح',
+                                    accID: widget.accidentID,
+                                    sender: '${user.uid}',
+                                    type: 'denied',
+                                  );
                                 },
                                 text: 'رفض',
                                 options: FFButtonOptions(
@@ -192,13 +203,20 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
                                 onPressed: () {
                                   print('Button pressed ...');
                                   Navigator.pop(context);
-                                  update('jAccepted');
-                                  //Get.snackbar('', 'تم التأكيد بنجاح');
+                                  update('مقبول');
                                   SnackBar snackbar = SnackBar(
                                       content: Text('تم التأكيد بنجاح',
                                           textAlign: TextAlign.center));
                                   ScaffoldMessenger.of(context)
                                       .showSnackBar(snackbar);
+                                  sendNotification(
+                                    receiver: widget.sender,
+                                    title: 'تأكيد الحادث',
+                                    msg: 'تم التأكيد من قبل الطرف الآخر بنجاح',
+                                    accID: widget.accidentID,
+                                    sender: '${user.uid}',
+                                    type: 'accept',
+                                  );
                                 },
                                 text: 'تأكيد',
                                 options: FFButtonOptions(

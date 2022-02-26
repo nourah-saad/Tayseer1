@@ -67,8 +67,8 @@ class _SelectCarInvolvedCarsPageWidgetState
                           itemCount: involvedDrivers.length,
                           itemBuilder: (context, index) {
                             return DriverDetails(
-                              driverName: involvedDrivers[index].driverName,
-                              driverID: involvedDrivers[index].driverID,
+                              inDriverName: involvedDrivers[index].driverName,
+                              inDriverID: involvedDrivers[index].driverID,
                             );
                           },
                         ),
@@ -186,6 +186,7 @@ class _SelectCarInvolvedCarsPageWidgetState
                       driverID: element.reference.id,
                       driverName: element.data()['name']));
                   print('driver name ${element.reference.id}');
+                  print('dr name: ${element.data()['name']}');
                 });
               }
             }
