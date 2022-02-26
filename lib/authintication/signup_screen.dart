@@ -2,11 +2,29 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:tayseer2/global/global.dart';
 import 'package:tayseer2/widgets/progress_dialog.dart';
 
 import 'car_info_screen.dart';
 import 'login_screen.dart';
+
+// to get latitude and longitude and store it in firebase
+
+late Position cPosition;
+LocationPermission? _locationPermission;
+checkIfLocationPermissionAllowedd() async {
+  _locationPermission = await Geolocator.requestPermission();
+
+  if (_locationPermission == LocationPermission.denied) {
+    _locationPermission = await Geolocator.requestPermission();
+  }
+}
+
+getPositionn() async {
+  cPosition = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high);
+}
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -49,7 +67,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
     final User? firebaseUser = (await fAuth
             .createUserWithEmailAndPassword(
-      email: '${didTextEditingController.text.trim()}@gmail.com',
+      email: emailTextEditingController.text.trim(),
       password: passwordTextEditingController.text.trim(),
     )
             .catchError((msg) {
@@ -68,6 +86,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
         "nationality": nationalityTextEditingController.text.trim(),
         "sex": sexTextEditingController.text.trim(),
         "password": passwordTextEditingController.text.trim(),
+        'longitude': cPosition.longitude,
+        'latitude': cPosition.latitude,
       };
 
       DatabaseReference driversRef =
@@ -82,6 +102,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
       Navigator.pop(context);
       Fluttertoast.showToast(msg: "Account has not been Created.");
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    checkIfLocationPermissionAllowedd();
+    getPositionn();
   }
 
   @override
@@ -304,5 +331,4 @@ class _SignUpScreenState extends State<SignUpScreen> {
       ),
     );
   }
-  
 }

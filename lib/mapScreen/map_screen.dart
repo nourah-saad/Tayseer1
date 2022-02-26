@@ -1,10 +1,15 @@
 import 'dart:async';
+import 'dart:math' as Math;
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:tayseer2/assistants/assistant_methods.dart';
+import 'package:tayseer2/authintication/signup_screen.dart';
 import 'package:tayseer2/infoHandler/app_info.dart';
 import 'package:provider/provider.dart';
 
@@ -25,6 +30,9 @@ class _MapScreenState extends State<MapScreen> {
   double searchLocationContainerHeight = 220;
 
   Position? userCurrentPosition;
+
+  //Position? ccPosition;
+
   var geoLocator = Geolocator();
 
   LocationPermission? _locationPermission;
@@ -40,8 +48,9 @@ class _MapScreenState extends State<MapScreen> {
 
   locateUserPosition() async {
     Position cPosition = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high);
+        desiredAccuracy: LocationAccuracy.best);
     userCurrentPosition = cPosition;
+    // ccPosition = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.best);
 
     LatLng latLngPosition =
         LatLng(userCurrentPosition!.latitude, userCurrentPosition!.longitude);
@@ -49,7 +58,7 @@ class _MapScreenState extends State<MapScreen> {
     CameraPosition cameraPosition =
         CameraPosition(target: latLngPosition, zoom: 14); //zoom
 
-    newGoogleMapController!
+    await newGoogleMapController!
         .animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
 
     String humanReadableAddress =
@@ -61,7 +70,110 @@ class _MapScreenState extends State<MapScreen> {
   @override
   void initState() {
     super.initState();
+
     checkIfLocationPermissionAllowed();
+    locateUserPosition();
+    getMarkerData();
+  }
+
+  // map to store all markers
+  Map<MarkerId, Marker> markers = <MarkerId, Marker>{};
+
+  // to store destinations
+  List<Destination> destinationlist = [];
+
+  // initialize the marker to every user
+  initMarkerData(longitude, latitude, name, nationality, specifyId, dis) {
+    var markerIdVal = specifyId;
+    final markerId = MarkerId(markerIdVal.toString());
+    final Marker marker = Marker(
+      markerId: markerId,
+      position: LatLng(longitude, latitude),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+      infoWindow: InfoWindow(
+        title: name,
+        snippet: nationality + ' $dis Km',
+      ),
+    );
+    setState(() {
+      markers[markerId] = marker;
+    });
+  }
+
+  // initialize the reference
+  final db = FirebaseDatabase.instance.reference().child('drivers');
+
+  // select users longitude and latitude
+  Future getMarkerData() async {
+    markers.clear();
+
+    await FirebaseDatabase.instance.ref('drivers').once().then((snapshot) {
+      Map<dynamic, dynamic>? values = snapshot.snapshot.value as Map?;
+      values!.forEach((key, values) {
+        if (values['latitude'] != null && values['longitude'] != null) {
+          // cPosition from the sign up page , I put it as global variable
+          // to store the distance between me and other users
+          double dis = getDist(cPosition.longitude, cPosition.latitude,
+              values['latitude'], values['longitude']);
+
+          // store data in object
+          var dd = Destination(values['latitude'], values['latitude'],
+              values['name'], values['did'].toString(), values['nationality'],
+              distance: dis);
+
+          // add the object in the list
+          destinationlist.add(dd);
+
+          // call the function to make marker
+          //initMarkerData(values, values['did'],dis);
+
+          if (kDebugMode) {
+            print('*****************************');
+            print(values['latitude']);
+
+            print(dis);
+          }
+        }
+      });
+
+      int near = 0;
+      destinationlist.forEach((element) {
+        if (near < 5) {
+          // call the function to make marker
+          initMarkerData(
+            element.lng,
+            element.lat,
+            element.name,
+            element.nationality,
+            element.Id.toString(),
+            element.distance,
+          );
+
+          if (kDebugMode) {
+            print('********************************');
+            print(element.name + ' /// ' + element.distance.toString() + ' KM');
+            print('near : $near');
+          }
+          setState(() {
+            near++;
+          });
+        } else {
+          if (kDebugMode) {
+            print('********************************');
+            print(element.name + ' /// ' + element.distance.toString() + ' KM');
+            print('near is not within first 5 ');
+          }
+        }
+      });
+    });
+  }
+
+  // function to measure the distance between tow locations
+  double getDist(double startLatitude, double startLongitude,
+      double endLatitude, double endLongitude) {
+    return Geolocator.distanceBetween(
+            startLatitude, startLongitude, endLatitude, endLongitude) /
+        1000;
   }
 
   @override
@@ -80,13 +192,12 @@ class _MapScreenState extends State<MapScreen> {
             onMapCreated: (GoogleMapController controller) {
               _controllerGoogleMap.complete(controller);
               newGoogleMapController = controller;
-
               setState(() {
                 bottomPaddingOfMap = 240;
               });
-
               locateUserPosition();
             },
+            markers: Set<Marker>.of(markers.values),
           ),
 
           //ui for searching location
@@ -180,4 +291,16 @@ class _MapScreenState extends State<MapScreen> {
       ),
     );
   }
+}
+
+class Destination {
+  double lat;
+  double lng;
+  String name;
+  String Id;
+  String nationality;
+  double distance;
+
+  Destination(this.lat, this.lng, this.name, this.Id, this.nationality,
+      {required this.distance});
 }

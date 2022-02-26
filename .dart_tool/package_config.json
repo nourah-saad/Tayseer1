@@ -279,9 +279,9 @@
     },
     {
       "name": "js",
-      "rootUri": "file:///Users/nourahaldosari/FlutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.3",
+      "rootUri": "file:///Users/nourahaldosari/FlutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.4",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.16"
     },
     {
       "name": "json_path",
@@ -303,7 +303,7 @@
     },
     {
       "name": "material_color_utilities",
-      "rootUri": "file:///Users/nourahaldosari/FlutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.3",
+      "rootUri": "file:///Users/nourahaldosari/FlutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.4",
       "packageUri": "lib/",
       "languageVersion": "2.13"
     },
@@ -321,7 +321,7 @@
     },
     {
       "name": "path",
-      "rootUri": "file:///Users/nourahaldosari/FlutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.0",
+      "rootUri": "file:///Users/nourahaldosari/FlutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -423,9 +423,9 @@
     },
     {
       "name": "source_span",
-      "rootUri": "file:///Users/nourahaldosari/FlutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.1",
+      "rootUri": "file:///Users/nourahaldosari/FlutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.2",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.14"
     },
     {
       "name": "stack_trace",
@@ -459,7 +459,7 @@
     },
     {
       "name": "test_api",
-      "rootUri": "file:///Users/nourahaldosari/FlutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.8",
+      "rootUri": "file:///Users/nourahaldosari/FlutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/test_api-0.4.9",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -519,7 +519,7 @@
     },
     {
       "name": "vector_math",
-      "rootUri": "file:///Users/nourahaldosari/FlutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.1",
+      "rootUri": "file:///Users/nourahaldosari/FlutterDev/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2",
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
@@ -542,7 +542,7 @@
       "languageVersion": "2.15"
     }
   ],
-  "generated": "2022-02-22T09:41:58.511996Z",
+  "generated": "2022-02-26T19:28:10.940347Z",
   "generator": "pub",
-  "generatorVersion": "2.16.1"
+  "generatorVersion": "2.17.0-148.0.dev"
 }
