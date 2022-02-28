@@ -18,7 +18,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   GlobalKey<ScaffoldState> sKey = GlobalKey<ScaffoldState>();
-
+var n ='khawla';
+var  e='khawlaff5@gmail.com';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,12 +83,65 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Container(
                   width: 300,
-                  height: 250,
+                  height: 210,
                   decoration: BoxDecoration(
                     color: Color(0xFF85BBC2),
                     borderRadius: BorderRadius.circular(10),
                     shape: BoxShape.rectangle,
                   ),
+             child:     Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                 
+                 
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                  height: 80,
+                  width: 80,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(61, 255, 255, 255),
+                  ),
+                  child: Icon(
+                    Icons.person,
+                    size: 80,
+                    color: Colors.black,
+                  ),
+                  alignment: Alignment.center,
+                ),
+  
+ const SizedBox(
+                    height: 20,
+                  ),
+                      Text(
+                        
+                        n.toString(),
+                        style: const TextStyle(
+                          fontSize: 25,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        e.toString(),
+                        style: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  ),
+                   const SizedBox(
+                    width: 16,
+                  ),
+                 
+                ],
+              ),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),

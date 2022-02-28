@@ -126,6 +126,7 @@ cars.insert(count++, value4);
       backgroundColor: Color(0xFF85BBC2),
       body: Stack(
         children: [
+          
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0, 130, 0, 0),
             child: Container(
@@ -140,9 +141,12 @@ cars.insert(count++, value4);
                   topRight: Radius.circular(30),
                 ),
               ),
-              child: accidentChild(cars),
+              
+              child: accidentChild(cars, this.context),
+              
             ),
           ),
+         
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(10, 60, 0, 0),
             child:   IconButton(
@@ -158,7 +162,6 @@ cars.insert(count++, value4);
   ) 
 , 
               
-     
             ),  
           ),
           Align(
@@ -186,7 +189,7 @@ cars.insert(count++, value4);
     );
   }
 }
- Widget accidentChild(data) {
+ Widget accidentChild(data , context) {
     return ListView(
       children: [
 
@@ -444,11 +447,49 @@ SizedBox(
                     
 
                     ),
+                    
                   ),
+                        
                 ],
               ),
-     
-              
+      Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                  Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                  child:               
+                      ElevatedButton(
+                                   
+  style: ElevatedButton.styleFrom(
+    
+  onPrimary: Colors.black87,
+  primary: Color(0xFF85BBC2),
+  fixedSize: Size(220, 50),
+  padding: EdgeInsets.symmetric(horizontal: 16),
+  
+    
+  shape: const RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(Radius.circular( 25)),
+  ),),
+  
+   onPressed: () {
+               /*  Navigator.push(
+                    context, MaterialPageRoute(builder: (c) => MapScreen())); */
+              },
+  child: Text(" اضافة سيارة أخرى",
+    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w600,
+                                       fontSize: 17,
+                                       color: Colors.black,
+                                    ),
+  
+  
+  ),
+),),
+              ],),
       ],
     );
   }

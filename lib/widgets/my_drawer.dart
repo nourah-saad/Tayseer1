@@ -26,15 +26,10 @@ class _MyDrawerState extends State<MyDrawer> {
             child: DrawerHeader(
               decoration: const BoxDecoration(color: Color(0xFFD8EBEE)),
               child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  const Icon(
-                    Icons.person,
-                    size: 50,
-                    color: Colors.black,
-                  ),
-                  const SizedBox(
-                    width: 16,
-                  ),
+                 
+                 
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -57,6 +52,14 @@ class _MyDrawerState extends State<MyDrawer> {
                         ),
                       ),
                     ],
+                  ),
+                   const SizedBox(
+                    width: 16,
+                  ),
+                   const Icon(
+                    Icons.person,
+                    size: 50,
+                    color: Colors.black,
                   ),
                 ],
               ),

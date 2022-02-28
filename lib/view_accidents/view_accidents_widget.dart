@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 //import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:date_format/date_format.dart';
+import 'package:tayseer2/view_accidents/view_accident_report.dart';
 
 import '../mainScreen/main_screen.dart';
 
@@ -27,6 +28,7 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
   var location;
   var time;
   var id;
+  var Accid = '990';
   var dataaa= 'new ' ;
    final databaseRef = FirebaseDatabase.instance.ref();
   final Future<FirebaseApp> _future = Firebase.initializeApp();
@@ -67,12 +69,13 @@ Map<dynamic, dynamic> Avalues = ADatabaseEvent.snapshot.value as Map;
            time = '${values.toString()}';
             if(key == 'Date_time')
            id = '${values.toString()}';
- 
+    if(key == 'Accident_id')
+           Accid = '${values.toString()}';
               value = {
           'location': '${location}',
           'time': '${time}',
           'id': '${time}',
-         
+         'Accid': '${Accid}',
         };
         
       });
@@ -87,45 +90,26 @@ Map<dynamic, dynamic> Avalues = ADatabaseEvent.snapshot.value as Map;
     });
     
 
-    
-/* 
 
-      setState(() {
-           if(key == 'Location')
-           location = '${values.toString()}';
-            if(key == 'Date_time')
-           time = '${values.toString()}';
-            if(key == 'Date_time')
-           id = '${values.toString()}';
- 
-             var value = {
-          'location': '${location}',
-          'time': '${time}',
-          'id': '${time}',
-         
-        };
-        accidents.insert(count++, value); 
-      });
-   
-       */
-      // print('${key} : ${values}');
-     //R accidents.insert(count++, values);
          var value1 = {
           'location': 'اضغط هنا',
           'time': '89-feb-21',
           'id': '15:40:10',
+          'Accid': '${Accid}',
          
         };
                  var value2 = {
           'location': 'اضغط هنا',
           'time': '89-feb-21',
           'id': '15:40:10',
+          'Accid': '${Accid}',
          
         };
                          value3 = {
           'location': 'اضغط هنا',
           'time': '89-feb-21',
           'id': '15:40:10',
+          'Accid': '${Accid}',
          
         };
      
@@ -133,6 +117,7 @@ Map<dynamic, dynamic> Avalues = ADatabaseEvent.snapshot.value as Map;
           'location': 'اضغط هنا',
           'time': '89-feb-21',
           'id': '15:40:10',
+          'Accid': '${Accid}',
          
         };
 accidents.insert(count++, value1);
@@ -170,7 +155,7 @@ accidents.insert(count++, value4);
                   topRight: Radius.circular(30),
                 ),
               ),
-              child: accidentChild(accidents),
+              child: accidentChild(accidents , this.context),
             ),
           ),
           Padding(
@@ -216,7 +201,7 @@ accidents.insert(count++, value4);
     );
   }
 }
- Widget accidentChild(data) {
+ Widget accidentChild(data , context ) {
     return ListView(
       children: [
 
@@ -359,7 +344,8 @@ SizedBox(
     borderRadius: BorderRadius.all(Radius.circular( 12)),
   ),),
   
-  onPressed: () {  print('Data : ${data}'); },
+  onPressed: () {   Navigator.push(
+                    context, MaterialPageRoute(builder: (c) => AccidentReportWidget(id :'${data[i]['Accid']}' )));},
   child: Text('عرض التقرير', 
     style: TextStyle(
                                       fontFamily: 'Poppins',
