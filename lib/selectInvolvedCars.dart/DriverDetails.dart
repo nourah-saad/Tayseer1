@@ -8,12 +8,11 @@ import '../FlutterFlow/FlutterFlowTheme.dart';
 import '../FlutterFlow/FlutterFlowWidgets.dart';
 
 class DriverDetails extends StatefulWidget {
-  DriverDetails(
+  const DriverDetails(
       {Key? key, required this.inDriverName, required this.inDriverID})
       : super(key: key);
   final String inDriverName;
   final String inDriverID;
-  String name = '';
 
   @override
   State<DriverDetails> createState() => _DriverDetailsState();
@@ -22,11 +21,6 @@ class DriverDetails extends StatefulWidget {
 class _DriverDetailsState extends State<DriverDetails> {
   @override
   void initState() {
-    setState(() {
-      () async {
-        widget.name = await getName(user.uid);
-      };
-    });
     super.initState();
   }
 
@@ -35,8 +29,8 @@ class _DriverDetailsState extends State<DriverDetails> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        width: 300,
-        height: 180,
+        width: MediaQuery.of(context).size.width * 2,
+        height: MediaQuery.of(context).size.height * 0.28,
         decoration: BoxDecoration(
           color: Color(0xFF85BBC2),
           borderRadius: BorderRadius.circular(10),
@@ -69,8 +63,8 @@ class _DriverDetailsState extends State<DriverDetails> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(60, 130, 0, 0),
                       child: FFButtonWidget(
-                        onPressed: () {
-                          Navigator.push(
+                        onPressed: () async {
+                          Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
@@ -79,7 +73,7 @@ class _DriverDetailsState extends State<DriverDetails> {
                               receiver: widget.inDriverID,
                               title: 'تأكيد الحادث',
                               msg:
-                                  'يدعوك ${widget.name} لتأكيد وقوع حادث، يرجى النقر للتأكيد أو الرفض',
+                                  'يدعوك ${await getName(user.uid)} لتأكيد وقوع حادث، يرجى النقر للتأكيد أو الرفض',
                               accID: 'JzE3EMuXgUP7FO8TfGlz',
                               sender: '${user.uid}',
                               type: 'ques');

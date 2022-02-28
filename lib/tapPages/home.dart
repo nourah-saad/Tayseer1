@@ -71,8 +71,7 @@ class _HomePageState extends State<HomePage> {
                     MaterialPageRoute(
                         builder:
                             (c) => /*MapScreen()*/ SelectCarInvolvedCarsPageWidget(
-                                accTime: DateTime(2022, 02, 26, 20, 50,
-                                    10)))); // DateTime.now()
+                                accTime: DateTime.now())));
               },
               style: ElevatedButton.styleFrom(
                 primary: const Color(0xFFD8EBEE),

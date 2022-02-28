@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:get/get.dart';
 import 'package:location/location.dart';
 import 'package:tayseer2/Tracking/Tracking.dart';
 import 'package:tayseer2/notification/notification.dart';
@@ -157,10 +158,9 @@ class _SelectCarInvolvedCarsPageWidgetState
 
     DateTime greatTime = widget.accTime.add(new Duration(minutes: 10));
     print('great date $greatTime');
-
     await FirebaseFirestore.instance
         .collection('Tracking')
-        //.where(FieldPath.documentId, isNotEqualTo: user.uid)
+        .where(FieldPath.documentId, isNotEqualTo: user.uid)
         .get()
         .then((value) {
       value.docs.forEach((element) {

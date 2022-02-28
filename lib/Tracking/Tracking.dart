@@ -1,38 +1,41 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:location/location.dart';
+import 'package:location/location.dart' as locationServices;
 import 'package:permission_handler/permission_handler.dart';
 import 'package:tayseer2/notification/notification.dart';
 
 import '../Driver/getName.dart';
 
 List<LocationClass> list = [];
-Location location = new Location();
+locationServices.Location location = new locationServices.Location();
 late bool _serviceEnabled;
-late LocationData _locationData;
+late locationServices.LocationData _locationData;
+late locationServices.PermissionStatus _permissionStatus;
 
 requestPermission() async {
   _serviceEnabled = await location.serviceEnabled();
   while (!_serviceEnabled) {
     _serviceEnabled = await location.requestService();
   }
-  if (location.hasPermission() == false) {
+  _permissionStatus = await location.hasPermission();
+  if (_permissionStatus != locationServices.PermissionStatus.granted) {
     await location.requestPermission();
   }
-  while (!await Permission.locationAlways.isGranted)
+  while (!await Permission.locationAlways.isGranted) {
     await Permission.locationAlways.request();
+  }
   location.enableBackgroundMode(enable: true);
 
   await location.changeSettings(
-      accuracy: LocationAccuracy.navigation, distanceFilter: 3
+      accuracy: locationServices.LocationAccuracy.navigation, distanceFilter: 3
       //if 10 seconds are passed AND* if the phone is moved at least 5 meters, give the location. must be (both)
       );
   getcurrentLocation();
 }
 
 getcurrentLocation() async {
-  location.onLocationChanged.listen((LocationData currentLocation) async {
+  location.onLocationChanged
+      .listen((locationServices.LocationData currentLocation) async {
     FirebaseFirestore.instance
         .collection('Tracking')
         .doc('${FirebaseAuth.instance.currentUser!.uid}')

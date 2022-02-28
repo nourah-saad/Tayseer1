@@ -94,7 +94,7 @@ listenFCM() async {
 
         case 'accept':
         case 'denied':
-          Navigator.push(
+          Navigator.pushReplacement(
               navigationService.navigatorKey.currentContext!,
               MaterialPageRoute(
                   builder: (context) => ConfirmedPage(
