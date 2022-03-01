@@ -86,7 +86,7 @@ class _MyDrawerState extends State<MyDrawer> {
                       width: 310,
                       height: 50,
                       decoration: BoxDecoration(
-                        color: Color(0xFF92D9E3),
+                        color: Color(0xFF85BBC2),
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(
@@ -128,7 +128,7 @@ class _MyDrawerState extends State<MyDrawer> {
                         width: 310,
                         height: 50,
                         decoration: BoxDecoration(
-                          color: Color(0xFF92D9E3),
+                          color:Color(0xFF85BBC2),
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
@@ -167,7 +167,7 @@ Container(
                         width: 310,
                         height: 50,
                         decoration: BoxDecoration(
-                          color: Color(0xFF92D9E3),
+                          color: Color(0xFF85BBC2),
                           shape: BoxShape.rectangle,
                         ),
          child: Padding(
@@ -213,7 +213,7 @@ GestureDetector(
                       width: 310,
                       height: 50,
                       decoration: BoxDecoration(
-                        color: Color(0xFF92D9E3),
+                        color: Color(0xFF85BBC2),
                         shape: BoxShape.rectangle,
                       ),
                       child: Padding(

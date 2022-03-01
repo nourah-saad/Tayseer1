@@ -9,6 +9,7 @@ import 'package:intl/intl.dart';
 import 'package:date_format/date_format.dart';
 
 import '../mainScreen/main_screen.dart';
+import 'add_new_car.dart';
 
 class select_involved_carWidget extends StatefulWidget {
   const select_involved_carWidget({Key? key}) : super(key: key);
@@ -475,8 +476,8 @@ SizedBox(
   ),),
   
    onPressed: () {
-               /*  Navigator.push(
-                    context, MaterialPageRoute(builder: (c) => MapScreen())); */
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (c) => AddCarManuallyWidget())); 
               },
   child: Text(" اضافة سيارة أخرى",
     style: TextStyle(
