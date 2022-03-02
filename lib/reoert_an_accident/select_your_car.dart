@@ -9,6 +9,7 @@ import 'package:intl/intl.dart';
 import 'package:date_format/date_format.dart';
 import 'package:tayseer2/reoert_an_accident/select_involved_car.dart';
 
+import '../global/global.dart';
 import '../mainScreen/main_screen.dart';
 
 class select_your_carWidget extends StatefulWidget {
@@ -38,10 +39,11 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
 
        int count = 0;
 
- var value3;
+
+  currentFirebaseUser = fAuth.currentUser;
         final userProfileDetails = await FirebaseDatabase.instance
         .ref()
-        .child("Accident")
+        .child("drivers").child(currentFirebaseUser!.uid).child("cars")
         .once()
         .then((DatabaseEvent DatabaseEvent) {
 Map<dynamic, dynamic> values = DatabaseEvent.snapshot.value as Map;
@@ -50,18 +52,18 @@ Map<dynamic, dynamic> values = DatabaseEvent.snapshot.value as Map;
 
      final accidentsy =  await FirebaseDatabase.instance
         .ref()
-        .child("Accident").child('${key}')
+        .child("drivers").child(currentFirebaseUser!.uid).child("cars").child('${key}')
         .once()
         .then(( ADatabaseEvent) {
 Map<dynamic, dynamic> Avalues = ADatabaseEvent.snapshot.value as Map;
     Avalues.forEach((key, values) {
       print('${key} : ${values}');
  setState(() {
-           if(key == 'Location')
+           if(key == 'car_model')
            car_model = '${values.toString()}';
-            if(key == 'Date_time')
+            if(key == 'car_color')
            car_color = '${values.toString()}';
-            if(key == 'Date_time')
+            if(key == 'car_number')
            car_number = '${values.toString()}';
  
               value = {
@@ -85,39 +87,7 @@ Map<dynamic, dynamic> Avalues = ADatabaseEvent.snapshot.value as Map;
     
 
   
-         var value1 = {
-          'car_model': ' تويوتا',
-          'car_color': 'كحلي',
-          'car_number': 'ا ب ع ٦٦٦٣',
-          'in' :'سارية',
-         
-        };
-                 var value2 = {
-          'car_model': ' مرسيدس',
-          'car_color': 'اسود',
-          'car_number': 'ق ل ب ٥٥٥٥',
-           'in' :'سارية',
-         
-        };
-                         value3 = {
-          'car_model': ' هونداي',
-          'car_color': 'ابيض',
-          'car_number': 'س د ر ٨٩٠٠',
-           'in' :'سارية',
-         
-        };
-     
-              var value4 = {
-          'car_model': ' هونداي',
-          'car_color': 'احمر',
-          'car_number': 'ا س س ٩٩٨٨',
-           'in' :'سارية',
-         
-        };
-cars.insert(count++, value1);
-cars.insert(count++, value2);
-cars.insert(count++, value3);
-cars.insert(count++, value4);
+
 
    }
   @override

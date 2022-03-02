@@ -2,11 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
-
+import 'package:geocoding/geocoding.dart';
 //import 'package:tayseer/home_page/home_page_widget.dart';
 
 
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 //import 'package:google_fonts/google_fonts.dart';
 //import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -25,11 +27,12 @@ class ViewAccidentsWidget extends StatefulWidget {
 class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   List accidents = [];
-  var location;
-  var time;
+  GeoPoint ?location;
+  DateTime? time;
   var id;
   var Accid = '990';
   var dataaa= 'new ' ;
+  var Address='kkkk';
    final databaseRef = FirebaseDatabase.instance.ref();
   final Future<FirebaseApp> _future = Firebase.initializeApp();
 
@@ -39,100 +42,55 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
    addtolist();
     super.initState();
   }
-
+void GetAddressFromLatLong(LatLng l)async {
+    List<Placemark> placemarks = await placemarkFromCoordinates(l.latitude, l.longitude);
+    print(placemarks);
+    Placemark place = placemarks[0];
+    setState(() {
+       Address = '${place.street}, ${place.subLocality}, ${place.locality}, ${place.postalCode}, ${place.country}';
+    });
+    print('the adrres is ${Address}');
+    
+  }
    void addtolist() async{
 
        int count = 0;
 
- var value3;
-        final userProfileDetails = await FirebaseDatabase.instance
-        .ref()
-        .child("Accident")
-        .once()
-        .then((DatabaseEvent DatabaseEvent) {
-Map<dynamic, dynamic> values = DatabaseEvent.snapshot.value as Map;
-    values.forEach((key, values) async {
  var value;
 
-     final accidentsy =  await FirebaseDatabase.instance
-        .ref()
-        .child("Accident").child('${key}')
-        .once()
-        .then(( ADatabaseEvent) {
-Map<dynamic, dynamic> Avalues = ADatabaseEvent.snapshot.value as Map;
-    Avalues.forEach((key, values) {
-      print('${key} : ${values}');
- setState(() {
-           if(key == 'Location')
-           location = '${values.toString()}';
-            if(key == 'Date_time')
-           time = '${values.toString()}';
-            if(key == 'Date_time')
-           id = '${values.toString()}';
-    if(key == 'Accident_id')
-           Accid = '${values.toString()}';
-              value = {
-          'location': '${location}',
-          'time': '${time}',
-          'id': '${time}',
-         'Accid': '${Accid}',
-        };
-        
-      });
 
-    });
- accidents.insert(count++, value); 
-    });
+ var exists = await FirebaseFirestore.instance
+        .collection('Accident').snapshots()
+        .listen((event) {
+      event.docs.forEach((element) async {
+        setState(() {
+          location = element.data()['Location'];
+          time = element.data()['Date_time'].toDate();
+          id = element.id.toString();
+        });
+String dtime = DateFormat(DateFormat.YEAR_ABBR_MONTH_WEEKDAY_DAY).format(time!);
+String ddtime = DateFormat.Hms().format(time!);
 
-
-    });
-
-    });
-    
-
-
-         var value1 = {
-          'location': 'اضغط هنا',
-          'time': '89-feb-21',
-          'id': '15:40:10',
-          'Accid': '${Accid}',
+LatLng l = LatLng(location!.latitude, location!.longitude);
+GetAddressFromLatLong(l);
+  var value = {
+          'location': ' Al Dawaer Street',
+          'date': '${dtime}',
+          'time': '${ddtime}',
+          'id': '${id}',
          
         };
-                 var value2 = {
-          'location': 'اضغط هنا',
-          'time': '89-feb-21',
-          'id': '15:40:10',
-          'Accid': '${Accid}',
-         
-        };
-                         value3 = {
-          'location': 'اضغط هنا',
-          'time': '89-feb-21',
-          'id': '15:40:10',
-          'Accid': '${Accid}',
-         
-        };
-     
-              var value4 = {
-          'location': 'اضغط هنا',
-          'time': '89-feb-21',
-          'id': '15:40:10',
-          'Accid': '${Accid}',
-         
-        };
-accidents.insert(count++, value1);
-accidents.insert(count++, value2);
-accidents.insert(count++, value3);
-accidents.insert(count++, value4);
 
-//accidents.insert(count++, value);
-  // });
+accidents.insert(count++, value);
+   });
    
-     //    } );
-      
+         } );
+
+
+       
+        
 
     
-
    }
   @override
   Widget build(BuildContext context) {
@@ -282,7 +240,7 @@ accidents.insert(count++, value4);
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 7, 10, 0),
                                   child: Text(
-                                    '${data[i]['time']}', textAlign: TextAlign.right ,
+                                    '${data[i]['date']}', textAlign: TextAlign.right ,
                                     
                                     style: TextStyle(
                                       fontFamily: 'Poppins',
@@ -345,7 +303,7 @@ SizedBox(
   ),),
   
   onPressed: () {   Navigator.push(
-                    context, MaterialPageRoute(builder: (c) => AccidentReportWidget(id :'${data[i]['Accid']}' )));},
+                    context, MaterialPageRoute(builder: (c) => AccidentReportWidget(id :'${data[i]['id']}' )));},
   child: Text('عرض التقرير', 
     style: TextStyle(
                                       fontFamily: 'Poppins',
@@ -368,7 +326,7 @@ SizedBox(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 7, 10, 0),
                                   child: Text(
-                                    '${data[i]['id']}', textAlign: TextAlign.right ,
+                                    '${data[i]['time']}', textAlign: TextAlign.right ,
                                     
                                     style: TextStyle(
                                       fontFamily: 'Poppins',

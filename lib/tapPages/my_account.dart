@@ -21,10 +21,10 @@ class _MyAccountState extends State<MyAccount> {
           canvasColor: Color(0xFFD8EBEE),
         ),
         child: MyDrawer(
-          name: 'khawla',
-          //driverModelCurrentInfo!.name,
-          email: 'khawlaff5@gmail.com',
-          //driverModelCurrentInfo!.email,
+          name: 
+        driverModelCurrentInfo!.name,
+          email: 
+      driverModelCurrentInfo!.email,
         ),
       ),
       backgroundColor: Color(0xFFD8EBEE),
