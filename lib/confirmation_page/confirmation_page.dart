@@ -289,17 +289,18 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
         .then((value) => value.reference.update({'status': status}));
   }
 
-  getDetails() {
-    FirebaseFirestore.instance
+  getDetails() async {
+    print('acc id ${widget.accidentID}');
+    await FirebaseFirestore.instance
         .collection('Accident')
         .doc('${widget.accidentID}')
         .get()
         .then((doc) {
       setState(() {
         widget.driverName = doc.data()!['DriverName'];
-        widget.driverPlate = doc.data()!['driverPlate'];
-        widget.driverCar = doc.data()!['driverCarType'];
-        widget.driverCarColor = doc.data()!['driverCarColor'];
+        widget.driverPlate = doc.data()!['DriverCarNumber'];
+        widget.driverCar = doc.data()!['DriverCarModel'];
+        widget.driverCarColor = doc.data()!['DriverCarColor'];
         GeoPoint loc = (doc.data()!['location'] as GeoPoint);
         getLocationName(loc);
         /**/

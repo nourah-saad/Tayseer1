@@ -1,5 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:tayseer2/confirmation_loading_page/confirmation_loading_page.dart';
 import 'package:tayseer2/notification/notification.dart';
 
@@ -9,10 +9,14 @@ import '../FlutterFlow/FlutterFlowWidgets.dart';
 
 class DriverDetails extends StatefulWidget {
   const DriverDetails(
-      {Key? key, required this.inDriverName, required this.inDriverID})
+      {Key? key,
+      required this.inDriverName,
+      required this.inDriverID,
+      required this.accID})
       : super(key: key);
   final String inDriverName;
   final String inDriverID;
+  final String accID;
 
   @override
   State<DriverDetails> createState() => _DriverDetailsState();
@@ -64,6 +68,7 @@ class _DriverDetailsState extends State<DriverDetails> {
                       padding: EdgeInsetsDirectional.fromSTEB(60, 130, 0, 0),
                       child: FFButtonWidget(
                         onPressed: () async {
+                          addDetails();
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
@@ -74,7 +79,7 @@ class _DriverDetailsState extends State<DriverDetails> {
                               title: 'تأكيد الحادث',
                               msg:
                                   'يدعوك ${await getName(user.uid)} لتأكيد وقوع حادث، يرجى النقر للتأكيد أو الرفض',
-                              accID: 'JzE3EMuXgUP7FO8TfGlz',
+                              accID: widget.accID,
                               sender: '${user.uid}',
                               type: 'ques');
                         },
@@ -138,5 +143,12 @@ class _DriverDetailsState extends State<DriverDetails> {
         ),
       ),
     );
+  }
+
+  void addDetails() {
+    FirebaseFirestore.instance.collection('Accident').doc(widget.accID).update({
+      'InvolvedName': widget.inDriverName,
+      'Involveduid': widget.inDriverID
+    });
   }
 }

@@ -1,13 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:tayseer2/assistants/assistant_methods.dart';
-import 'package:tayseer2/global/global.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:tayseer2/mapScreen/map_screen.dart';
 import 'package:tayseer2/notification/notification.dart';
-import 'package:tayseer2/selectInvolvedCars.dart/selectInvolvedCars.dart';
+import 'package:tayseer2/selectInvolvedCars.dart/selectYourCar.dart';
 import 'package:tayseer2/widgets/my_drawer.dart';
-
-import '../confirmation_page/confirmation_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -65,13 +61,15 @@ class _HomePageState extends State<HomePage> {
           ),
           Center(
             child: ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
+                Position loc = await getLocation();
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder:
-                            (c) => /*MapScreen()*/ SelectCarInvolvedCarsPageWidget(
-                                accTime: DateTime.now())));
+                        builder: (c) => /*MapScreen()*/ select_your_carWidget(
+                              accTime: DateTime.now(),
+                              accLocation: loc,
+                            )));
               },
               style: ElevatedButton.styleFrom(
                 primary: const Color(0xFFD8EBEE),
@@ -88,5 +86,10 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  }
+
+  Future<Position> getLocation() async {
+    Position curentLocation = await Geolocator.getCurrentPosition();
+    return curentLocation;
   }
 }

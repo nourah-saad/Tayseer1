@@ -13,9 +13,15 @@ import 'package:flutter/material.dart';
 import 'DriverDetails.dart';
 
 class SelectCarInvolvedCarsPageWidget extends StatefulWidget {
-  const SelectCarInvolvedCarsPageWidget({Key? key, required this.accTime})
+  const SelectCarInvolvedCarsPageWidget(
+      {Key? key,
+      required this.accTime,
+      required this.accID,
+      required this.accLocation})
       : super(key: key);
   final DateTime accTime;
+  final String accID;
+  final Position accLocation;
 
   @override
   _SelectCarInvolvedCarsPageWidgetState createState() =>
@@ -68,6 +74,7 @@ class _SelectCarInvolvedCarsPageWidgetState
                           itemCount: involvedDrivers.length,
                           itemBuilder: (context, index) {
                             return DriverDetails(
+                              accID: widget.accID,
                               inDriverName: involvedDrivers[index].driverName,
                               inDriverID: involvedDrivers[index].driverID,
                             );
@@ -137,17 +144,14 @@ class _SelectCarInvolvedCarsPageWidgetState
   }
 
   void getCars() async {
-    print('entered');
-    Position curentLocation = await Geolocator.getCurrentPosition();
-    print('currenty $curentLocation');
-    double lowestLat = curentLocation.latitude -
+    double lowestLat = widget.accLocation.latitude -
         (0.008 * 0.621371192); // 1km in deg * 1km distance
-    double lowestLong = curentLocation.longitude -
+    double lowestLong = widget.accLocation.longitude -
         (0.008 * 0.621371192); // 1km in deg * 1km distance
 
-    double greatestLat = curentLocation.latitude +
+    double greatestLat = widget.accLocation.latitude +
         (0.008 * 0.621371192); // 1km in deg * 1km distance
-    double greatestLong = curentLocation.longitude +
+    double greatestLong = widget.accLocation.longitude +
         (0.008 * 0.621371192); // 1km in deg * 1km distance
 
     print(
@@ -163,8 +167,8 @@ class _SelectCarInvolvedCarsPageWidgetState
         .where(FieldPath.documentId, isNotEqualTo: user.uid)
         .get()
         .then((value) {
-      value.docs.forEach((element) {
-        element.reference
+      value.docs.forEach((element) async {
+        await element.reference
             .collection('locations')
             .where('lat', isGreaterThan: lowestLat)
             .where('lat', isLessThanOrEqualTo: greatestLat)
@@ -191,7 +195,7 @@ class _SelectCarInvolvedCarsPageWidgetState
               }
             }
           });
-        }); // not this user
+        });
       });
     });
   }
