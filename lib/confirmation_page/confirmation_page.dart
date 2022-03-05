@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:geocoding/geocoding.dart';
-import 'package:get/get.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:tayseer2/notification/notification.dart';
-//import 'package:geocoding/geocoding.dart';
+import 'package:tayseer2/selectInvolvedCars.dart/selectYourCar.dart';
 import '../FlutterFlow/FlutterFlowTheme.dart';
 import '../FlutterFlow/FlutterFlowWidgets.dart';
 import 'package:flutter/material.dart';
@@ -173,6 +173,23 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
                                     sender: '${user.uid}',
                                     type: 'denied',
                                   );
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              select_your_carWidget(
+                                                  accID: widget.accidentID,
+                                                  accTime: DateTime.parse(
+                                                      '2000-01-01'),
+                                                  accLocation: Position(
+                                                      longitude: 0,
+                                                      latitude: 0,
+                                                      timestamp: DateTime.now(),
+                                                      accuracy: 0,
+                                                      altitude: 0,
+                                                      heading: 0,
+                                                      speed: 0,
+                                                      speedAccuracy: 0))));
                                 },
                                 text: 'رفض',
                                 options: FFButtonOptions(
@@ -217,6 +234,23 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
                                     sender: '${user.uid}',
                                     type: 'accept',
                                   );
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              select_your_carWidget(
+                                                  accID: widget.accidentID,
+                                                  accTime: DateTime.parse(
+                                                      '2000-01-01'),
+                                                  accLocation: Position(
+                                                      longitude: 0,
+                                                      latitude: 0,
+                                                      timestamp: DateTime.now(),
+                                                      accuracy: 0,
+                                                      altitude: 0,
+                                                      heading: 0,
+                                                      speed: 0,
+                                                      speedAccuracy: 0))));
                                 },
                                 text: 'تأكيد',
                                 options: FFButtonOptions(
@@ -297,11 +331,11 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
         .get()
         .then((doc) {
       setState(() {
-        widget.driverName = doc.data()!['DriverName'];
-        widget.driverPlate = doc.data()!['DriverCarNumber'];
-        widget.driverCar = doc.data()!['DriverCarModel'];
-        widget.driverCarColor = doc.data()!['DriverCarColor'];
-        GeoPoint loc = (doc.data()!['location'] as GeoPoint);
+        widget.driverName = doc.data()!['Drivers_Involved'][0]['name'];
+        widget.driverPlate = doc.data()!['Cars_Involved'][0]['number'];
+        widget.driverCar = doc.data()!['Cars_Involved'][0]['model'];
+        widget.driverCarColor = doc.data()!['Cars_Involved'][0]['color'];
+        GeoPoint loc = (doc.data()!['Location'] as GeoPoint);
         getLocationName(loc);
         /**/
       });

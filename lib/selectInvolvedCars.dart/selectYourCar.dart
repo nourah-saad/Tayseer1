@@ -6,14 +6,18 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:tayseer2/Driver/getName.dart';
 import 'package:tayseer2/selectInvolvedCars.dart/selectInvolvedCars.dart';
+import 'package:tayseer2/tapPages/home.dart';
 import '../mainScreen/main_screen.dart';
 
 class select_your_carWidget extends StatefulWidget {
   final DateTime accTime;
   final Position accLocation;
-  String accID = '';
+  String accID;
   select_your_carWidget(
-      {Key? key, required this.accTime, required this.accLocation})
+      {Key? key,
+      required this.accTime,
+      required this.accLocation,
+      required this.accID})
       : super(key: key);
 
   @override
@@ -58,8 +62,8 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
             'in': 'سارية',
           };
         });
+        cars.insert(count++, values);
       });
-      cars.insert(count++, values);
     });
   }
 
@@ -131,16 +135,36 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
     );
   }
 
+  add() async {
+    String acc = await addDetails();
+    setState(() {
+      widget.accID = acc;
+    });
+
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+            builder: (c) => SelectCarInvolvedCarsPageWidget(
+                  accID: widget.accID,
+                  accTime: widget.accTime,
+                  accLocation: widget.accLocation,
+                )));
+  }
+
   Future<String> addDetails() async {
     DocumentReference accID =
         await FirebaseFirestore.instance.collection('Accident').add({
-      'Time': widget.accTime,
-      'Driveruid': user.uid,
-      'DriverName': await getName(user.uid),
-      'DriverCarColor': car_color,
-      'DriverCarModel': car_model,
-      'DriverCarNumber': car_number,
-      'location':
+      'Date_time': widget.accTime,
+      'Cars_Involved': FieldValue.arrayUnion([
+        {'color': car_color, 'model': car_model, 'number': car_number}
+      ]),
+      'Drivers_Involved': FieldValue.arrayUnion([
+        {
+          'name': await getName(user.uid),
+          'uid': user.uid,
+        }
+      ]),
+      'Location':
           GeoPoint(widget.accLocation.latitude, widget.accLocation.longitude)
     });
 
@@ -157,10 +181,10 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                   child: Container(
                     width: 360,
-                    height: 220,
+                    height: 230,
                     decoration: BoxDecoration(
                       color: Color(0xFF85BBC2),
                       borderRadius: BorderRadius.circular(10),
@@ -338,19 +362,10 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                   ),
                                 ),
                                 onPressed: () async {
-                                  String acc = await addDetails();
-                                  setState(() {
-                                    widget.accID = acc;
-                                  });
-                                  Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (c) =>
-                                              SelectCarInvolvedCarsPageWidget(
-                                                accID: widget.accID,
-                                                accTime: widget.accTime,
-                                                accLocation: widget.accLocation,
-                                              )));
+                                  widget.accTime.isBefore(
+                                          DateTime.parse('2000-02-28'))
+                                      ? showSnack()
+                                      : add();
                                 },
                                 child: Text(
                                   'اختيار ',
@@ -373,5 +388,21 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
           ),
       ],
     );
+  }
+
+  showSnack() async {
+    await FirebaseFirestore.instance
+        .collection('Accident')
+        .doc(widget.accID)
+        .update({
+      'Cars_Involved': FieldValue.arrayUnion([
+        {'color': car_color, 'model': car_model, 'number': car_number}
+      ])
+    });
+    SnackBar snackbar = SnackBar(
+        content: Text('تم الاختيار بنجاح', textAlign: TextAlign.center));
+    ScaffoldMessenger.of(context).showSnackBar(snackbar);
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (c) => HomePage()));
   }
 }

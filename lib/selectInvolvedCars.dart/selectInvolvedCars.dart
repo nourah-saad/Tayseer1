@@ -1,8 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:get/get.dart';
-import 'package:location/location.dart';
-import 'package:tayseer2/Tracking/Tracking.dart';
 import 'package:tayseer2/notification/notification.dart';
 
 import '../Driver/Driver.dart';
@@ -62,50 +59,39 @@ class _SelectCarInvolvedCarsPageWidgetState
                   topRight: Radius.circular(30),
                 ),
               ),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(5, 50, 5, 0),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height * 0.55,
-                        child: ListView.builder(
-                          itemCount: involvedDrivers.length,
-                          itemBuilder: (context, index) {
-                            return DriverDetails(
-                              accID: widget.accID,
-                              inDriverName: involvedDrivers[index].driverName,
-                              inDriverID: involvedDrivers[index].driverID,
-                            );
-                          },
-                        ),
-                      )),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
-                    child: FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
-                      },
-                      text: 'إضافة سيارة اخرى',
-                      options: FFButtonOptions(
-                        width: 200,
-                        height: 50,
-                        color: Color(0xFF85BBC2),
-                        textStyle: FlutterFlowTheme.subtitle2.override(
-                          fontFamily: 'Poppins',
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1,
-                        ),
-                        borderRadius: 25,
-                      ),
-                    ),
-                  ),
-                ],
+              child: ListView.builder(
+                itemCount: involvedDrivers.length,
+                itemBuilder: (context, index) {
+                  return DriverDetails(
+                    accID: widget.accID,
+                    inDriverName: involvedDrivers[index].driverName,
+                    inDriverID: involvedDrivers[index].driverID,
+                  );
+                },
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(80, 530, 0, 0),
+            child: FFButtonWidget(
+              onPressed: () {
+                print('Button pressed ...');
+              },
+              text: 'إضافة سيارة اخرى',
+              options: FFButtonOptions(
+                width: 200,
+                height: 50,
+                color: Color(0xFF85BBC2),
+                textStyle: FlutterFlowTheme.subtitle2.override(
+                  fontFamily: 'Poppins',
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+                borderSide: BorderSide(
+                  color: Colors.transparent,
+                  width: 1,
+                ),
+                borderRadius: 25,
               ),
             ),
           ),

@@ -99,6 +99,9 @@ listenFCM() async {
               MaterialPageRoute(
                   builder: (context) => ConfirmedPage(
                         status: message.data['type'],
+                        sender: message.data['sender'],
+                        reciever: message.data['reciever'],
+                        accID: message.data['accID'],
                       )));
           break;
       }
@@ -189,6 +192,7 @@ Future<void> sendNotification(
             'status': 'done',
             'accID': '$accID',
             'sender': sender,
+            'reciever': receiver,
             'type': '$type'
           },
           "to": token,

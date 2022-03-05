@@ -1,10 +1,19 @@
 import '../FlutterFlow/FlutterFlowTheme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ConfirmedPage extends StatefulWidget {
   final String status;
-  const ConfirmedPage({Key? key, required this.status}) : super(key: key);
+  final String reciever;
+  final String sender;
+  final String accID;
+
+  const ConfirmedPage({
+    Key? key,
+    required this.status,
+    required this.reciever,
+    required this.sender,
+    required this.accID,
+  }) : super(key: key);
 
   @override
   _ConfirmedPageState createState() => _ConfirmedPageState();
