@@ -5,7 +5,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:geocoding/geocoding.dart';
 //import 'package:tayseer/home_page/home_page_widget.dart';
 
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -75,8 +75,8 @@ LatLng l = LatLng(location!.latitude, location!.longitude);
 GetAddressFromLatLong(l);
   var value = {
           'location': ' Al Dawaer Street',
-          'date': '${dtime}',
-          'time': '${ddtime}',
+          'date': '${dtime.toString()}',
+          'time': '${ddtime.toString()}',
           'id': '${id}',
          
         };
