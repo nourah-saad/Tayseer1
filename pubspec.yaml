@@ -50,6 +50,7 @@ dependencies:
   json_path: ^0.3.1
   url_launcher: ^6.0.20
   flutter_geofire: ^2.0.1
+  flutter_phone_direct_caller: ^2.0.0
 
 dev_dependencies:
   flutter_test:

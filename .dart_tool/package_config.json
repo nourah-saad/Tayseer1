@@ -176,6 +176,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_phone_direct_caller",
+      "rootUri": "file:///Users/almaha/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_phone_direct_caller-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_plugin_android_lifecycle",
       "rootUri": "file:///Users/almaha/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.5",
       "packageUri": "lib/",
@@ -542,7 +548,7 @@
       "languageVersion": "2.15"
     }
   ],
-  "generated": "2022-03-06T13:36:22.683419Z",
+  "generated": "2022-03-06T14:41:10.004929Z",
   "generator": "pub",
   "generatorVersion": "2.16.0"
 }

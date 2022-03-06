@@ -10,6 +10,7 @@ firebase_core_web=/Users/almaha/Desktop/flutter/.pub-cache/hosted/pub.dartlang.o
 firebase_database=/Users/almaha/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database-9.0.6/
 firebase_database_web=/Users/almaha/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database_web-0.2.0+5/
 flutter_geofire=/Users/almaha/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_geofire-2.0.1/
+flutter_phone_direct_caller=/Users/almaha/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_phone_direct_caller-2.1.0/
 flutter_plugin_android_lifecycle=/Users/almaha/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.5/
 fluttertoast=/Users/almaha/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-8.0.8/
 geolocator=/Users/almaha/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-8.2.0/
