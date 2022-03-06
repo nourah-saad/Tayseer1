@@ -6,6 +6,8 @@ import 'package:tayseer2/global/global.dart';
 import 'login_screen.dart';
 
 class CarInfoScreen extends StatefulWidget {
+  const CarInfoScreen({Key? key}) : super(key: key);
+
   @override
   _CarInfoScreenState createState() => _CarInfoScreenState();
 }

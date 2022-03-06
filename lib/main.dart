@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tayseer2/authintication/login_screen.dart';
 import 'package:tayseer2/infoHandler/app_info.dart';
 import 'package:tayseer2/splashScreen/splash_screen.dart';
 
@@ -22,7 +23,7 @@ void main() async {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: const MySplashScreen(),
+          home: const LoginScreen(),
           debugShowCheckedModeBanner: false,
         ),
       ),

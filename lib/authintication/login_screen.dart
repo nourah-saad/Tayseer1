@@ -10,6 +10,8 @@ import 'package:tayseer2/widgets/progress_dialog.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }

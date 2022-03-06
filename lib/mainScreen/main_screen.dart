@@ -5,6 +5,8 @@ import 'package:tayseer2/tapPages/my_account.dart';
 import 'package:tayseer2/tapPages/notifications.dart';
 
 class MainScreen extends StatefulWidget {
+  const MainScreen({Key? key}) : super(key: key);
+
   @override
   _MainScreenState createState() => _MainScreenState();
 }

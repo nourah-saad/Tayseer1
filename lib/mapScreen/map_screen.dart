@@ -9,6 +9,8 @@ import 'package:tayseer2/infoHandler/app_info.dart';
 import 'package:provider/provider.dart';
 
 class MapScreen extends StatefulWidget {
+  const MapScreen({Key? key}) : super(key: key);
+
   @override
   _MapScreenState createState() => _MapScreenState();
 }

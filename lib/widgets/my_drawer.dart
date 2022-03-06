@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:tayseer2/global/global.dart';
 import 'package:tayseer2/splashScreen/splash_screen.dart';
@@ -6,7 +8,7 @@ class MyDrawer extends StatefulWidget {
   String? name;
   String? email;
 
-  MyDrawer({this.name, this.email});
+  MyDrawer({Key? key, this.name, this.email}) : super(key: key);
 
   @override
   _MyDrawerState createState() => _MyDrawerState();

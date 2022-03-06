@@ -29,8 +29,8 @@ class _HomePageState extends State<HomePage> {
           canvasColor: const Color(0xFF85BBC2),
         ),
         child: MyDrawer(
-          name: driverModelCurrentInfo!.name,
-          email: driverModelCurrentInfo!.email,
+          name: driverModelCurrentInfo?.name,
+          email: driverModelCurrentInfo?.email,
         ),
       ),
       backgroundColor: const Color(0xFF85BBC2),
@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
             right: 20,
             child: GestureDetector(
               onTap: () {
-                sKey.currentState!.openDrawer();
+                sKey.currentState?.openDrawer();
               },
               child: const CircleAvatar(
                 backgroundColor: Color(0xFF85BBC2),

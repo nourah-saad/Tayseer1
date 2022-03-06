@@ -9,6 +9,8 @@ import 'car_info_screen.dart';
 import 'login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({Key? key}) : super(key: key);
+
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
 }
