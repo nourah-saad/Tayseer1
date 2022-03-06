@@ -1,22 +1,28 @@
-// ignore_for_file: must_be_immutable
+
 
 import 'package:flutter/material.dart';
 import 'package:tayseer2/global/global.dart';
 import 'package:tayseer2/splashScreen/splash_screen.dart';
+import 'package:tayseer2/tapPages/home.dart';
 
 class MyDrawer extends StatefulWidget {
   String? name;
   String? email;
 
-  MyDrawer({Key? key, this.name, this.email}) : super(key: key);
+  MyDrawer({ String? name, String? email});
 
-  @override
+   @override
+   
+   
+  
   _MyDrawerState createState() => _MyDrawerState();
 }
 
 class _MyDrawerState extends State<MyDrawer> {
   @override
+  
   Widget build(BuildContext context) {
+    
     return Drawer(
       child: ListView(
         children: [
