@@ -1,26 +1,26 @@
 [
     {
-        "merged": "/Users/raghad/Desktop/Tayseer1/build/url_launcher_android/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
-        "source": "/Users/raghad/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/layout/notification_template_part_time.xml"
+        "merged": "/Users/almaha/Desktop/Tayseer1/build/url_launcher_android/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
+        "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/layout/notification_template_part_chronometer.xml"
     },
     {
-        "merged": "/Users/raghad/Desktop/Tayseer1/build/url_launcher_android/intermediates/res/merged/debug/layout/notification_action.xml",
-        "source": "/Users/raghad/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/layout/notification_action.xml"
+        "merged": "/Users/almaha/Desktop/Tayseer1/build/url_launcher_android/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
+        "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/layout/notification_action_tombstone.xml"
     },
     {
-        "merged": "/Users/raghad/Desktop/Tayseer1/build/url_launcher_android/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
-        "source": "/Users/raghad/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/layout/notification_action_tombstone.xml"
+        "merged": "/Users/almaha/Desktop/Tayseer1/build/url_launcher_android/intermediates/res/merged/debug/layout/custom_dialog.xml",
+        "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/layout/custom_dialog.xml"
     },
     {
-        "merged": "/Users/raghad/Desktop/Tayseer1/build/url_launcher_android/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml",
-        "source": "/Users/raghad/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/layout/notification_template_part_chronometer.xml"
+        "merged": "/Users/almaha/Desktop/Tayseer1/build/url_launcher_android/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
+        "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/layout/notification_template_part_time.xml"
     },
     {
-        "merged": "/Users/raghad/Desktop/Tayseer1/build/url_launcher_android/intermediates/res/merged/debug/layout/custom_dialog.xml",
-        "source": "/Users/raghad/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/layout/custom_dialog.xml"
+        "merged": "/Users/almaha/Desktop/Tayseer1/build/url_launcher_android/intermediates/res/merged/debug/layout/notification_template_icon_group.xml",
+        "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/layout/notification_template_icon_group.xml"
     },
     {
-        "merged": "/Users/raghad/Desktop/Tayseer1/build/url_launcher_android/intermediates/res/merged/debug/layout/notification_template_icon_group.xml",
-        "source": "/Users/raghad/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/layout/notification_template_icon_group.xml"
+        "merged": "/Users/almaha/Desktop/Tayseer1/build/url_launcher_android/intermediates/res/merged/debug/layout/notification_action.xml",
+        "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/6f6da31ded36fd59bf0fb59f8c9437af/core-1.6.0/res/layout/notification_action.xml"
     }
 ]

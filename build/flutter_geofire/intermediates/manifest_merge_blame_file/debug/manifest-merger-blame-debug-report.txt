@@ -3,6 +3,6 @@
 3    package="in.appyflow.geofire" >
 4
 5    <uses-sdk android:minSdkVersion="16" />
-5-->/Users/raghad/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_geofire-2.0.1/android/src/main/AndroidManifest.xml
+5-->/Users/almaha/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_geofire-2.0.1/android/src/main/AndroidManifest.xml
 6
 7</manifest>
