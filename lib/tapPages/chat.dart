@@ -11,23 +11,21 @@ class ChatPage extends StatefulWidget {
 class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-     child: ElevatedButton(
+    return Align(
+     alignment: AlignmentDirectional(0.85, 0.9),
+     child: IconButton(
               onPressed: () async{
               await FlutterPhoneDirectCaller.callNumber("+966538456777");
                 
               },
-              style: ElevatedButton.styleFrom(
-                primary: const Color(0xFFD8EBEE),
+              icon:Icon(Icons.phone), 
+              iconSize: 33,
+           
+              
+          
               ),
-              child: const Text(
-                "اتصل بنا",
-                style: TextStyle(
-                  color: Colors.black54,
-                  fontSize: 18,
-                ),
-              ),
-            ),
+              
+            
     );
   }
 }
