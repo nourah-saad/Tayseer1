@@ -132,14 +132,17 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
                       Container(
                         width: MediaQuery.of(context).size.width,
                         padding: EdgeInsets.fromLTRB(10, 10, 20, 0),
-                        child: Text(
-                          'موقع الحادث: ${widget.accidentLocation}',
-                          style: FlutterFlowTheme.bodyText1.override(
-                            fontFamily: 'Poppins',
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
+                        child: Flexible(
+                          child: Text(
+                            'موقع الحادث: ${widget.accidentLocation}',
+                            overflow: TextOverflow.visible,
+                            style: FlutterFlowTheme.bodyText1.override(
+                              fontFamily: 'Poppins',
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                            ),
+                            textAlign: TextAlign.right,
                           ),
-                          textAlign: TextAlign.right,
                         ),
                       ),
                     ],

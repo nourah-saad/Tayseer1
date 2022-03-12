@@ -1,6 +1,8 @@
+import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:tayseer2/notification/notification.dart';
+import 'package:vector_math/vector_math.dart' as math;
 
 import '../Driver/Driver.dart';
 import '../FlutterFlow/FlutterFlowTheme.dart';
@@ -130,18 +132,27 @@ class _SelectCarInvolvedCarsPageWidgetState
   }
 
   void getCars() async {
-    double lowestLat = widget.accLocation.latitude -
-        (0.008 * 0.621371192); // 1km in deg * 1km distance
-    double lowestLong = widget.accLocation.longitude -
-        (0.008 * 0.621371192); // 1km in deg * 1km distance
+    int earthRadius = 6371;
+    double lowestLat = /* widget.accLocation.latitude*/ 24.7455293 -
+        math.degrees(5 / earthRadius);
+    //  (0.008 * 0.621371192); 1km in deg * 1km distance
 
-    double greatestLat = widget.accLocation.latitude +
-        (0.008 * 0.621371192); // 1km in deg * 1km distance
-    double greatestLong = widget.accLocation.longitude +
-        (0.008 * 0.621371192); // 1km in deg * 1km distance
+    double greatestLat = /* widget.accLocation.latitude*/ 24.7455293 +
+        math.degrees(5 / earthRadius);
+    // (0.008 * 0.621371192); // 1km in deg * 1km distance
+
+    double lowestLong = /*widget.accLocation.longitude*/ 46.6551531 + // -
+        math.degrees(asin(5 / earthRadius) /
+            cos(math.degrees(/*widget.accLocation.latitude*/ 24.7455293)));
+    // (0.008 * 0.621371192); // 1km in deg * 1km distance
+
+    double greatestLong = /*widget.accLocation.longitude*/ 46.6551531 - //+
+        math.degrees(asin(5 / earthRadius) /
+            cos(math.degrees(/*widget.accLocation.latitude*/ 24.7455293)));
+    //  (0.008 * 0.621371192); // 1km in deg * 1km distance
 
     print(
-        'low lat $lowestLat, low lon $lowestLong,  great lat $greatestLat, great long $greatestLong');
+        'low lat $lowestLat, great lat $greatestLat, low lon $lowestLong, great long $greatestLong');
 
     DateTime lowestTime = widget.accTime.subtract(new Duration(minutes: 10));
     print('low date $lowestTime');

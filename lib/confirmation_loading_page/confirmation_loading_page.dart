@@ -1,3 +1,5 @@
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+
 import '../FlutterFlow/FlutterFlowTheme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -59,6 +61,8 @@ class _ConfirmationLoadingPageWidgetState
                           color: Color(0xFF46494D),
                           size: 70,
                         ),
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.2),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 35, 0, 0),
                           child: Text(
@@ -71,10 +75,9 @@ class _ConfirmationLoadingPageWidgetState
                             ),
                           ),
                         ),
-                        Icon(
-                          Icons.keyboard_control_rounded,
+                        SpinKitThreeBounce(
+                          size: 20,
                           color: Color(0xFF46494D),
-                          size: 40,
                         ),
                       ],
                     ),

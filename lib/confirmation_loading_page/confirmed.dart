@@ -1,3 +1,6 @@
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:tayseer2/fault_assessment/calculateFault.dart';
+//import 'package:flutter_spinkit/flutter_spinkit.dart';
 import '../FlutterFlow/FlutterFlowTheme.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +24,16 @@ class ConfirmedPage extends StatefulWidget {
 
 class _ConfirmedPageState extends State<ConfirmedPage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    proccessAcc(
+        accID: widget.accID,
+        driverID: widget.reciever,
+        involvedID: widget.sender);
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +81,19 @@ class _ConfirmedPageState extends State<ConfirmedPage> {
                               : Icons.cancel_outlined,
                           color: Color(0xFF46494D),
                           size: 70,
-                        )
+                        ),
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.2),
+                        Text('بانتظار اكتمال تقرير الحادث',
+                            style: FlutterFlowTheme.bodyText1.override(
+                              fontFamily: 'Poppins',
+                              color: Color(0xFF46494D),
+                              fontWeight: FontWeight.w600,
+                            )),
+                        SpinKitThreeBounce(
+                          size: 20,
+                          color: Color(0xFF46494D),
+                        ),
                       ],
                     ),
                   ),

@@ -362,6 +362,11 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                   ),
                                 ),
                                 onPressed: () async {
+                                  setState(() {
+                                    car_color = data[i]['car_color'];
+                                    car_model = data[i]['car_model'];
+                                    car_number = data[i]['car_number'];
+                                  });
                                   widget.accTime.isBefore(
                                           DateTime.parse('2000-02-28'))
                                       ? showSnack()

@@ -48,7 +48,7 @@ class _DriverDetailsState extends State<DriverDetails> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                 child: Text(
-                  'اسم السائق: ${widget.inDriverName}',
+                  'اسم مالك المركبة: ${widget.inDriverName}',
                   textAlign: TextAlign.right,
                   style: TextStyle(
                     fontFamily: 'Poppins',
