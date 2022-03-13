@@ -15,6 +15,7 @@ import 'package:intl/intl.dart';
 import 'package:date_format/date_format.dart';
 import 'package:tayseer2/view_accidents/view_accident_report.dart';
 
+import '../global/global.dart';
 import '../mainScreen/main_screen.dart';
 
 class ViewAccidentsWidget extends StatefulWidget {
@@ -32,10 +33,10 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
   var id;
   var Accid = '990';
   var dataaa= 'new ' ;
-  var Address='kkkk';
+  var Address='king abdullah road, riyadh';
    final databaseRef = FirebaseDatabase.instance.ref();
   final Future<FirebaseApp> _future = Firebase.initializeApp();
-
+final Cars = FirebaseFirestore.instance.collection('Car');
 
 @override
   void initState() {
@@ -44,12 +45,12 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
   }
 void GetAddressFromLatLong(LatLng l)async {
     List<Placemark> placemarks = await placemarkFromCoordinates(l.latitude, l.longitude);
-    print(placemarks);
+    //print(placemarks);
     Placemark place = placemarks[0];
     setState(() {
-       Address = '${place.street}, ${place.subLocality}, ${place.locality}, ${place.postalCode}, ${place.country}';
+       Address = '${place.street}, ${place.locality}, ${place.country}';
     });
-    print('the adrres is ${Address}');
+   // print('the adrres is ${Address}');
     
   }
    void addtolist() async{
@@ -63,6 +64,26 @@ void GetAddressFromLatLong(LatLng l)async {
         .collection('Accident').snapshots()
         .listen((event) {
       event.docs.forEach((element) async {
+
+          var car1_doc = await Cars.doc(element.data()['Cars_Involved'][0].toString()).get();
+           var car2_doc = await Cars.doc(element.data()['Cars_Involved'][1].toString()).get();
+      var driver1docid, driver2docid;
+           if (car1_doc.exists) {
+      Map<String, dynamic>? car1_data = car1_doc.data();
+      setState(() {
+          driver1docid=  car1_data!['car_Driver_Id'].toString();
+      });
+
+      }
+      if (car2_doc.exists) {
+      Map<String, dynamic>? car2_data = car2_doc.data();
+      setState(() {
+        
+          driver2docid=  car2_data!['car_Driver_Id'].toString();
+      });
+  
+      }
+var currentFirebaseUser = fAuth.currentUser!.uid;  
         setState(() {
           location = element.data()['Location'];
           time = element.data()['Date_time'].toDate();
@@ -74,13 +95,15 @@ String ddtime = DateFormat.Hms().format(time!);
 LatLng l = LatLng(location!.latitude, location!.longitude);
 GetAddressFromLatLong(l);
   var value = {
-          'location': ' Al Dawaer Street',
+          'location': '${Address}',
           'date': '${dtime.toString()}',
           'time': '${ddtime.toString()}',
           'id': '${id}',
          
         };
 
+        //add only the current user reports
+if (driver2docid == currentFirebaseUser || driver1docid == currentFirebaseUser )
 accidents.insert(count++, value);
    });
    

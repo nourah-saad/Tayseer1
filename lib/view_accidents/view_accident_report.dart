@@ -22,14 +22,14 @@ class _AccidentReportWidgetState extends State<AccidentReportWidget> {
     super.initState();
   }
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  var address, adate, atime, time,status, accidentimage, driver1,car1,id1,falut1, driver2, car2,id2,falut2;
+  var address, adate, atime, time,status, accidentimage, driver1,car1,id1,falut1, driver2, car2,id2,falut2, accident_type;
   GeoPoint ? location;
   final  Accidents = FirebaseFirestore.instance.collection('Accident');
     final Cars = FirebaseFirestore.instance.collection('Car');
      final Drivers = FirebaseFirestore.instance.collection('Driver');
     void GetAddressFromLatLong(LatLng l)async {
     List<Placemark> placemarks = await placemarkFromCoordinates(l.latitude, l.longitude);
-    print(placemarks);
+   // print(placemarks);
     Placemark place = placemarks[0];
     setState(() {
        address = '${place.street} ${place.subLocality}, ${place.locality}';
@@ -53,7 +53,7 @@ var docSnapshot = await Accidents.doc(widget.id).get();
         accidentimage = data['Accident_image'].toString();
         falut1= data['Fault_assessment'][0].toString();
          falut2= data['Fault_assessment'][1].toString();
-
+accident_type =data['accident_type'].toString();
  });
 print("-------------------------${falut1}-----------------------");
 
@@ -535,6 +535,24 @@ print("-------------------------${falut1}-----------------------");
                       ],
                     ),
                   ),
+                  SizedBox(
+  height: 17,
+  
+  
+),
+                  Container(
+      height: 200,
+      width: 200,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: accident_type == 'S1' ? AssetImage(
+              'lib/images/accident1.png') : AssetImage(
+              'lib/images/accident2.png') ,
+          fit: BoxFit.fill,
+        ),
+        shape: BoxShape.rectangle,
+      ),
+    )
                 ],
               ),
             ),
