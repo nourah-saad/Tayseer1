@@ -133,22 +133,22 @@ class _SelectCarInvolvedCarsPageWidgetState
 
   void getCars() async {
     int earthRadius = 6371;
-    double lowestLat = /* widget.accLocation.latitude*/ 24.7455293 -
+    double lowestLat = widget.accLocation.latitude /*24.7455293*/ -
         math.degrees(5 / earthRadius);
     //  (0.008 * 0.621371192); 1km in deg * 1km distance
 
-    double greatestLat = /* widget.accLocation.latitude*/ 24.7455293 +
+    double greatestLat = widget.accLocation.latitude /*24.7455293*/ +
         math.degrees(5 / earthRadius);
     // (0.008 * 0.621371192); // 1km in deg * 1km distance
 
-    double lowestLong = /*widget.accLocation.longitude*/ 46.6551531 + // -
+    double lowestLong = widget.accLocation.longitude /*46.6551531*/ + // -
         math.degrees(asin(5 / earthRadius) /
-            cos(math.degrees(/*widget.accLocation.latitude*/ 24.7455293)));
+            cos(math.degrees(widget.accLocation.latitude /*24.7455293*/)));
     // (0.008 * 0.621371192); // 1km in deg * 1km distance
 
-    double greatestLong = /*widget.accLocation.longitude*/ 46.6551531 - //+
+    double greatestLong = widget.accLocation.longitude /*46.6551531*/ - //+
         math.degrees(asin(5 / earthRadius) /
-            cos(math.degrees(/*widget.accLocation.latitude*/ 24.7455293)));
+            cos(math.degrees(widget.accLocation.latitude /*24.7455293*/)));
     //  (0.008 * 0.621371192); // 1km in deg * 1km distance
 
     print(
