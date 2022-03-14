@@ -5,6 +5,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:tayseer2/Driver/getName.dart';
+import 'package:tayseer2/confirmation_page/confirmation_page.dart';
 import 'package:tayseer2/selectInvolvedCars.dart/selectInvolvedCars.dart';
 import 'package:tayseer2/tapPages/home.dart';
 import '../mainScreen/main_screen.dart';
@@ -12,10 +13,11 @@ import '../mainScreen/main_screen.dart';
 class select_your_carWidget extends StatefulWidget {
   final DateTime accTime;
   final Position accLocation;
-  String accID;
+  String accID, sender;
   select_your_carWidget(
       {Key? key,
       required this.accTime,
+      required this.sender,
       required this.accLocation,
       required this.accID})
       : super(key: key);
@@ -404,10 +406,13 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
         {'color': car_color, 'model': car_model, 'number': car_number}
       ])
     });
-    SnackBar snackbar = SnackBar(
+    /*  SnackBar snackbar = SnackBar(
         content: Text('تم الاختيار بنجاح', textAlign: TextAlign.center));
-    ScaffoldMessenger.of(context).showSnackBar(snackbar);
+    ScaffoldMessenger.of(context).showSnackBar(snackbar);*/
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (c) => HomePage()));
+        context,
+        MaterialPageRoute(
+            builder: (c) => ConfirmationPageWidget(
+                accidentID: widget.accID, sender: widget.sender)));
   }
 }

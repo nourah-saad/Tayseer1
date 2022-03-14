@@ -3,6 +3,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:tayseer2/notification/notification.dart';
 import 'package:tayseer2/selectInvolvedCars.dart/selectYourCar.dart';
+import 'package:tayseer2/tapPages/home.dart';
 import '../FlutterFlow/FlutterFlowTheme.dart';
 import '../FlutterFlow/FlutterFlowWidgets.dart';
 import 'package:flutter/material.dart';
@@ -179,20 +180,7 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
                                   Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              select_your_carWidget(
-                                                  accID: widget.accidentID,
-                                                  accTime: DateTime.parse(
-                                                      '2000-01-01'),
-                                                  accLocation: Position(
-                                                      longitude: 0,
-                                                      latitude: 0,
-                                                      timestamp: DateTime.now(),
-                                                      accuracy: 0,
-                                                      altitude: 0,
-                                                      heading: 0,
-                                                      speed: 0,
-                                                      speedAccuracy: 0))));
+                                          builder: (context) => HomePage()));
                                 },
                                 text: 'رفض',
                                 options: FFButtonOptions(
@@ -240,20 +228,7 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
                                   Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              select_your_carWidget(
-                                                  accID: widget.accidentID,
-                                                  accTime: DateTime.parse(
-                                                      '2000-01-01'),
-                                                  accLocation: Position(
-                                                      longitude: 0,
-                                                      latitude: 0,
-                                                      timestamp: DateTime.now(),
-                                                      accuracy: 0,
-                                                      altitude: 0,
-                                                      heading: 0,
-                                                      speed: 0,
-                                                      speedAccuracy: 0))));
+                                          builder: (context) => HomePage()));
                                 },
                                 text: 'تأكيد',
                                 options: FFButtonOptions(

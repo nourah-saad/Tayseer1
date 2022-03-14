@@ -6,11 +6,13 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:tayseer2/confirmation_loading_page/confirmed.dart';
 import 'package:tayseer2/navigationService.dart';
 import 'package:http/http.dart' as http;
 
 import '../confirmation_page/confirmation_page.dart';
+import '../selectInvolvedCars.dart/selectYourCar.dart';
 
 CollectionReference<Map<String, dynamic>> driverCollection =
     FirebaseFirestore.instance.collection('Driver');
@@ -86,10 +88,19 @@ listenFCM() async {
           Navigator.push(
               navigationService.navigatorKey.currentContext!,
               MaterialPageRoute(
-                  builder: (context) => ConfirmationPageWidget(
-                        accidentID: '${message.data['accID']}',
-                        sender: message.data['sender'],
-                      )));
+                  builder: (context) => select_your_carWidget(
+                      sender: message.data['sender'],
+                      accID: message.data['accID'],
+                      accTime: DateTime.parse('2000-01-01'),
+                      accLocation: Position(
+                          longitude: 0,
+                          latitude: 0,
+                          timestamp: DateTime.now(),
+                          accuracy: 0,
+                          altitude: 0,
+                          heading: 0,
+                          speed: 0,
+                          speedAccuracy: 0))));
           break;
 
         case 'accept':
