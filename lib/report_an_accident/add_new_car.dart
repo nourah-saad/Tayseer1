@@ -1,10 +1,17 @@
-
 import 'package:flutter/material.dart';
-import 'package:tayseer2/reoert_an_accident/select_involved_car.dart';
-
+import 'package:geolocator/geolocator.dart';
+import 'package:tayseer2/report_an_accident/select_involved_car.dart';
 
 class AddCarManuallyWidget extends StatefulWidget {
-  const AddCarManuallyWidget({Key? key}) : super(key: key);
+  final DateTime accTime;
+  final String accID;
+  final Position accLocation;
+  const AddCarManuallyWidget(
+      {Key? key,
+      required this.accTime,
+      required this.accID,
+      required this.accLocation})
+      : super(key: key);
 
   @override
   _AddCarManuallyWidgetState createState() => _AddCarManuallyWidgetState();
@@ -102,44 +109,42 @@ class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
-                      child:Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                  Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
-                  child:               
-                      ElevatedButton(
-                                   
-  style: ElevatedButton.styleFrom(
-    
-  onPrimary: Colors.black87,
-  primary: Color(0xFF85BBC2),
-  fixedSize: Size(200, 50),
-  padding: EdgeInsets.symmetric(horizontal: 16),
-  
-    
-  shape: const RoundedRectangleBorder(
-    borderRadius: BorderRadius.all(Radius.circular( 25)),
-  ),),
-  
-   onPressed: () {
-               /*  Navigator.push(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                onPrimary: Colors.black87,
+                                primary: Color(0xFF85BBC2),
+                                fixedSize: Size(200, 50),
+                                padding: EdgeInsets.symmetric(horizontal: 16),
+                                shape: const RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(25)),
+                                ),
+                              ),
+                              onPressed: () {
+                                /*  Navigator.push(
                     context, MaterialPageRoute(builder: (c) => MapScreen())); */
-              },
-  child: Text("اضافة",
-    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w600,
-                                       fontSize: 17,
-                                       color: Colors.black,
-                                    ),
-  
-  
-  ),
-),),
-              ],),
+                              },
+                              child: Text(
+                                "اضافة",
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -148,19 +153,23 @@ class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(10, 60, 0, 0),
               child: IconButton(
-                 icon : new Icon(Icons.chevron_left , size: 50,),
+                icon: new Icon(
+                  Icons.chevron_left,
+                  size: 50,
+                ),
                 color: Color(0xFF46494D),
                 //size: 50,
-                         onPressed: ()    async =>   await Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => select_involved_carWidget(),
-                        ),
-                        (r) => false,
-  ) 
-, 
+                onPressed: () async => await Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SelectCarInvolvedCarsPageWidget(
+                        accTime: widget.accTime,
+                        accID: widget.accID,
+                        accLocation: widget.accLocation),
+                  ),
+                  (r) => false,
+                ),
               ),
-              
             ),
             Align(
               alignment: AlignmentDirectional(0, -0.82),
@@ -175,7 +184,7 @@ class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
                       child: Text(
                         'إضافة سيارة اخرى',
                         textAlign: TextAlign.center,
-                        style:TextStyle(
+                        style: TextStyle(
                           fontFamily: 'Poppins',
                           color: Color(0xFF46494D),
                           fontSize: 22,

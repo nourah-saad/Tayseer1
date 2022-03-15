@@ -12,3 +12,15 @@ Future<String> getName(String ID) async {
 
   return name;
 }
+
+Future<String> getNatID(String ID) async {
+  var nID = await FirebaseFirestore.instance
+      .collection('Driver')
+      .doc('$ID')
+      .get()
+      .then((value) {
+    return value.data()!['Driver_Id'];
+  });
+
+  return nID;
+}

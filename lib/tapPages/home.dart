@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:tayseer2/mapScreen/map_screen.dart';
 import 'package:tayseer2/notification/notification.dart';
-import 'package:tayseer2/reoert_an_accident/select_your_car.dart';
 import 'package:tayseer2/widgets/my_drawer.dart';
+
+import '../global/global.dart';
+import '../report_an_accident/mapScreen/map_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -33,9 +33,9 @@ class _HomePageState extends State<HomePage> {
           canvasColor: const Color(0xFF85BBC2),
         ),
         child: MyDrawer(
-            //  name: driverModelCurrentInfo!.name,
-            //   email: driverModelCurrentInfo!.email,
-            ),
+          name: driverModelCurrentInfo!.name,
+          email: driverModelCurrentInfo!.email,
+        ),
       ),
       backgroundColor: const Color(0xFF85BBC2),
       body: Stack(
@@ -62,18 +62,12 @@ class _HomePageState extends State<HomePage> {
           Center(
             child: ElevatedButton(
               onPressed: () async {
-                //       Position loc = await getLocation();
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (c) =>
-                            MapScreen() /*select_your_carWidget(
-                              accID: '',
-                              accTime: DateTime
-                                  .now(), // DateTime.parse('2022-03-09 13:01:47'),
-                              accLocation: loc, sender: user.uid,
-                            )*/
-                        ));
+                        builder: (c) => MapScreen(
+                              accTime: DateTime.now(),
+                            )));
               },
               style: ElevatedButton.styleFrom(
                 primary: const Color(0xFFD8EBEE),

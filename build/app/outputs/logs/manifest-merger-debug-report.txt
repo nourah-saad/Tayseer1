@@ -13,6 +13,8 @@ MERGED from [:firebase_messaging] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Co
 MERGED from [:firebase_messaging] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-44:19
 MERGED from [:firebase_core] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_core] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-13:19
+MERGED from [:geolocator_android] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-15:19
+MERGED from [:geolocator_android] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-15:19
 MERGED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-26:19
 MERGED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-26:19
 MERGED from [:location] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\location\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-16:19
@@ -97,7 +99,7 @@ MERGED from [:firebase_analytics] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Co
 MERGED from [:firebase_auth] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
 MERGED from [:firebase_messaging] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_messaging\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-46:12
 MERGED from [:firebase_core] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
-MERGED from [:geolocator_android] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [:geolocator_android] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:google_maps_flutter] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-28:12
@@ -219,6 +221,8 @@ ADDED from C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\android\
 		ADDED from C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\android\app\src\main\AndroidManifest.xml:7:22-82
 uses-permission#android.permission.FOREGROUND_SERVICE
 ADDED from C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\android\app\src\main\AndroidManifest.xml:8:5-77
+MERGED from [:geolocator_android] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-77
+MERGED from [:geolocator_android] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-77
 	android:name
 		ADDED from C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\android\app\src\main\AndroidManifest.xml:8:22-74
 uses-sdk
@@ -605,6 +609,16 @@ ADDED from [:firebase_core] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\
 		ADDED from [:firebase_core] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
 	android:name
 		ADDED from [:firebase_core] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-124
+service#com.baseflow.geolocator.GeolocatorLocationService
+ADDED from [:geolocator_android] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:10:9-14:56
+	android:enabled
+		ADDED from [:geolocator_android] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-35
+	android:exported
+		ADDED from [:geolocator_android] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-37
+	android:foregroundServiceType
+		ADDED from [:geolocator_android] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-53
+	android:name
+		ADDED from [:geolocator_android] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\geolocator_android\intermediates\library_manifest\debug\AndroidManifest.xml:11:13-77
 uses-permission#android.permission.VIBRATE
 ADDED from [:flutter_local_notifications] C:\Users\rawan\Desktop\uni\level7\444\TryIt\Counter\Tayseer1\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-66
 	android:name

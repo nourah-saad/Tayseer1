@@ -308,9 +308,9 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
         .then((doc) {
       setState(() {
         widget.driverName = doc.data()!['Drivers_Involved'][0]['name'];
-        widget.driverPlate = doc.data()!['Cars_Involved'][0]['number'];
-        widget.driverCar = doc.data()!['Cars_Involved'][0]['model'];
-        widget.driverCarColor = doc.data()!['Cars_Involved'][0]['color'];
+        widget.driverPlate = doc.data()!['Cars_Involved'][0]['Car_plateNo'];
+        widget.driverCar = doc.data()!['Cars_Involved'][0]['Car_model'];
+        widget.driverCarColor = doc.data()!['Cars_Involved'][0]['Car_color'];
         GeoPoint loc = (doc.data()!['Location'] as GeoPoint);
         getLocationName(loc);
         /**/

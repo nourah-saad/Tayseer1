@@ -6,14 +6,16 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:tayseer2/assistants/assistant_methods.dart';
 import 'package:tayseer2/infoHandler/app_info.dart';
-import 'package:provider/provider.dart';
 
-import '../notification/notification.dart';
-import '../reoert_an_accident/select_your_car.dart';
+import '../../notification/notification.dart';
+import '../select_your_car.dart';
+import '../select_your_car.dart';
 
 class MapScreen extends StatefulWidget {
   @override
   _MapScreenState createState() => _MapScreenState();
+  final DateTime accTime;
+  const MapScreen({Key? key, required this.accTime}) : super(key: key);
 }
 
 class _MapScreenState extends State<MapScreen> {
@@ -21,7 +23,7 @@ class _MapScreenState extends State<MapScreen> {
   GoogleMapController? newGoogleMapController;
 
   static const CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
+    target: LatLng(24.81932, 46.625143),
     zoom: 14.4746,
   );
 
@@ -173,8 +175,7 @@ class _MapScreenState extends State<MapScreen> {
                               MaterialPageRoute(
                                   builder: (c) => select_your_carWidget(
                                         accID: '',
-                                        accTime: DateTime
-                                            .now(), // DateTime.parse('2022-03-09 13:01:47'),
+                                        accTime: widget.accTime,
                                         accLocation: userCurrentPosition!,
                                         sender: user.uid,
                                       )));

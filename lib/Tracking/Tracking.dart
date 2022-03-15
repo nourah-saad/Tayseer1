@@ -4,7 +4,7 @@ import 'package:location/location.dart' as locationServices;
 import 'package:permission_handler/permission_handler.dart';
 import 'package:tayseer2/notification/notification.dart';
 
-import '../Driver/getName.dart';
+import '../Driver/getters.dart';
 
 List<LocationClass> list = [];
 locationServices.Location location = new locationServices.Location();

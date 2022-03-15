@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:tayseer2/reoert_an_accident/confirmation/confirmation_loading_page.dart';
 import 'package:tayseer2/notification/notification.dart';
 
-import '../Driver/getName.dart';
+import '../Driver/getters.dart';
 import '../FlutterFlow/FlutterFlowTheme.dart';
 import '../FlutterFlow/FlutterFlowWidgets.dart';
+import 'confirmation/confirmation_loading_page.dart';
 
 class DriverDetails extends StatefulWidget {
   const DriverDetails(
@@ -114,11 +114,12 @@ class _DriverDetailsState extends State<DriverDetails> {
     );
   }
 
-  void addDetails() {
+  void addDetails() async {
     FirebaseFirestore.instance.collection('Accident').doc(widget.accID).update({
       'Drivers_Involved': FieldValue.arrayUnion([
         {
           'name': widget.inDriverName,
+          'Driver_Id': await getNatID(widget.inDriverID),
           'uid': widget.inDriverID,
         }
       ]),

@@ -4,11 +4,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:tayseer2/Driver/getName.dart';
-import 'package:tayseer2/reoert_an_accident/confirmation/confirmation_page.dart';
-import 'package:tayseer2/reoert_an_accident/select_involved_car.dart';
-import 'package:tayseer2/tapPages/home.dart';
+import 'package:tayseer2/Driver/getters.dart';
+import 'package:tayseer2/report_an_accident/select_involved_car.dart';
 import '../mainScreen/main_screen.dart';
+import 'confirmation/confirmation_page.dart';
 
 class select_your_carWidget extends StatefulWidget {
   final DateTime accTime;
@@ -38,6 +37,7 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
 
   @override
   void initState() {
+    cars.clear();
     addtolist();
     super.initState();
   }
@@ -53,9 +53,9 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
         .then((value) {
       value.docs.forEach((element) {
         setState(() {
-          car_number = element.data()['number'];
-          car_model = element.data()['model'];
-          car_color = element.data()['color'];
+          car_number = element.data()['Car_plateNo'];
+          car_model = element.data()['Car_model'];
+          car_color = element.data()['Car_color'];
 
           values = {
             'car_model': '${car_model}',
@@ -158,11 +158,16 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
         await FirebaseFirestore.instance.collection('Accident').add({
       'Date_time': widget.accTime,
       'Cars_Involved': FieldValue.arrayUnion([
-        {'color': car_color, 'model': car_model, 'number': car_number}
+        {
+          'Car_color': car_color,
+          'Car_model': car_model,
+          'Car_plateNo': car_number,
+        }
       ]),
       'Drivers_Involved': FieldValue.arrayUnion([
         {
           'name': await getName(user.uid),
+          'Driver_Id': await getNatID(user.uid),
           'uid': user.uid,
         }
       ]),
@@ -403,7 +408,11 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
         .doc(widget.accID)
         .update({
       'Cars_Involved': FieldValue.arrayUnion([
-        {'color': car_color, 'model': car_model, 'number': car_number}
+        {
+          'Car_color': car_color,
+          'Car_model': car_model,
+          'Car_plateNo': car_number
+        }
       ])
     });
     /*  SnackBar snackbar = SnackBar(

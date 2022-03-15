@@ -3,10 +3,10 @@ import 'dart:ffi';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tayseer2/navigationService.dart';
-
-import '../../view_accidents/accidentReport.dart';
+import 'package:tayseer2/view_accidents/view_accident_report.dart';
 
 proccessAcc({required accID, required driverID, required involvedID}) async {
+  String accType = '';
   DateTime accTime = await getTime(accID);
   print('heeerrre timmmy');
   List<double> driverlocations = await getLocation(driverID, accTime);
@@ -28,12 +28,15 @@ proccessAcc({required accID, required driverID, required involvedID}) async {
 
   if (driverBehavior == 'Circle') {
     guilty = driverID;
+    accType = 'drift';
   } else if (involvedBehavior == 'Circle') {
     involvedID;
+    accType = 'drift';
   } else if (involvedBehavior == driverBehavior) {
     switch (driverBehavior) {
       case 'StraightF':
       case 'StraightB':
+        accType = 'S1';
         if (driverlocations[0] < involvedLocations[0]) {
           guilty = driverID;
         } else {
@@ -54,14 +57,17 @@ proccessAcc({required accID, required driverID, required involvedID}) async {
   await FirebaseFirestore.instance.collection('Accident').doc(accID).update({
     'Fault_assessment': FieldValue.arrayUnion([
       guilty == driverID ? '%100' : '%0',
-      guilty == involvedID ? '%100' : '%0'
-    ])
+      guilty == involvedID ? '%100' : '%0',
+    ]),
+    'accident_type': accType,
   });
 
   Navigator.pushReplacement(
       navigationService.navigatorKey.currentContext!,
       MaterialPageRoute(
-          builder: (context) => AccidentReportWidget(accID: accID)));
+          builder: (context) => AccidentReportWidget(
+                id: accID,
+              ) /*AccidentReportWidget(accID: accID)*/));
 }
 
 String getBehavior(List<double> driverlocations) {

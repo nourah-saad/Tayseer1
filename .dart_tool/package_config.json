@@ -80,6 +80,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "date_format",
+      "rootUri": "file:///C:/Users/rawan/src/flutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/date_format-2.0.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "dbus",
       "rootUri": "file:///C:/Users/rawan/src/flutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/dbus-0.6.8",
       "packageUri": "lib/",
@@ -279,19 +285,19 @@
     },
     {
       "name": "geolocator",
-      "rootUri": "file:///C:/Users/rawan/src/flutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-8.1.1",
+      "rootUri": "file:///C:/Users/rawan/src/flutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator-8.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "geolocator_android",
-      "rootUri": "file:///C:/Users/rawan/src/flutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_android-3.0.2",
+      "rootUri": "file:///C:/Users/rawan/src/flutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_android-3.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "geolocator_apple",
-      "rootUri": "file:///C:/Users/rawan/src/flutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_apple-2.1.0",
+      "rootUri": "file:///C:/Users/rawan/src/flutterSDK/flutter/.pub-cache/hosted/pub.dartlang.org/geolocator_apple-2.1.1+1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -590,7 +596,7 @@
       "languageVersion": "2.15"
     }
   ],
-  "generated": "2022-03-15T02:38:35.322853Z",
+  "generated": "2022-03-15T14:29:28.575212Z",
   "generator": "pub",
   "generatorVersion": "2.16.1"
 }
