@@ -8,6 +8,9 @@ import 'package:tayseer2/assistants/assistant_methods.dart';
 import 'package:tayseer2/infoHandler/app_info.dart';
 import 'package:provider/provider.dart';
 
+import '../notification/notification.dart';
+import '../reoert_an_accident/selectYourCar.dart';
+
 class MapScreen extends StatefulWidget {
   @override
   _MapScreenState createState() => _MapScreenState();
@@ -164,7 +167,18 @@ class _MapScreenState extends State<MapScreen> {
                         child: const Text(
                           "التالي",
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (c) => select_your_carWidget(
+                                        accID: '',
+                                        accTime: DateTime
+                                            .now(), // DateTime.parse('2022-03-09 13:01:47'),
+                                        accLocation: userCurrentPosition!,
+                                        sender: user.uid,
+                                      )));
+                        },
                         style: ElevatedButton.styleFrom(
                             primary: const Color(0xFF85BBC2),
                             textStyle: const TextStyle(

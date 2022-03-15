@@ -1,20 +1,39 @@
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-
-import '../FlutterFlow/FlutterFlowTheme.dart';
+import 'package:tayseer2/reoert_an_accident/fault_assessment/calculateFault.dart';
+//import 'package:flutter_spinkit/flutter_spinkit.dart';
+import '../../FlutterFlow/FlutterFlowTheme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-class ConfirmationLoadingPageWidget extends StatefulWidget {
-  const ConfirmationLoadingPageWidget({Key? key}) : super(key: key);
+class ConfirmedPage extends StatefulWidget {
+  final String status;
+  final String reciever;
+  final String sender;
+  final String accID;
+
+  const ConfirmedPage({
+    Key? key,
+    required this.status,
+    required this.reciever,
+    required this.sender,
+    required this.accID,
+  }) : super(key: key);
 
   @override
-  _ConfirmationLoadingPageWidgetState createState() =>
-      _ConfirmationLoadingPageWidgetState();
+  _ConfirmedPageState createState() => _ConfirmedPageState();
 }
 
-class _ConfirmationLoadingPageWidgetState
-    extends State<ConfirmationLoadingPageWidget> {
+class _ConfirmedPageState extends State<ConfirmedPage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    proccessAcc(
+        accID: widget.accID,
+        driverID: widget.reciever,
+        involvedID: widget.sender);
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +67,7 @@ class _ConfirmationLoadingPageWidgetState
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'تم رفع البلاغ بنجاح',
+                          widget.status == 'accept' ? 'تم القبول ' : 'تم الرفض',
                           style: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Poppins',
                             color: Color(0xFF46494D),
@@ -57,24 +76,20 @@ class _ConfirmationLoadingPageWidgetState
                           ),
                         ),
                         Icon(
-                          Icons.check_rounded,
+                          widget.status == 'accept'
+                              ? Icons.check_rounded
+                              : Icons.cancel_outlined,
                           color: Color(0xFF46494D),
                           size: 70,
                         ),
                         SizedBox(
                             height: MediaQuery.of(context).size.height * 0.2),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 35, 0, 0),
-                          child: Text(
-                            'بانتظار تأكيد الحادث من الطرف الآخر',
+                        Text('بانتظار اكتمال تقرير الحادث',
                             style: FlutterFlowTheme.bodyText1.override(
                               fontFamily: 'Poppins',
                               color: Color(0xFF46494D),
-                              fontSize: 18,
                               fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
+                            )),
                         SpinKitThreeBounce(
                           size: 20,
                           color: Color(0xFF46494D),

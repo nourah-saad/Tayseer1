@@ -5,8 +5,8 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:tayseer2/Driver/getName.dart';
-import 'package:tayseer2/confirmation_page/confirmation_page.dart';
-import 'package:tayseer2/selectInvolvedCars.dart/selectInvolvedCars.dart';
+import 'package:tayseer2/reoert_an_accident/confirmation/confirmation_page.dart';
+import 'package:tayseer2/reoert_an_accident/selectInvolvedCars.dart';
 import 'package:tayseer2/tapPages/home.dart';
 import '../mainScreen/main_screen.dart';
 

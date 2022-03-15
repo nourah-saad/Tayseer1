@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:tayseer2/mapScreen/map_screen.dart';
 import 'package:tayseer2/notification/notification.dart';
-import 'package:tayseer2/selectInvolvedCars.dart/selectYourCar.dart';
+import 'package:tayseer2/reoert_an_accident/selectYourCar.dart';
 import 'package:tayseer2/widgets/my_drawer.dart';
 
 class HomePage extends StatefulWidget {
@@ -62,16 +62,18 @@ class _HomePageState extends State<HomePage> {
           Center(
             child: ElevatedButton(
               onPressed: () async {
-                Position loc = await getLocation();
+                //       Position loc = await getLocation();
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (c) => /*MapScreen()*/ select_your_carWidget(
+                        builder: (c) =>
+                            MapScreen() /*select_your_carWidget(
                               accID: '',
                               accTime: DateTime
                                   .now(), // DateTime.parse('2022-03-09 13:01:47'),
                               accLocation: loc, sender: user.uid,
-                            )));
+                            )*/
+                        ));
               },
               style: ElevatedButton.styleFrom(
                 primary: const Color(0xFFD8EBEE),
@@ -90,8 +92,8 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Future<Position> getLocation() async {
+  /* Future<Position> getLocation() async {
     Position curentLocation = await Geolocator.getCurrentPosition();
     return curentLocation;
-  }
+  }*/
 }

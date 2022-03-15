@@ -7,12 +7,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:tayseer2/confirmation_loading_page/confirmed.dart';
+import 'package:tayseer2/reoert_an_accident/confirmation/confirmed.dart';
 import 'package:tayseer2/navigationService.dart';
 import 'package:http/http.dart' as http;
 
-import '../confirmation_page/confirmation_page.dart';
-import '../selectInvolvedCars.dart/selectYourCar.dart';
+import '../reoert_an_accident/confirmation/confirmation_page.dart';
+import '../reoert_an_accident/selectYourCar.dart';
 
 CollectionReference<Map<String, dynamic>> driverCollection =
     FirebaseFirestore.instance.collection('Driver');

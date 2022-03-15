@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:tayseer2/confirmation_loading_page/confirmation_loading_page.dart';
+import 'package:tayseer2/reoert_an_accident/confirmation/confirmation_loading_page.dart';
 import 'package:tayseer2/notification/notification.dart';
 
 import '../Driver/getName.dart';

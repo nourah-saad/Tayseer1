@@ -2,9 +2,9 @@ import 'dart:ffi';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:tayseer2/accidentReport/accidentReport.dart';
 import 'package:tayseer2/navigationService.dart';
-import 'package:tayseer2/tapPages/home.dart';
+
+import '../../view_accidents/accidentReport.dart';
 
 proccessAcc({required accID, required driverID, required involvedID}) async {
   DateTime accTime = await getTime(accID);

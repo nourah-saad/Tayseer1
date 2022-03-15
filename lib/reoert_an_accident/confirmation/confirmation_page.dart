@@ -1,11 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:geocoding/geocoding.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:tayseer2/notification/notification.dart';
-import 'package:tayseer2/selectInvolvedCars.dart/selectYourCar.dart';
 import 'package:tayseer2/tapPages/home.dart';
-import '../FlutterFlow/FlutterFlowTheme.dart';
-import '../FlutterFlow/FlutterFlowWidgets.dart';
+import '../../FlutterFlow/FlutterFlowTheme.dart';
+import '../../FlutterFlow/FlutterFlowWidgets.dart';
 import 'package:flutter/material.dart';
 
 class ConfirmationPageWidget extends StatefulWidget {
