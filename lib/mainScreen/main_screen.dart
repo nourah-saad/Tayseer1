@@ -4,9 +4,10 @@ import 'package:tayseer2/tapPages/home.dart';
 import 'package:tayseer2/tapPages/my_account.dart';
 import 'package:tayseer2/tapPages/notifications.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+//import '../dummy_view/dummy_Screen.dart';
+import '../tapPages/dummy_Screen.dart';
 
+class MainScreen extends StatefulWidget {
   @override
   _MainScreenState createState() => _MainScreenState();
 }
@@ -20,6 +21,7 @@ class _MainScreenState extends State<MainScreen>
     setState(() {
       selectedIndex = index;
       tabController!.index = selectedIndex;
+
     });
   }
 
@@ -28,6 +30,7 @@ class _MainScreenState extends State<MainScreen>
     super.initState();
 
     tabController = TabController(length: 4, vsync: this);
+
   }
 
   @override
@@ -37,9 +40,11 @@ class _MainScreenState extends State<MainScreen>
       body: TabBarView(
         physics: const NeverScrollableScrollPhysics(),
         controller: tabController,
-        children: const [
-          HomePage(),
-          MyAccount(),
+        children:  [
+         // HomePage(),
+          Container(),
+         // MyAccount(),
+          Dummy_Screen(controller_tab:tabController),
           NotificationPage(),
           ChatPage(),
         ],

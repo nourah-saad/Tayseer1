@@ -6,20 +6,20 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../Model_user.dart';
 //import 'Model_user.dart';
+import '../Model_user.dart';
 import 'User_servies.dart';
 
-class MyAccount extends StatefulWidget {
-   MyAccount(Set set, {controller_tab}){
+class Dummy_Screen extends StatefulWidget {
+   Dummy_Screen({controller_tab}){
     tabcontroller=controller_tab;
    }
 
   @override
-  _MyAccountState createState() => _MyAccountState();
+  _Dummy_ScreenState createState() => _Dummy_ScreenState();
 }
 TabController? tabcontroller;
-class _MyAccountState extends State<MyAccount> {
+class _Dummy_ScreenState extends State<Dummy_Screen> {
   final user = FirebaseAuth.instance.currentUser;
   final myController = TextEditingController();
   final formKey = GlobalKey<FormState>();
