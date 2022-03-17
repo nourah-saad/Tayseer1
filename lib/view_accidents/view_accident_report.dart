@@ -5,6 +5,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:tayseer2/view_accidents/view_accidents_widget.dart';
 import 'package:intl/intl.dart';
 
+import '../widgets/progress_dialog.dart';
+
 class AccidentReportWidget extends StatefulWidget {
   final id;
   const AccidentReportWidget({Key? key, this.id}) : super(key: key);
@@ -48,9 +50,31 @@ class _AccidentReportWidgetState extends State<AccidentReportWidget> {
     });
     print('the adrres is ${address}');
   }
+  void _onLoading( context) {
+  showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (BuildContext context) {
+      return Dialog(
+        child: new Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            new CircularProgressIndicator(),
+            new Text("Loading"),
+          ],
+        ),
+      );
+    },
+  );
+  new Future.delayed(new Duration(seconds: 4), () {
+       
+  });
 
-  Future<void> fetchdata() async {
-    var docSnapshot = await Accidents.doc(widget.id).get();
+}
+Future<void> fetchdata() async {
+
+//_onLoading(context);
+var docSnapshot = await Accidents.doc(widget.id).get();
 
     if (docSnapshot.exists) {
       Map<String, dynamic>? data = docSnapshot.data();

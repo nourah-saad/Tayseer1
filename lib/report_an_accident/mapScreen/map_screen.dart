@@ -142,7 +142,7 @@ class _MapScreenState extends State<MapScreen> {
                                                 .userPickUpLocation!
                                                 .locationName!)
                                             .substring(0,
-                                                44) + //عدد الاحرف اللي تطلع في الخريطة
+                                                43) + //عدد الاحرف اللي تطلع في الخريطة
                                         "..."
                                     : "not getting address",
                                 style: const TextStyle(

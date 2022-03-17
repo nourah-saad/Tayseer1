@@ -10,6 +10,7 @@ import '../FlutterFlow/FlutterFlowWidgets.dart';
 import 'package:flutter/material.dart';
 
 import 'DriverDetails.dart';
+import 'add_new_car.dart';
 
 class SelectCarInvolvedCarsPageWidget extends StatefulWidget {
   const SelectCarInvolvedCarsPageWidget(
@@ -76,8 +77,9 @@ class _SelectCarInvolvedCarsPageWidgetState
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(80, 530, 0, 0),
             child: FFButtonWidget(
-              onPressed: () {
-                print('Button pressed ...');
+               onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (c) => AddCarManuallyWidget(accID: widget.accID, accLocation:  widget.accLocation , accTime: widget.accTime,))); 
               },
               text: 'إضافة سيارة اخرى',
               options: FFButtonOptions(
