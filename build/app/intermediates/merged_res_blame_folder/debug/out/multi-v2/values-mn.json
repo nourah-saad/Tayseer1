@@ -1,27 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\rawan\\Desktop\\uni\\level7\\444\\TryIt\\Counter\\Tayseer1\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mn\\values-mn.xml",
+            "outputFile": "/Users/almaha/Desktop/Tayseer1/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-mn/values-mn.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\rawan\\.gradle\\caches\\transforms-2\\files-2.1\\d0b38df09f6e19e3a951469871197e2c\\jetified-play-services-basement-18.0.0\\res\\values-mn\\values.xml",
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/7c6ec111d24f4df63cb024cbd0c44696/core-1.6.0/res/values-mn/values-mn.xml",
                     "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "195",
-                        "endColumns": "145",
-                        "endOffsets": "340"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "10",
+                        "startLines": "21",
                         "startColumns": "4",
-                        "startOffsets": "1271",
-                        "endColumns": "149",
-                        "endOffsets": "1416"
+                        "startOffsets": "2824",
+                        "endColumns": "100",
+                        "endOffsets": "2920"
                     }
                 },
                 {
-                    "source": "C:\\Users\\rawan\\.gradle\\caches\\transforms-2\\files-2.1\\05f2777bce3b2590ffb1296bd286c954\\jetified-firebase-messaging-23.0.0\\res\\values-mn\\values.xml",
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/05f2777bce3b2590ffb1296bd286c954/jetified-firebase-messaging-23.0.0/res/values-mn/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -38,7 +38,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\rawan\\.gradle\\caches\\transforms-2\\files-2.1\\028e2af049aff9ad02b583c22895ed29\\jetified-play-services-base-17.1.0\\res\\values-mn\\values.xml",
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/d0b38df09f6e19e3a951469871197e2c/jetified-play-services-basement-18.0.0/res/values-mn/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "145",
+                        "endOffsets": "340"
+                    },
+                    "to": {
+                        "startLines": "10",
+                        "startColumns": "4",
+                        "startOffsets": "1271",
+                        "endColumns": "149",
+                        "endOffsets": "1416"
+                    }
+                },
+                {
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/028e2af049aff9ad02b583c22895ed29/jetified-play-services-base-17.1.0/res/values-mn/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -52,23 +69,6 @@
                         "startOffsets": "105,217,406,540,649,845,973,1132,1421,1624,1733,1932,2063,2263,2461,2552,2644",
                         "endColumns": "111,188,133,108,195,127,158,138,202,108,198,130,199,197,90,91,105",
                         "endOffsets": "212,401,535,644,840,968,1127,1266,1619,1728,1927,2058,2258,2456,2547,2639,2745"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\rawan\\.gradle\\caches\\transforms-2\\files-2.1\\7c6ec111d24f4df63cb024cbd0c44696\\core-1.6.0\\res\\values-mn\\values-mn.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "21",
-                        "startColumns": "4",
-                        "startOffsets": "2824",
-                        "endColumns": "100",
-                        "endOffsets": "2920"
                     }
                 }
             ]
