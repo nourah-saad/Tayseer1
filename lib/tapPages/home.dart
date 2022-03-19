@@ -20,8 +20,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   GlobalKey<ScaffoldState> sKey = GlobalKey<ScaffoldState>();
-var n =driverModelCurrentInfo!.name;
-var  e=driverModelCurrentInfo!.email.toString();
+var n ="Raghad";//driverModelCurrentInfo!.name;
+var  e="raghad@gmail.com";//driverModelCurrentInfo!.email.toString();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,8 +31,8 @@ var  e=driverModelCurrentInfo!.email.toString();
           canvasColor: Color(0xFFD8EBEE),
         ),
         child: MyDrawer(
-          name: driverModelCurrentInfo!.name,
-          email: driverModelCurrentInfo!.email,
+          name:"Raghad", //driverModelCurrentInfo!.name,
+          email: "raghad@gmail.com"//driverModelCurrentInfo!.email,
         ),
       ),
       backgroundColor: Color(0xFFD8EBEE),

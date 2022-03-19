@@ -5,6 +5,8 @@ import 'package:tayseer2/tapPages/home.dart';
 import 'package:tayseer2/tapPages/my_account.dart';
 import 'package:tayseer2/tapPages/notifications.dart';
 
+import '../dummy_view/dummy_Screen.dart';
+
 class MainScreen extends StatefulWidget {
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -37,11 +39,11 @@ class _MainScreenState extends State<MainScreen>
       body: TabBarView(
         physics: const NeverScrollableScrollPhysics(),
         controller: tabController,
-        children: const [
-          HomePage(),
-          MyAccount(),
-          NotificationPage(),
-          ChatPage(),
+        children:  [
+         const HomePage(),
+           Dummy_Screen(controller_tab:tabController),
+          const NotificationPage(),
+          const ChatPage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

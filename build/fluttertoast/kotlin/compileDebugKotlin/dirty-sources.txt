@@ -1,2 +1,0 @@
-/Users/almaha/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-8.0.9/android/src/main/kotlin/io/github/ponnamkarthik/toast/fluttertoast/FlutterToastPlugin.kt
-/Users/almaha/Desktop/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-8.0.9/android/src/main/kotlin/io/github/ponnamkarthik/toast/fluttertoast/MethodCallHandlerImpl.kt
