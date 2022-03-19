@@ -40,8 +40,8 @@ class _MainScreenState extends State<MainScreen>
         physics: const NeverScrollableScrollPhysics(),
         controller: tabController,
         children:  [
-         // HomePage(),
-          Container(),
+         HomePage(),
+          //Container(),
          // MyAccount(),
           Dummy_Screen(controller_tab:tabController),
           NotificationPage(),
