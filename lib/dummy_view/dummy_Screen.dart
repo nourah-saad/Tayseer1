@@ -405,7 +405,7 @@ print(email);
                               ),
                               Container(
                                   child: new Text(
-                                'رقم الهويته/الاقامته:',
+                                ':رقم الهويه/الاقامه',
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 20,
