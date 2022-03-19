@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tayseer2/Tracking/Tracking.dart';
 import 'package:tayseer2/tapPages/chat.dart';
 import 'package:tayseer2/tapPages/home.dart';
 import 'package:tayseer2/tapPages/my_account.dart';
@@ -11,7 +10,7 @@ class MainScreen extends StatefulWidget {
   @override
   _MainScreenState createState() => _MainScreenState();
 }
-
+//SS
 class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin {
   TabController? tabController;
@@ -21,15 +20,16 @@ class _MainScreenState extends State<MainScreen>
     setState(() {
       selectedIndex = index;
       tabController!.index = selectedIndex;
+
     });
   }
 
   @override
   void initState() {
-    requestPermission();
     super.initState();
 
     tabController = TabController(length: 4, vsync: this);
+
   }
 
   @override
@@ -40,10 +40,12 @@ class _MainScreenState extends State<MainScreen>
         physics: const NeverScrollableScrollPhysics(),
         controller: tabController,
         children:  [
-         const HomePage(),
-           Dummy_Screen(controller_tab:tabController),
-          const NotificationPage(),
-          const ChatPage(),
+         // HomePage(),
+          Container(),
+         // MyAccount(),
+          Dummy_Screen(controller_tab:tabController),
+          NotificationPage(),
+          ChatPage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -67,7 +69,7 @@ class _MainScreenState extends State<MainScreen>
         ],
         unselectedItemColor: Colors.black54,
         selectedItemColor: Colors.black,
-        backgroundColor: Color(0xFF85BBC2),
+        backgroundColor: const Color(0xFFD8EBEE),
         type: BottomNavigationBarType.fixed,
         selectedLabelStyle: const TextStyle(fontSize: 14),
         showUnselectedLabels: true,

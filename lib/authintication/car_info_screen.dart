@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -12,23 +14,35 @@ class CarInfoScreen extends StatefulWidget {
 
 class _CarInfoScreenState extends State<CarInfoScreen> {
   TextEditingController carModelTextEditingController = TextEditingController();
-  TextEditingController carNumberTextEditingController =
-      TextEditingController();
+  TextEditingController carNumberTextEditingController =   TextEditingController();
   TextEditingController carColorTextEditingController = TextEditingController();
+  final CollectionReference driversRefc =
+  FirebaseFirestore.instance.collection('Driver');
+  final user = FirebaseAuth.instance.currentUser;
 
-  saveCarInfo() {
+  saveCarInfo() async{
     Map driverCarInfoMap = {
       "car_color": carColorTextEditingController.text.trim(),
       "car_number": carNumberTextEditingController.text.trim(),
       "car_model": carModelTextEditingController.text.trim(),
     };
 
-    DatabaseReference driversRef =
-        FirebaseDatabase.instance.ref().child("drivers");
-    driversRef
-        .child(currentFirebaseUser!.uid)
-        .child("car_details")
-        .set(driverCarInfoMap);
+    // final save=await driversRefc.doc(user!.uid).update({
+    //   'car_details':driverCarInfoMap
+    // });
+    final save=await driversRefc.doc(user!.uid).collection('Cars').add({
+      "car_color": carColorTextEditingController.text.trim(),
+      "car_number": carNumberTextEditingController.text.trim(),
+      "car_model": carModelTextEditingController.text.trim(),
+    });
+    
+    
+    // DatabaseReference driversRef =
+    //     FirebaseDatabase.instance.ref().child("drivers");
+    // driversRef
+    //     .child(currentFirebaseUser!.uid)
+    //     .child("car_details")
+    //     .set(driverCarInfoMap);
 
     Fluttertoast.showToast(msg: "Car Details has been saved");
     Navigator.push(context, MaterialPageRoute(builder: (c) => LoginScreen()));

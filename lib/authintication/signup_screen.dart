@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +23,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
       TextEditingController();
   TextEditingController sexTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
+  final CollectionReference driversRefc =
+  FirebaseFirestore.instance.collection('Driver');
 
   validateForm() {
     if (nameTextEditingController.text.length < 3) {
@@ -49,7 +52,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
     final User? firebaseUser = (await fAuth
             .createUserWithEmailAndPassword(
-      email: emailTextEditingController.text.trim(),
+      email: '${didTextEditingController.text.trim()}@gmail.com',
       password: passwordTextEditingController.text.trim(),
     )
             .catchError((msg) {
@@ -59,7 +62,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
         .user;
 
     if (firebaseUser != null) {
-      Map driverMap = {
+      // Map driverMap = {
+      //   "id": firebaseUser.uid,
+      //   "name": nameTextEditingController.text.trim(),
+      //   "email": emailTextEditingController.text.trim(),
+      //   "phone": phoneTextEditingController.text.trim(),
+      //   "did": didTextEditingController.text.trim(),
+      //   "nationality": nationalityTextEditingController.text.trim(),
+      //   "sex": sexTextEditingController.text.trim(),
+      //   "password": passwordTextEditingController.text.trim(),
+      // };
+      final save=await driversRefc.doc(firebaseUser.uid).set({
         "id": firebaseUser.uid,
         "name": nameTextEditingController.text.trim(),
         "email": emailTextEditingController.text.trim(),
@@ -68,11 +81,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
         "nationality": nationalityTextEditingController.text.trim(),
         "sex": sexTextEditingController.text.trim(),
         "password": passwordTextEditingController.text.trim(),
-      };
-
-      DatabaseReference driversRef =
-          FirebaseDatabase.instance.ref().child("drivers");
-      driversRef.child(firebaseUser.uid).set(driverMap);
+      });
+      // DatabaseReference driversRef =
+      //     FirebaseDatabase.instance.ref().child("drivers");
+      // driversRef.child(firebaseUser.uid).set(driverMap);
 
       currentFirebaseUser = firebaseUser;
       Fluttertoast.showToast(msg: "Account has been Created.");
@@ -304,4 +316,5 @@ class _SignUpScreenState extends State<SignUpScreen> {
       ),
     );
   }
+  
 }

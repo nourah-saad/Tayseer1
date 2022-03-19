@@ -1,5 +1,8 @@
+
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_database/firebase_database.dart';
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:tayseer2/authintication/signup_screen.dart';
@@ -8,18 +11,23 @@ import 'package:tayseer2/mainScreen/main_screen.dart';
 import 'package:tayseer2/splashScreen/splash_screen.dart';
 import 'package:tayseer2/widgets/progress_dialog.dart';
 
+
 class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController emailTextEditingController = TextEditingController();
+  TextEditingController didTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
-
+   late bool passwordVisibility;
+  final formKey = GlobalKey<FormState>();
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final CollectionReference driversRefc =
+  FirebaseFirestore.instance.collection('Driver');
   validateForm() {
-    if (emailTextEditingController.text.isEmpty) {
-      Fluttertoast.showToast(msg: "Email is required");
+    if (didTextEditingController.text.isEmpty) {
+      Fluttertoast.showToast(msg: "ID is required");
     } else if (passwordTextEditingController.text.isEmpty) {
       Fluttertoast.showToast(msg: "Password is required.");
     } else {
@@ -33,27 +41,49 @@ class _LoginScreenState extends State<LoginScreen> {
         barrierDismissible: false,
         builder: (BuildContext c) {
           return ProgressDialog(
-            message: "Please wait...",
+            message: "فضلا انتظر",
           );
         });
 
+
+
+     // DatabaseReference ref =
+     //    FirebaseDatabase.instance.ref("drivers");
+     //    Query query = ref..child("did").orderByChild("did").equalTo(didTextEditingController.text.trim());
+     //    DataSnapshot event = await query.get();
+     //    print(event.exists);
+     
+        
+        // if(query.get()==null){
+         //  print("SSs");
+        
+     //}
+       
+        
+     // Query query = driversRef.child("did").orderByChild("did").equalTo( emailTextEditingController.text.trim());
+      
+
+    
+
+        
+          
     final User? firebaseUser = (await fAuth
             .signInWithEmailAndPassword(
-      email: emailTextEditingController.text.trim(),
+      email: '${didTextEditingController.text.trim()}@gmail.com',
       password: passwordTextEditingController.text.trim(),
     )
             .catchError((msg) {
       Navigator.pop(context);
-      Fluttertoast.showToast(msg: "Error: " + msg.toString());
+      Fluttertoast.showToast(msg: "رقم الهوية/الإقامة او كلمةالسر غير صحيحه"  );
     }))
         .user;
 
     if (firebaseUser != null) {
-      DatabaseReference driversRef =
-          FirebaseDatabase.instance.ref().child("drivers");
-      driversRef.child(firebaseUser.uid).once().then((driverKey) {
-        final snap = driverKey.snapshot;
-        if (snap.value != null) {
+      // DatabaseReference driversRef =
+      //     FirebaseDatabase.instance.ref().child("drivers");
+      driversRefc.doc(firebaseUser.uid).get().then((driverKey) {
+        final snap = driverKey.exists;
+        if (snap != null) {
           currentFirebaseUser = firebaseUser;
           Fluttertoast.showToast(msg: "Login Successful.");
           Navigator.push(
@@ -72,39 +102,46 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   @override
+ @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFD8EBEE),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 30,
+    return Form(
+      key: formKey,
+      autovalidateMode: AutovalidateMode.always,
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: const Color(0xFF85BBC2),
+        body: Padding(
+          padding: const EdgeInsetsDirectional.fromSTEB(0, 130, 0, 0),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * 1,
+            decoration: const BoxDecoration(
+              color: Color(0xFFD8EBEE),
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(0),
+                bottomRight: Radius.circular(0),
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
               ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Image.asset("images/logo2.PNG"),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                "Login",
-                style: TextStyle(
-                  fontSize: 26,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                  child: Image.asset(
+                    'images/logo2.PNG',
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    height: 100,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
               TextField(
-                controller: emailTextEditingController,
+                controller: didTextEditingController,
                 keyboardType: TextInputType.emailAddress,
                 style: const TextStyle(color: Colors.black),
                 decoration: const InputDecoration(
-                  labelText: "Email",
-                  hintText: "Email",
+                  labelText: "رقم الهوية/الإقامة",
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.black),
                   ),
@@ -127,8 +164,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 obscureText: true,
                 style: const TextStyle(color: Colors.black),
                 decoration: const InputDecoration(
-                  labelText: "Password",
-                  hintText: "Password",
+                  labelText: "كلمة السر",
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.black),
                   ),
@@ -156,26 +192,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   primary: const Color(0xFF85BBC2),
                 ),
                 child: const Text(
-                  "Login",
+                  "تسجيل الدخول",
                   style: TextStyle(
                     color: Colors.black54,
                     fontSize: 18,
                   ),
                 ),
               ),
-              TextButton(
-                child: const Text(
-                  "Do not have an Account? SignUp Here",
-                  style: TextStyle(color: Colors.black),
-                ),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (c) => SignUpScreen()));
-                },
-              ),
+             
             ],
           ),
         ),
+        )
       ),
     );
   }
