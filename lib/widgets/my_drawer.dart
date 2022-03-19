@@ -3,6 +3,8 @@ import 'package:tayseer2/global/global.dart';
 import 'package:tayseer2/splashScreen/splash_screen.dart';
 import 'package:tayseer2/view_accidents/view_accidents_widget.dart';
 
+import '../guidlines.dart';
+
 class MyDrawer extends StatefulWidget {
   String? name;
   String? email;
@@ -124,8 +126,19 @@ class _MyDrawerState extends State<MyDrawer> {
             height: 12.0,
           ),
 
+   GestureDetector(
+        onTap: ()async {
+          
+           Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => guidelines(),
+        ),
+      );
 
-          Container(
+        },
+        child :
+                   Container(
                         width: 310,
                         height: 50,
                         decoration: BoxDecoration(
@@ -160,6 +173,8 @@ class _MyDrawerState extends State<MyDrawer> {
                           ),
                         ),
                       ),
+                    ),
+         
                         const SizedBox(
             height: 12.0,
           ),

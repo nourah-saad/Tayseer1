@@ -108,6 +108,7 @@ MERGED from [:geocoding] /Users/almaha/Desktop/Tayseer1/build/geocoding/intermed
 MERGED from [:fluttertoast] /Users/almaha/Desktop/Tayseer1/build/fluttertoast/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:location] /Users/almaha/Desktop/Tayseer1/build/location/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-18:12
 MERGED from [:permission_handler] /Users/almaha/Desktop/Tayseer1/build/permission_handler/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:flutter_phone_direct_caller] /Users/almaha/Desktop/Tayseer1/build/flutter_phone_direct_caller/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
 MERGED from [androidx.multidex:multidex:2.0.0] /Users/almaha/.gradle/caches/transforms-2/files-2.1/91648f2f4bafb4d62f71fa267e302cca/multidex-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/almaha/.gradle/caches/transforms-2/files-2.1/7562cd46fbf77d3dc7c30a2bb2af6214/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/almaha/.gradle/caches/transforms-2/files-2.1/c15149140bcc27b70424f541b52a2f41/jetified-window-1.0.0-beta04/AndroidManifest.xml:17:1-33:12
@@ -259,6 +260,8 @@ MERGED from [:location] /Users/almaha/Desktop/Tayseer1/build/location/intermedia
 MERGED from [:location] /Users/almaha/Desktop/Tayseer1/build/location/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:permission_handler] /Users/almaha/Desktop/Tayseer1/build/permission_handler/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:permission_handler] /Users/almaha/Desktop/Tayseer1/build/permission_handler/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:flutter_phone_direct_caller] /Users/almaha/Desktop/Tayseer1/build/flutter_phone_direct_caller/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_phone_direct_caller] /Users/almaha/Desktop/Tayseer1/build/flutter_phone_direct_caller/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.multidex:multidex:2.0.0] /Users/almaha/.gradle/caches/transforms-2/files-2.1/91648f2f4bafb4d62f71fa267e302cca/multidex-2.0.0/AndroidManifest.xml:20:5-43
 MERGED from [androidx.multidex:multidex:2.0.0] /Users/almaha/.gradle/caches/transforms-2/files-2.1/91648f2f4bafb4d62f71fa267e302cca/multidex-2.0.0/AndroidManifest.xml:20:5-43
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/almaha/.gradle/caches/transforms-2/files-2.1/7562cd46fbf77d3dc7c30a2bb2af6214/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:19:5-21:41
@@ -671,6 +674,16 @@ ADDED from [:location] /Users/almaha/Desktop/Tayseer1/build/location/intermediat
 		ADDED from [:location] /Users/almaha/Desktop/Tayseer1/build/location/intermediates/library_manifest/debug/AndroidManifest.xml:15:13-53
 	android:name
 		ADDED from [:location] /Users/almaha/Desktop/Tayseer1/build/location/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-71
+uses-permission#android.permission.CALL_PHONE
+ADDED from [:flutter_phone_direct_caller] /Users/almaha/Desktop/Tayseer1/build/flutter_phone_direct_caller/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-69
+	android:name
+		ADDED from [:flutter_phone_direct_caller] /Users/almaha/Desktop/Tayseer1/build/flutter_phone_direct_caller/intermediates/library_manifest/debug/AndroidManifest.xml:9:22-66
+uses-feature#android.hardware.telephony
+ADDED from [:flutter_phone_direct_caller] /Users/almaha/Desktop/Tayseer1/build/flutter_phone_direct_caller/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-13:36
+	android:required
+		ADDED from [:flutter_phone_direct_caller] /Users/almaha/Desktop/Tayseer1/build/flutter_phone_direct_caller/intermediates/library_manifest/debug/AndroidManifest.xml:13:9-33
+	android:name
+		ADDED from [:flutter_phone_direct_caller] /Users/almaha/Desktop/Tayseer1/build/flutter_phone_direct_caller/intermediates/library_manifest/debug/AndroidManifest.xml:12:9-50
 uses-library#androidx.window.extensions
 ADDED from [androidx.window:window:1.0.0-beta04] /Users/almaha/.gradle/caches/transforms-2/files-2.1/c15149140bcc27b70424f541b52a2f41/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
 	android:required
