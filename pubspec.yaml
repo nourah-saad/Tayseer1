@@ -52,7 +52,7 @@ dependencies:
   auto_size_text: ^3.0.0
   get: ^4.6.1
   geocoding: ^2.0.2
-  firebase_messaging: ^11.2.6
+  firebase_messaging: ^11.2.11
   dio: ^4.0.4
   flutter_spinkit: ^5.1.0
   vector_math: any

@@ -22,16 +22,14 @@ class UserModel {
       this.phone,
       this.sex});
 
-
   UserModel.fromDocumentSnapshot({required DocumentSnapshot snapshot}) {
-    ID=snapshot.id;
-    did=snapshot['did'];
-    Email=snapshot['email'];
-    user_ID=snapshot['id'];
-    Name=snapshot['name'];
-    Nationaltity=snapshot['nationality'];
-    Password=snapshot['password'];
-    phone=snapshot['phone'];
-    sex=snapshot['sex'];
+    ID = snapshot.id;
+    did = snapshot['Driver_Id'];
+    Email = snapshot['email'];
+    user_ID = snapshot.id;
+    Name = snapshot['name'];
+    Nationaltity = snapshot['nationality'];
+    phone = snapshot['phone'];
+    sex = snapshot['sex'];
   }
 }

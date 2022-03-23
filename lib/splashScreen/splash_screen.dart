@@ -20,7 +20,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
     fAuth.currentUser != null
         ? AssistantMethods.readCurrentOnlineDriverInfo()
         : null;
-    Timer(const Duration(seconds: 5), () async {
+    Timer(const Duration(seconds: 2), () async {
       if (await fAuth.currentUser != null) {
         currentFirebaseUser = fAuth.currentUser;
         Navigator.push(
@@ -50,13 +50,6 @@ class _MySplashScreenState extends State<MySplashScreen> {
               Image.asset("images/logo1.jpg"),
               const SizedBox(
                 height: 10,
-              ),
-              const Text(
-                "Tayseer App",
-                style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold),
               ),
             ],
           ),

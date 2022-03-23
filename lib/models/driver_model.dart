@@ -21,7 +21,7 @@ class DriverModel {
 
   DriverModel.fromSnapshot(DataSnapshot snap) {
     id = snap.key;
-    did = (snap.value as dynamic)["did"];
+    did = (snap.value as dynamic)["Driver_Id"];
     email = (snap.value as dynamic)["email"];
     name = (snap.value as dynamic)["name"];
     nationality = (snap.value as dynamic)["nationality"];

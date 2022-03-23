@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tayseer2/authintication/login_screen.dart';
 import 'package:tayseer2/infoHandler/app_info.dart';
+import 'package:tayseer2/navigationService.dart';
 import 'package:tayseer2/splashScreen/splash_screen.dart';
 
 import 'authintication/signup_screen.dart';
@@ -19,10 +20,11 @@ void main() async {
         create: (context) => AppInfo(),
         child: MaterialApp(
           title: 'Drivers App',
+          navigatorKey: navigationService.navigatorKey,
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: LoginScreen(),
+          home: MySplashScreen(),
           debugShowCheckedModeBanner: false,
         ),
       ),

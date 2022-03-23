@@ -60,6 +60,7 @@ proccessAcc({required accID, required driverID, required involvedID}) async {
       guilty == involvedID ? '%100' : '%0',
     ]),
     'accident_type': accType,
+    'status': 'مكتمل'
   });
 
   Navigator.pushReplacement(

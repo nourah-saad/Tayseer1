@@ -128,10 +128,19 @@ listenFCM() async {
     Navigator.push(
         navigationService.navigatorKey.currentContext!,
         MaterialPageRoute(
-            builder: (context) => ConfirmationPageWidget(
-                  accidentID: '${initialMessage.data['accID']}',
-                  sender: initialMessage.data['sender'],
-                )));
+            builder: (context) => select_your_carWidget(
+                sender: initialMessage.data['sender'],
+                accID: initialMessage.data['accID'],
+                accTime: DateTime.parse('2000-01-01'),
+                accLocation: Position(
+                    longitude: 0,
+                    latitude: 0,
+                    timestamp: DateTime.now(),
+                    accuracy: 0,
+                    altitude: 0,
+                    heading: 0,
+                    speed: 0,
+                    speedAccuracy: 0))));
   }
 }
 
@@ -163,10 +172,19 @@ void notificationPressed(RemoteMessage message) {
   Navigator.push(
       navigationService.navigatorKey.currentContext!,
       MaterialPageRoute(
-          builder: (context) => ConfirmationPageWidget(
-                accidentID: '${message.data['accID']}',
-                sender: message.data['sender'],
-              )));
+          builder: (context) => select_your_carWidget(
+              sender: message.data['sender'],
+              accID: message.data['accID'],
+              accTime: DateTime.parse('2000-01-01'),
+              accLocation: Position(
+                  longitude: 0,
+                  latitude: 0,
+                  timestamp: DateTime.now(),
+                  accuracy: 0,
+                  altitude: 0,
+                  heading: 0,
+                  speed: 0,
+                  speedAccuracy: 0))));
 }
 
 var postUrl = "https://fcm.googleapis.com/fcm/send";

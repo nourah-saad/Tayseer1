@@ -24,17 +24,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController sexTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
   final CollectionReference driversRefc =
-  FirebaseFirestore.instance.collection('Driver');
+      FirebaseFirestore.instance.collection('Driver');
 
   validateForm() {
-    if (nameTextEditingController.text.length < 3) {
-      Fluttertoast.showToast(msg: "name must be atleast 3 Characters.");
+    if (nameTextEditingController.text.trim().length < 3) {
+      Fluttertoast.showToast(msg: "Name must be at least 3 characters.");
+    } else if (didTextEditingController.text.trim().isEmpty ||
+        didTextEditingController.text.trim().length != 10) {
+      Fluttertoast.showToast(msg: "ID must be 10 digits.");
     } else if (!emailTextEditingController.text.contains("@")) {
       Fluttertoast.showToast(msg: "Email address is not Valid.");
-    } else if (phoneTextEditingController.text.isEmpty) {
-      Fluttertoast.showToast(msg: "Phone Number is required.");
-    } else if (passwordTextEditingController.text.length < 6) {
-      Fluttertoast.showToast(msg: "Password must be atleast 6 Characters.");
+    } else if (phoneTextEditingController.text.trim().isEmpty) {
+      Fluttertoast.showToast(msg: "Phone number is required.");
+    } else if (passwordTextEditingController.text.trim().length < 6) {
+      Fluttertoast.showToast(msg: "Password must be at least 6 Characters.");
     } else {
       saveDriverInfoNow();
     }
@@ -46,13 +49,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
         barrierDismissible: false,
         builder: (BuildContext c) {
           return ProgressDialog(
-            message: "Processing, Please wait...",
+            message: "Processing, please wait...",
           );
         });
 
     final User? firebaseUser = (await fAuth
             .createUserWithEmailAndPassword(
-      email: '${didTextEditingController.text.trim()}@gmail.com',
+      email: emailTextEditingController.text.trim(),
       password: passwordTextEditingController.text.trim(),
     )
             .catchError((msg) {
@@ -72,22 +75,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
       //   "sex": sexTextEditingController.text.trim(),
       //   "password": passwordTextEditingController.text.trim(),
       // };
-      final save=await driversRefc.doc(firebaseUser.uid).set({
-        "id": firebaseUser.uid,
+      final save = await driversRefc.doc(firebaseUser.uid).set({
         "name": nameTextEditingController.text.trim(),
         "email": emailTextEditingController.text.trim(),
         "phone": phoneTextEditingController.text.trim(),
-        "did": didTextEditingController.text.trim(),
+        "Driver_Id": didTextEditingController.text.trim(),
         "nationality": nationalityTextEditingController.text.trim(),
         "sex": sexTextEditingController.text.trim(),
-        "password": passwordTextEditingController.text.trim(),
       });
       // DatabaseReference driversRef =
       //     FirebaseDatabase.instance.ref().child("drivers");
       // driversRef.child(firebaseUser.uid).set(driverMap);
 
       currentFirebaseUser = firebaseUser;
-      Fluttertoast.showToast(msg: "Account has been Created.");
+      Fluttertoast.showToast(msg: "Account has been created.");
       Navigator.push(
           context, MaterialPageRoute(builder: (c) => CarInfoScreen()));
     } else {
@@ -316,5 +317,4 @@ class _SignUpScreenState extends State<SignUpScreen> {
       ),
     );
   }
-  
 }

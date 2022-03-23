@@ -98,7 +98,7 @@ class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
                         keyboardType: TextInputType.number,
                         validator: (val) {
                           if (val!.isEmpty) {
-                            return 'الرجاء  ادخال رقم الهويه/الإقامة';
+                            return 'الرجاء  ادخال رقم الهوية/الإقامة';
                           }
                           if (val.length < 10) {
                             return 'الرجاء  ادخال رقم صحيح';

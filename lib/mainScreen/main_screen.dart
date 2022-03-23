@@ -4,12 +4,14 @@ import 'package:tayseer2/tapPages/home.dart';
 import 'package:tayseer2/tapPages/my_account.dart';
 import 'package:tayseer2/tapPages/notifications.dart';
 
+import '../Tracking/Tracking.dart';
 import '../dummy_view/dummy_Screen.dart';
 
 class MainScreen extends StatefulWidget {
   @override
   _MainScreenState createState() => _MainScreenState();
 }
+
 //SS
 class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin {
@@ -20,16 +22,15 @@ class _MainScreenState extends State<MainScreen>
     setState(() {
       selectedIndex = index;
       tabController!.index = selectedIndex;
-
     });
   }
 
   @override
   void initState() {
+    requestPermission();
     super.initState();
 
     tabController = TabController(length: 4, vsync: this);
-
   }
 
   @override
@@ -39,11 +40,11 @@ class _MainScreenState extends State<MainScreen>
       body: TabBarView(
         physics: const NeverScrollableScrollPhysics(),
         controller: tabController,
-        children:  [
-         HomePage(),
+        children: [
+          HomePage(),
           //Container(),
-         // MyAccount(),
-          Dummy_Screen(controller_tab:tabController),
+          // MyAccount(),
+          Dummy_Screen(controller_tab: tabController),
           NotificationPage(),
           ChatPage(),
         ],

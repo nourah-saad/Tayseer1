@@ -14,13 +14,14 @@ class CarInfoScreen extends StatefulWidget {
 
 class _CarInfoScreenState extends State<CarInfoScreen> {
   TextEditingController carModelTextEditingController = TextEditingController();
-  TextEditingController carNumberTextEditingController =   TextEditingController();
+  TextEditingController carNumberTextEditingController =
+      TextEditingController();
   TextEditingController carColorTextEditingController = TextEditingController();
   final CollectionReference driversRefc =
-  FirebaseFirestore.instance.collection('Driver');
+      FirebaseFirestore.instance.collection('Driver');
   final user = FirebaseAuth.instance.currentUser;
 
-  saveCarInfo() async{
+  saveCarInfo() async {
     Map driverCarInfoMap = {
       "car_color": carColorTextEditingController.text.trim(),
       "car_number": carNumberTextEditingController.text.trim(),
@@ -30,13 +31,12 @@ class _CarInfoScreenState extends State<CarInfoScreen> {
     // final save=await driversRefc.doc(user!.uid).update({
     //   'car_details':driverCarInfoMap
     // });
-    final save=await driversRefc.doc(user!.uid).collection('Cars').add({
-      "car_color": carColorTextEditingController.text.trim(),
-      "car_number": carNumberTextEditingController.text.trim(),
-      "car_model": carModelTextEditingController.text.trim(),
+    final save = await driversRefc.doc(user!.uid).collection('Cars').add({
+      "Car_color": carColorTextEditingController.text.trim(),
+      "Car_plateNo": carNumberTextEditingController.text.trim(),
+      "Car_model": carModelTextEditingController.text.trim(),
     });
-    
-    
+
     // DatabaseReference driversRef =
     //     FirebaseDatabase.instance.ref().child("drivers");
     // driversRef
@@ -79,8 +79,8 @@ class _CarInfoScreenState extends State<CarInfoScreen> {
                 controller: carModelTextEditingController,
                 style: const TextStyle(color: Colors.black),
                 decoration: const InputDecoration(
-                  labelText: "Car Model",
-                  hintText: "Car Model",
+                  labelText: "Car model",
+                  hintText: "Car model",
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.black),
                   ),
@@ -101,8 +101,8 @@ class _CarInfoScreenState extends State<CarInfoScreen> {
                 controller: carNumberTextEditingController,
                 style: const TextStyle(color: Colors.black),
                 decoration: const InputDecoration(
-                  labelText: "Car Number",
-                  hintText: "Car Number",
+                  labelText: "Car number",
+                  hintText: "Car number",
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.black),
                   ),
@@ -123,8 +123,8 @@ class _CarInfoScreenState extends State<CarInfoScreen> {
                 controller: carColorTextEditingController,
                 style: const TextStyle(color: Colors.black),
                 decoration: const InputDecoration(
-                  labelText: "Car Color",
-                  hintText: "Car Color",
+                  labelText: "Car color",
+                  hintText: "Car color",
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.black),
                   ),
@@ -159,7 +159,7 @@ class _CarInfoScreenState extends State<CarInfoScreen> {
                   primary: const Color(0xFF85BBC2),
                 ),
                 child: const Text(
-                  "Save Now",
+                  "Save now",
                   style: TextStyle(
                     color: Colors.black54,
                     fontSize: 18,

@@ -33,11 +33,12 @@ class _DriverDetailsState extends State<DriverDetails> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        width: MediaQuery.of(context).size.width * 2,
-        height: MediaQuery.of(context).size.height * 0.25,
+        width: 360,
+        height: 160,
         decoration: BoxDecoration(
           color: Color(0xFF85BBC2),
           borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: Colors.black),
           shape: BoxShape.rectangle,
         ),
         child: Padding(
@@ -46,7 +47,7 @@ class _DriverDetailsState extends State<DriverDetails> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(0, 7, 10, 0),
                 child: Text(
                   'اسم مالك المركبة: ${widget.inDriverName}',
                   textAlign: TextAlign.right,
