@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tayseer2/assistants/assistant_methods.dart';
 import 'package:tayseer2/global/global.dart';
 import 'package:tayseer2/notification/notification.dart';
 import 'package:tayseer2/widgets/my_drawer.dart';
@@ -32,14 +31,14 @@ class _HomePageState extends State<HomePage> {
       key: sKey,
       endDrawer: Theme(
         data: Theme.of(context).copyWith(
-          canvasColor: Color(0xFFD8EBEE),
+          canvasColor: const Color(0xFFD8EBEE),
         ),
         child: MyDrawer(
           name: driverModelCurrentInfo!.name,
           email: driverModelCurrentInfo!.email,
         ),
       ),
-      backgroundColor: Color(0xFFD8EBEE),
+      backgroundColor: const Color(0xFF85BBC2),
       body: Stack(
         children: [
           const SizedBox(
@@ -53,7 +52,7 @@ class _HomePageState extends State<HomePage> {
                 sKey.currentState!.openEndDrawer();
               },
               child: const CircleAvatar(
-                backgroundColor: Color(0xFFD8EBEE),
+                backgroundColor: Color(0xFF85BBC2),
                 child: Icon(
                   Icons.menu,
                   color: Colors.black54,
@@ -64,11 +63,11 @@ class _HomePageState extends State<HomePage> {
           Center(
             child: SafeArea(
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 130, 0, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 110, 0, 0),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 1,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color(0xFFD8EBEE),
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(0),
@@ -82,13 +81,29 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      const SizedBox(
+                        height: 60,
+                      ),
                       Container(
-                        width: 300,
-                        height: 210,
+                        width: 345,
+                        height: 190,
                         decoration: BoxDecoration(
-                          color: Color(0xFF85BBC2),
+                          color: const Color(0xFF85BBC2),
                           borderRadius: BorderRadius.circular(10),
                           shape: BoxShape.rectangle,
+                          boxShadow: const [
+                            BoxShadow(
+                              offset: Offset(2.0, 2.0),
+                              blurRadius: 15.0,
+                              spreadRadius: 1.0,
+                            ),
+                            BoxShadow(
+                              color: Color(0xFFD8EBEE),
+                              offset: Offset(-2.0, -4.0),
+                              blurRadius: 15.0,
+                              spreadRadius: 1.0,
+                            ),
+                          ],
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -99,11 +114,11 @@ class _HomePageState extends State<HomePage> {
                                 Container(
                                   height: 80,
                                   width: 80,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     shape: BoxShape.circle,
                                     color: Color.fromARGB(61, 255, 255, 255),
                                   ),
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.person,
                                     size: 80,
                                     color: Colors.black,
@@ -116,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                                 Text(
                                   n.toString(),
                                   style: const TextStyle(
-                                    fontSize: 25,
+                                    fontSize: 20,
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -140,13 +155,15 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 100, 0, 0),
+                          padding:
+                              const EdgeInsetsDirectional.fromSTEB(0, 90, 0, 0),
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               onPrimary: Colors.black87,
-                              primary: Color(0xFF85BBC2),
-                              fixedSize: Size(200, 50),
-                              padding: EdgeInsets.symmetric(horizontal: 16),
+                              primary: const Color(0xFF85BBC2),
+                              fixedSize: const Size(200, 50),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 16),
                               shape: const RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(25)),
@@ -160,7 +177,7 @@ class _HomePageState extends State<HomePage> {
                                             accTime: DateTime.now(),
                                           )));
                             },
-                            child: Text(
+                            child: const Text(
                               "تبليغ عن حادث",
                               style: TextStyle(
                                 fontFamily: 'Poppins',

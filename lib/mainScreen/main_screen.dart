@@ -33,39 +33,39 @@ class _MainScreenState extends State<MainScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF85BBC2),
+      backgroundColor: const Color(0xFFD8EBEE),
       body: TabBarView(
         physics: const NeverScrollableScrollPhysics(),
         controller: tabController,
         children: const [
-          HomePage(),
-          MyAccount(),
-          NotificationPage(),
           ChatPage(),
+          NotificationPage(),
+          MyAccount(),
+          HomePage(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "الصفحة الرئيسية",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_box),
-            label: "حسابي",
+            icon: Icon(Icons.chat),
+            label: "تحدث معنا",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.notifications),
             label: "الإشعارات",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: "تحدث معنا",
+            icon: Icon(Icons.account_box),
+            label: "حسابي",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "الصفحة الرئيسية",
           ),
         ],
         unselectedItemColor: Colors.black54,
         selectedItemColor: Colors.black,
-        backgroundColor: Color(0xFF85BBC2),
+        backgroundColor: const Color(0xFF85BBC2),
         type: BottomNavigationBarType.fixed,
         selectedLabelStyle: const TextStyle(fontSize: 14),
         showUnselectedLabels: true,
