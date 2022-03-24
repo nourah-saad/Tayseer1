@@ -10,22 +10,33 @@ import 'Model_user.dart';
 import 'User_servies.dart';
 
 class Dummy_Screen extends StatefulWidget {
-   Dummy_Screen({controller_tab}){
-    tabcontroller=controller_tab;
-   }
+  Dummy_Screen({controller_tab}) {
+    tabcontroller = controller_tab;
+  }
 
   @override
   _Dummy_ScreenState createState() => _Dummy_ScreenState();
 }
+
 TabController? tabcontroller;
+
 class _Dummy_ScreenState extends State<Dummy_Screen> {
   final user = FirebaseAuth.instance.currentUser;
   final myController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   final CollectionReference driversReff =
-  FirebaseFirestore.instance.collection('Driver');
-UserModel _user=new UserModel(Email: '',Name: '',ID: '',did: '',Nationaltity: '',Password: '',phone: '',sex: '',user_ID: '');
-  User_servies?user_servies;
+      FirebaseFirestore.instance.collection('Driver');
+  UserModel _user = new UserModel(
+      Email: '',
+      Name: '',
+      ID: '',
+      did: '',
+      Nationaltity: '',
+      Password: '',
+      phone: '',
+      sex: '',
+      user_ID: '');
+  User_servies? user_servies;
   Map<dynamic, String> cardetails_map = Map<dynamic, String>();
   String name = "";
   String nationality = "";
@@ -35,22 +46,17 @@ UserModel _user=new UserModel(Email: '',Name: '',ID: '',did: '',Nationaltity: ''
   String Phone = "";
   String did = "";
   String id = '';
-void load()async
-{
-  user_servies=new User_servies();
-  setState(() {
+  void load() async {
+    user_servies = new User_servies();
+    setState(() {});
+    _user = await user_servies!.getUser();
+  }
 
-  });
-  _user= await  user_servies!.getUser();
-
-
-
-}
   // final User user = FirebaseAuth.instance.currentUser;
   DatabaseReference driversRef =
       FirebaseDatabase.instance.ref().child("Driver");
   final CollectionReference driversRefc =
-  FirebaseFirestore.instance.collection('Driver');
+      FirebaseFirestore.instance.collection('Driver');
 
   bool is_edit = false;
 
@@ -59,29 +65,21 @@ void load()async
     return uid;
   }
 
-
   dynamic data;
 
-
-  void fetchData()async{
-    var data=await FirebaseFirestore.instance.collection("Items").get();
-    for(int i=0;i<data.docs.length;i++){
-
-
-    }
+  void fetchData() async {
+    var data = await FirebaseFirestore.instance.collection("Items").get();
+    for (int i = 0; i < data.docs.length; i++) {}
   }
+
   Future<dynamic> getData() async {
+    final DocumentReference document = driversRefc.doc(user!.uid);
 
-    final DocumentReference document =   driversRefc.doc(user!.uid);
-
-    await document.get().then<dynamic>(( DocumentSnapshot snapshot) async{
-      setState(() {
-
-
-
-      });
+    await document.get().then<dynamic>((DocumentSnapshot snapshot) async {
+      setState(() {});
     });
   }
+
   Future<void> current_user() async {
     var current_id = user!.uid;
     print(current_id);
@@ -113,11 +111,10 @@ void load()async
     await authResult.user!.updateEmail(newEmail);
   }
 
-  Future<dynamic>user_Account_update(String email) async{
-print(email);
+  Future<dynamic> user_Account_update(String email) async {
+    print(email);
     var uid = user!.uid;
-    return  await driversReff.doc(uid).update({'email':email});
-
+    return await driversReff.doc(uid).update({'email': email});
   }
 
   Future resetEmail(String newEmail) async {
@@ -169,12 +166,13 @@ print(email);
       print(err);
     }
   }
-@override
-  void dispose() {
 
+  @override
+  void dispose() {
     // TODO: implement dispose
     super.dispose();
   }
+
   void user_data() {
     // driversRef!.child(user!.uid).once().then((value) {
     //   final data=new Map<dynamic,dynamic>.from(value.snapshot.value);
@@ -197,28 +195,23 @@ print(email);
 
   @override
   void initState() {
-
     setState(() {
       getData();
       print(data);
       load();
       // printFirebase();
 
-      print( _user.Name);
-
+      print(_user.Name);
     });
 
     // TODO: implement initState
     super.initState();
   }
 
-
-  void update_email(String _email)async
-  {
+  void update_email(String _email) async {
     await user_servies!.user_Account_update(_email).then((value) {
       print('email upodate');
     });
-
   }
 
   @override
@@ -249,20 +242,20 @@ print(email);
                           child: InkWell(
                               onTap: () {
                                 if (mounted) {
-                                  setState (() {
+                                  setState(() {
                                     tabcontroller!.animateTo(0);
-                                    tabcontroller!.index=0;
-                                 });
+                                    tabcontroller!.index = 0;
+                                  });
                                 }
 
-                              // DefaultTabController.of(context)!.animateTo(0,duration: Duration(seconds: 1),curve: Curves.bounceOut);
+                                // DefaultTabController.of(context)!.animateTo(0,duration: Duration(seconds: 1),curve: Curves.bounceOut);
                               },
                               child:
                                   Icon(Icons.arrow_back, color: Colors.black))),
                       Spacer(),
                       Container(
                         child: Text(
-                          'تعديل الملف اشخصي',
+                          'تعديل الملف الشخصي',
                           style: TextStyle(color: Colors.black, fontSize: 20),
                         ),
                       ),
@@ -322,7 +315,7 @@ print(email);
                               ),
                               Container(
                                   child: new Text(
-                                ':اسم',
+                                ':الاسم',
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 20,
@@ -347,9 +340,9 @@ print(email);
                                                     r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                                                 .hasMatch(myController.text);
                                             if (myController.text.isEmpty)
-                                              return "Email is required";
+                                              return "يرجى إدخال بريد إلكتروني";
                                             if (emailValid != true)
-                                              return "Invalid Email";
+                                              return "البريد الإلكتروني غير صحيح";
                                             else
                                               return null;
                                           },
@@ -369,10 +362,14 @@ print(email);
                                       ),
                                     )
                                   : Container(
+                                      child: Flexible(
                                       child: Text(
-                                      _user.Email!,
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 18),
+                                        _user.Email!,
+                                        overflow: TextOverflow.visible,
+                                        textAlign: TextAlign.right,
+                                        style: TextStyle(
+                                            color: Colors.black, fontSize: 18),
+                                      ),
                                     )),
                               SizedBox(
                                 width: 10,
@@ -405,7 +402,7 @@ print(email);
                               ),
                               Container(
                                   child: new Text(
-                                ':رقم الهويه/الاقامه',
+                                ':رقم الهوية/الإقامة',
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 20,
@@ -430,7 +427,7 @@ print(email);
                               ),
                               Container(
                                   child: new Text(
-                                ':جنس',
+                                ':الجنس',
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 20,
@@ -455,7 +452,7 @@ print(email);
                               ),
                               Container(
                                   child: new Text(
-                                ':جنسية',
+                                ':الجنسية',
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 20,
@@ -480,10 +477,12 @@ print(email);
                                                 .validate()) {
                                               //  String val;
                                               setState(() {
-                                               // _updatevalue();
+                                                // _updatevalue();
 
-                                                user_Account_update(myController.text);
-                                                print('kamal'+myController.text);
+                                                user_Account_update(
+                                                    myController.text);
+                                                print('kamal' +
+                                                    myController.text);
                                                 //load();
                                                 getData();
                                                 myController.clear();
@@ -496,8 +495,7 @@ print(email);
 
                                             // resetEmailAddress(myController.text,
                                             //     email, Password);
-                                           // print();
-
+                                            // print();
                                           },
                                           style: ElevatedButton.styleFrom(
                                             primary: Colors.red,

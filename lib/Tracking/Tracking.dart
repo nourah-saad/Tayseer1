@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:location/location.dart' as locationServices;
 import 'package:permission_handler/permission_handler.dart';
+import 'package:tayseer2/global/global.dart';
 import 'package:tayseer2/notification/notification.dart';
 
 import '../Driver/getters.dart';
@@ -26,10 +27,10 @@ requestPermission() async {
   }
   location.enableBackgroundMode(enable: true);
 
-  /*await location.changeSettings(
-      accuracy: locationServices.LocationAccuracy.navigation, distanceFilter: 3
+  await location.changeSettings(
+      accuracy: locationServices.LocationAccuracy.navigation, distanceFilter: 1
       //if 10 seconds are passed AND* if the phone is moved at least 5 meters, give the location. must be (both)
-      );*/
+      );
   getcurrentLocation();
 }
 
@@ -41,7 +42,7 @@ getcurrentLocation() async {
         .doc('${FirebaseAuth.instance.currentUser!.uid}')
         .set({
       'email': '${FirebaseAuth.instance.currentUser!.email}',
-      'name': await getName(user.uid)
+      'name': driverModelCurrentInfo!.name
     });
     FirebaseFirestore.instance
         .collection('Tracking')

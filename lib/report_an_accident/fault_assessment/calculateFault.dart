@@ -30,7 +30,7 @@ proccessAcc({required accID, required driverID, required involvedID}) async {
     guilty = driverID;
     accType = 'drift';
   } else if (involvedBehavior == 'Circle') {
-    involvedID;
+    guilty = involvedID;
     accType = 'drift';
   } else if (involvedBehavior == driverBehavior) {
     switch (driverBehavior) {

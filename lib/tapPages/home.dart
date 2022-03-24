@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tayseer2/Driver/getters.dart';
 import 'package:tayseer2/assistants/assistant_methods.dart';
 import 'package:tayseer2/global/global.dart';
 
@@ -25,8 +26,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   GlobalKey<ScaffoldState> sKey = GlobalKey<ScaffoldState>();
-  var n = ''; //driverModelCurrentInfo!.name;
-  var e = ''; //driverModelCurrentInfo!.email.toString();
+  var n = driverModelCurrentInfo!.name;
+  var e = driverModelCurrentInfo!.email.toString();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,8 +37,8 @@ class _HomePageState extends State<HomePage> {
           canvasColor: Color(0xFFD8EBEE),
         ),
         child: MyDrawer(
-            name: '', //driverModelCurrentInfo!.name,
-            email: '' //driverModelCurrentInfo!.email,
+            name: n, //driverModelCurrentInfo!.name,
+            email: e //driverModelCurrentInfo!.email,
             ),
       ),
       backgroundColor: Color(0xFFD8EBEE),

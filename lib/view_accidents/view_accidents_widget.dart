@@ -31,29 +31,16 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
   GeoPoint? location;
   DateTime? time;
   var id;
-  var Accid = '990';
-  var dataaa = 'new ';
-  var Address = 'king abdullah road, riyadh';
-  final databaseRef = FirebaseDatabase.instance.ref();
+  var Accid = '';
+  var dataaa = ' ';
+  var Address = '';
   final Future<FirebaseApp> _future = Firebase.initializeApp();
-  final Cars = FirebaseFirestore.instance.collection('Car');
 
   @override
   void initState() {
     accidents.clear();
     addtolist();
     super.initState();
-  }
-
-  void GetAddressFromLatLong(LatLng l) async {
-    List<Placemark> placemarks =
-        await placemarkFromCoordinates(l.latitude, l.longitude);
-    //print(placemarks);
-    Placemark place = placemarks[0];
-    setState(() {
-      Address = '${place.street}, ${place.locality}, ${place.country}';
-    });
-    // print('the adrres is ${Address}');
   }
 
   void addtolist() async {
@@ -80,8 +67,13 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
         String dtime = DateFormat('yyyy-MM-dd').format(time!);
         String ddtime = DateFormat.Hms().format(time!);
 
-        LatLng l = LatLng(location!.latitude, location!.longitude);
-        GetAddressFromLatLong(l);
+        List<Placemark> placemarks = await placemarkFromCoordinates(
+            location!.latitude, location!.longitude);
+        Placemark place = placemarks[0];
+        setState(() {
+          Address = '${place.street}, ${place.locality}, ${place.country}';
+        });
+        print('the adrres is mymyjh ${Address}');
         var value = {
           'location': '${Address}',
           'date': '${dtime.toString()}',
@@ -174,10 +166,10 @@ Widget accidentChild(data, context) {
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+              padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 2),
               child: Container(
                 width: 360,
-                height: 140,
+                height: 200,
                 decoration: BoxDecoration(
                   color: Color(0xFF85BBC2),
                   borderRadius: BorderRadius.circular(10),

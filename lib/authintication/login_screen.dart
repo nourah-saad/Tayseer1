@@ -61,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
         case 'invalid-email':
           Navigator.pop(context);
           Fluttertoast.showToast(
-              msg: "رقم الهوية/الإقامة أو كلمةالسر غير صحيحة");
+              msg: "رقم الهوية/الإقامة أو كلمة السر غير صحيحة");
           break;
         default:
           Navigator.pop(context);
@@ -86,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
         final snap = driverKey.exists;
         if (snap != null) {
           currentFirebaseUser = firebaseUser;
-          Fluttertoast.showToast(msg: "Login Successful.");
+          Fluttertoast.showToast(msg: "تم تسجيل الدخول بنجاح");
           Navigator.push(
               context, MaterialPageRoute(builder: (c) => MainScreen()));
         } /* else {

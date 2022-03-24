@@ -5,6 +5,7 @@ import 'package:tayseer2/notification/notification.dart';
 import '../Driver/getters.dart';
 import '../FlutterFlow/FlutterFlowTheme.dart';
 import '../FlutterFlow/FlutterFlowWidgets.dart';
+import '../global/global.dart';
 import 'confirmation/confirmation_loading_page.dart';
 
 class DriverDetails extends StatefulWidget {
@@ -84,7 +85,7 @@ class _DriverDetailsState extends State<DriverDetails> {
                             receiver: widget.inDriverID,
                             title: 'تأكيد الحادث',
                             msg:
-                                'يدعوك ${await getName(user.uid)} لتأكيد وقوع حادث، يرجى النقر للتأكيد أو الرفض',
+                                'يدعوك ${driverModelCurrentInfo!.name} لتأكيد وقوع حادث، يرجى النقر للتأكيد أو الرفض',
                             accID: widget.accID,
                             sender: '${user.uid}',
                             type: 'ques');
@@ -120,7 +121,7 @@ class _DriverDetailsState extends State<DriverDetails> {
       'Drivers_Involved': FieldValue.arrayUnion([
         {
           'name': widget.inDriverName,
-          'Driver_Id': await getNatID(widget.inDriverID),
+          'Driver_Id': driverModelCurrentInfo!.did,
           'uid': widget.inDriverID,
         }
       ]),

@@ -5,6 +5,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:tayseer2/Driver/getters.dart';
+import 'package:tayseer2/global/global.dart';
 import 'package:tayseer2/report_an_accident/select_involved_car.dart';
 import '../mainScreen/main_screen.dart';
 import 'confirmation/confirmation_page.dart';
@@ -166,8 +167,8 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
       ]),
       'Drivers_Involved': FieldValue.arrayUnion([
         {
-          'name': await getName(user.uid),
-          'Driver_Id': await getNatID(user.uid),
+          'name': driverModelCurrentInfo!.name,
+          'Driver_Id': driverModelCurrentInfo!.did,
           'uid': user.uid,
         }
       ]),

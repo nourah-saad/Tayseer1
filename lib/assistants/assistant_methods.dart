@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:tayseer2/assistants/requset_assistant.dart';
@@ -35,15 +36,21 @@ class AssistantMethods {
   static void readCurrentOnlineDriverInfo() async {
     currentFirebaseUser = fAuth.currentUser;
 
-    DatabaseReference userRef = FirebaseDatabase.instance
-        .ref()
-        .child("drivers")
-        .child(currentFirebaseUser!.uid);
+    var userRef = await FirebaseFirestore.instance
+        .collection('Driver')
+        .doc(currentFirebaseUser!.uid)
+        .get();
 
-    userRef.once().then((snap) {
-      if (snap.snapshot.value != null) {
-        driverModelCurrentInfo = DriverModel.fromSnapshot(snap.snapshot);
-      }
-    });
+    if (userRef.exists) {
+      driverModelCurrentInfo = DriverModel(
+        id: userRef.reference.id,
+        did: userRef.data()!['Driver_Id'],
+        email: userRef.data()!["email"],
+        name: userRef.data()!["name"],
+        nationality: userRef.data()!["nationality"],
+        phone: userRef.data()!["phone"],
+        sex: userRef.data()!["sex"],
+      );
+    }
   }
 }
