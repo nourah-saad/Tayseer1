@@ -39,31 +39,18 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       backgroundColor: const Color(0xFF85BBC2),
+      appBar: AppBar(
+        title: Text('الصفحة الرئسية'),
+        backgroundColor: const Color(0xFF85BBC2),
+        elevation: 0,
+        centerTitle: true,
+      ),
       body: Stack(
         children: [
-          const SizedBox(
-            height: 100,
-          ),
-          Positioned(
-            top: 55,
-            right: 20,
-            child: GestureDetector(
-              onTap: () {
-                sKey.currentState!.openEndDrawer();
-              },
-              child: const CircleAvatar(
-                backgroundColor: Color(0xFF85BBC2),
-                child: Icon(
-                  Icons.menu,
-                  color: Colors.black54,
-                ),
-              ),
-            ),
-          ),
           Center(
             child: SafeArea(
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0, 110, 0, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 1,

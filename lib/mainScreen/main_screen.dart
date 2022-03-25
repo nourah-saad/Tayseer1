@@ -32,16 +32,7 @@ class _MainScreenState extends State<MainScreen> {
       top: false,
       child: Scaffold(
         backgroundColor: const Color(0xFFD8EBEE),
-        body: Center(
-          child: Text(
-            '$index',
-            style: const TextStyle(
-              color: Colors.black,
-              fontSize: 120,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
+        body: screen[index],
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
             iconTheme: const IconThemeData(color: Color(0xFFD8EBEE)),
