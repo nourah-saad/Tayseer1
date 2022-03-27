@@ -38,9 +38,13 @@ class _HomePageState extends State<HomePage> {
           email: driverModelCurrentInfo!.email,
         ),
       ),
-      backgroundColor: const Color(0xFF85BBC2),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('الصفحة الرئسية'),
+        title: const Center(
+            child: Text(
+          'الصفحة الرئسية',
+          style: TextStyle(color: Colors.black),
+        )),
         backgroundColor: const Color(0xFF85BBC2),
         elevation: 0,
         centerTitle: true,
@@ -54,15 +58,6 @@ class _HomePageState extends State<HomePage> {
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 1,
-                  decoration: const BoxDecoration(
-                    color: Color(0xFFD8EBEE),
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(0),
-                      bottomRight: Radius.circular(0),
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30),
-                    ),
-                  ),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -75,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                         width: 345,
                         height: 190,
                         decoration: BoxDecoration(
-                          color: const Color(0xFF85BBC2),
+                          color: Colors.white,
                           borderRadius: BorderRadius.circular(10),
                           shape: BoxShape.rectangle,
                           boxShadow: const [

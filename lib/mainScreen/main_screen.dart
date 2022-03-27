@@ -15,10 +15,10 @@ class _MainScreenState extends State<MainScreen> {
   int index = 3;
 
   final screen = [
-    ChatPage(),
-    NotificationPage(),
-    MyAccount(),
-    HomePage(),
+    const ChatPage(),
+    const NotificationPage(),
+    const MyAccount(),
+    const HomePage(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
           child: CurvedNavigationBar(
             color: const Color(0xFF85BBC2),
-            backgroundColor: const Color(0xFFD8EBEE),
+            backgroundColor: Colors.white,
             height: 60,
             animationCurve: Curves.easeInOut,
             animationDuration: const Duration(milliseconds: 300),
