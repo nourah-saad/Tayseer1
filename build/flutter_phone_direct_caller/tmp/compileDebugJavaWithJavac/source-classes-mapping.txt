@@ -1,2 +1,0 @@
-com/yanisalfian/flutterphonedirectcaller/BuildConfig.java
- com.yanisalfian.flutterphonedirectcaller.BuildConfig

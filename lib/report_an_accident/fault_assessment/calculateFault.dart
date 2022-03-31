@@ -60,7 +60,6 @@ proccessAcc({required accID, required driverID, required involvedID}) async {
       guilty == involvedID ? '%100' : '%0',
     ]),
     'accident_type': accType,
-    'status': 'مكتمل'
   });
 
   Navigator.pushReplacement(
@@ -68,7 +67,7 @@ proccessAcc({required accID, required driverID, required involvedID}) async {
       MaterialPageRoute(
           builder: (context) => AccidentReportWidget(
                 id: accID,
-              ) /*AccidentReportWidget(accID: accID)*/));
+              )));
 }
 
 String getBehavior(List<double> driverlocations) {
@@ -101,23 +100,24 @@ getTime(accID) async {
 
 getLocation(String driverID, DateTime accTime) async {
   List<double> locations = [];
-  for (int i = 10; i > 0; i--) {
-    DateTime time = accTime.subtract(Duration(seconds: i));
-    print('time fault $time');
-    await FirebaseFirestore.instance
-        .collection('Tracking')
-        .doc(driverID)
-        .collection('locations')
-        .where('time', isGreaterThanOrEqualTo: time)
-        .where('time', isLessThanOrEqualTo: accTime)
-        .limit(1)
-        .get()
-        .then((value) {
-      print('we found ${value.docs.length}');
-      value.docs.forEach((element) {
-        locations.add(element.data()['lat']);
-      });
+  DateTime time = accTime.subtract(Duration(minutes: 1));
+  print('time fault $time');
+  await FirebaseFirestore.instance
+      .collection('Tracking')
+      .doc(driverID)
+      .collection('locations')
+      .orderBy('time', descending: false)
+      .where('time', isGreaterThanOrEqualTo: time)
+      .where('time', isLessThanOrEqualTo: accTime)
+      .limit(10)
+      .get()
+      .then((value) {
+    print('we found ${value.docs.length}');
+    value.docs.forEach((element) {
+      locations.add(element.data()['lat']);
+      print(
+          'id= ${element.reference.id} added, value= ${element.data()['lat']} drriver $driverID');
     });
-  }
+  });
   return locations;
 }
