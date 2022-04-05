@@ -6,14 +6,18 @@ import 'package:tayseer2/infoHandler/app_info.dart';
 import 'package:tayseer2/navigationService.dart';
 import 'package:tayseer2/splashScreen/splash_screen.dart';
 
+import 'assistants/assistant_methods.dart';
 import 'authintication/signup_screen.dart';
+import 'global/global.dart';
 //import 'mapScreen/map_screen.dart';
 
 //Nourah saad
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-
+  fAuth.currentUser != null
+      ? AssistantMethods.readCurrentOnlineDriverInfo()
+      : null;
   runApp(
     MyApp(
       child: ChangeNotifierProvider(

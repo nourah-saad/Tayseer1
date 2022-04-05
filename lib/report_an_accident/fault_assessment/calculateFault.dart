@@ -35,9 +35,16 @@ proccessAcc({required accID, required driverID, required involvedID}) async {
   } else if (involvedBehavior == driverBehavior) {
     switch (driverBehavior) {
       case 'StraightF':
+      accType = 'S1';
+        if (driverlocations[0] < involvedLocations[0]) {
+          guilty = driverID;
+        } else {
+          guilty = involvedID;
+        }
+        break;
       case 'StraightB':
         accType = 'S1';
-        if (driverlocations[0] < involvedLocations[0]) {
+        if (driverlocations[0] > involvedLocations[0]) {
           guilty = driverID;
         } else {
           guilty = involvedID;

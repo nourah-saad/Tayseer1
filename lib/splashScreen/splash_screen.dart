@@ -17,9 +17,6 @@ class MySplashScreen extends StatefulWidget {
 
 class _MySplashScreenState extends State<MySplashScreen> {
   startTimer() {
-    fAuth.currentUser != null
-        ? AssistantMethods.readCurrentOnlineDriverInfo()
-        : null;
     Timer(const Duration(seconds: 2), () async {
       if (await fAuth.currentUser != null) {
         currentFirebaseUser = fAuth.currentUser;

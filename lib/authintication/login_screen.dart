@@ -43,8 +43,9 @@ class _LoginScreenState extends State<LoginScreen> {
             message: "فضلا انتظر",
           );
         });
-
+    await FirebaseAuth.instance.signInAnonymously();
     String dEmail = await getEmail(didTextEditingController.text.trim());
+    await FirebaseAuth.instance.signOut();
     print('gotten email $dEmail');
     User? firebaseUser;
     try {
