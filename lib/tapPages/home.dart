@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:tayseer2/global/global.dart';
 import 'package:tayseer2/notification/notification.dart';
 import 'package:tayseer2/widgets/my_drawer.dart';
-
+import '../Guidelines/guidelines.dart';
 import '../report_an_accident/mapScreen/map_screen.dart';
+import '../view_accidents/view_accidents_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class _HomePageState extends State<HomePage> {
 
   GlobalKey<ScaffoldState> sKey = GlobalKey<ScaffoldState>();
   var n = driverModelCurrentInfo!.name;
-  var e = driverModelCurrentInfo!.email.toString();
+  var e = driverModelCurrentInfo!.did.toString();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +36,7 @@ class _HomePageState extends State<HomePage> {
         ),
         child: MyDrawer(
           name: driverModelCurrentInfo!.name,
-          email: driverModelCurrentInfo!.email,
+          did: driverModelCurrentInfo!.did,
         ),
       ),
       backgroundColor: Colors.white,
@@ -142,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               onPrimary: Colors.black87,
-                              primary: const Color(0xFF85BBC2),
+                              primary: const Color(0xFFEB6666),
                               fixedSize: const Size(200, 50),
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 16),
@@ -169,6 +170,178 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                           )),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 340, bottom: 13, top: 29),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: const <Widget>[
+                            Text(
+                              'الخدمات',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                fontSize: 17,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        height: 150,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (c) =>
+                                              const ViewAccidentsWidget()));
+                                },
+                                child: Container(
+                                  width: 120,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    shape: BoxShape.rectangle,
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        offset: Offset(1.0, 1.0),
+                                        blurRadius: 5.0,
+                                        spreadRadius: 1.0,
+                                      ),
+                                      BoxShadow(
+                                        color: Color(0xFFD8EBEE),
+                                        offset: Offset(-1.0, -1.0),
+                                        blurRadius: 5.0,
+                                        spreadRadius: 1.0,
+                                      ),
+                                    ],
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: const [
+                                      Icon(
+                                        Icons.call,
+                                        color: Color(0xFF85BBC2),
+                                        size: 25,
+                                      ),
+                                      Text(
+                                        'تواصل مع نجم',
+                                        style: TextStyle(
+                                            color: Color(0xFF85BBC2),
+                                            fontSize: 17),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (c) => const guidelines()));
+                                },
+                                child: Container(
+                                  width: 120,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    shape: BoxShape.rectangle,
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        offset: Offset(1.0, 1.0),
+                                        blurRadius: 5.0,
+                                        spreadRadius: 1.0,
+                                      ),
+                                      BoxShadow(
+                                        color: Color(0xFFD8EBEE),
+                                        offset: Offset(-1.0, -1.0),
+                                        blurRadius: 5.0,
+                                        spreadRadius: 1.0,
+                                      ),
+                                    ],
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: const [
+                                      Icon(
+                                        Icons.assignment_outlined,
+                                        color: Color(0xFF85BBC2),
+                                        size: 25,
+                                      ),
+                                      Text(
+                                        'الية عمل تيسير',
+                                        style: TextStyle(
+                                            color: Color(0xFF85BBC2),
+                                            fontSize: 17),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (c) =>
+                                              const ViewAccidentsWidget()));
+                                },
+                                child: Container(
+                                  width: 120,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    shape: BoxShape.rectangle,
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        offset: Offset(1.0, 1.0),
+                                        blurRadius: 5.0,
+                                        spreadRadius: 1.0,
+                                      ),
+                                      BoxShadow(
+                                        color: Color(0xFFD8EBEE),
+                                        offset: Offset(-1.0, -1.0),
+                                        blurRadius: 5.0,
+                                        spreadRadius: 1.0,
+                                      ),
+                                    ],
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: const [
+                                      Icon(
+                                        Icons.note_outlined,
+                                        color: Color(0xFF85BBC2),
+                                        size: 25,
+                                      ),
+                                      Text(
+                                        'البلاغات السابقة',
+                                        style: TextStyle(
+                                            color: Color(0xFF85BBC2),
+                                            fontSize: 17),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),

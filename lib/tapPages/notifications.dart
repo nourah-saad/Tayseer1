@@ -35,7 +35,7 @@ class _NotificationPageState extends State<NotificationPage> {
         ),
         child: MyDrawer(
           name: driverModelCurrentInfo!.name,
-          email: driverModelCurrentInfo!.email,
+          did: driverModelCurrentInfo!.did,
         ),
       ),
       backgroundColor: Colors.white,

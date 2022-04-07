@@ -28,4 +28,6 @@ class DriverModel {
     phone = (snap.value as dynamic)["phone"];
     sex = (snap.value as dynamic)["sex"];
   }
+
+  get driverID => null;
 }
