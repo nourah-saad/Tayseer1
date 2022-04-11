@@ -9,10 +9,12 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:tayseer2/navigationService.dart';
 import 'package:http/http.dart' as http;
+import 'package:tayseer2/tapPages/notifications.dart';
 
 import '../report_an_accident/confirmation/confirmation_page.dart';
 import '../report_an_accident/confirmation/confirmed.dart';
 import '../report_an_accident/select_your_car.dart';
+import '../view_accidents/view_accident_report.dart';
 
 CollectionReference<Map<String, dynamic>> driverCollection =
     FirebaseFirestore.instance.collection('Driver');
@@ -141,7 +143,17 @@ Future<void> sendNotification(
     required msg,
     required accID,
     required sender,
+    required accLocation,
+    required accTime,
     required type}) async {
+  addNotificationTolist(
+      title: title,
+      msg: msg,
+      recID: receiver,
+      sender: sender,
+      accID: accID,
+      accLocation: accLocation,
+      accTime: accTime);
   String token = await getRecieverToken(receiver);
   print('token : $token');
 
@@ -198,6 +210,7 @@ redirect(RemoteMessage message) {
                   sender: message.data['sender'],
                   accID: message.data['accID'],
                   accTime: DateTime.parse('2000-01-01'),
+                  add: false,
                   accLocation: Position(
                       longitude: 0,
                       latitude: 0,
@@ -209,8 +222,8 @@ redirect(RemoteMessage message) {
                       speedAccuracy: 0))));
       break;
 
-    case 'accept':
-    case 'denied':
+    case 'مقبول':
+    case 'مرفوض':
       Navigator.pushReplacement(
           navigationService.navigatorKey.currentContext!,
           MaterialPageRoute(
@@ -219,6 +232,15 @@ redirect(RemoteMessage message) {
                     sender: message.data['sender'],
                     reciever: message.data['reciever'],
                     accID: message.data['accID'],
+                    process: true,
+                  )));
+      break;
+    case 'completed':
+      Navigator.pushReplacement(
+          navigationService.navigatorKey.currentContext!,
+          MaterialPageRoute(
+              builder: (context) => AccidentReportWidget(
+                    id: message.data['accID'],
                   )));
       break;
   }

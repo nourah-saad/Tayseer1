@@ -3,11 +3,17 @@ import 'dart:ffi';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tayseer2/navigationService.dart';
+import 'package:tayseer2/notification/notification.dart';
 import 'package:tayseer2/view_accidents/view_accident_report.dart';
 
-proccessAcc({required accID, required driverID, required involvedID}) async {
+proccessAcc(
+    {required accID,
+    required driverID,
+    required involvedID,
+    required status}) async {
   String accType = '';
   DateTime accTime = await getTime(accID);
+  GeoPoint accLocation = await getAccLocation(accID);
   print('heeerrre timmmy');
   List<double> driverlocations = await getLocation(driverID, accTime);
   print('size is ${driverlocations.length}');
@@ -35,7 +41,7 @@ proccessAcc({required accID, required driverID, required involvedID}) async {
   } else if (involvedBehavior == driverBehavior) {
     switch (driverBehavior) {
       case 'StraightF':
-      accType = 'S1';
+        accType = 'S1';
         if (driverlocations[0] < involvedLocations[0]) {
           guilty = driverID;
         } else {
@@ -67,14 +73,45 @@ proccessAcc({required accID, required driverID, required involvedID}) async {
       guilty == involvedID ? '%100' : '%0',
     ]),
     'accident_type': accType,
+    'status': status
   });
+  sendNotification(
+      receiver: driverID,
+      title: 'تقرير الحادث',
+      msg: 'تم اكتمال تقرير الحادث',
+      accID: accID,
+      sender: involvedID,
+      type: 'completed',
+      accLocation: accLocation,
+      accTime: accTime);
 
-  Navigator.pushReplacement(
+  sendNotification(
+      receiver: involvedID,
+      title: 'تقرير الحادث',
+      msg: 'تم اكتمال تقرير الحادث',
+      accID: accID,
+      sender: driverID,
+      type: 'completed',
+      accLocation: accLocation,
+      accTime: accTime);
+  update(status: status, id: driverID, accID: accID);
+  update(status: status, id: involvedID, accID: accID);
+  /* Navigator.pushReplacement(
       navigationService.navigatorKey.currentContext!,
       MaterialPageRoute(
           builder: (context) => AccidentReportWidget(
                 id: accID,
-              )));
+              )));*/
+}
+
+getAccLocation(accID) async {
+  GeoPoint location = await FirebaseFirestore.instance
+      .collection('Accident')
+      .doc(accID)
+      .get()
+      .then((value) => (value.data()!['Location'] as GeoPoint));
+
+  return location;
 }
 
 String getBehavior(List<double> driverlocations) {
@@ -127,4 +164,16 @@ getLocation(String driverID, DateTime accTime) async {
     });
   });
   return locations;
+}
+
+update({required status, required id, required accID}) {
+  FirebaseFirestore.instance
+      .collection('Driver')
+      .doc(id)
+      .collection('Notifications')
+      .where('Accident_id', isEqualTo: accID)
+      .get()
+      .then((value) => value.docs.forEach((element) {
+            element.reference.update({'status': status});
+          }));
 }

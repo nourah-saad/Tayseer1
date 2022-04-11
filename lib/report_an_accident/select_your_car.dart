@@ -14,12 +14,14 @@ class select_your_carWidget extends StatefulWidget {
   final DateTime accTime;
   final Position accLocation;
   String accID, sender;
+  final bool add;
   select_your_carWidget(
       {Key? key,
       required this.accTime,
       required this.sender,
       required this.accLocation,
-      required this.accID})
+      required this.accID,
+      required this.add})
       : super(key: key);
 
   @override
@@ -173,7 +175,8 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
         }
       ]),
       'Location':
-          GeoPoint(widget.accLocation.latitude, widget.accLocation.longitude)
+          GeoPoint(widget.accLocation.latitude, widget.accLocation.longitude),
+      'status': 'added'
     });
 
     return accID.id;
@@ -375,10 +378,7 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                     car_model = data[i]['car_model'];
                                     car_number = data[i]['car_number'];
                                   });
-                                  widget.accTime.isBefore(
-                                          DateTime.parse('2000-02-28'))
-                                      ? showSnack()
-                                      : add();
+                                  widget.add ? add() : showSnack();
                                 },
                                 child: Text(
                                   'اختيار ',
@@ -423,6 +423,9 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
         context,
         MaterialPageRoute(
             builder: (c) => ConfirmationPageWidget(
-                accidentID: widget.accID, sender: widget.sender)));
+                  accidentID: widget.accID,
+                  sender: widget.sender,
+                  accTime: widget.accTime,
+                )));
   }
 }

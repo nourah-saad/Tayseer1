@@ -33,11 +33,15 @@ class _SelectCarInvolvedCarsPageWidgetState
   final scaffoldKey = GlobalKey<ScaffoldState>();
   List<Driver> involvedDrivers = [];
   List<String> involvedDriversIDs = [];
+  bool loading = false;
 
   @override
   void initState() {
     involvedDrivers.clear();
     getCars();
+    setState(() {
+      loading = true;
+    });
     super.initState();
   }
 
@@ -62,24 +66,34 @@ class _SelectCarInvolvedCarsPageWidgetState
                   topRight: Radius.circular(30),
                 ),
               ),
-              child: ListView.builder(
-                itemCount: involvedDrivers.length,
-                itemBuilder: (context, index) {
-                  return DriverDetails(
-                    accID: widget.accID,
-                    inDriverName: involvedDrivers[index].driverName,
-                    inDriverID: involvedDrivers[index].driverID,
-                  );
-                },
-              ),
+              child: loading
+                  ? Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : ListView.builder(
+                      itemCount: involvedDrivers.length,
+                      itemBuilder: (context, index) {
+                        return DriverDetails(
+                          accID: widget.accID,
+                          inDriverName: involvedDrivers[index].driverName,
+                          inDriverID: involvedDrivers[index].driverID,
+                        );
+                      },
+                    ),
             ),
           ),
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(80, 530, 0, 0),
             child: FFButtonWidget(
-               onPressed: () {
+              onPressed: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (c) => AddCarManuallyWidget(accID: widget.accID, accLocation:  widget.accLocation , accTime: widget.accTime,))); 
+                    context,
+                    MaterialPageRoute(
+                        builder: (c) => AddCarManuallyWidget(
+                              accID: widget.accID,
+                              accLocation: widget.accLocation,
+                              accTime: widget.accTime,
+                            )));
               },
               text: 'إضافة سيارة اخرى',
               options: FFButtonOptions(
@@ -197,5 +211,6 @@ class _SelectCarInvolvedCarsPageWidgetState
         });
       });
     });
+    loading = false;
   }
 }

@@ -178,6 +178,7 @@ class _MapScreenState extends State<MapScreen> {
                                         accTime: widget.accTime,
                                         accLocation: userCurrentPosition!,
                                         sender: user.uid,
+                                        add: true,
                                       )));
                         },
                         style: ElevatedButton.styleFrom(
