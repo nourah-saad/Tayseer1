@@ -17,9 +17,11 @@ import 'package:tayseer2/view_accidents/view_accident_report.dart';
 
 import '../global/global.dart';
 import '../mainScreen/main_screen.dart';
+import 'Search_Bar.dart';
 
 class ViewAccidentsWidget extends StatefulWidget {
-  const ViewAccidentsWidget({Key? key}) : super(key: key);
+  String? address;
+   ViewAccidentsWidget({Key? key,this.address}) : super(key: key);
 
   @override
   _ViewAccidentsWidgetState createState() => _ViewAccidentsWidgetState();
@@ -27,9 +29,12 @@ class ViewAccidentsWidget extends StatefulWidget {
 
 class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  List accidents = [];
+  List<Map<String, dynamic>> accidents = [];
+  List? newDataList;
   GeoPoint? location;
   DateTime? time;
+  List<Map<String, dynamic>> _foundlocacation = [];
+
   var id;
   var Accid = '';
   var dataaa = ' ';
@@ -40,9 +45,30 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
   void initState() {
     accidents.clear();
     addtolist();
-    super.initState();
-  }
 
+
+
+   // onItemChanged('imam');
+   // final data=  newDataList![0]['location'];
+    //print('data $data');
+    super.initState();
+
+  }
+  void _runFilter(String enteredKeyword) {
+    List<Map<String, dynamic>> results = [];
+
+      results = accidents
+          .where((user) =>
+          user["location"].toLowerCase().contains(enteredKeyword.toLowerCase()))
+          .toList();
+      // we use the toLowerCase() method to make it case-insensitive
+ //   }
+
+    // Refresh the UI
+    setState(() {
+      _foundlocacation = results;
+    });
+  }
   void addtolist() async {
     int count = 0;
 
@@ -67,35 +93,53 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
         String dtime = DateFormat('yyyy-MM-dd').format(time!);
         String ddtime = DateFormat.Hms().format(time!);
 
-        List<Placemark> placemarks = await placemarkFromCoordinates(
-            location!.latitude, location!.longitude);
+         List<Placemark> placemarks = await placemarkFromCoordinates(location!.latitude, location!.longitude);
         Placemark place = placemarks[0];
+
         setState(() {
           Address = '${place.street}, ${place.locality}, ${place.country}';
         });
-        print('the adrres is mymyjh ${Address}');
+         print('the adrres is mymyjh ${Address}');
         var value = {
           'location': '${Address}',
           'date': '${dtime.toString()}',
           'time': '${ddtime.toString()}',
           'id': '${id}',
         };
-
+print(value);
         //add only the current user reports
         if (driver2docid == currentFirebaseUser ||
             driver1docid == currentFirebaseUser)
           accidents.insert(count++, value);
+        _foundlocacation = accidents ;
+        _runFilter('Saudi Arabia');
+    // final data=   newDataList![0]['location'];
+    // print('current data$data');
+
       });
     });
   }
 
+  // onItemChanged(String value) {
+  //   setState(() {
+  //
+  //     // newDataList!.forEach((u) {
+  //     //   if(accidents.contains(u["address"])) selectedUsers.add(u);
+  //     // });
+  //     newDataList = accidents
+  //         .where((string) => string.toLowerCase().contains(value[0]))
+  //         .toList();
+  //   });
+  // }
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFF85BBC2),
       body: Stack(
         children: [
+
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0, 130, 0, 0),
             child: Container(
@@ -110,7 +154,7 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
                   topRight: Radius.circular(30),
                 ),
               ),
-              child: accidentChild(accidents, this.context),
+              child: accidentChild(_foundlocacation, this.context),
             ),
           ),
           Padding(
@@ -152,6 +196,37 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
               ],
             ),
           ),
+
+
+          Container(
+
+              width: MediaQuery.of(context).size.width,
+              padding: EdgeInsetsDirectional.fromSTEB(10, 140, 10, 10),
+              child:InkWell(
+                onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) =>  Search_bar()),
+                  );
+                },
+              child:Card(
+                child:Padding(
+    padding: EdgeInsets.all(10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+
+                  Container(child: Text(widget.address==null?'Search .......':widget.address!),),
+                  Container(child:InkWell(onTap: (){
+
+                  },child: Icon(
+                    Icons.search,
+
+                    size: 30.0,
+                  ),)),
+                ],),
+              )
+          ))),
         ],
       ),
     );
@@ -159,6 +234,7 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
 }
 
 Widget accidentChild(data, context) {
+
   return ListView(
     children: [
       for (var i = 0; i < data.length; i++)
@@ -191,7 +267,7 @@ Widget accidentChild(data, context) {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(0, 7, 10, 0),
                                 child: Text(
-                                  '${data[i]['location']}',
+                                '${data[i]['location']}',
                                   textAlign: TextAlign.right,
                                   style: TextStyle(
                                     fontFamily: 'Poppins',

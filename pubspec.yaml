@@ -58,6 +58,14 @@ dependencies:
   vector_math: any
   date_format: ^2.0.5
   flutter_phone_direct_caller: ^2.0.0
+  pdf: ^3.7.4
+  google_places_flutter: ^2.0.5
+  flutter_share: ^2.0.0
+  syncfusion_flutter_pdf: ^20.1.47-beta.1
+  path_provider: ^2.0.9
+  share_plus: ^4.0.4
+  intl: ^0.17.0
+  number_to_word_arabic: ^0.0.8
 
 dev_dependencies:
   flutter_test:

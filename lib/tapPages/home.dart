@@ -26,8 +26,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   GlobalKey<ScaffoldState> sKey = GlobalKey<ScaffoldState>();
-  var n = driverModelCurrentInfo!.name;
-  var e = driverModelCurrentInfo!.email.toString();
+  var n = "Rawan";//driverModelCurrentInfo!.name;
+  var e ="Rawan@gmail.com";// driverModelCurrentInfo!.email.toString();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

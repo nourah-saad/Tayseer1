@@ -1,10 +1,20 @@
+import 'dart:io';
+import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_share/flutter_share.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:intl/intl.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:syncfusion_flutter_pdf/pdf.dart';
+import 'package:number_to_word_arabic/number_to_word_arabic.dart';
+import 'package:tayseer2/view_accidents/pdf_g.dart';
 import 'package:tayseer2/view_accidents/view_accidents_widget.dart';
 import 'package:intl/intl.dart';
-
+import 'dart:io' show Platform;
 import '../widgets/progress_dialog.dart';
 
 class AccidentReportWidget extends StatefulWidget {
@@ -16,8 +26,10 @@ class AccidentReportWidget extends StatefulWidget {
 }
 
 class _AccidentReportWidgetState extends State<AccidentReportWidget> {
+  File? file;
   @override
-  void initState() {
+  void initState(){
+    //pdf();
     fetchdata();
 
     super.initState();
@@ -105,10 +117,89 @@ var docSnapshot = await Accidents.doc(widget.id).get();
 
     GetAddressFromLatLong(LatLng(location!.latitude, location!.longitude));
   }
+  Future<void> share() async {
+    await FlutterShare.shareFile(
+        title: 'Example share',
+        text: 'Example share text',
+        filePath: file!.path,
+
+        chooserTitle: 'Example Chooser Title',
+
+    );
+  }
+  void pdf()async{
+    const String paragraphText =
+        'Adobe Systems Incorporated\'s Portable Document Format (PDF) is the de facto'
+
+        'document. It\'s the only universally accepted file format that allows pixel-perfect layouts.'
+        'In addition, PDF supports user interaction and collaborative workflows that are not'
+        'possible with printed documents.';
+    const String paragraphTextt =
+        'الطرف الأول\n'
+        'الإسم:\n'
+        'رقم اللوحة:\n'
+        'رقم الهوية/الإقامة:\n'
+        'نسبة الخطأ:\n'
+        'الطرف الثاني:\n'
+        'الإسم:\n'
+        'رقم اللوحة:\n'
+        'رقم الهوية/الإقامة:\n'
+        'نسبة الخطأ:\n'
+        'الموقع:\n'
+        ' :التاريخ:\n'
+        ' :الوقت:\n'
+        'حالة التقرير\n'
+        ':تخطيط الحادث:\n';
+// Create a new PDF document.
+
+
+
+    final PdfDocument document = PdfDocument();
+// Add a new page to the document.
+    final PdfPage page = document.pages.add();
+
+
+
+    final Uint8List fontData = File('fonts/Lateef_Regular.ttf').readAsBytesSync();
+//Create a PDF true type font object.
+    final PdfFont font = PdfTrueTypeFont(fontData, 12);
+    final textDirection = PdfTextDirection.none;
+//Saves the document
+    File('Output.pdf').writeAsBytes(document.save());
+// Create a new PDF text element class and draw the flow layout text.
+    final PdfLayoutResult layoutResult = PdfTextElement(
+        text: paragraphText,
+        format: PdfStringFormat(
+          textDirection: textDirection,
+        ),
+        font: font,
+        brush: PdfSolidBrush(PdfColor(0, 0, 0)))
+        .draw(
+        page: page,
+        bounds: Rect.fromLTWH(
+            0, 0, page.getClientSize().width, page.getClientSize().height),
+        format: PdfLayoutFormat(layoutType: PdfLayoutType.paginate))!;
+    page.graphics.drawLine(
+        PdfPen(PdfColor(255, 0, 0)),
+        Offset(0, layoutResult.bounds.bottom + 10),
+        Offset(page.getClientSize().width, layoutResult.bounds.bottom + 10));
+// Draw the next paragraph/content.
+    List<int> bytes = document.save();
+// Save the document.
+    Directory directory = (await getApplicationDocumentsDirectory());
+    //Get directory path
+    String path = directory.path;
+
+     file = File('$path/Output.pdf');
+    await file!.writeAsBytes(bytes, flush: true);
+// Dispose the document.
+    document.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return
+    Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFF85BBC2),
       body: Stack(
@@ -131,12 +222,22 @@ var docSnapshot = await Accidents.doc(widget.id).get();
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
+
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 40, 20, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
+
+
+                        Padding(padding: EdgeInsets.all(10),child: InkWell(
+                             onTap: (){
+                               // Share.shareFiles([file!.path], text: 'Great picture');
+                               getPdfPath();
+                             },
+                             child: Icon(Icons.camera_enhance))),
+                          Spacer(),
                           Text(
                             'الطرف الأول',
                             style: TextStyle(
@@ -564,10 +665,15 @@ var docSnapshot = await Accidents.doc(widget.id).get();
       ),
     );
   }
+
+  void getPdfPath() async{
+    final File file = await generateAndPrintArabicPdf(id1,car1,driver1,falut1,id2,car2,driver2,falut2,address,status,adate,atime);
+    Share.shareFiles([file.path], text: 'Great picture');
+
+    print('"init function $file');
+  }
 }
 
-@override
-Widget build(BuildContext context) {
-  // TODO: implement build
-  throw UnimplementedError();
-}
+
+
+
