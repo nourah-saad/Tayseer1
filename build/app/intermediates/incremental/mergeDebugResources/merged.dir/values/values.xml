@@ -24,7 +24,6 @@
     <color name="common_google_signin_btn_text_light_disabled">#1F000000</color>
     <color name="common_google_signin_btn_text_light_focused">#90000000</color>
     <color name="common_google_signin_btn_text_light_pressed">#DE000000</color>
-    <color name="fcm_test_color">#4285F4</color>
     <color name="notification_action_color_filter">#ffffffff</color>
     <color name="notification_icon_bg_color">#ff9e9e9e</color>
     <color name="notification_material_background_media_default_color">#ff424242</color>
@@ -135,9 +134,7 @@
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="default_web_client_id" translatable="false">988777245550-hl0cnsgmegtbcjo3tdl4dq6t9e64stj8.apps.googleusercontent.com</string>
-    <string name="fcm_2_args">First: %1$s and second %2$s</string>
     <string name="fcm_fallback_notification_channel_label">Miscellaneous</string>
-    <string name="fcm_no_args">String with no arguments</string>
     <string name="gcm_defaultSenderId" translatable="false">988777245550</string>
     <string name="google_api_key" translatable="false">AIzaSyAsUrsxE03vPLLzPnzGOBiuDQxQ_Bey_JI</string>
     <string name="google_app_id" translatable="false">1:988777245550:android:5fddad7fc990c9c7186f7f</string>

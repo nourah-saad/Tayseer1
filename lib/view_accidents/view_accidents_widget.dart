@@ -112,7 +112,8 @@ print(value);
             driver1docid == currentFirebaseUser)
           accidents.insert(count++, value);
         _foundlocacation = accidents ;
-        _runFilter('Saudi Arabia');
+        final splitNames= widget.address!.split(',');
+        _runFilter(widget.address!.split(',').first);
     // final data=   newDataList![0]['location'];
     // print('current data$data');
 
@@ -166,13 +167,12 @@ print(value);
               ),
               color: Color(0xFF46494D),
               //size: 50,
-              onPressed: () async => await Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MainScreen(),
-                ),
-                (r) => false,
-              ),
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Search_bar()),
+                );
+              }
             ),
           ),
           Align(
@@ -211,7 +211,7 @@ print(value);
                 },
               child:Card(
                 child:Padding(
-    padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -235,9 +235,13 @@ print(value);
 
 Widget accidentChild(data, context) {
 
-  return ListView(
+  return data.isNotEmpty? ListView(
     children: [
+
+
       for (var i = 0; i < data.length; i++)
+
+
         Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -408,5 +412,5 @@ Widget accidentChild(data, context) {
           ],
         ),
     ],
-  );
+  ):Center(child: Text('not found data'));
 }

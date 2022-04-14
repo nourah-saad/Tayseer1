@@ -14,11 +14,18 @@ class _Search_barState extends State<Search_bar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+         title: new Text('searching location'),
+         backgroundColor: Color(0xFF85BBC2),
+
+        ),
 body: SafeArea(
   child: Container(
     child: Column(
       children: [
         placesAutoCompleteTextField(),
+
       ],
     ),
   ),
@@ -41,16 +48,13 @@ body: SafeArea(
           },
           itmClick: (Prediction prediction) {
             controller.text = prediction.description!;
-            final lat=prediction.lat!;
-            final long=prediction.lng!;
-
+           final data = prediction.description!;
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) =>  ViewAccidentsWidget(address:controller.text ,)),
+            );
             controller.selection = TextSelection.fromPosition(
                 TextPosition(offset: prediction.description!.length));
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ViewAccidentsWidget(address: 'Hello',),
-                ));
           }
         // default 600 ms ,
       ),

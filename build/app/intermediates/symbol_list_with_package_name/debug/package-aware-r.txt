@@ -86,7 +86,6 @@ color common_google_signin_btn_text_light_disabled
 color common_google_signin_btn_text_light_focused
 color common_google_signin_btn_text_light_pressed
 color common_google_signin_btn_tint
-color fcm_test_color
 color notification_action_color_filter
 color notification_icon_bg_color
 color notification_material_background_media_default_color
@@ -120,9 +119,6 @@ dimen subtitle_corner_radius
 dimen subtitle_outline_width
 dimen subtitle_shadow_offset
 dimen subtitle_shadow_radius
-drawable adaptive_icon
-drawable adaptive_icon_background
-drawable adaptive_icon_foreground
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -143,11 +139,8 @@ drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
 drawable corner
-drawable gcm_icon
-drawable gcm_icon2
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
-drawable icon_with_gradient
 drawable launch_background
 drawable navigation_empty_icon
 drawable notification_action_background
@@ -306,7 +299,6 @@ layout toast_custom
 menu example_menu
 menu example_menu2
 mipmap ic_launcher
-raw gcm_bip
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text
 string common_google_play_services_enable_title
@@ -326,9 +318,7 @@ string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
 string default_web_client_id
-string fcm_2_args
 string fcm_fallback_notification_channel_label
-string fcm_no_args
 string gcm_defaultSenderId
 string google_api_key
 string google_app_id
@@ -368,3 +358,4 @@ styleable SplitPairFilter primaryActivityName secondaryActivityAction secondaryA
 styleable SplitPairRule clearTop finishPrimaryWithSecondary finishSecondaryWithPrimary splitLayoutDirection splitMinSmallestWidth splitMinWidth splitRatio
 styleable SplitPlaceholderRule placeholderActivityName splitLayoutDirection splitMinSmallestWidth splitMinWidth splitRatio
 xml flutter_share_file_paths
+xml provider_paths
