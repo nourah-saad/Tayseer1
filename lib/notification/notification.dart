@@ -9,6 +9,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:tayseer2/navigationService.dart';
 import 'package:http/http.dart' as http;
+import 'package:tayseer2/tapPages/chat.dart';
 import 'package:tayseer2/tapPages/notifications.dart';
 
 import '../report_an_accident/confirmation/confirmation_page.dart';
@@ -242,6 +243,10 @@ redirect(RemoteMessage message) {
               builder: (context) => AccidentReportWidget(
                     id: message.data['accID'],
                   )));
+      break;
+    case 'خارج نطاق التطبيق':
+      Navigator.pushReplacement(navigationService.navigatorKey.currentContext!,
+          MaterialPageRoute(builder: (context) => ChatPage()));
       break;
   }
 }

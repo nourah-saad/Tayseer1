@@ -51,6 +51,7 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
     var exists = await FirebaseFirestore.instance
         .collection('Accident')
         .orderBy('Date_time')
+        .where('accident_type', isNotEqualTo: null)
         .snapshots()
         .listen((event) {
       event.docs.forEach((element) async {

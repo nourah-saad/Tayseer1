@@ -70,16 +70,18 @@ class _SelectCarInvolvedCarsPageWidgetState
                   ? Center(
                       child: CircularProgressIndicator(),
                     )
-                  : ListView.builder(
-                      itemCount: involvedDrivers.length,
-                      itemBuilder: (context, index) {
-                        return DriverDetails(
-                          accID: widget.accID,
-                          inDriverName: involvedDrivers[index].driverName,
-                          inDriverID: involvedDrivers[index].driverID,
-                        );
-                      },
-                    ),
+                  : involvedDrivers.isEmpty
+                      ? Center(child: Text('لا يوجد سائق بالجوار'))
+                      : ListView.builder(
+                          itemCount: involvedDrivers.length,
+                          itemBuilder: (context, index) {
+                            return DriverDetails(
+                              accID: widget.accID,
+                              inDriverName: involvedDrivers[index].driverName,
+                              inDriverID: involvedDrivers[index].driverID,
+                            );
+                          },
+                        ),
             ),
           ),
           Padding(

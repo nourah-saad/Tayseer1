@@ -28,10 +28,10 @@ class _NotificationPageState extends State<NotificationPage> {
           SizedBox(
             height: 20,
             width: 200,
-            child: Text('noti'),
+            child: Text('last'),
           ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.7,
+            height: MediaQuery.of(context).size.height * 0.85,
             width: MediaQuery.of(context).size.width,
             child: SingleChildScrollView(
               child: StreamBuilder<QuerySnapshot>(
@@ -76,7 +76,7 @@ class _NotificationPageState extends State<NotificationPage> {
                             itemCount: list.length,
                             itemBuilder: (context, index) {
                               return Padding(
-                                padding: const EdgeInsets.all(15),
+                                padding: const EdgeInsets.all(5),
                                 child: InkWell(
                                   onTap: () {
                                     print(
@@ -125,10 +125,18 @@ class _NotificationPageState extends State<NotificationPage> {
                                                   accID: list[index]['Accident_id'])));
                                     }
                                   },
-                                  child: Container(
-                                    height: 25,
-                                    width: MediaQuery.of(context).size.width,
+                                  child: Card(
+                                    elevation: 2,
+                                    margin: EdgeInsets.all(4),
+                                    color: Color.fromARGB(255, 207, 222, 224),
                                     child: ListTile(
+                                      leading: CircleAvatar(
+                                          radius: 20,
+                                          backgroundColor: Color(0xFF85BBC2),
+                                          child: Icon(
+                                            Icons.notifications_sharp,
+                                            color: Colors.white,
+                                          )),
                                       title: Text(
                                         '${list[index]['title']}',
                                         textAlign: TextAlign.right,
