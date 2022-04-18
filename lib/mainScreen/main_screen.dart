@@ -1,10 +1,8 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:tayseer2/tapPages/chat.dart';
 import 'package:tayseer2/tapPages/home.dart';
-import 'package:tayseer2/tapPages/my_account.dart';
 import 'package:tayseer2/tapPages/notifications.dart';
 
-import '../Tracking/Tracking.dart';
 import '../dummy_view/dummy_Screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -12,70 +10,43 @@ class MainScreen extends StatefulWidget {
   _MainScreenState createState() => _MainScreenState();
 }
 
-//SS
-class _MainScreenState extends State<MainScreen>
-    with SingleTickerProviderStateMixin {
-  TabController? tabController;
-  int selectedIndex = 0;
+class _MainScreenState extends State<MainScreen> {
+  int index = 2;
 
-  onItemClicked(int index) {
-    setState(() {
-      selectedIndex = index;
-      tabController!.index = selectedIndex;
-    });
-  }
+  final screen = [
+    const NotificationPage(),
+    Dummy_Screen(controller_tab: tabController),
+    const HomePage(),
+  ];
 
-  @override
-  void initState() {
-    requestPermission();
-    super.initState();
-
-    tabController = TabController(length: 4, vsync: this);
-  }
-
+  static get tabController => null;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFF85BBC2),
-      body: TabBarView(
-        physics: const NeverScrollableScrollPhysics(),
-        controller: tabController,
-        children: [
-          HomePage(),
-          //Container(),
-          // MyAccount(),
-          Dummy_Screen(controller_tab: tabController),
-          NotificationPage(),
-          ChatPage(),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "الصفحة الرئيسية",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_box),
-            label: "حسابي",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: "الإشعارات",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            label: "تحدث معنا",
-          ),
-        ],
-        unselectedItemColor: Colors.black54,
-        selectedItemColor: Colors.black,
+    final items = <Widget>[
+      const Icon(Icons.notifications, size: 30),
+      const Icon(Icons.account_box, size: 30),
+      const Icon(Icons.home, size: 30),
+    ];
+    return SafeArea(
+      top: false,
+      child: Scaffold(
         backgroundColor: const Color(0xFFD8EBEE),
-        type: BottomNavigationBarType.fixed,
-        selectedLabelStyle: const TextStyle(fontSize: 14),
-        showUnselectedLabels: true,
-        currentIndex: selectedIndex,
-        onTap: onItemClicked,
+        body: screen[index],
+        bottomNavigationBar: Theme(
+          data: Theme.of(context).copyWith(
+            iconTheme: const IconThemeData(color: Color(0xFFD8EBEE)),
+          ),
+          child: CurvedNavigationBar(
+            color: const Color(0xFF85BBC2),
+            backgroundColor: Colors.white,
+            height: 60,
+            animationCurve: Curves.easeInOut,
+            animationDuration: const Duration(milliseconds: 300),
+            index: index,
+            items: items,
+            onTap: (index) => setState(() => this.index = index),
+          ),
+        ),
       ),
     );
   }
