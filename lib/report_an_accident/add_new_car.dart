@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:tayseer2/report_an_accident/select_involved_car.dart';
 
 import '../notification/notification.dart';
-import 'car_not_found_widget.dart';
 import 'confirmation/confirmation_loading_page.dart';
 
 class AddCarManuallyWidget extends StatefulWidget {
@@ -26,154 +25,140 @@ class AddCarManuallyWidget extends StatefulWidget {
 class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
   late TextEditingController textController;
   final formKey = GlobalKey<FormState>();
- var Drivername , driverid , uid;
+  var Drivername, driverid, uid;
   final scaffoldKey = GlobalKey<FormState>();
-  var isfound =false;
+  var isfound = false;
   @override
   void initState() {
     super.initState();
     textController = TextEditingController();
   }
-   void addDetails(var Drivername,var driverid,var uid ) async {
+
+  void addDetails(var Drivername, var driverid, var uid) async {
     FirebaseFirestore.instance.collection('Accident').doc(widget.accID).update({
       'Drivers_Involved': FieldValue.arrayUnion([
         {
           'name': Drivername,
-          'Driver_Id': driverid ,
+          'Driver_Id': driverid,
           'uid': uid,
         }
       ]),
       'Accident_id': widget.accID
     });
   }
-void lookforacar (var plateNo) async {
 
-print ("${plateNo}");
-  
-await findcar(plateNo).
+  void lookforacar(var plateNo) async {
+    print("${plateNo}");
 
-then((value) 
+    await findcar(plateNo).then((value) {
+      print("i am insud then ${isfound}");
 
- {
+      if (!isfound) {
+        // isfound is still false which menas car is not found اذا كانت اي شي ماعدا ترو ادخل
 
-print ("i am insud then ${isfound}");
-
-      if(!isfound){// isfound is still false which menas car is not found اذا كانت اي شي ماعدا ترو ادخل
-       
-   showDialog(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-                      Icons.clear_rounded,
-                      color: Color(0xFF46494D),
-                      size: 50,
-                    ),
-            Text('!عذرًا'),
-            
-          ],
-        ),
-        content: Text(
-          'لم يتم العثور على السيارة .. تأكد من كتابة رقم اللوحة بشكل صحيح', textAlign: TextAlign.center,
-        ),
-        actions: <Widget>[
-           SizedBox(
-              width: MediaQuery.of(context).size.width,
-              child: Row(
+        showDialog(
+          context: context,
+          builder: (ctx) => AlertDialog(
+            title: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.clear_rounded,
+                  color: Color(0xFF46494D),
+                  size: 50,
+                ),
+                Text('!عذرًا'),
+              ],
+            ),
+            content: Text(
+              'لم يتم العثور على السيارة .. تأكد من كتابة رقم اللوحة بشكل صحيح',
+              textAlign: TextAlign.center,
+            ),
+            actions: <Widget>[
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ButtonTheme(
-                        minWidth: 25.0,
-                        height: 25.0,
-                        child:
-          ElevatedButton(
-              child: Text('حسنا', style: TextStyle(color: Colors.white)),
-              onPressed: () {
-            Navigator.of(context).pop();
-              },
-              style: ButtonStyle(
-                backgroundColor:
-                    MaterialStateColor.resolveWith((states) => Color(0xFF85BBC2)),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                )),
-              )),
-              ),
+                      minWidth: 25.0,
+                      height: 25.0,
+                      child: ElevatedButton(
+                          child: Text('حسنا',
+                              style: TextStyle(color: Colors.white)),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateColor.resolveWith(
+                                (states) => Color(0xFF85BBC2)),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            )),
+                          )),
+                    ),
                   ],
-                  ), )
-        ],
-      ),
-    );
+                ),
+              )
+            ],
+          ),
+        );
       }
       setState(() {
-            isfound = false;
-          });
+        isfound = false;
+      });
+    });
+  }
 
-});
-
-    
-
-
-}
-Future<void> findcar(var plateNo)async {
-await FirebaseFirestore.instance
-        .collection('Driver').snapshots()
+  Future<void> findcar(var plateNo) async {
+    await FirebaseFirestore.instance
+        .collection('Driver')
+        .snapshots()
         .listen((event) {
       event.docs.forEach((element) async {
-setState(() {
-
+        setState(() {
           Drivername = element.data()['name'].toString();
           driverid = element.data()['Driver_Id'].toString();
           uid = element.id.toString();
-         
         });
-  
 
-
- await FirebaseFirestore.instance .collection('Driver').doc(element.id).collection('Cars').where("Car_plateNo", isEqualTo: "$plateNo").get().then((querySnapshot) async {
-          
+        await FirebaseFirestore.instance
+            .collection('Driver')
+            .doc(element.id)
+            .collection('Cars')
+            .where("Car_plateNo", isEqualTo: "$plateNo")
+            .get()
+            .then((querySnapshot) async {
           final list = querySnapshot.docs;
-        
-          if(!list.isEmpty){
-          print("car is found yaaaay");
-          final String carid = list[0].id;
-          print("${carid}");
-          setState(() {
-            isfound = true;
-          });
-addDetails(Drivername,driverid,uid );
+
+          if (!list.isEmpty) {
+            print("car is found yaaaay");
+            final String carid = list[0].id;
+            print("${carid}");
+            setState(() {
+              isfound = true;
+            });
+            addDetails(Drivername, driverid, uid);
             Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    ConfirmationLoadingPageWidget()));
-                        sendNotification(
-                            receiver: uid,
-                            title: 'تأكيد الحادث',
-                            msg:
-                                'يدعوك ${ Drivername})} لتأكيد وقوع حادث، يرجى النقر للتأكيد أو الرفض',
-                            accID: widget.accID,
-                            sender: '${user.uid}',
-                            type: 'ques');
-        
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ConfirmationLoadingPageWidget()));
+            sendNotification(
+                receiver: uid,
+                title: 'تأكيد الحادث',
+                msg:
+                    'يدعوك ${Drivername})} لتأكيد وقوع حادث، يرجى النقر للتأكيد أو الرفض',
+                accID: widget.accID,
+                sender: '${user.uid}',
+                type: 'ques');
           }
-          
-           });
-         
-     
-
-
-
-
-      }); 
-      
+        });
       });
+    });
+  }
 
-}
- final _formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -247,8 +232,7 @@ addDetails(Drivername,driverid,uid );
                           if (val!.trim().isEmpty) {
                             return 'الرجاء  ادخال رقم ';
                           }
-                        
-                         
+
                           return null;
                         },
                       ),
@@ -277,9 +261,11 @@ addDetails(Drivername,driverid,uid );
                               onPressed: () {
                                 lookforacar(textController.text);
                                 print("false");
-                                bool _isValid = formKey.currentState!.validate();
-                                if (_isValid){print("true");}
-                              
+                                bool _isValid =
+                                    formKey.currentState!.validate();
+                                if (_isValid) {
+                                  print("true");
+                                }
                               },
                               child: Text(
                                 "اضافة",
@@ -331,14 +317,14 @@ addDetails(Drivername,driverid,uid );
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                       child: Text(
-                      'إضافة سيارة',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 30,
-                        color: Color(0xFF46494D),
-                        fontFamily: 'Poppins',
+                        'إضافة سيارة',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 30,
+                          color: Color(0xFF46494D),
+                          fontFamily: 'Poppins',
+                        ),
                       ),
-                    ),
                     ),
                   ],
                 ),
@@ -350,4 +336,3 @@ addDetails(Drivername,driverid,uid );
     );
   }
 }
-

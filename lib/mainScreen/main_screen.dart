@@ -38,7 +38,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
           child: CurvedNavigationBar(
             color: const Color(0xFF85BBC2),
-            backgroundColor: Colors.white,
+            backgroundColor: Color(0xFFD8EBEE),
             height: 60,
             animationCurve: Curves.easeInOut,
             animationDuration: const Duration(milliseconds: 300),
