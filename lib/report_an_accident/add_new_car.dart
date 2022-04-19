@@ -1,6 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:get/get.dart';
 import 'package:tayseer2/report_an_accident/select_involved_car.dart';
+
+import '../notification/notification.dart';
+import 'car_not_found_widget.dart';
+import 'confirmation/confirmation_loading_page.dart';
 
 class AddCarManuallyWidget extends StatefulWidget {
   final DateTime accTime;
@@ -20,14 +26,154 @@ class AddCarManuallyWidget extends StatefulWidget {
 class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
   late TextEditingController textController;
   final formKey = GlobalKey<FormState>();
-  final scaffoldKey = GlobalKey<ScaffoldState>();
-
+ var Drivername , driverid , uid;
+  final scaffoldKey = GlobalKey<FormState>();
+  var isfound =false;
   @override
   void initState() {
     super.initState();
     textController = TextEditingController();
   }
+   void addDetails(var Drivername,var driverid,var uid ) async {
+    FirebaseFirestore.instance.collection('Accident').doc(widget.accID).update({
+      'Drivers_Involved': FieldValue.arrayUnion([
+        {
+          'name': Drivername,
+          'Driver_Id': driverid ,
+          'uid': uid,
+        }
+      ]),
+      'Accident_id': widget.accID
+    });
+  }
+void lookforacar (var plateNo) async {
 
+print ("${plateNo}");
+  
+await findcar(plateNo).
+
+then((value) 
+
+ {
+
+print ("i am insud then ${isfound}");
+
+      if(!isfound){// isfound is still false which menas car is not found اذا كانت اي شي ماعدا ترو ادخل
+       
+   showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+                      Icons.clear_rounded,
+                      color: Color(0xFF46494D),
+                      size: 50,
+                    ),
+            Text('!عذرًا'),
+            
+          ],
+        ),
+        content: Text(
+          'لم يتم العثور على السيارة .. تأكد من كتابة رقم اللوحة بشكل صحيح', textAlign: TextAlign.center,
+        ),
+        actions: <Widget>[
+           SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ButtonTheme(
+                        minWidth: 25.0,
+                        height: 25.0,
+                        child:
+          ElevatedButton(
+              child: Text('حسنا', style: TextStyle(color: Colors.white)),
+              onPressed: () {
+            Navigator.of(context).pop();
+              },
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateColor.resolveWith((states) => Color(0xFF85BBC2)),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                )),
+              )),
+              ),
+                  ],
+                  ), )
+        ],
+      ),
+    );
+      }
+      setState(() {
+            isfound = false;
+          });
+
+});
+
+    
+
+
+}
+Future<void> findcar(var plateNo)async {
+await FirebaseFirestore.instance
+        .collection('Driver').snapshots()
+        .listen((event) {
+      event.docs.forEach((element) async {
+setState(() {
+
+          Drivername = element.data()['name'].toString();
+          driverid = element.data()['Driver_Id'].toString();
+          uid = element.id.toString();
+         
+        });
+  
+
+
+ await FirebaseFirestore.instance .collection('Driver').doc(element.id).collection('Cars').where("Car_plateNo", isEqualTo: "$plateNo").get().then((querySnapshot) async {
+          
+          final list = querySnapshot.docs;
+        
+          if(!list.isEmpty){
+          print("car is found yaaaay");
+          final String carid = list[0].id;
+          print("${carid}");
+          setState(() {
+            isfound = true;
+          });
+addDetails(Drivername,driverid,uid );
+            Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    ConfirmationLoadingPageWidget()));
+                        sendNotification(
+                            receiver: uid,
+                            title: 'تأكيد الحادث',
+                            msg:
+                                'يدعوك ${ Drivername})} لتأكيد وقوع حادث، يرجى النقر للتأكيد أو الرفض',
+                            accID: widget.accID,
+                            sender: '${user.uid}',
+                            type: 'ques');
+        
+          }
+          
+           });
+         
+     
+
+
+
+
+      }); 
+      
+      });
+
+}
+ final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -71,6 +217,7 @@ class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(30, 10, 30, 0),
                       child: TextFormField(
+                        key: _formKey,
                         controller: textController,
                         obscureText: false,
                         decoration: InputDecoration(
@@ -97,12 +244,11 @@ class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
                         textAlign: TextAlign.center,
                         keyboardType: TextInputType.number,
                         validator: (val) {
-                          if (val!.isEmpty) {
-                            return 'الرجاء  ادخال رقم الهوية/الإقامة';
+                          if (val!.trim().isEmpty) {
+                            return 'الرجاء  ادخال رقم ';
                           }
-                          if (val.length < 10) {
-                            return 'الرجاء  ادخال رقم صحيح';
-                          }
+                        
+                         
                           return null;
                         },
                       ),
@@ -129,8 +275,11 @@ class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
                                 ),
                               ),
                               onPressed: () {
-                                /*  Navigator.push(
-                    context, MaterialPageRoute(builder: (c) => MapScreen())); */
+                                lookforacar(textController.text);
+                                print("false");
+                                bool _isValid = formKey.currentState!.validate();
+                                if (_isValid){print("true");}
+                              
                               },
                               child: Text(
                                 "اضافة",
@@ -182,14 +331,14 @@ class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                       child: Text(
-                        'إضافة سيارة اخرى',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          color: Color(0xFF46494D),
-                          fontSize: 22,
-                        ),
+                      'إضافة سيارة',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 30,
+                        color: Color(0xFF46494D),
+                        fontFamily: 'Poppins',
                       ),
+                    ),
                     ),
                   ],
                 ),
@@ -201,3 +350,4 @@ class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
     );
   }
 }
+
