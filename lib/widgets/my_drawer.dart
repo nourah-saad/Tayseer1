@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:tayseer2/global/global.dart';
 import 'package:tayseer2/splashScreen/splash_screen.dart';
 import 'package:tayseer2/view_accidents/view_accidents_widget.dart';
+
+import '../report_an_accident/add_new_car.dart';
 
 class MyDrawer extends StatefulWidget {
   String? name;
   String? did;
 
-  MyDrawer({Key? key, this.name, this.did}) : super(key: key);
+
+
+  MyDrawer({this.name, this.did});
 
   @override
   _MyDrawerState createState() => _MyDrawerState();
@@ -69,54 +74,54 @@ class _MyDrawerState extends State<MyDrawer> {
           ),
 
           //drawer body
-          GestureDetector(
-            onTap: () async {
-              await Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const ViewAccidentsWidget(),
-                ),
-                (r) => false,
-              );
-            },
-            child: Container(
-              width: 310,
-              height: 50,
-              decoration: const BoxDecoration(
-                color: Color(0xFF85BBC2),
-                shape: BoxShape.rectangle,
-              ),
-              child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
-                      child: Text(
-                        'البلاغات السابقة',
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          color: Color(0xFF46494D),
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
+           GestureDetector(
+        onTap: ()async {
+            await Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ViewAccidentsWidget(),
+                        ),
+                        (r) => false,
+                      );
+        },
+        child :
+                    Container(
+                      width: 310,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Color(0xFF85BBC2),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                              child: Text(
+                                'البلاغات السابقة',
+                                style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  color: Color(0xFF46494D),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                            Icon(
+                              Icons.note_outlined,
+                              color: Color(0xFF46494D),
+                              size: 28,
+                            ),
+                          ],
+                          
                         ),
                       ),
-                    ),
-                    Icon(
-                      Icons.note_outlined,
-                      color: Color(0xFF46494D),
-                      size: 28,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 12.0,
-          ),
+                    ),),
+           
 
           Container(
             width: 310,
@@ -155,42 +160,58 @@ class _MyDrawerState extends State<MyDrawer> {
           const SizedBox(
             height: 12.0,
           ),
-
-          Container(
-            width: 310,
-            height: 50,
-            decoration: const BoxDecoration(
-              color: Color(0xFF85BBC2),
-              shape: BoxShape.rectangle,
-            ),
-            child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: const [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
-                    child: Text(
-                      'تحدث معنا',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        color: Color(0xFF46494D),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  Icon(
-                    Icons.chat_bubble_outline_rounded,
-                    color: Color(0xFF46494D),
-                    size: 28,
-                  ),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(
+GestureDetector(
+        onTap: () {
+         
+           
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (c) =>  AddCarManuallyWidget(accID: "widget.accID", accLocation:  Position(
+                          longitude: 0,
+                          latitude: 0,
+                          timestamp: DateTime.now(),
+                          accuracy: 0,
+                          altitude: 0,
+                          heading: 0,
+                          speed: 0,
+                          speedAccuracy: 0) , accTime: DateTime.now())));
+            },
+        child :
+Container(
+                        width: 310,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Color(0xFF85BBC2),
+                          shape: BoxShape.rectangle,
+                        ),
+         child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                                child: Text(
+                                  'تحدث معنا',
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    color: Color(0xFF46494D),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ),
+                              Icon(
+                                Icons.chat_bubble_outline_rounded,
+                                color: Color(0xFF46494D),
+                                size: 28,
+                              ),
+                            ],
+                          ),
+                        ),
+),),
+             const SizedBox(
             height: 12.0,
           ),
 
