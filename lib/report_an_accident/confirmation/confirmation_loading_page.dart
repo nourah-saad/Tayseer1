@@ -33,7 +33,7 @@ class _ConfirmationLoadingPageWidgetState
                 borderRadius: BorderRadius.circular(30),
                 shape: BoxShape.rectangle,
                 border: Border.all(
-                  color: Color(0xFF85BBC2),
+                  color: Color(0xFFD8EBEE),
                   width: 20,
                 ),
               ),
@@ -62,7 +62,7 @@ class _ConfirmationLoadingPageWidgetState
                           size: 70,
                         ),
                         SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.2),
+                            height: MediaQuery.of(context).size.height * 0),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 35, 0, 0),
                           child: Text(

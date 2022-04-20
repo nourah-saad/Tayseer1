@@ -36,6 +36,8 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
   final Future<FirebaseApp> _future = Firebase.initializeApp();
   User user = FirebaseAuth.instance.currentUser!;
 
+  get mainAxisAlignment => null;
+
   @override
   void initState() {
     cars.clear();
@@ -74,11 +76,11 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF85BBC2),
+      backgroundColor: Color(0xFFD8EBEE),
       body: Stack(
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 130, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(0, 120, 0, 0),
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 1,
@@ -194,10 +196,22 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                     width: 360,
                     height: 230,
                     decoration: BoxDecoration(
-                      color: Color(0xFF85BBC2),
+                      color: Color(0xFFD8EBEE),
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.black),
                       shape: BoxShape.rectangle,
+                      boxShadow: const [
+                        BoxShadow(
+                          offset: Offset(1.0, 1.0),
+                          blurRadius: 5.0,
+                          spreadRadius: 1.0,
+                        ),
+                        BoxShadow(
+                          color: Color(0xFFD8EBEE),
+                          offset: Offset(-1.0, -1.0),
+                          blurRadius: 5.0,
+                          spreadRadius: 1.0,
+                        ),
+                      ],
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
@@ -217,6 +231,7 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                       '${data[i]['car_model']}',
                                       textAlign: TextAlign.right,
                                       style: TextStyle(
+                                        color: Color(0xFF46494D),
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w600,
                                         fontSize: 18,
@@ -231,6 +246,7 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                     ': نوع السيارة ',
                                     textAlign: TextAlign.right,
                                     style: TextStyle(
+                                      color: Color(0xFF46494D),
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w600,
                                       fontSize: 18,
@@ -250,6 +266,7 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                       '${data[i]['car_color']}',
                                       textAlign: TextAlign.right,
                                       style: TextStyle(
+                                        color: Color(0xFF46494D),
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w600,
                                         fontSize: 18,
@@ -264,6 +281,7 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                     ': اللون ',
                                     textAlign: TextAlign.right,
                                     style: TextStyle(
+                                      color: Color(0xFF46494D),
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w600,
                                       fontSize: 18,
@@ -293,6 +311,7 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                       '${data[i]['car_number']}',
                                       textAlign: TextAlign.right,
                                       style: TextStyle(
+                                        color: Color(0xFF46494D),
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w600,
                                         fontSize: 18,
@@ -307,6 +326,7 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                     ': رقم اللوحة ',
                                     textAlign: TextAlign.right,
                                     style: TextStyle(
+                                      color: Color(0xFF46494D),
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w600,
                                       fontSize: 18,
@@ -326,6 +346,7 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                       '${data[i]['in']}',
                                       textAlign: TextAlign.right,
                                       style: TextStyle(
+                                        color: Color(0xFF46494D),
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w600,
                                         fontSize: 18,
@@ -340,6 +361,7 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                     ': حالة التأمين ',
                                     textAlign: TextAlign.right,
                                     style: TextStyle(
+                                      color: Color(0xFF46494D),
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w600,
                                       fontSize: 18,
@@ -357,11 +379,11 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Align(
-                              alignment: Alignment.center,
+                              alignment: Alignment.bottomLeft,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   onPrimary: Colors.black87,
-                                  primary: Color(0xFF92D9E3),
+                                  primary: Color.fromARGB(200, 146, 217, 227),
                                   fixedSize: Size(129, 20),
                                   padding: EdgeInsets.symmetric(horizontal: 16),
                                   shape: const RoundedRectangleBorder(
@@ -383,6 +405,7 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                 child: Text(
                                   'اختيار ',
                                   style: TextStyle(
+                                    color: Color(0xFF46494D),
                                     fontFamily: 'Poppins',
                                     fontWeight: FontWeight.w600,
                                     fontSize: 17,

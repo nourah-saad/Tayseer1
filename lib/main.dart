@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:tayseer2/authintication/login_screen.dart';
 import 'package:tayseer2/infoHandler/app_info.dart';
 import 'package:tayseer2/navigationService.dart';
+import 'package:tayseer2/report_an_accident/confirmation/confirmation_loading_page.dart';
 import 'package:tayseer2/splashScreen/splash_screen.dart';
 
 import 'authintication/signup_screen.dart';

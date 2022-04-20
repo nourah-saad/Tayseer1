@@ -9,6 +9,7 @@ import '../FlutterFlow/FlutterFlowTheme.dart';
 import '../FlutterFlow/FlutterFlowWidgets.dart';
 import 'package:flutter/material.dart';
 
+import '../mainScreen/main_screen.dart';
 import 'DriverDetails.dart';
 import 'add_new_car.dart';
 
@@ -45,7 +46,7 @@ class _SelectCarInvolvedCarsPageWidgetState
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF85BBC2),
+      backgroundColor: Color(0xFFD8EBEE),
       body: Stack(
         children: [
           Padding(
@@ -77,9 +78,15 @@ class _SelectCarInvolvedCarsPageWidgetState
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(80, 530, 0, 0),
             child: FFButtonWidget(
-               onPressed: () {
+              onPressed: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (c) => AddCarManuallyWidget(accID: widget.accID, accLocation:  widget.accLocation , accTime: widget.accTime,))); 
+                    context,
+                    MaterialPageRoute(
+                        builder: (c) => AddCarManuallyWidget(
+                              accID: widget.accID,
+                              accLocation: widget.accLocation,
+                              accTime: widget.accTime,
+                            )));
               },
               text: 'إضافة سيارة اخرى',
               options: FFButtonOptions(
@@ -88,7 +95,7 @@ class _SelectCarInvolvedCarsPageWidgetState
                 color: Color(0xFF85BBC2),
                 textStyle: FlutterFlowTheme.subtitle2.override(
                   fontFamily: 'Poppins',
-                  color: Colors.black,
+                  color: Color(0xFF46494D),
                   fontWeight: FontWeight.bold,
                 ),
                 borderSide: BorderSide(
@@ -101,10 +108,20 @@ class _SelectCarInvolvedCarsPageWidgetState
           ),
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(10, 60, 0, 0),
-            child: Icon(
-              Icons.chevron_left,
+            child: IconButton(
+              icon: new Icon(
+                Icons.chevron_left,
+                size: 50,
+              ),
               color: Color(0xFF46494D),
-              size: 50,
+              //size: 50,
+              onPressed: () async => await Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MainScreen(),
+                ),
+                (r) => false,
+              ),
             ),
           ),
           Align(

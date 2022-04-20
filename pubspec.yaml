@@ -69,10 +69,16 @@ dependencies:
   google_places_flutter: ^2.0.5
   curved_navigation_bar: ^1.0.3
   url_launcher: ^6.0.20
+  video_player: ^2.3.0
+  carousel_slider: ^4.0.0
 
 dev_dependencies:
+  flutter_native_splash: ^2.1.6
   flutter_test:
     sdk: flutter
+
+flutter_native_splash:
+  color: "#FFFFFF"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

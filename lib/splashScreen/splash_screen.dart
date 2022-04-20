@@ -1,8 +1,6 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:tayseer2/assistants/assistant_methods.dart';
-import 'package:tayseer2/authintication/login_screen.dart';
 import 'package:tayseer2/global/global.dart';
 import 'package:tayseer2/mainScreen/main_screen.dart';
 

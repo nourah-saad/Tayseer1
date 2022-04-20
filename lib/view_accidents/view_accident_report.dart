@@ -2,7 +2,6 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:intl/intl.dart';
@@ -10,12 +9,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
-import 'package:number_to_word_arabic/number_to_word_arabic.dart';
 import 'package:tayseer2/view_accidents/pdf_g.dart';
-import 'package:tayseer2/view_accidents/view_accidents_widget.dart';
-import 'package:intl/intl.dart';
 import 'dart:io' show Platform;
-import '../widgets/progress_dialog.dart';
 
 class AccidentReportWidget extends StatefulWidget {
   final id;
@@ -28,7 +23,7 @@ class AccidentReportWidget extends StatefulWidget {
 class _AccidentReportWidgetState extends State<AccidentReportWidget> {
   File? file;
   @override
-  void initState(){
+  void initState() {
     //pdf();
     fetchdata();
 
@@ -62,31 +57,29 @@ class _AccidentReportWidgetState extends State<AccidentReportWidget> {
     });
     print('the adrres is ${address}');
   }
-  void _onLoading( context) {
-  showDialog(
-    context: context,
-    barrierDismissible: false,
-    builder: (BuildContext context) {
-      return Dialog(
-        child: new Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            new CircularProgressIndicator(),
-            new Text("Loading"),
-          ],
-        ),
-      );
-    },
-  );
-  new Future.delayed(new Duration(seconds: 4), () {
-       
-  });
 
-}
-Future<void> fetchdata() async {
+  void _onLoading(context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Dialog(
+          child: new Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              new CircularProgressIndicator(),
+              new Text("Loading"),
+            ],
+          ),
+        );
+      },
+    );
+    new Future.delayed(new Duration(seconds: 4), () {});
+  }
 
+  Future<void> fetchdata() async {
 //_onLoading(context);
-var docSnapshot = await Accidents.doc(widget.id).get();
+    var docSnapshot = await Accidents.doc(widget.id).get();
 
     if (docSnapshot.exists) {
       Map<String, dynamic>? data = docSnapshot.data();
@@ -117,50 +110,43 @@ var docSnapshot = await Accidents.doc(widget.id).get();
 
     GetAddressFromLatLong(LatLng(location!.latitude, location!.longitude));
   }
+
   Future<void> share() async {
     await FlutterShare.shareFile(
-        title: 'Example share',
-        text: 'Example share text',
-        filePath: file!.path,
-
-        chooserTitle: 'Example Chooser Title',
-
+      title: 'Example share',
+      text: 'Example share text',
+      filePath: file!.path,
+      chooserTitle: 'Example Chooser Title',
     );
   }
-  void pdf()async{
+
+  void pdf() async {
     const String paragraphText =
         'Adobe Systems Incorporated\'s Portable Document Format (PDF) is the de facto'
-
         'document. It\'s the only universally accepted file format that allows pixel-perfect layouts.'
         'In addition, PDF supports user interaction and collaborative workflows that are not'
         'possible with printed documents.';
-    const String paragraphTextt =
-        'الطرف الأول\n'
+    const String paragraphTextt = 'الطرف الأول\n'
         'الإسم:\n'
         'رقم اللوحة:\n'
-        'رقم الهوية/الإقامة:\n'
         'نسبة الخطأ:\n'
         'الطرف الثاني:\n'
         'الإسم:\n'
         'رقم اللوحة:\n'
-        'رقم الهوية/الإقامة:\n'
         'نسبة الخطأ:\n'
-        'الموقع:\n'
+        ':الموقع\n'
         ' :التاريخ:\n'
         ' :الوقت:\n'
         'حالة التقرير\n'
         ':تخطيط الحادث:\n';
 // Create a new PDF document.
 
-
-
     final PdfDocument document = PdfDocument();
 // Add a new page to the document.
     final PdfPage page = document.pages.add();
 
-
-
-    final Uint8List fontData = File('fonts/Lateef_Regular.ttf').readAsBytesSync();
+    final Uint8List fontData =
+        File('fonts/Lateef_Regular.ttf').readAsBytesSync();
 //Create a PDF true type font object.
     final PdfFont font = PdfTrueTypeFont(fontData, 12);
     final textDirection = PdfTextDirection.none;
@@ -168,17 +154,17 @@ var docSnapshot = await Accidents.doc(widget.id).get();
     File('Output.pdf').writeAsBytes(document.save());
 // Create a new PDF text element class and draw the flow layout text.
     final PdfLayoutResult layoutResult = PdfTextElement(
-        text: paragraphText,
-        format: PdfStringFormat(
-          textDirection: textDirection,
-        ),
-        font: font,
-        brush: PdfSolidBrush(PdfColor(0, 0, 0)))
+            text: paragraphText,
+            format: PdfStringFormat(
+              textDirection: textDirection,
+            ),
+            font: font,
+            brush: PdfSolidBrush(PdfColor(0, 0, 0)))
         .draw(
-        page: page,
-        bounds: Rect.fromLTWH(
-            0, 0, page.getClientSize().width, page.getClientSize().height),
-        format: PdfLayoutFormat(layoutType: PdfLayoutType.paginate))!;
+            page: page,
+            bounds: Rect.fromLTWH(
+                0, 0, page.getClientSize().width, page.getClientSize().height),
+            format: PdfLayoutFormat(layoutType: PdfLayoutType.paginate))!;
     page.graphics.drawLine(
         PdfPen(PdfColor(255, 0, 0)),
         Offset(0, layoutResult.bounds.bottom + 10),
@@ -190,7 +176,7 @@ var docSnapshot = await Accidents.doc(widget.id).get();
     //Get directory path
     String path = directory.path;
 
-     file = File('$path/Output.pdf');
+    file = File('$path/Output.pdf');
     await file!.writeAsBytes(bytes, flush: true);
 // Dispose the document.
     document.dispose();
@@ -198,10 +184,9 @@ var docSnapshot = await Accidents.doc(widget.id).get();
 
   @override
   Widget build(BuildContext context) {
-    return
-    Scaffold(
+    return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFF85BBC2),
+      backgroundColor: Color(0xFFD8EBEE),
       body: Stack(
         children: [
           Padding(
@@ -222,21 +207,20 @@ var docSnapshot = await Accidents.doc(widget.id).get();
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 40, 20, 0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-
-
-                        Padding(padding: EdgeInsets.all(10),child: InkWell(
-                             onTap: (){
-                               // Share.shareFiles([file!.path], text: 'Great picture');
-                               getPdfPath();
-                             },
-                             child: Icon(Icons.camera_enhance))),
+                          Padding(
+                              padding: EdgeInsets.all(10),
+                              child: InkWell(
+                                  onTap: () {
+                                    // Share.shareFiles([file!.path], text: 'Great picture');
+                                    getPdfPath();
+                                  },
+                                  child: Icon(Icons.camera_enhance))),
                           Spacer(),
                           Text(
                             'الطرف الأول',
@@ -310,37 +294,10 @@ var docSnapshot = await Accidents.doc(widget.id).get();
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
-                            '${id1} ',
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              color: Color(0xFF46494D),
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          Text(
-                            '  :رقم الهوية/الإقامة',
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              color: Color(0xFF46494D),
-                              fontSize: 18,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 5, 20, 0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
                             '${falut1}',
                             style: TextStyle(
                               fontFamily: 'Poppins',
-                              color: Color(0xFF46494D),
+                              color: Color(0xFFEB6666),
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
                             ),
@@ -436,37 +393,10 @@ var docSnapshot = await Accidents.doc(widget.id).get();
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
-                            '${id2} ',
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              color: Color(0xFF46494D),
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          Text(
-                            '  :رقم الهوية/الإقامة',
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              color: Color(0xFF46494D),
-                              fontSize: 18,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 5, 20, 0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text(
                             '${falut2}',
                             style: TextStyle(
                               fontFamily: 'Poppins',
-                              color: Color(0xFF46494D),
+                              color: Color(0xFFEB6666),
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
                             ),
@@ -569,7 +499,7 @@ var docSnapshot = await Accidents.doc(widget.id).get();
                             '${status}',
                             style: TextStyle(
                               fontFamily: 'Poppins',
-                              color: Color(0xFF46494D),
+                              color: Color.fromARGB(255, 80, 129, 75),
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
                             ),
@@ -666,14 +596,11 @@ var docSnapshot = await Accidents.doc(widget.id).get();
     );
   }
 
-  void getPdfPath() async{
-    final File file = await generateAndPrintArabicPdf(id1,car1,driver1,falut1,id2,car2,driver2,falut2,address,status,adate,atime);
+  void getPdfPath() async {
+    final File file = await generateAndPrintArabicPdf(id1, car1, driver1,
+        falut1, id2, car2, driver2, falut2, address, status, adate, atime);
     Share.shareFiles([file.path], text: 'Great picture');
 
     print('"init function $file');
   }
 }
-
-
-
-

@@ -72,7 +72,9 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Color(0xFF85BBC2),
+      ),
       body: Stack(
         children: [
           GoogleMap(
