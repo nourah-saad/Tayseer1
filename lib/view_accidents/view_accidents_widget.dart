@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:tayseer2/tapPages/home.dart';
 import 'package:tayseer2/view_accidents/view_accident_report.dart';
 import '../global/global.dart';
+import '../mainScreen/main_screen.dart';
 import 'Search_Bar.dart';
 
 class ViewAccidentsWidget extends StatefulWidget {
@@ -157,7 +158,7 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => const HomePage()),
+                    MaterialPageRoute(builder: (context) => MainScreen()),
                   );
                 }),
           ),
@@ -200,7 +201,7 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
                       children: [
                         Container(
                           child: Text(widget.address == null
-                              ? 'Search .......'
+                              ? '                                                                     ...بحث'
                               : widget.address!),
                         ),
                         Container(
