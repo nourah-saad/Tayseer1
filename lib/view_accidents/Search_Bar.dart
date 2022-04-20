@@ -35,11 +35,12 @@ body: SafeArea(
 
   placesAutoCompleteTextField() {
     return Container(
+      
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: GooglePlaceAutoCompleteTextField(
           textEditingController: controller,
           googleAPIKey: "AIzaSyDWbWpOKBZXqcSB3NY1Pu1tWz6HfviztF8",
-          inputDecoration: InputDecoration(hintText: "Search your location"),
+          inputDecoration: InputDecoration(hintText: "...ابحث"),
           debounceTime: 800,
           countries: ["sa"],
           isLatLngRequired: true,

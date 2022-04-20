@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:tayseer2/tapPages/home.dart';
 import 'package:tayseer2/view_accidents/view_accident_report.dart';
 import '../global/global.dart';
 import 'Search_Bar.dart';
@@ -156,7 +157,7 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => const Search_bar()),
+                    MaterialPageRoute(builder: (context) => const HomePage()),
                   );
                 }),
           ),
