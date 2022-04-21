@@ -535,14 +535,34 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                     ),
                     Container(
                         padding: EdgeInsets.all(5),
-                        width: 100,
+                        width: 150,
                         child: ElevatedButton(
                           child: Text("تسجيل خروج"),
                           onPressed: () {
-                            setState(() {
-                              is_edit = false;
-                              myController.clear();
-                            });
+                            showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                title: Text('تسجيل خروج'),
+                                content: Text('هل انت متأكد من تسجيل الخروج؟'),
+                                actions: [
+                                  TextButton(
+                                    child: Text('لا'),
+                                    onPressed: () => Navigator.pop(context),
+                                  ),
+                                  TextButton(
+                                    child: Text('نعم'),
+                                    onPressed: () {
+                                      fAuth.signOut();
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (c) =>
+                                                  const MySplashScreen()));
+                                    },
+                                  ),
+                                ],
+                              ),
+                            );
                           },
                           style: ElevatedButton.styleFrom(
                             primary: const Color(0xFFEB6666),
