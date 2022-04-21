@@ -28,7 +28,7 @@ class _NotificationPageState extends State<NotificationPage> {
           SizedBox(
             height: 20,
             width: 200,
-            child: Text('last'),
+            child: Text('lastn'),
           ),
           Container(
             height: MediaQuery.of(context).size.height * 0.85,

@@ -169,6 +169,18 @@ class _SelectCarInvolvedCarsPageWidgetState
             cos(math.degrees(widget.accLocation.latitude /*24.7455293*/)));
     //  (0.008 * 0.621371192); // 1km in deg * 1km distance
 
+    if (greatestLong < lowestLong) {
+      double flipper = greatestLong;
+      greatestLong = lowestLong;
+      lowestLong = flipper;
+    }
+
+    if (greatestLat < lowestLat) {
+      double flipper = greatestLat;
+      greatestLat = lowestLat;
+      lowestLat = flipper;
+    }
+
     print(
         'low lat $lowestLat, great lat $greatestLat, low lon $lowestLong, great long $greatestLong');
 

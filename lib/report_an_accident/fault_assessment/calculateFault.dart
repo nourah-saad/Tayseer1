@@ -59,8 +59,9 @@ getLocation(String driverID, DateTime accTime, List<DateTime> times) async {
                 ? accTime.subtract(Duration(seconds: 6 * i))
                 : times[i])
         .where('time',
-            isLessThanOrEqualTo:
-                times.isEmpty || i == times.length - 1 ? accTime : times[i + 1])
+            isLessThan: times.isEmpty || i == times.length - 1
+                ? accTime.add(Duration(milliseconds: 1))
+                : times[i + 1])
         .limit(1)
         .get()
         .then((value) {
