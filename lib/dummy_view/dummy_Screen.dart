@@ -232,7 +232,7 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
               //  SingleChildScrollView(child:Container()),
               Container(
                   padding: EdgeInsets.all(25),
-                  color: Color(0xff74BDC6),
+                  color: Color(0xFF85BBC2),
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height,
                   child: Row(
