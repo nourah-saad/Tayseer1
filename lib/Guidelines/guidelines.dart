@@ -33,8 +33,34 @@ class _guidelinesState extends State<guidelines> {
                   bottomRight: Radius.circular(0),
                   topLeft: Radius.circular(30),
                   topRight: Radius.circular(30),
+                  
                 ),
               ),
+              child:
+              Container(
+                   height: 400.0,
+                    width: 200.0,
+               child: Column(children: [
+                 const SizedBox(
+            height: 100.0,
+          ),
+    Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 60, 0),
+            child: Text(
+                              '١- عند تعرضك لحادث مروري اضغط زر تبليغ\n' +'   عن حادث   '
+                              
+                              '\n' + '\n ' +    '٢- حدد السيارة التي وقع عليها الحادث' + '\n' + '\n ' +    '٣- حدد السيارة/السيارات المشاركة في الحادث' + '\n' + '\n ' +  '٤- قم بانتظار الطرف الآخر لتأكيد الحادث' + '\n' + '\n ' +   '٥- بعد تأكيد الحادث من الطرف الآخر سيتم عرض تقرير بتفاصيل الحادث ونسبة الخطأ' ,
+                                 textAlign: TextAlign.right,
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 20),
+                            ),
+                                            
+  
+
+ 
+    ),
+      
+              ]),),
             ),
           ),
           Padding(

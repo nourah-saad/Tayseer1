@@ -4,6 +4,7 @@ import 'package:tayseer2/global/global.dart';
 import 'package:tayseer2/splashScreen/splash_screen.dart';
 import 'package:tayseer2/view_accidents/view_accidents_widget.dart';
 
+import '../Guidelines/guidelines.dart';
 import '../report_an_accident/add_new_car.dart';
 
 class MyDrawer extends StatefulWidget {
@@ -122,38 +123,50 @@ class _MyDrawerState extends State<MyDrawer> {
                       ),
                     ),),
            
-
-          Container(
-            width: 310,
-            height: 50,
-            decoration: const BoxDecoration(
-              color: Color(0xFF85BBC2),
-              shape: BoxShape.rectangle,
-            ),
-            child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: const [
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
-                    child: Text(
-                      'آلية عمل تيسير',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        color: Color(0xFF46494D),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
+  const SizedBox(
+            height: 12.0,
+          ),
+           GestureDetector(
+            onTap: () async {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => guidelines(),
+                ),
+              );
+            },
+            child: Container(
+              width: 310,
+              height: 50,
+              decoration: BoxDecoration(
+                color: Color(0xFF85BBC2),
+                shape: BoxShape.rectangle,
+              ),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                      child: Text(
+                        'آلية عمل تيسير',
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: Color(0xFF46494D),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
-                  ),
-                  Icon(
-                    Icons.assignment_outlined,
-                    color: Color(0xFF46494D),
-                    size: 28,
-                  ),
-                ],
+                    Icon(
+                      Icons.assignment_outlined,
+                      color: Color(0xFF46494D),
+                      size: 28,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
