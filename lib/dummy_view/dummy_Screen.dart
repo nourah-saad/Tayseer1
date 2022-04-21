@@ -6,6 +6,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../splashScreen/splash_screen.dart';
 import 'Model_user.dart';
 import 'User_servies.dart';
 
@@ -498,7 +499,7 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                                             // print();
                                           },
                                           style: ElevatedButton.styleFrom(
-                                            primary: Colors.red,
+                                            primary: const Color(0xFFEB6666),
                                             onPrimary: Colors.white,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
@@ -532,6 +533,25 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                             : Container(),
                       ],
                     ),
+                    Container(
+                        padding: EdgeInsets.all(5),
+                        width: 100,
+                        child: ElevatedButton(
+                          child: Text("تسجيل خروج"),
+                          onPressed: () {
+                            setState(() {
+                              is_edit = false;
+                              myController.clear();
+                            });
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: const Color(0xFFEB6666),
+                            onPrimary: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(32.0),
+                            ),
+                          ),
+                        )),
                   ],
                 ),
               ),

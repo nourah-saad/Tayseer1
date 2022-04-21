@@ -398,5 +398,5 @@ Widget accidentChild(data, context) {
               ),
           ],
         )
-      : Center(child: Text('not found data'));
+      : Center(child: Text('لا توجد بلاغات سابقة'));
 }
