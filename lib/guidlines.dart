@@ -1,11 +1,8 @@
 import 'dart:core';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'mainScreen/main_screen.dart';
+import '../mainScreen/main_screen.dart';
 
 class guidelines extends StatefulWidget {
   const guidelines({Key? key}) : super(key: key);
@@ -15,158 +12,97 @@ class guidelines extends StatefulWidget {
 }
 
 class _guidelinesState extends State<guidelines> {
-  // final User user = FirebaseAuth.instance.currentUser;
-
-  //cardetails_map = data['car_details'];
+  get scaffoldKey => null;
 
   @override
   Widget build(BuildContext context) {
-    //user_data();
-
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Stack(
-            alignment: Alignment.bottomCenter,
-            children: [
-              //  SingleChildScrollView(child:Container()),
+      key: scaffoldKey,
+      backgroundColor: Color(0xFF85BBC2),
+      body: Stack(
+        children: [
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 130, 0, 0),
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height * 1,
+              decoration: BoxDecoration(
+                color: Color(0xFFD8EBEE),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(0),
+                  bottomRight: Radius.circular(0),
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                  
+                ),
+              ),
+              child:
               Container(
-                  padding: EdgeInsets.all(25),
-                  color: Color(0xff74BDC6),
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 1,
-                  child: Row(
-                    //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        child: InkWell(
-                          child: IconButton(
-                            icon: new Icon(
-                              Icons.chevron_left,
-                              size: 30,
+                   height: 400.0,
+                    width: 200.0,
+               child: Column(children: [
+                 const SizedBox(
+            height: 100.0,
+          ),
+    Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 60, 0),
+            child: Text(
+                              '١- عند تعرضك لحادث مروري اضغط زر تبليغ\n' +'   عن حادث   '
+                              
+                              '\n' + '\n ' +    '٢- حدد السيارة التي وقع عليها الحادث' + '\n' + '\n ' +    '٣- حدد السيارة/السيارات المشاركة في الحادث' + '\n' + '\n ' +  '٤- قم بانتظار الطرف الآخر لتأكيد الحادث' + '\n' + '\n ' +   '٥- بعد تأكيد الحادث من الطرف الآخر سيتم عرض تقرير بتفاصيل الحادث ونسبة الخطأ' ,
+                                 textAlign: TextAlign.right,
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 20),
                             ),
-                            color: Color(0xFF46494D),
-                            //size: 50,
-                            onPressed: () async =>
-                                await Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => MainScreen(),
-                              ),
-                              (r) => false,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Spacer(),
-                      Container(
-                        child: Text(
-                          'تعليمات عمل تيسير',
-                          style: TextStyle(color: Colors.black, fontSize: 20),
-                        ),
-                      ),
-                      Spacer(),
-                    ],
-                  )),
-              Container(
-                  alignment: Alignment.bottomCenter,
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 0.9,
-                  decoration: BoxDecoration(
-                    color: Color(0xffD7ECED),
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(30),
-                      topLeft: Radius.circular(30),
+                                            
+  
+
+ 
+    ),
+      
+              ]),),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(10, 60, 0, 0),
+            child: IconButton(
+              icon: new Icon(
+                Icons.chevron_left,
+                size: 50,
+              ),
+              color: Color(0xFF46494D),
+              //size: 50,
+              onPressed: () async => await Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MainScreen(),
+                ),
+                (r) => false,
+              ),
+            ),
+          ),
+          Align(
+            alignment: AlignmentDirectional(0, -0.82),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
+                  child: Text(
+                    'الية عمل تيسير',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 30,
+                      color: Color(0xFF46494D),
+                      fontFamily: 'Poppins',
                     ),
                   ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 75, 35, 10),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              '١- عند تعرضك لحادث مروري اضغط زر تبليغ\n عن حادث',
-                              textAlign: TextAlign.end,
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 20),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 35, 10),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              '٢- حدد السيارة التي وقع عليها الحادث',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 20),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 35, 10),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              '٣- حدد السيارة/السيارات المشاركة في الحادث',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 20),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 20, 10),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              '٤- قم بانتظار الطرف الآخر لتأكيد الحادث',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 20),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 35, 10),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Flexible(
-                              child: Text(
-                                '٥- بعد تأكيد الحادث من الطرف الآخر سيتم عرض تقرير بتفاصيل الحادث ونسبة الخطأ',
-                                textAlign: TextAlign.end,
-                                overflow: TextOverflow.visible,
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 20),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  )
-
-                  // mainAxisAlignment: MainAxisAlignment.end,
-
-                  ),
-            ],
+                ),
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
