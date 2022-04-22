@@ -15,21 +15,7 @@ class _Search_barState extends State<Search_bar> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          automaticallyImplyLeading: true,
-         title: new Text('ابحث عن موقع الحادث'),
-         backgroundColor: Color(0xFF85BBC2),
-
-        ),
-body: SafeArea(
-  child: Container(
-    child: Column(
-      children: [
-        placesAutoCompleteTextField(),
-
-     
-      Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 60, 0, 0),
-            child: IconButton(
+          leading: IconButton(
                 icon: new Icon(
                   Icons.chevron_left,
                   size: 50,
@@ -42,7 +28,21 @@ body: SafeArea(
                     MaterialPageRoute(builder: (context) => ViewAccidentsWidget()),
                   );
                 }),
-          ),
+          automaticallyImplyLeading: false,
+         title: new Text('                             ابحث عن موقع الحادث'),
+         
+         backgroundColor: Color(0xFF85BBC2),
+
+        ),
+        
+body: SafeArea(
+  child: Container(
+    child: Column(
+      children: [
+        placesAutoCompleteTextField(),
+
+     
+     
 
  ],
       
@@ -59,7 +59,7 @@ body: SafeArea(
       child: GooglePlaceAutoCompleteTextField(
           textEditingController: controller,
           googleAPIKey: "AIzaSyDWbWpOKBZXqcSB3NY1Pu1tWz6HfviztF8",
-          inputDecoration: InputDecoration(hintText: "...ابحث"),
+          inputDecoration: InputDecoration(hintText: "                                                                                ...ابحث"),
           debounceTime: 800,
           countries: ["sa"],
           isLatLngRequired: true,

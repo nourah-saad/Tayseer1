@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/almaha/Desktop/Tayseer1/build/video_player_android/intermediates/res/merged/debug/drawable/notification_bg.xml",
+        "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/b478a999c0f86964024311fceae65383/core-1.7.0/res/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "/Users/almaha/Desktop/Tayseer1/build/video_player_android/intermediates/res/merged/debug/drawable/notification_tile_bg.xml",
+        "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/b478a999c0f86964024311fceae65383/core-1.7.0/res/drawable/notification_tile_bg.xml"
+    },
+    {
+        "merged": "/Users/almaha/Desktop/Tayseer1/build/video_player_android/intermediates/res/merged/debug/drawable/notification_bg_low.xml",
+        "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/b478a999c0f86964024311fceae65383/core-1.7.0/res/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "/Users/almaha/Desktop/Tayseer1/build/video_player_android/intermediates/res/merged/debug/drawable/notification_icon_background.xml",
+        "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/b478a999c0f86964024311fceae65383/core-1.7.0/res/drawable/notification_icon_background.xml"
+    }
+]
