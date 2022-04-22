@@ -16,7 +16,7 @@ class _Search_barState extends State<Search_bar> {
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-         title: new Text('searching location'),
+         title: new Text('ابحث عن موقع الحادث'),
          backgroundColor: Color(0xFF85BBC2),
 
         ),

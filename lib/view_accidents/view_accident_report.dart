@@ -220,7 +220,7 @@ class _AccidentReportWidgetState extends State<AccidentReportWidget> {
                                     // Share.shareFiles([file!.path], text: 'Great picture');
                                     getPdfPath();
                                   },
-                                  child: Icon(Icons.camera_enhance))),
+                                  child: Icon(Icons.ios_share_outlined))),
                           Spacer(),
                           Text(
                             'الطرف الأول',
