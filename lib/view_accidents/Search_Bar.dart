@@ -29,7 +29,7 @@ class _Search_barState extends State<Search_bar> {
                   );
                 }),
           automaticallyImplyLeading: false,
-         title: new Text('                             ابحث عن موقع الحادث'),
+         title: new Text('             ابحث عن موقع الحادث'),
          
          backgroundColor: Color(0xFF85BBC2),
 
