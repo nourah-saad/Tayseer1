@@ -15,7 +15,7 @@ class _Search_barState extends State<Search_bar> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          automaticallyImplyLeading: false,
+          automaticallyImplyLeading: true,
          title: new Text('ابحث عن موقع الحادث'),
          backgroundColor: Color(0xFF85BBC2),
 
@@ -26,7 +26,26 @@ body: SafeArea(
       children: [
         placesAutoCompleteTextField(),
 
-      ],
+     
+      Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(10, 60, 0, 0),
+            child: IconButton(
+                icon: new Icon(
+                  Icons.chevron_left,
+                  size: 50,
+                ),
+                color: Color(0xFF46494D),
+                //size: 50,
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => ViewAccidentsWidget()),
+                  );
+                }),
+          ),
+
+ ],
+      
     ),
   ),
 ),
