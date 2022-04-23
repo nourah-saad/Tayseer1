@@ -7,18 +7,22 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:tayseer2/contact_with_Najem/contact_with_najem.dart';
 import 'package:tayseer2/navigationService.dart';
 import 'package:http/http.dart' as http;
+import 'package:tayseer2/tapPages/notifications.dart';
 
 import '../report_an_accident/confirmation/confirmation_page.dart';
 import '../report_an_accident/confirmation/confirmed.dart';
 import '../report_an_accident/select_your_car.dart';
+import '../view_accidents/view_accident_report.dart';
 
 CollectionReference<Map<String, dynamic>> driverCollection =
     FirebaseFirestore.instance.collection('Driver');
 CollectionReference<Map<String, dynamic>> accidentCollection =
     FirebaseFirestore.instance.collection('Accident');
 User user = FirebaseAuth.instance.currentUser!;
+String messageID = '';
 
 late AndroidNotificationChannel channel;
 FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
@@ -78,74 +82,30 @@ loadFCM() async {
 }
 
 listenFCM() async {
-  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-    RemoteNotification? notification = message.notification;
-    AndroidNotification? android = message.notification?.android;
-    print('mmmmyy ${message.data['type']}');
-    if (notification != null && android != null && !kIsWeb) {
-      switch (message.data['type']) {
-        case 'ques':
-          Navigator.push(
-              navigationService.navigatorKey.currentContext!,
-              MaterialPageRoute(
-                  builder: (context) => select_your_carWidget(
-                      sender: message.data['sender'],
-                      accID: message.data['accID'],
-                      accTime: DateTime.parse('2000-01-01'),
-                      accLocation: Position(
-                          longitude: 0,
-                          latitude: 0,
-                          timestamp: DateTime.now(),
-                          accuracy: 0,
-                          altitude: 0,
-                          heading: 0,
-                          speed: 0,
-                          speedAccuracy: 0))));
-          break;
-
-        case 'accept':
-        case 'denied':
-          Navigator.pushReplacement(
-              navigationService.navigatorKey.currentContext!,
-              MaterialPageRoute(
-                  builder: (context) => ConfirmedPage(
-                        status: message.data['type'],
-                        sender: message.data['sender'],
-                        reciever: message.data['reciever'],
-                        accID: message.data['accID'],
-                      )));
-          break;
-      }
+  // clicked when terminated
+  FirebaseMessaging.instance.getInitialMessage().then((message) {
+    if (message != null && messageID != message.messageId) {
+      print('terminated entered');
+      messageID = message.messageId!;
+      redirect(message);
     }
   });
 
+  //foreground
+  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    RemoteNotification? notification = message.notification;
+    AndroidNotification? android = message.notification?.android;
+    if (notification != null && android != null && !kIsWeb) {
+      redirect(message);
+    }
+  });
   FirebaseMessaging.onBackgroundMessage(_messageHandler);
+  // app open in back
   FirebaseMessaging.onMessageOpenedApp.listen(notificationPressed);
-
-  RemoteMessage? initialMessage =
-      await FirebaseMessaging.instance.getInitialMessage();
-  if (initialMessage != null) {
-    Navigator.push(
-        navigationService.navigatorKey.currentContext!,
-        MaterialPageRoute(
-            builder: (context) => select_your_carWidget(
-                sender: initialMessage.data['sender'],
-                accID: initialMessage.data['accID'],
-                accTime: DateTime.parse('2000-01-01'),
-                accLocation: Position(
-                    longitude: 0,
-                    latitude: 0,
-                    timestamp: DateTime.now(),
-                    accuracy: 0,
-                    altitude: 0,
-                    heading: 0,
-                    speed: 0,
-                    speedAccuracy: 0))));
-  }
 }
 
 Future<void> _messageHandler(RemoteMessage message) async {
-  print('background message ${message.notification!.body}');
+  print('handler entered');
   RemoteNotification? notification = message.notification;
   AndroidNotification? android = message.notification?.android;
   if (notification != null && android != null && !kIsWeb) {
@@ -168,23 +128,12 @@ show(notification) {
 }
 
 void notificationPressed(RemoteMessage message) {
-  print('my data${message.data['accID']}');
-  Navigator.push(
-      navigationService.navigatorKey.currentContext!,
-      MaterialPageRoute(
-          builder: (context) => select_your_carWidget(
-              sender: message.data['sender'],
-              accID: message.data['accID'],
-              accTime: DateTime.parse('2000-01-01'),
-              accLocation: Position(
-                  longitude: 0,
-                  latitude: 0,
-                  timestamp: DateTime.now(),
-                  accuracy: 0,
-                  altitude: 0,
-                  heading: 0,
-                  speed: 0,
-                  speedAccuracy: 0))));
+  print('onpressed entered');
+  if (messageID != message.messageId) {
+    messageID = message.messageId!;
+    print('message id : $messageID');
+    redirect(message);
+  }
 }
 
 var postUrl = "https://fcm.googleapis.com/fcm/send";
@@ -195,7 +144,17 @@ Future<void> sendNotification(
     required msg,
     required accID,
     required sender,
+    required accLocation,
+    required accTime,
     required type}) async {
+  addNotificationTolist(
+      title: title,
+      msg: msg,
+      recID: receiver,
+      sender: sender,
+      accID: accID,
+      accLocation: accLocation,
+      accTime: accTime);
   String token = await getRecieverToken(receiver);
   print('token : $token');
 
@@ -240,4 +199,54 @@ Future<String> getRecieverToken(receiver) async {
   });
 
   return token;
+}
+
+redirect(RemoteMessage message) {
+  switch (message.data['type']) {
+    case 'ques':
+      Navigator.push(
+          navigationService.navigatorKey.currentContext!,
+          MaterialPageRoute(
+              builder: (context) => select_your_carWidget(
+                  sender: message.data['sender'],
+                  accID: message.data['accID'],
+                  accTime: DateTime.parse('2000-01-01'),
+                  add: false,
+                  accLocation: Position(
+                      longitude: 0,
+                      latitude: 0,
+                      timestamp: DateTime.now(),
+                      accuracy: 0,
+                      altitude: 0,
+                      heading: 0,
+                      speed: 0,
+                      speedAccuracy: 0))));
+      break;
+
+    case 'مقبول':
+    case 'مرفوض':
+      Navigator.pushReplacement(
+          navigationService.navigatorKey.currentContext!,
+          MaterialPageRoute(
+              builder: (context) => ConfirmedPage(
+                    status: message.data['type'],
+                    sender: message.data['sender'],
+                    reciever: message.data['reciever'],
+                    accID: message.data['accID'],
+                    process: true,
+                  )));
+      break;
+    case 'completed':
+      Navigator.pushReplacement(
+          navigationService.navigatorKey.currentContext!,
+          MaterialPageRoute(
+              builder: (context) => AccidentReportWidget(
+                    id: message.data['accID'],
+                  )));
+      break;
+    case 'خارج نطاق التطبيق':
+      Navigator.pushReplacement(navigationService.navigatorKey.currentContext!,
+          MaterialPageRoute(builder: (context) => ContactWithNajem()));
+      break;
+  }
 }

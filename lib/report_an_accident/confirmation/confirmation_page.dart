@@ -1,16 +1,24 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:tayseer2/navigationService.dart';
 import 'package:tayseer2/notification/notification.dart';
 import 'package:tayseer2/tapPages/home.dart';
 import '../../FlutterFlow/FlutterFlowTheme.dart';
 import '../../FlutterFlow/FlutterFlowWidgets.dart';
 import 'package:flutter/material.dart';
 
+import '../../tapPages/notifications.dart';
+import 'confirmed.dart';
+
 class ConfirmationPageWidget extends StatefulWidget {
   ConfirmationPageWidget(
-      {Key? key, required this.accidentID, required this.sender})
+      {Key? key,
+      required this.accidentID,
+      required this.sender,
+      required this.accTime})
       : super(key: key);
   final String accidentID;
+  final accTime;
 
   String driverName = "";
   String driverPlate = '';
@@ -161,24 +169,36 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
                                 onPressed: () {
                                   print('Button pressed ...');
                                   Navigator.pop(context);
-                                  update('مرفوض');
-                                  SnackBar snackbar = SnackBar(
-                                      content: Text('تم الرفض بنجاح',
-                                          textAlign: TextAlign.center));
-                                  ScaffoldMessenger.of(context)
-                                      .showSnackBar(snackbar);
+                                  update('تم الرفض وتتم المعالجة');
+                                  navigate(status: 'مرفوض');
                                   sendNotification(
                                     receiver: widget.sender,
                                     title: 'تأكيد الحادث',
                                     msg: 'تم الرفض من قبل الطرف الآخر بنجاح',
                                     accID: widget.accidentID,
                                     sender: '${user.uid}',
-                                    type: 'denied',
+                                    type: 'مرفوض',
+                                    accLocation: widget.accidentLocation,
+                                    accTime: widget.accTime,
                                   );
-                                  Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => HomePage()));
+                                  sendNotification(
+                                      receiver: widget.sender,
+                                      title: 'تقرير الحادث',
+                                      msg: 'تمم الآن معالجة تقرير الحادث',
+                                      accID: widget.accidentID,
+                                      sender: '${user.uid}',
+                                      type: 'معالجة',
+                                      accLocation: widget.accidentLocation,
+                                      accTime: widget.accTime);
+                                  sendNotification(
+                                      receiver: user.uid,
+                                      title: 'تقرير الحادث',
+                                      msg: 'تمم الآن معالجة تقرير الحادث',
+                                      accID: widget.accidentID,
+                                      sender: widget.sender,
+                                      type: 'معالجة',
+                                      accLocation: widget.accidentLocation,
+                                      accTime: widget.accTime);
                                 },
                                 text: 'رفض',
                                 options: FFButtonOptions(
@@ -209,24 +229,36 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
                                 onPressed: () {
                                   print('Button pressed ...');
                                   Navigator.pop(context);
-                                  update('مقبول');
-                                  SnackBar snackbar = SnackBar(
-                                      content: Text('تم التأكيد بنجاح',
-                                          textAlign: TextAlign.center));
-                                  ScaffoldMessenger.of(context)
-                                      .showSnackBar(snackbar);
+                                  update('تم القبول وتتم المعالجة');
+                                  navigate(status: 'مقبول');
                                   sendNotification(
-                                    receiver: widget.sender,
-                                    title: 'تأكيد الحادث',
-                                    msg: 'تم التأكيد من قبل الطرف الآخر بنجاح',
-                                    accID: widget.accidentID,
-                                    sender: '${user.uid}',
-                                    type: 'accept',
-                                  );
-                                  Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => HomePage()));
+                                      receiver: widget.sender,
+                                      title: 'تأكيد الحادث',
+                                      msg:
+                                          'تم التأكيد من قبل الطرف الآخر بنجاح',
+                                      accID: widget.accidentID,
+                                      sender: '${user.uid}',
+                                      type: 'مقبول',
+                                      accLocation: widget.accidentLocation,
+                                      accTime: widget.accTime);
+                                  sendNotification(
+                                      receiver: widget.sender,
+                                      title: 'تقرير الحادث',
+                                      msg: 'تمم الآن معالجة تقرير الحادث',
+                                      accID: widget.accidentID,
+                                      sender: '${user.uid}',
+                                      type: 'معالجة',
+                                      accLocation: widget.accidentLocation,
+                                      accTime: widget.accTime);
+                                  sendNotification(
+                                      receiver: user.uid,
+                                      title: 'تقرير الحادث',
+                                      msg: 'تمم الآن معالجة تقرير الحادث',
+                                      accID: widget.accidentID,
+                                      sender: widget.sender,
+                                      type: 'معالجة',
+                                      accLocation: widget.accidentLocation,
+                                      accTime: widget.accTime);
                                 },
                                 text: 'تأكيد',
                                 options: FFButtonOptions(
@@ -297,6 +329,16 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
         .doc('${widget.accidentID}')
         .get()
         .then((value) => value.reference.update({'status': status}));
+
+    FirebaseFirestore.instance
+        .collection('Driver')
+        .doc(user.uid)
+        .collection('Notifications')
+        .where('Accident_id', isEqualTo: widget.accidentID)
+        .get()
+        .then((value) => value.docs.forEach((element) {
+              element.reference.update({'status': status});
+            }));
   }
 
   getDetails() async {
@@ -325,5 +367,18 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
     setState(() {
       widget.accidentLocation = '${placemarks[0].street!}';
     });
+  }
+
+  void navigate({required status}) {
+    Navigator.pushReplacement(
+        navigationService.navigatorKey.currentContext!,
+        MaterialPageRoute(
+            builder: (context) => ConfirmedPage(
+                  status: status,
+                  sender: user.uid,
+                  reciever: widget.sender,
+                  accID: widget.accidentID,
+                  process: false,
+                )));
   }
 }

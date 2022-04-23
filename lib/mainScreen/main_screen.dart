@@ -2,7 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:tayseer2/tapPages/home.dart';
 import 'package:tayseer2/tapPages/notifications.dart';
-
+import '../Tracking/Tracking.dart';
 import '../dummy_view/dummy_Screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -12,6 +12,12 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int index = 2;
+
+  @override
+  void initState() {
+    requestPermission();
+    super.initState();
+  }
 
   final screen = [
     const NotificationPage(),

@@ -11,6 +11,7 @@ import 'package:share_plus/share_plus.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
 import 'package:tayseer2/view_accidents/pdf_g.dart';
 import 'dart:io' show Platform;
+import '../widgets/progress_dialog.dart';
 
 class AccidentReportWidget extends StatefulWidget {
   final id;

@@ -1,7 +1,6 @@
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import '../../FlutterFlow/FlutterFlowTheme.dart';
 import 'package:flutter/material.dart';
-
 import '../fault_assessment/calculateFault.dart';
 
 class ConfirmedPage extends StatefulWidget {
@@ -9,14 +8,16 @@ class ConfirmedPage extends StatefulWidget {
   final String reciever;
   final String sender;
   final String accID;
+  final bool process;
 
-  const ConfirmedPage({
-    Key? key,
-    required this.status,
-    required this.reciever,
-    required this.sender,
-    required this.accID,
-  }) : super(key: key);
+  const ConfirmedPage(
+      {Key? key,
+      required this.status,
+      required this.reciever,
+      required this.sender,
+      required this.accID,
+      required this.process})
+      : super(key: key);
 
   @override
   _ConfirmedPageState createState() => _ConfirmedPageState();
@@ -27,10 +28,13 @@ class _ConfirmedPageState extends State<ConfirmedPage> {
 
   @override
   void initState() {
-    proccessAcc(
-        accID: widget.accID,
-        driverID: widget.reciever,
-        involvedID: widget.sender);
+    if (widget.process) {
+      proccessAcc(
+          accID: widget.accID,
+          driverID: widget.reciever,
+          involvedID: widget.sender,
+          status: widget.status);
+    }
 
     super.initState();
   }
@@ -67,7 +71,7 @@ class _ConfirmedPageState extends State<ConfirmedPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          widget.status == 'accept' ? 'تم القبول ' : 'تم الرفض',
+                          widget.status == 'مقبول' ? 'تم القبول ' : 'تم الرفض',
                           style: FlutterFlowTheme.bodyText1.override(
                             fontFamily: 'Poppins',
                             color: Color(0xFF46494D),
@@ -76,7 +80,7 @@ class _ConfirmedPageState extends State<ConfirmedPage> {
                           ),
                         ),
                         Icon(
-                          widget.status == 'accept'
+                          widget.status == 'مقبول'
                               ? Icons.check_rounded
                               : Icons.cancel_outlined,
                           color: Color(0xFF46494D),

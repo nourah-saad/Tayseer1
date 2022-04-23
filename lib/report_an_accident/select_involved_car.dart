@@ -8,7 +8,6 @@ import '../Driver/Driver.dart';
 import '../FlutterFlow/FlutterFlowTheme.dart';
 import '../FlutterFlow/FlutterFlowWidgets.dart';
 import 'package:flutter/material.dart';
-
 import '../mainScreen/main_screen.dart';
 import 'DriverDetails.dart';
 import 'add_new_car.dart';
@@ -34,11 +33,15 @@ class _SelectCarInvolvedCarsPageWidgetState
   final scaffoldKey = GlobalKey<ScaffoldState>();
   List<Driver> involvedDrivers = [];
   List<String> involvedDriversIDs = [];
+  bool loading = false;
 
   @override
   void initState() {
     involvedDrivers.clear();
     getCars();
+    setState(() {
+      loading = true;
+    });
     super.initState();
   }
 
@@ -46,7 +49,7 @@ class _SelectCarInvolvedCarsPageWidgetState
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFFD8EBEE),
+      backgroundColor: Color(0xFF85BBC2),
       body: Stack(
         children: [
           Padding(
@@ -63,16 +66,22 @@ class _SelectCarInvolvedCarsPageWidgetState
                   topRight: Radius.circular(30),
                 ),
               ),
-              child: ListView.builder(
-                itemCount: involvedDrivers.length,
-                itemBuilder: (context, index) {
-                  return DriverDetails(
-                    accID: widget.accID,
-                    inDriverName: involvedDrivers[index].driverName,
-                    inDriverID: involvedDrivers[index].driverID,
-                  );
-                },
-              ),
+              child: loading
+                  ? Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : involvedDrivers.isEmpty
+                      ? Center(child: Text('لا يوجد سائق بالجوار'))
+                      : ListView.builder(
+                          itemCount: involvedDrivers.length,
+                          itemBuilder: (context, index) {
+                            return DriverDetails(
+                              accID: widget.accID,
+                              inDriverName: involvedDrivers[index].driverName,
+                              inDriverID: involvedDrivers[index].driverID,
+                            );
+                          },
+                        ),
             ),
           ),
           Padding(
@@ -95,7 +104,7 @@ class _SelectCarInvolvedCarsPageWidgetState
                 color: Color(0xFF85BBC2),
                 textStyle: FlutterFlowTheme.subtitle2.override(
                   fontFamily: 'Poppins',
-                  color: Color(0xFF46494D),
+                  color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),
                 borderSide: BorderSide(
@@ -108,20 +117,10 @@ class _SelectCarInvolvedCarsPageWidgetState
           ),
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(10, 60, 0, 0),
-            child: IconButton(
-              icon: new Icon(
-                Icons.chevron_left,
-                size: 50,
-              ),
+            child: Icon(
+              Icons.chevron_left,
               color: Color(0xFF46494D),
-              //size: 50,
-              onPressed: () async => await Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MainScreen(),
-                ),
-                (r) => false,
-              ),
+              size: 50,
             ),
           ),
           Align(
@@ -170,6 +169,18 @@ class _SelectCarInvolvedCarsPageWidgetState
             cos(math.degrees(widget.accLocation.latitude /*24.7455293*/)));
     //  (0.008 * 0.621371192); // 1km in deg * 1km distance
 
+    if (greatestLong < lowestLong) {
+      double flipper = greatestLong;
+      greatestLong = lowestLong;
+      lowestLong = flipper;
+    }
+
+    if (greatestLat < lowestLat) {
+      double flipper = greatestLat;
+      greatestLat = lowestLat;
+      lowestLat = flipper;
+    }
+
     print(
         'low lat $lowestLat, great lat $greatestLat, low lon $lowestLong, great long $greatestLong');
 
@@ -214,5 +225,6 @@ class _SelectCarInvolvedCarsPageWidgetState
         });
       });
     });
+    loading = false;
   }
 }

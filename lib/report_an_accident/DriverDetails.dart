@@ -1,11 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tayseer2/notification/notification.dart';
+import 'package:tayseer2/report_an_accident/fault_assessment/calculateFault.dart';
 
 import '../Driver/getters.dart';
 import '../FlutterFlow/FlutterFlowTheme.dart';
 import '../FlutterFlow/FlutterFlowWidgets.dart';
 import '../global/global.dart';
+import '../tapPages/notifications.dart';
 import 'confirmation/confirmation_loading_page.dart';
 
 class DriverDetails extends StatefulWidget {
@@ -88,7 +90,9 @@ class _DriverDetailsState extends State<DriverDetails> {
                                 'يدعوك ${driverModelCurrentInfo!.name} لتأكيد وقوع حادث، يرجى النقر للتأكيد أو الرفض',
                             accID: widget.accID,
                             sender: '${user.uid}',
-                            type: 'ques');
+                            type: 'ques',
+                            accLocation: await getAccLocation(widget.accID),
+                            accTime: await getTime(widget.accID));
                       },
                       text: 'اختيار',
                       options: FFButtonOptions(

@@ -117,12 +117,6 @@ class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
         .snapshots()
         .listen((event) {
       event.docs.forEach((element) async {
-        setState(() {
-          Drivername = element.data()['name'].toString();
-          driverid = element.data()['Driver_Id'].toString();
-          uid = element.id.toString();
-        });
-
         await FirebaseFirestore.instance
             .collection('Driver')
             .doc(element.id)
@@ -137,6 +131,10 @@ class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
             final String carid = list[0].id;
             print("${carid}");
             setState(() {
+              Drivername = element.data()['name'].toString();
+              driverid = element.data()['Driver_Id'].toString();
+              uid = element.id.toString();
+
               isfound = true;
             });
             addDetails(Drivername, driverid, uid);
@@ -145,13 +143,15 @@ class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
                 MaterialPageRoute(
                     builder: (context) => ConfirmationLoadingPageWidget()));
             sendNotification(
-                receiver: uid,
+                receiver: element.id,
                 title: 'تأكيد الحادث',
                 msg:
                     'يدعوك ${Drivername})} لتأكيد وقوع حادث، يرجى النقر للتأكيد أو الرفض',
                 accID: widget.accID,
                 sender: '${user.uid}',
-                type: 'ques');
+                type: 'ques',
+                accLocation: widget.accLocation,
+                accTime: widget.accTime);
           }
         });
       });

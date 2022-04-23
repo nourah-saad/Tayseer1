@@ -14,12 +14,14 @@ class select_your_carWidget extends StatefulWidget {
   final DateTime accTime;
   final Position accLocation;
   String accID, sender;
+  final bool add;
   select_your_carWidget(
       {Key? key,
       required this.accTime,
       required this.sender,
       required this.accLocation,
-      required this.accID})
+      required this.accID,
+      required this.add})
       : super(key: key);
 
   @override
@@ -35,8 +37,6 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
   final databaseRef = FirebaseDatabase.instance.ref();
   final Future<FirebaseApp> _future = Firebase.initializeApp();
   User user = FirebaseAuth.instance.currentUser!;
-
-  get mainAxisAlignment => null;
 
   @override
   void initState() {
@@ -76,11 +76,11 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFFD8EBEE),
+      backgroundColor: Color(0xFF85BBC2),
       body: Stack(
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 120, 0, 0),
+            padding: EdgeInsetsDirectional.fromSTEB(0, 130, 0, 0),
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 1,
@@ -175,7 +175,8 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
         }
       ]),
       'Location':
-          GeoPoint(widget.accLocation.latitude, widget.accLocation.longitude)
+          GeoPoint(widget.accLocation.latitude, widget.accLocation.longitude),
+      'status': 'added'
     });
 
     return accID.id;
@@ -196,22 +197,10 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                     width: 360,
                     height: 230,
                     decoration: BoxDecoration(
-                      color: Color(0xFFD8EBEE),
+                      color: Color(0xFF85BBC2),
                       borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.black),
                       shape: BoxShape.rectangle,
-                      boxShadow: const [
-                        BoxShadow(
-                          offset: Offset(1.0, 1.0),
-                          blurRadius: 5.0,
-                          spreadRadius: 1.0,
-                        ),
-                        BoxShadow(
-                          color: Color(0xFFD8EBEE),
-                          offset: Offset(-1.0, -1.0),
-                          blurRadius: 5.0,
-                          spreadRadius: 1.0,
-                        ),
-                      ],
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
@@ -231,7 +220,6 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                       '${data[i]['car_model']}',
                                       textAlign: TextAlign.right,
                                       style: TextStyle(
-                                        color: Color(0xFF46494D),
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w600,
                                         fontSize: 18,
@@ -246,7 +234,6 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                     ': نوع السيارة ',
                                     textAlign: TextAlign.right,
                                     style: TextStyle(
-                                      color: Color(0xFF46494D),
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w600,
                                       fontSize: 18,
@@ -266,7 +253,6 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                       '${data[i]['car_color']}',
                                       textAlign: TextAlign.right,
                                       style: TextStyle(
-                                        color: Color(0xFF46494D),
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w600,
                                         fontSize: 18,
@@ -281,7 +267,6 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                     ': اللون ',
                                     textAlign: TextAlign.right,
                                     style: TextStyle(
-                                      color: Color(0xFF46494D),
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w600,
                                       fontSize: 18,
@@ -311,7 +296,6 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                       '${data[i]['car_number']}',
                                       textAlign: TextAlign.right,
                                       style: TextStyle(
-                                        color: Color(0xFF46494D),
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w600,
                                         fontSize: 18,
@@ -326,7 +310,6 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                     ': رقم اللوحة ',
                                     textAlign: TextAlign.right,
                                     style: TextStyle(
-                                      color: Color(0xFF46494D),
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w600,
                                       fontSize: 18,
@@ -346,7 +329,6 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                       '${data[i]['in']}',
                                       textAlign: TextAlign.right,
                                       style: TextStyle(
-                                        color: Color(0xFF46494D),
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w600,
                                         fontSize: 18,
@@ -361,7 +343,6 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                     ': حالة التأمين ',
                                     textAlign: TextAlign.right,
                                     style: TextStyle(
-                                      color: Color(0xFF46494D),
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w600,
                                       fontSize: 18,
@@ -379,11 +360,11 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Align(
-                              alignment: Alignment.bottomLeft,
+                              alignment: Alignment.center,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   onPrimary: Colors.black87,
-                                  primary: Color.fromARGB(200, 146, 217, 227),
+                                  primary: Color(0xFF92D9E3),
                                   fixedSize: Size(129, 20),
                                   padding: EdgeInsets.symmetric(horizontal: 16),
                                   shape: const RoundedRectangleBorder(
@@ -397,15 +378,11 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                                     car_model = data[i]['car_model'];
                                     car_number = data[i]['car_number'];
                                   });
-                                  widget.accTime.isBefore(
-                                          DateTime.parse('2000-02-28'))
-                                      ? showSnack()
-                                      : add();
+                                  widget.add ? add() : showSnack();
                                 },
                                 child: Text(
                                   'اختيار ',
                                   style: TextStyle(
-                                    color: Color(0xFF46494D),
                                     fontFamily: 'Poppins',
                                     fontWeight: FontWeight.w600,
                                     fontSize: 17,
@@ -446,6 +423,9 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
         context,
         MaterialPageRoute(
             builder: (c) => ConfirmationPageWidget(
-                accidentID: widget.accID, sender: widget.sender)));
+                  accidentID: widget.accID,
+                  sender: widget.sender,
+                  accTime: widget.accTime,
+                )));
   }
 }
