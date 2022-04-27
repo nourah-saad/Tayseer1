@@ -1,10 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:tayseer2/assistants/assistant_methods.dart';
 import 'package:tayseer2/global/global.dart';
 import 'package:tayseer2/mainScreen/main_screen.dart';
-
-import '../authintication/signup_screen.dart';
+import '../authintication/login_screen.dart';
 
 class MySplashScreen extends StatefulWidget {
   const MySplashScreen({Key? key}) : super(key: key);
@@ -22,7 +20,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
             context, MaterialPageRoute(builder: (c) => MainScreen()));
       } else {
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (c) => SignUpScreen()));
+            context, MaterialPageRoute(builder: (c) => LoginScreen()));
       }
     });
   }

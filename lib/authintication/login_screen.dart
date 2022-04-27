@@ -1,14 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:tayseer2/authintication/signup_screen.dart';
 import 'package:tayseer2/global/global.dart';
 import 'package:tayseer2/mainScreen/main_screen.dart';
-import 'package:tayseer2/splashScreen/splash_screen.dart';
 import 'package:tayseer2/widgets/progress_dialog.dart';
-
 import '../Driver/getters.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -136,9 +132,19 @@ class _LoginScreenState extends State<LoginScreen> {
                           const EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
                       child: Image.asset(
                         'images/logo2.PNG',
-                        width: MediaQuery.of(context).size.width * 0.7,
+                        width: MediaQuery.of(context).size.width * 1.9,
                         height: 100,
                         fit: BoxFit.cover,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      "رقم الهوية/الإقامة",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     TextField(
@@ -146,21 +152,19 @@ class _LoginScreenState extends State<LoginScreen> {
                       keyboardType: TextInputType.emailAddress,
                       style: const TextStyle(color: Colors.black),
                       decoration: const InputDecoration(
-                        labelText: "رقم الهوية/الإقامة",
-                        enabledBorder: UnderlineInputBorder(
+                        border: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.black),
                         ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black),
-                        ),
-                        hintStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: 10,
-                        ),
-                        labelStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Text(
+                      "كلمة السر ",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     TextField(
@@ -169,24 +173,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       obscureText: true,
                       style: const TextStyle(color: Colors.black),
                       decoration: const InputDecoration(
-                        labelText: "كلمة السر",
-                        enabledBorder: UnderlineInputBorder(
+                        border: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.black),
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black),
-                        ),
-                        hintStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: 10,
-                        ),
-                        labelStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
                         ),
                       ),
                     ),
                     const SizedBox(
+                      height: 20,
+                    ),
+                    SizedBox(
                       height: 20,
                     ),
                     ElevatedButton(
@@ -204,6 +199,17 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
+                    Container(
+                      height: 200,
+                      width: 200,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('lib/images/tayseer.png'),
+                          fit: BoxFit.fill,
+                        ),
+                        shape: BoxShape.rectangle,
+                      ),
+                    )
                   ],
                 ),
               ),
