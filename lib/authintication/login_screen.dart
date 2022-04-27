@@ -13,6 +13,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool ishiddenPassword = true;
   TextEditingController didTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
   late bool passwordVisibility = false;
@@ -141,6 +142,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 20,
                     ),
                     Container(
+                      padding:
+                          const EdgeInsets.only(left: 250, bottom: 13, top: 0),
                       child: RichText(
                         text: TextSpan(children: [
                           TextSpan(
@@ -178,7 +181,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Container(
                       padding:
-                          const EdgeInsets.only(left: 325, bottom: 13, top: 29),
+                          const EdgeInsets.only(left: 300, bottom: 13, top: 0),
                       child: RichText(
                         text: TextSpan(children: [
                           TextSpan(
@@ -201,7 +204,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     TextField(
                       controller: passwordTextEditingController,
                       keyboardType: TextInputType.text,
-                      obscureText: true,
+                      obscureText: ishiddenPassword,
                       style: const TextStyle(color: Colors.black),
                       decoration: const InputDecoration(
                         filled: true,
@@ -229,9 +232,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontSize: 18,
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 25,
                     ),
                     Container(
                       height: 250,

@@ -238,30 +238,6 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                   child: Row(
                     //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                          child: InkWell(
-                              onTap: () {
-                                if (mounted) {
-                                  setState(() {
-                                    tabcontroller!.animateTo(0);
-                                    tabcontroller!.index = 0;
-                                  });
-                                }
-
-                                // DefaultTabController.of(context)!.animateTo(0,duration: Duration(seconds: 1),curve: Curves.bounceOut);
-                              },
-                              child:
-                                  Icon(Icons.arrow_back, color: Colors.black))),
-                      Spacer(),
-                      Container(
-                        child: Text(
-                          'تعديل الملف الشخصي',
-                          style: TextStyle(color: Colors.black, fontSize: 20),
-                        ),
-                      ),
-                      Spacer(),
-                    ],
                   )),
               Container(
                 alignment: Alignment.bottomCenter,
