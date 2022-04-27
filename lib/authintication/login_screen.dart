@@ -15,7 +15,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController didTextEditingController = TextEditingController();
   TextEditingController passwordTextEditingController = TextEditingController();
-  late bool passwordVisibility;
+  late bool passwordVisibility = false;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final CollectionReference driversRefc =
@@ -140,11 +140,24 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(
                       height: 20,
                     ),
-                    Text(
-                      "رقم الهوية/الإقامة",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                    Container(
+                      child: RichText(
+                        text: TextSpan(children: [
+                          TextSpan(
+                              text: '*',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.red,
+                              )),
+                          TextSpan(
+                              text: 'رقم الهوية/الإقامة',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF46494D),
+                              )),
+                        ]),
                       ),
                     ),
                     TextField(
@@ -152,19 +165,37 @@ class _LoginScreenState extends State<LoginScreen> {
                       keyboardType: TextInputType.emailAddress,
                       style: const TextStyle(color: Colors.black),
                       decoration: const InputDecoration(
+                        filled: true,
+                        fillColor: Color.fromARGB(90, 133, 187, 194),
                         border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black),
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(90, 133, 187, 194)),
                         ),
                       ),
                     ),
                     SizedBox(
                       height: 30,
                     ),
-                    Text(
-                      "كلمة السر ",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                    Container(
+                      padding:
+                          const EdgeInsets.only(left: 325, bottom: 13, top: 29),
+                      child: RichText(
+                        text: TextSpan(children: [
+                          TextSpan(
+                              text: '*',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.red,
+                              )),
+                          TextSpan(
+                              text: 'كلمة المرور',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF46494D),
+                              )),
+                        ]),
                       ),
                     ),
                     TextField(
@@ -173,9 +204,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       obscureText: true,
                       style: const TextStyle(color: Colors.black),
                       decoration: const InputDecoration(
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black),
-                        ),
+                        filled: true,
+                        fillColor: Color.fromARGB(90, 133, 187, 194),
+                        border: OutlineInputBorder(),
                       ),
                     ),
                     const SizedBox(
@@ -199,9 +230,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 25,
+                    ),
                     Container(
-                      height: 200,
-                      width: 200,
+                      height: 250,
+                      width: 400,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage('lib/images/tayseer.png'),
