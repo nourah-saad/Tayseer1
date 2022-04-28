@@ -25,11 +25,6 @@ class _NotificationPageState extends State<NotificationPage> {
       padding: const EdgeInsets.all(15),
       child: Column(
         children: [
-          SizedBox(
-            height: 20,
-            width: 200,
-            child: Text('lastn'),
-          ),
           Container(
             height: MediaQuery.of(context).size.height * 0.85,
             width: MediaQuery.of(context).size.width,

@@ -66,7 +66,7 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
 
     var exists = await FirebaseFirestore.instance
         .collection('Accident')
-        .orderBy('Date_time')
+        .orderBy('Date_time', descending: true)
         .where('accident_type', isNotEqualTo: null)
         .snapshots()
         .listen((event) {
@@ -104,8 +104,8 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
             driver1docid == currentFirebaseUser)
           accidents.insert(count++, value);
         _foundlocacation = accidents;
-        final splitNames = widget.address!.split(',');
-        _runFilter(widget.address!.split(',').first);
+        // final splitNames = widget.address!.split(',');
+        //_runFilter(widget.address!.split(',').first);
         // final data=   newDataList![0]['location'];
         // print('current data$data');
       });

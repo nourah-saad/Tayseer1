@@ -143,7 +143,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Container(
                       padding:
-                          const EdgeInsets.only(left: 250, bottom: 13, top: 0),
+                          const EdgeInsets.only(left: 230, bottom: 13, top: 0),
                       child: RichText(
                         text: TextSpan(children: [
                           TextSpan(
@@ -181,7 +181,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     Container(
                       padding:
-                          const EdgeInsets.only(left: 300, bottom: 13, top: 0),
+                          const EdgeInsets.only(left: 280, bottom: 13, top: 0),
                       child: RichText(
                         text: TextSpan(children: [
                           TextSpan(
@@ -234,8 +234,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     Container(
-                      height: 250,
-                      width: 400,
+                      height: 180,
+                      width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage('lib/images/tayseer.png'),
