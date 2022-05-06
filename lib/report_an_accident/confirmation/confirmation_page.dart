@@ -378,7 +378,7 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
                   sender: user.uid,
                   reciever: widget.sender,
                   accID: widget.accidentID,
-                  process: false,
+                  process: true,
                 )));
   }
 }

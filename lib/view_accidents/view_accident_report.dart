@@ -32,6 +32,9 @@ class _AccidentReportWidgetState extends State<AccidentReportWidget> {
   }
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  Color statusColor = Color(0xFFEB6666),
+      driverFaultColor = Color(0xFFEB6666),
+      inDriverFaultColor = Color(0xFFEB6666);
   dynamic address = '',
       adate = '',
       atime = '',
@@ -100,6 +103,18 @@ class _AccidentReportWidgetState extends State<AccidentReportWidget> {
         id1 = data['Drivers_Involved'][0]['Driver_Id'].toString();
         driver2 = data['Drivers_Involved'][1]['name'].toString();
         id2 = data['Drivers_Involved'][1]['Driver_Id'].toString();
+
+        if (falut1 == '%0') {
+          driverFaultColor = Color.fromARGB(255, 80, 129, 75);
+        }
+
+        if (falut2 == '%0') {
+          inDriverFaultColor = Color.fromARGB(255, 80, 129, 75);
+        }
+
+        if (status == 'مقبول') {
+          statusColor = Color.fromARGB(255, 80, 129, 75);
+        }
       });
       print("-------------------------${falut1}-----------------------");
     }
@@ -298,7 +313,7 @@ class _AccidentReportWidgetState extends State<AccidentReportWidget> {
                             '${falut1}',
                             style: TextStyle(
                               fontFamily: 'Poppins',
-                              color: Color(0xFFEB6666),
+                              color: driverFaultColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
                             ),
@@ -397,7 +412,7 @@ class _AccidentReportWidgetState extends State<AccidentReportWidget> {
                             '${falut2}',
                             style: TextStyle(
                               fontFamily: 'Poppins',
-                              color: Color(0xFFEB6666),
+                              color: inDriverFaultColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
                             ),
@@ -500,7 +515,7 @@ class _AccidentReportWidgetState extends State<AccidentReportWidget> {
                             '${status}',
                             style: TextStyle(
                               fontFamily: 'Poppins',
-                              color: Color.fromARGB(255, 80, 129, 75),
+                              color: statusColor,
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
                             ),

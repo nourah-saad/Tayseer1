@@ -233,7 +233,7 @@ redirect(RemoteMessage message) {
                     sender: message.data['sender'],
                     reciever: message.data['reciever'],
                     accID: message.data['accID'],
-                    process: true,
+                    process: false,
                   )));
       break;
     case 'completed':

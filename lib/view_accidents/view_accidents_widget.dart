@@ -33,8 +33,10 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
 
   @override
   void initState() {
-    accidents.clear();
-    addtolist();
+    if (widget.address == null) {
+      accidents.clear();
+      addtolist();
+    }
 
     // onItemChanged('imam');
     // final data=  newDataList![0]['location'];

@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:tayseer2/authintication/login_screen.dart';
 
 import '../splashScreen/splash_screen.dart';
 import 'Model_user.dart';
@@ -54,8 +55,6 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
   }
 
   // final User user = FirebaseAuth.instance.currentUser;
-  DatabaseReference driversRef =
-      FirebaseDatabase.instance.ref().child("Driver");
   final CollectionReference driversRefc =
       FirebaseFirestore.instance.collection('Driver');
 
@@ -68,11 +67,6 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
 
   dynamic data;
 
-  void fetchData() async {
-    var data = await FirebaseFirestore.instance.collection("Items").get();
-    for (int i = 0; i < data.docs.length; i++) {}
-  }
-
   Future<dynamic> getData() async {
     final DocumentReference document = driversRefc.doc(user!.uid);
 
@@ -84,23 +78,6 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
   Future<void> current_user() async {
     var current_id = user!.uid;
     print(current_id);
-  }
-
-  _updatevalue() {
-    driversRef.child(user!.uid).update({
-      "email": myController.text,
-      // "did": did,
-      // "id": user!.uid,
-      // "name": name,
-      // "nationality": nationality,
-      // "password": Password,
-      // "cardetails_map": cardetails_map,
-      // "phone": Phone,
-      // "sex": sex
-    }).then((value) {
-      var snackBar = const SnackBar(content: Text('data is update'));
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    });
   }
 
   FirebaseAuth fAuth = FirebaseAuth.instance;
@@ -157,41 +134,10 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
   //   });
   // }
 
-  Future<void> init() async {
-    try {
-      final counterSnapshot = await driversRef
-          .child(user!.uid)
-          .get()
-          .then((value) => value.ref.get());
-    } catch (err) {
-      print(err);
-    }
-  }
-
   @override
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-  }
-
-  void user_data() {
-    // driversRef!.child(user!.uid).once().then((value) {
-    //   final data=new Map<dynamic,dynamic>.from(value.snapshot.value);
-    // });
-    final uu = user!.uid.toString();
-    driversRef.child(uu).onValue.listen((event) {
-      Map<dynamic, dynamic> data =
-          event.snapshot.value as Map<dynamic, dynamic>;
-      final listh = data.values.single;
-      print(listh.toString());
-      data.forEach((key, value) {
-        var dataa = value['did'].toString();
-
-        // print(dataa);
-      });
-      //  final  name=event.snapshot.value;
-      //print(name);
-    });
   }
 
   @override
@@ -448,7 +394,13 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                                         padding: EdgeInsets.all(5),
                                         width: 100,
                                         child: ElevatedButton(
-                                          child: Text("حفظ"),
+                                          child: Text(
+                                            "حفظ",
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w600,
+                                                color: Color(0xFF46494D)),
+                                          ),
                                           onPressed: () {
                                             if (formKey.currentState!
                                                 .validate()) {
@@ -487,7 +439,13 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                                         padding: EdgeInsets.all(5),
                                         width: 100,
                                         child: ElevatedButton(
-                                          child: Text("تراجع"),
+                                          child: Text(
+                                            "تراجع",
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w600,
+                                                color: Color(0xFF46494D)),
+                                          ),
                                           onPressed: () {
                                             setState(() {
                                               is_edit = false;
@@ -513,28 +471,70 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                         padding: EdgeInsets.all(5),
                         width: 150,
                         child: ElevatedButton(
-                          child: Text("تسجيل خروج"),
+                          child: Text(
+                            "تسجيل خروج",
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w600,
+                                color: Color(0xFF46494D)),
+                          ),
                           onPressed: () {
                             showDialog(
                               context: context,
                               builder: (context) => AlertDialog(
-                                title: Text('تسجيل خروج'),
-                                content: Text('هل انت متأكد من تسجيل الخروج؟'),
+                                backgroundColor: Color(0xFF85BBC2),
+                                title: Text(
+                                  'تسجيل خروج',
+                                  textAlign: TextAlign.right,
+                                ),
+                                content: Text(
+                                  'هل أنت متأكد من تسجيل الخروج؟',
+                                  textAlign: TextAlign.right,
+                                ),
                                 actions: [
-                                  TextButton(
-                                    child: Text('لا'),
-                                    onPressed: () => Navigator.pop(context),
-                                  ),
-                                  TextButton(
-                                    child: Text('نعم'),
+                                  ElevatedButton(
+                                    child: Text(
+                                      "نعم",
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w600,
+                                          color: Color(0xFF46494D)),
+                                    ),
                                     onPressed: () {
                                       fAuth.signOut();
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (c) =>
-                                                  const MySplashScreen()));
+                                              builder: (c) => LoginScreen()));
                                     },
+                                    style: ElevatedButton.styleFrom(
+                                      primary: const Color(0xFFEB6666),
+                                      onPrimary: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(32.0),
+                                      ),
+                                    ),
+                                  ),
+                                  ElevatedButton(
+                                    child: Text(
+                                      "لا",
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w600,
+                                          color: Color(0xFF46494D)),
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      primary: Colors.green,
+                                      onPrimary: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(32.0),
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),

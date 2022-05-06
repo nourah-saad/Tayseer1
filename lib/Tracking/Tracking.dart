@@ -28,7 +28,7 @@ requestPermission() async {
   location.enableBackgroundMode(enable: true);
 
   await location.changeSettings(
-      accuracy: locationServices.LocationAccuracy.navigation, distanceFilter: 1
+      accuracy: locationServices.LocationAccuracy.high, distanceFilter: 1
       //if 10 seconds are passed AND* if the phone is moved at least 5 meters, give the location. must be (both)
       );
   getcurrentLocation();

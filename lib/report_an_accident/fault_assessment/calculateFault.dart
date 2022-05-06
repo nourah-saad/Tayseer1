@@ -17,25 +17,17 @@ proccessAcc(
   List<List> invlovedResult =
       await getLocation(involvedID, accTime, timeIntervals);
   List<double> involvedLocations = invlovedResult[0] as List<double>;
-  print('size is ${driverlocations.length}');
-  print('size is ${involvedLocations.length}');
-  for (int i = 0; i < driverlocations.length; i++) {
-    print(
-        'location $i in driverlocations of $driverID is ${driverlocations[i]}');
-  }
-  print('size is ${involvedLocations.length}');
-  for (int i = 0; i < involvedLocations.length; i++) {
-    print('location $i in involvedLocations is ${involvedLocations[i]}');
-  }
 
   print('size dr is ${timeIntervals.length}');
   print('size in is ${(invlovedResult[1] as List<DateTime>).length}');
   for (int i = 0; i < timeIntervals.length; i++) {
-    print('time $i in timesInterval of driver is ${timeIntervals[i]}');
+    print(
+        'time $i of $driverID is ${timeIntervals[i]} ... ${driverlocations[i]}');
   }
   print('size is ${(invlovedResult[1] as List<DateTime>).length}');
   for (int i = 0; i < (invlovedResult[1] as List<DateTime>).length; i++) {
-    print('time $i in timesInterval of involved is ${timeIntervals[i]}');
+    print(
+        'time $i of $involvedID is ${timeIntervals[i]} ... ${involvedLocations[i]}');
   }
 
 //proccess
@@ -137,14 +129,14 @@ String getBehavior(List<double> driverlocations) {
   int countF = 0, countB = 0;
 
   for (int i = 0; i < driverlocations.length - 1; i++) {
-    if (driverlocations[i] <= driverlocations[i + 1])
+    if (driverlocations[i] < driverlocations[i + 1])
       countF++;
     else
       countB++;
   }
-  if (countF == driverlocations.length - 1) {
+  if (countF != 0 && countF == driverlocations.length - 1) {
     return 'StraightF';
-  } else if (countB == driverlocations.length - 1) {
+  } else if (countB != 0 && countB == driverlocations.length - 1) {
     return "StraightB";
   } else {
     return "Circle";

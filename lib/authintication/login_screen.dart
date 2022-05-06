@@ -22,11 +22,8 @@ class _LoginScreenState extends State<LoginScreen> {
   final CollectionReference driversRefc =
       FirebaseFirestore.instance.collection('Driver');
   validateForm() {
-    if (didTextEditingController.text.isEmpty) {
-      Fluttertoast.showToast(msg: "ID is required");
-    } else if (passwordTextEditingController.text.isEmpty) {
-      Fluttertoast.showToast(msg: "Password is required.");
-    } else {
+    if (didTextEditingController.text.isNotEmpty &&
+        passwordTextEditingController.text.isNotEmpty) {
       loginDriverNow();
     }
   }
@@ -163,9 +160,16 @@ class _LoginScreenState extends State<LoginScreen> {
                         ]),
                       ),
                     ),
-                    TextField(
+                    TextFormField(
                       controller: didTextEditingController,
-                      keyboardType: TextInputType.emailAddress,
+                      keyboardType: TextInputType.number,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "يرجى إدخال رقم الهوية/الإقامة";
+                        } else if (value.length != 10) {
+                          return "يرجى إدخال رقم هوية/إقامة صحيح";
+                        }
+                      },
                       style: const TextStyle(color: Colors.black),
                       decoration: const InputDecoration(
                         filled: true,
@@ -201,10 +205,18 @@ class _LoginScreenState extends State<LoginScreen> {
                         ]),
                       ),
                     ),
-                    TextField(
+                    TextFormField(
                       controller: passwordTextEditingController,
                       keyboardType: TextInputType.text,
                       obscureText: ishiddenPassword,
+                      onFieldSubmitted: (value) {
+                        loginDriverNow();
+                      },
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "يرجى إدخال كلمة المرور";
+                        }
+                      },
                       style: const TextStyle(color: Colors.black),
                       decoration: const InputDecoration(
                         filled: true,
