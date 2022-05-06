@@ -482,7 +482,7 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                             showDialog(
                               context: context,
                               builder: (context) => AlertDialog(
-                                backgroundColor: Color(0xFF85BBC2),
+                                backgroundColor: Color(0xffD7ECED),
                                 title: Text(
                                   'تسجيل خروج',
                                   textAlign: TextAlign.right,
