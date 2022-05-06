@@ -33,10 +33,8 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
 
   @override
   void initState() {
-    if (widget.address == null) {
-      accidents.clear();
-      addtolist();
-    }
+    accidents.clear();
+    addtolist();
 
     // onItemChanged('imam');
     // final data=  newDataList![0]['location'];
@@ -106,8 +104,10 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
             driver1docid == currentFirebaseUser)
           accidents.insert(count++, value);
         _foundlocacation = accidents;
-        // final splitNames = widget.address!.split(',');
-        //_runFilter(widget.address!.split(',').first);
+        if (widget.address != null) {
+          final splitNames = widget.address!.split(',');
+          _runFilter(widget.address!.split(',').first);
+        }
         // final data=   newDataList![0]['location'];
         // print('current data$data');
       });
