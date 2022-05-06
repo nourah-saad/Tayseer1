@@ -175,16 +175,26 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
           child: Stack(
             alignment: Alignment.bottomCenter,
             children: [
+              
+                  
+                
+              
               //  SingleChildScrollView(child:Container()),
               Container(
+             
                   padding: EdgeInsets.all(25),
                   color: Color(0xFF85BBC2),
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height,
                   child: Row(
+                   
+                  
+               
+           
                     //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                   )),
+                  
               Container(
                 alignment: Alignment.bottomCenter,
                 width: MediaQuery.of(context).size.width,
@@ -271,7 +281,7 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                                           },
                                           decoration: InputDecoration(
                                             border: OutlineInputBorder(),
-                                            labelText: 'new Email',
+                                            labelText: '                      البريد الالكتروني الجديد             ',
                                           ),
                                           onChanged: (text) {
                                             setState(() {
@@ -427,7 +437,7 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                                             // print();
                                           },
                                           style: ElevatedButton.styleFrom(
-                                            primary: const Color(0xFFEB6666),
+                                            primary: Color(0xFF85BBC2),//const Color(0xFFEB6666),
                                             onPrimary: Colors.white,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
@@ -453,7 +463,7 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                                             });
                                           },
                                           style: ElevatedButton.styleFrom(
-                                            primary: Colors.green,
+                                            primary:Color(0xffD7ECED),//Color.fromARGB(255, 191, 199, 199),// Colors.green,
                                             onPrimary: Colors.white,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
@@ -508,7 +518,7 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                                               builder: (c) => LoginScreen()));
                                     },
                                     style: ElevatedButton.styleFrom(
-                                      primary: const Color(0xFFEB6666),
+                                      primary: Color(0xFF85BBC2),
                                       onPrimary: Colors.white,
                                       shape: RoundedRectangleBorder(
                                         borderRadius:
@@ -528,7 +538,7 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                                       Navigator.pop(context);
                                     },
                                     style: ElevatedButton.styleFrom(
-                                      primary: Colors.green,
+                                      primary: Color(0xffD7ECED),
                                       onPrimary: Colors.white,
                                       shape: RoundedRectangleBorder(
                                         borderRadius:

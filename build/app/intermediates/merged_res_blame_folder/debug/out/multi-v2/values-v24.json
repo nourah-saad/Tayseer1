@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\rawan\\Desktop\\uni\\level7\\444\\TryIt\\Counter\\Tayseer1\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
+            "outputFile": "/Users/almaha/Desktop/Tayseer1/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\rawan\\.gradle\\caches\\transforms-2\\files-2.1\\209fde14d5a04404a5ee9cfb5e9fea67\\media-1.1.0\\res\\values-v24\\values-v24.xml",
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/209fde14d5a04404a5ee9cfb5e9fea67/media-1.1.0/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

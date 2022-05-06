@@ -1,10 +1,20 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\rawan\\Desktop\\uni\\level7\\444\\TryIt\\Counter\\Tayseer1\\build\\video_player_android\\intermediates\\res\\merged\\debug\\values-nb\\values-nb.xml",
+            "outputFile": "/Users/almaha/Desktop/Tayseer1/build/video_player_android/intermediates/incremental/mergeDebugResources/merged.dir/values-nb/values-nb.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\rawan\\.gradle\\caches\\transforms-2\\files-2.1\\b478a999c0f86964024311fceae65383\\core-1.7.0\\res\\values-nb\\values-nb.xml",
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/6be9a7afbbae9936425e47e841774b16/jetified-exoplayer-core-2.17.0/res/values-nb/values-nb.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,131,193,257,328,408,486,580,677",
+                        "endColumns": "75,61,63,70,79,77,93,96,70",
+                        "endOffsets": "126,188,252,323,403,481,575,672,743"
+                    }
+                },
+                {
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/b478a999c0f86964024311fceae65383/core-1.7.0/res/values-nb/values-nb.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -18,25 +28,25 @@
                         "startOffsets": "748",
                         "endColumns": "100",
                         "endOffsets": "844"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\rawan\\.gradle\\caches\\transforms-2\\files-2.1\\6be9a7afbbae9936425e47e841774b16\\jetified-exoplayer-core-2.17.0\\res\\values-nb\\values-nb.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,131,193,257,328,408,486,580,677",
-                        "endColumns": "75,61,63,70,79,77,93,96,70",
-                        "endOffsets": "126,188,252,323,403,481,575,672,743"
                     }
                 }
             ]
         },
         {
-            "outputFile": "C:\\Users\\rawan\\Desktop\\uni\\level7\\444\\TryIt\\Counter\\Tayseer1\\build\\video_player_android\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-nb\\values-nb.xml",
+            "outputFile": "/Users/almaha/Desktop/Tayseer1/build/video_player_android/intermediates/res/merged/debug/values-nb/values-nb.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\rawan\\.gradle\\caches\\transforms-2\\files-2.1\\b478a999c0f86964024311fceae65383\\core-1.7.0\\res\\values-nb\\values-nb.xml",
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/6be9a7afbbae9936425e47e841774b16/jetified-exoplayer-core-2.17.0/res/values-nb/values-nb.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,131,193,257,328,408,486,580,677",
+                        "endColumns": "75,61,63,70,79,77,93,96,70",
+                        "endOffsets": "126,188,252,323,403,481,575,672,743"
+                    }
+                },
+                {
+                    "source": "/Users/almaha/.gradle/caches/transforms-2/files-2.1/b478a999c0f86964024311fceae65383/core-1.7.0/res/values-nb/values-nb.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -50,16 +60,6 @@
                         "startOffsets": "748",
                         "endColumns": "100",
                         "endOffsets": "844"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\rawan\\.gradle\\caches\\transforms-2\\files-2.1\\6be9a7afbbae9936425e47e841774b16\\jetified-exoplayer-core-2.17.0\\res\\values-nb\\values-nb.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,131,193,257,328,408,486,580,677",
-                        "endColumns": "75,61,63,70,79,77,93,96,70",
-                        "endOffsets": "126,188,252,323,403,481,575,672,743"
                     }
                 }
             ]
