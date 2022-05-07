@@ -22,10 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final CollectionReference driversRefc =
       FirebaseFirestore.instance.collection('Driver');
   validateForm() {
-    if (didTextEditingController.text.isNotEmpty &&
-        passwordTextEditingController.text.isNotEmpty) {
-      loginDriverNow();
-    }
+    loginDriverNow();
   }
 
   loginDriverNow() async {
@@ -232,7 +229,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        validateForm();
+                        if (formKey.currentState!.validate()) validateForm();
                       },
                       style: ElevatedButton.styleFrom(
                         primary: const Color(0xFF85BBC2),
@@ -246,7 +243,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     Container(
-                      height: 180,
+                      height: 157,
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
                         image: DecorationImage(
