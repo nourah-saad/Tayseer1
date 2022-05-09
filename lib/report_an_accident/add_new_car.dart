@@ -4,6 +4,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:tayseer2/report_an_accident/select_involved_car.dart';
 
+import '../global/global.dart';
 import '../notification/notification.dart';
 import 'confirmation/confirmation_loading_page.dart';
 
@@ -146,7 +147,7 @@ class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
                 receiver: element.id,
                 title: 'تأكيد الحادث',
                 msg:
-                    'يدعوك ${Drivername})} لتأكيد وقوع حادث، يرجى النقر للتأكيد أو الرفض',
+                    'يدعوك ${driverModelCurrentInfo!.name} لتأكيد وقوع حادث، يرجى النقر للتأكيد أو الرفض',
                 accID: widget.accID,
                 sender: '${user.uid}',
                 type: 'ques',
@@ -165,6 +166,7 @@ class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
       key: formKey,
       autovalidateMode: AutovalidateMode.always,
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         key: scaffoldKey,
         backgroundColor: Color(0xFF85BBC2),
         body: Stack(
@@ -227,7 +229,6 @@ class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
                           fontFamily: 'Noto Sans',
                         ),
                         textAlign: TextAlign.center,
-                        keyboardType: TextInputType.number,
                         validator: (val) {
                           if (val!.trim().isEmpty) {
                             return 'الرجاء  ادخال رقم ';

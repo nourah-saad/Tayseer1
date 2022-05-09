@@ -6,6 +6,7 @@ import 'package:tayseer2/global/global.dart';
 import 'package:tayseer2/mainScreen/main_screen.dart';
 import 'package:tayseer2/widgets/progress_dialog.dart';
 import '../Driver/getters.dart';
+import '../assistants/assistant_methods.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -44,6 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
               email: dEmail,
               password: passwordTextEditingController.text.trim()))
           .user;
+      if (firebaseUser != null) AssistantMethods.readCurrentOnlineDriverInfo();
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
         case 'user-not-found':
@@ -99,8 +101,8 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Form(
       key: formKey,
-      autovalidateMode: AutovalidateMode.always,
       child: Scaffold(
+          resizeToAvoidBottomInset: false,
           key: scaffoldKey,
           backgroundColor: const Color(0xFF85BBC2),
           body: Padding(
@@ -119,141 +121,143 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               child: Padding(
                 padding: const EdgeInsets.all(15),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
-                      child: Image.asset(
-                        'images/logo2.PNG',
-                        width: MediaQuery.of(context).size.width * 1.9,
-                        height: 100,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Container(
-                      padding:
-                          const EdgeInsets.only(left: 230, bottom: 13, top: 0),
-                      child: RichText(
-                        text: TextSpan(children: [
-                          TextSpan(
-                              text: '*',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.red,
-                              )),
-                          TextSpan(
-                              text: 'رقم الهوية/الإقامة',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF46494D),
-                              )),
-                        ]),
-                      ),
-                    ),
-                    TextFormField(
-                      controller: didTextEditingController,
-                      keyboardType: TextInputType.number,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "يرجى إدخال رقم الهوية/الإقامة";
-                        } else if (value.length != 10) {
-                          return "يرجى إدخال رقم هوية/إقامة صحيح";
-                        }
-                      },
-                      style: const TextStyle(color: Colors.black),
-                      decoration: const InputDecoration(
-                        filled: true,
-                        fillColor: Color.fromARGB(90, 133, 187, 194),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color.fromARGB(90, 133, 187, 194)),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
+                        child: Image.asset(
+                          'images/logo2.PNG',
+                          width: MediaQuery.of(context).size.width * 1.9,
+                          height: 100,
+                          fit: BoxFit.cover,
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Container(
-                      padding:
-                          const EdgeInsets.only(left: 280, bottom: 13, top: 0),
-                      child: RichText(
-                        text: TextSpan(children: [
-                          TextSpan(
-                              text: '*',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.red,
-                              )),
-                          TextSpan(
-                              text: 'كلمة المرور',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF46494D),
-                              )),
-                        ]),
+                      SizedBox(
+                        height: 20,
                       ),
-                    ),
-                    TextFormField(
-                      controller: passwordTextEditingController,
-                      keyboardType: TextInputType.text,
-                      obscureText: ishiddenPassword,
-                      onFieldSubmitted: (value) {
-                        loginDriverNow();
-                      },
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return "يرجى إدخال كلمة المرور";
-                        }
-                      },
-                      style: const TextStyle(color: Colors.black),
-                      decoration: const InputDecoration(
-                        filled: true,
-                        fillColor: Color.fromARGB(90, 133, 187, 194),
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        if (formKey.currentState!.validate()) validateForm();
-                      },
-                      style: ElevatedButton.styleFrom(
-                        primary: const Color(0xFF85BBC2),
-                      ),
-                      child: const Text(
-                        "تسجيل الدخول",
-                        style: TextStyle(
-                          color: Colors.black54,
-                          fontSize: 18,
+                      Container(
+                        padding: const EdgeInsets.only(
+                            left: 230, bottom: 13, top: 0),
+                        child: RichText(
+                          text: TextSpan(children: [
+                            TextSpan(
+                                text: '*',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.red,
+                                )),
+                            TextSpan(
+                                text: 'رقم الهوية/الإقامة',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF46494D),
+                                )),
+                          ]),
                         ),
                       ),
-                    ),
-                    Container(
-                      height: 157,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('lib/images/tayseer.png'),
-                          fit: BoxFit.fill,
+                      TextFormField(
+                        controller: didTextEditingController,
+                        keyboardType: TextInputType.number,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "يرجى إدخال رقم الهوية/الإقامة";
+                          } else if (value.length != 10) {
+                            return "يرجى إدخال رقم هوية/إقامة صحيح";
+                          }
+                        },
+                        style: const TextStyle(color: Colors.black),
+                        decoration: const InputDecoration(
+                          filled: true,
+                          fillColor: Color.fromARGB(90, 133, 187, 194),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(90, 133, 187, 194)),
+                          ),
                         ),
-                        shape: BoxShape.rectangle,
                       ),
-                    )
-                  ],
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.only(
+                            left: 280, bottom: 13, top: 0),
+                        child: RichText(
+                          text: TextSpan(children: [
+                            TextSpan(
+                                text: '*',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.red,
+                                )),
+                            TextSpan(
+                                text: 'كلمة المرور',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF46494D),
+                                )),
+                          ]),
+                        ),
+                      ),
+                      TextFormField(
+                        controller: passwordTextEditingController,
+                        keyboardType: TextInputType.text,
+                        obscureText: ishiddenPassword,
+                        onFieldSubmitted: (value) {
+                          loginDriverNow();
+                        },
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "يرجى إدخال كلمة المرور";
+                          }
+                        },
+                        style: const TextStyle(color: Colors.black),
+                        decoration: const InputDecoration(
+                          filled: true,
+                          fillColor: Color.fromARGB(90, 133, 187, 194),
+                          border: OutlineInputBorder(),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          if (formKey.currentState!.validate()) validateForm();
+                        },
+                        style: ElevatedButton.styleFrom(
+                          primary: const Color(0xFF85BBC2),
+                        ),
+                        child: const Text(
+                          "تسجيل الدخول",
+                          style: TextStyle(
+                            color: Colors.black54,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 180,
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('lib/images/tayseer.png'),
+                            fit: BoxFit.fill,
+                          ),
+                          shape: BoxShape.rectangle,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
