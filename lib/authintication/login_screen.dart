@@ -8,6 +8,29 @@ import 'package:tayseer2/widgets/progress_dialog.dart';
 import '../Driver/getters.dart';
 import '../assistants/assistant_methods.dart';
 
+class IDFieldValidator {
+  static String validate(String value) {
+    if (value.isEmpty) {
+      return "يرجى إدخال رقم الهوية/الإقامة";
+    }
+    if (value.length != 10) {
+      return "يرجى إدخال رقم هوية/إقامة صحيح";
+    } else {
+      return "رقم الهوية/إقامة صحيحة";
+    }
+  }
+}
+
+class PasswordFieldValidator {
+  static String validate(String value) {
+    if (value.isEmpty) {
+      return "يرجى إدخال كلمة المرور";
+    } else {
+      return "كلمة المرور صحيحة";
+    }
+  }
+}
+
 class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -163,13 +186,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       TextFormField(
                         controller: didTextEditingController,
                         keyboardType: TextInputType.number,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "يرجى إدخال رقم الهوية/الإقامة";
-                          } else if (value.length != 10) {
-                            return "يرجى إدخال رقم هوية/إقامة صحيح";
-                          }
-                        },
+                        validator: (value) => IDFieldValidator.validate(value!),
                         style: const TextStyle(color: Colors.black),
                         decoration: const InputDecoration(
                           filled: true,
@@ -212,11 +229,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         onFieldSubmitted: (value) {
                           loginDriverNow();
                         },
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "يرجى إدخال كلمة المرور";
-                          }
-                        },
+                        validator: (value) =>
+                            PasswordFieldValidator.validate(value!),
                         style: const TextStyle(color: Colors.black),
                         decoration: const InputDecoration(
                           filled: true,
