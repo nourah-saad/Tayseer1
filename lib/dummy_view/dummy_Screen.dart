@@ -11,6 +11,19 @@ import '../splashScreen/splash_screen.dart';
 import 'Model_user.dart';
 import 'User_servies.dart';
 
+class EmailFieldValidator {
+  static String validate(String value) {
+    if (value.isEmpty) {
+      return "يرجى إدخال البريد الإلكتروني";
+    }
+    if (!value.contains('@')) {
+      return "يرجى إدخال البريد الإلكتروني بشكل صحيح";
+    } else {
+      return "البريد الالكتروني";
+    }
+  }
+}
+
 class Dummy_Screen extends StatefulWidget {
   Dummy_Screen({controller_tab}) {
     tabcontroller = controller_tab;
@@ -175,26 +188,17 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
           child: Stack(
             alignment: Alignment.bottomCenter,
             children: [
-              
-                  
-                
-              
               //  SingleChildScrollView(child:Container()),
               Container(
-             
                   padding: EdgeInsets.all(25),
                   color: Color(0xFF85BBC2),
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height,
                   child: Row(
-                   
-                  
-               
-           
                     //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                   )),
-                  
+
               Container(
                 alignment: Alignment.bottomCenter,
                 width: MediaQuery.of(context).size.width,
@@ -281,7 +285,8 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                                           },
                                           decoration: InputDecoration(
                                             border: OutlineInputBorder(),
-                                            labelText: '                      البريد الالكتروني الجديد             ',
+                                            labelText:
+                                                '                      البريد الالكتروني الجديد             ',
                                           ),
                                           onChanged: (text) {
                                             setState(() {
@@ -437,7 +442,8 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                                             // print();
                                           },
                                           style: ElevatedButton.styleFrom(
-                                            primary: Color(0xFF85BBC2),//const Color(0xFFEB6666),
+                                            primary: Color(
+                                                0xFF85BBC2), //const Color(0xFFEB6666),
                                             onPrimary: Colors.white,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
@@ -463,7 +469,8 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                                             });
                                           },
                                           style: ElevatedButton.styleFrom(
-                                            primary:Color(0xffD7ECED),//Color.fromARGB(255, 191, 199, 199),// Colors.green,
+                                            primary: Color(
+                                                0xffD7ECED), //Color.fromARGB(255, 191, 199, 199),// Colors.green,
                                             onPrimary: Colors.white,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:

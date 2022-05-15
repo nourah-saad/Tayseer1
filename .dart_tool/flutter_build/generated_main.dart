@@ -5,10 +5,10 @@
 
 // @dart = 2.15
 
-// When `package:tayseer2/main.dart` defines `main`, that definition is shadowed by the definition below.
-export 'package:tayseer2/main.dart';
+// When `file:///var/folders/c1/5w82gl1n00v8ch7tsgzngdxc0000gn/T/flutter_tools.ARmkTZ/flutter_test_listener.2Jz2VG/listener.dart` defines `main`, that definition is shadowed by the definition below.
+export 'file:///var/folders/c1/5w82gl1n00v8ch7tsgzngdxc0000gn/T/flutter_tools.ARmkTZ/flutter_test_listener.2Jz2VG/listener.dart';
 
-import 'package:tayseer2/main.dart' as entrypoint;
+import 'file:///var/folders/c1/5w82gl1n00v8ch7tsgzngdxc0000gn/T/flutter_tools.ARmkTZ/flutter_test_listener.2Jz2VG/listener.dart' as entrypoint;
 import 'dart:io'; // flutter_ignore: dart_io_import.
 import 'package:geolocator_android/geolocator_android.dart';
 import 'package:path_provider_android/path_provider_android.dart';

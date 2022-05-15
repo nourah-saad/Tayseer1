@@ -25,6 +25,9 @@ class PasswordFieldValidator {
   static String validate(String value) {
     if (value.isEmpty) {
       return "يرجى إدخال كلمة المرور";
+    }
+    if (value.length < 8) {
+      return "يرجى كلمة المرور بشكل صحيح";
     } else {
       return "كلمة المرور صحيحة";
     }
