@@ -92,6 +92,7 @@ class _ConfirmationLoadingPageWidgetState
               Icons.chevron_left,
               color: Color(0xFF46494D),
               size: 50,
+              key: Key('backLoading'),
             ),
           ),
         ],

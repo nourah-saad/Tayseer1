@@ -9,28 +9,28 @@ import '../Driver/getters.dart';
 import '../assistants/assistant_methods.dart';
 
 class IDFieldValidator {
-  static String validate(String value) {
+  static validate(String value) {
     if (value.isEmpty) {
       return "يرجى إدخال رقم الهوية/الإقامة";
     }
     if (value.length != 10) {
       return "يرجى إدخال رقم هوية/إقامة صحيح";
-    } else {
+    } /*else {
       return "رقم الهوية/إقامة صحيحة";
-    }
+    }*/
   }
 }
 
 class PasswordFieldValidator {
-  static String validate(String value) {
+  static validate(String value) {
     if (value.isEmpty) {
       return "يرجى إدخال كلمة المرور";
     }
     if (value.length < 8) {
       return "يرجى كلمة المرور بشكل صحيح";
-    } else {
+    } /*else {
       return "كلمة المرور صحيحة";
-    }
+    }*/
   }
 }
 
@@ -53,6 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   loginDriverNow() async {
+    print('logindrivernow entered');
     showDialog(
         context: context,
         barrierDismissible: false,
@@ -187,6 +188,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       TextFormField(
+                        key: Key('IDField'),
                         controller: didTextEditingController,
                         keyboardType: TextInputType.number,
                         validator: (value) => IDFieldValidator.validate(value!),
@@ -226,6 +228,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       TextFormField(
+                        key: Key('passField'),
                         controller: passwordTextEditingController,
                         keyboardType: TextInputType.text,
                         obscureText: ishiddenPassword,
@@ -248,6 +251,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 20,
                       ),
                       ElevatedButton(
+                        key: Key('signInButton'),
                         onPressed: () {
                           if (formKey.currentState!.validate()) validateForm();
                         },

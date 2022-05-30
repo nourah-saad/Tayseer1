@@ -362,6 +362,7 @@ class _select_your_carWidgetState extends State<select_your_carWidget> {
                             Align(
                               alignment: Alignment.center,
                               child: ElevatedButton(
+                                key: Key('selectYourCarButton $i'),
                                 style: ElevatedButton.styleFrom(
                                   onPrimary: Colors.black87,
                                   primary: Color(0xFF92D9E3),

@@ -168,6 +168,7 @@ class _MapScreenState extends State<MapScreen> {
                       const SizedBox(height: 16.0),
 
                       ElevatedButton(
+                        key: Key('nextButton'),
                         child: const Text(
                           "التالي",
                         ),

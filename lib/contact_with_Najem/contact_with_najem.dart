@@ -106,6 +106,7 @@ class _ContactWithNajemState extends State<ContactWithNajem> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
+                                    key: Key('emailNajm'),
                                     onTap: () async {
                                       final url = 'mailto:$controllerTo';
                                       if (await canLaunch(url)) {
@@ -156,6 +157,7 @@ class _ContactWithNajemState extends State<ContactWithNajem> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
+                                    key: Key('callNajm'),
                                     onTap: () async {
                                       await FlutterPhoneDirectCaller.callNumber(
                                           "+966538456777");

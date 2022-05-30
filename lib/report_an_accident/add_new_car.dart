@@ -85,6 +85,7 @@ class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
                       minWidth: 25.0,
                       height: 25.0,
                       child: ElevatedButton(
+                          key: Key('OkButton'),
                           child: Text('حسنا',
                               style: TextStyle(color: Colors.white)),
                           onPressed: () {
@@ -159,7 +160,6 @@ class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
     });
   }
 
-  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -204,7 +204,7 @@ class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(30, 10, 30, 0),
                       child: TextFormField(
-                        key: _formKey,
+                        key: Key('enterManuallyField'),
                         controller: textController,
                         obscureText: false,
                         decoration: InputDecoration(
@@ -249,6 +249,7 @@ class _AddCarManuallyWidgetState extends State<AddCarManuallyWidget> {
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
                             child: ElevatedButton(
+                              key: Key('enterManuallyButton'),
                               style: ElevatedButton.styleFrom(
                                 onPrimary: Colors.black87,
                                 primary: Color(0xFF85BBC2),

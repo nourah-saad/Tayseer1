@@ -215,6 +215,7 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                   children: <Widget>[
                     Container(
                       child: InkWell(
+                          key: Key('editProfileButton'),
                           onTap: () {
                             setState(() {
                               is_edit = true;
@@ -242,11 +243,10 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               Container(
-                                  child: Text(
-                                '${_user.Name}',
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 18),
-                              )),
+                                  child: Text('${_user.Name}',
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 18),
+                                      key: Key('profileName'))),
                               SizedBox(
                                 width: 10,
                               ),
@@ -271,6 +271,7 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                                       child: Padding(
                                         padding: EdgeInsets.only(left: 10),
                                         child: TextFormField(
+                                          key: Key('editEmailField'),
                                           controller: myController,
                                           validator: (String? value) {
                                             bool emailValid = RegExp(
@@ -409,6 +410,7 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                                         padding: EdgeInsets.all(5),
                                         width: 100,
                                         child: ElevatedButton(
+                                          key: Key('confirmEmailChanges'),
                                           child: Text(
                                             "حفظ",
                                             style: TextStyle(
@@ -455,6 +457,7 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                                         padding: EdgeInsets.all(5),
                                         width: 100,
                                         child: ElevatedButton(
+                                          key: Key('disConfirmEmailChanges'),
                                           child: Text(
                                             "تراجع",
                                             style: TextStyle(
@@ -488,6 +491,7 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                         padding: EdgeInsets.all(5),
                         width: 150,
                         child: ElevatedButton(
+                          key: Key('logOutButton'),
                           child: Text(
                             "تسجيل خروج",
                             style: TextStyle(
@@ -510,6 +514,7 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                                 ),
                                 actions: [
                                   ElevatedButton(
+                                    key: Key('confirmlogout'),
                                     child: Text(
                                       "نعم",
                                       style: TextStyle(
@@ -534,6 +539,7 @@ class _Dummy_ScreenState extends State<Dummy_Screen> {
                                     ),
                                   ),
                                   ElevatedButton(
+                                    key: Key('DisConfirmlogout'),
                                     child: Text(
                                       "لا",
                                       style: TextStyle(

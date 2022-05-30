@@ -30,8 +30,16 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     final items = <Widget>[
       const Icon(Icons.notifications, size: 30),
-      const Icon(Icons.account_box, size: 30),
-      const Icon(Icons.home, size: 30),
+      const Icon(
+        Icons.account_box,
+        size: 30,
+        key: Key('profileButton'),
+      ),
+      const Icon(
+        Icons.home,
+        size: 30,
+        key: Key('homeButton'),
+      ),
     ];
     return SafeArea(
       top: false,

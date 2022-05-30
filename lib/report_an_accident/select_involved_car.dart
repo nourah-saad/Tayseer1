@@ -87,6 +87,7 @@ class _SelectCarInvolvedCarsPageWidgetState
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(80, 530, 0, 0),
             child: FFButtonWidget(
+              key: Key('enterPlate'),
               onPressed: () {
                 Navigator.push(
                     context,

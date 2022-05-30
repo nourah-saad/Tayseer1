@@ -166,6 +166,7 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(40, 0, 0, 0),
                               child: FFButtonWidget(
+                                key: Key('disConfirmInvolvmentButton'),
                                 onPressed: () {
                                   print('Button pressed ...');
                                   Navigator.pop(context);
@@ -226,6 +227,7 @@ class _ConfirmationPageWidgetState extends State<ConfirmationPageWidget> {
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(40, 0, 0, 0),
                               child: FFButtonWidget(
+                                key: Key('confirmInvolvmentButton'),
                                 onPressed: () {
                                   print('Button pressed ...');
                                   Navigator.pop(context);

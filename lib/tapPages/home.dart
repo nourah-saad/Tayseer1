@@ -149,6 +149,7 @@ class _HomePageState extends State<HomePage> {
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0, 90, 0, 0),
                               child: ElevatedButton(
+                                key: Key('reportButton'),
                                 style: ElevatedButton.styleFrom(
                                   onPrimary: Colors.black87,
                                   primary: const Color(0xFFEB6666),
@@ -204,6 +205,7 @@ class _HomePageState extends State<HomePage> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
+                                    key: Key('contact'),
                                     onTap: () {
                                       Navigator.push(
                                           context,
@@ -254,6 +256,7 @@ class _HomePageState extends State<HomePage> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
+                                    key: Key('guidelines'),
                                     onTap: () {
                                       Navigator.push(
                                           context,
@@ -304,6 +307,7 @@ class _HomePageState extends State<HomePage> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: InkWell(
+                                    key: Key('viewAccidents'),
                                     onTap: () {
                                       Navigator.push(
                                           context,

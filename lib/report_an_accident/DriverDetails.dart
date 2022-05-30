@@ -76,6 +76,7 @@ class _DriverDetailsState extends State<DriverDetails> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(60, 50, 0, 0),
                     child: FFButtonWidget(
+                      key: Key('selectInvolved'),
                       onPressed: () async {
                         addDetails();
                         Navigator.pushReplacement(

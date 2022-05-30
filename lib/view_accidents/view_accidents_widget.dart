@@ -190,6 +190,7 @@ class _ViewAccidentsWidgetState extends State<ViewAccidentsWidget> {
               width: MediaQuery.of(context).size.width,
               padding: EdgeInsetsDirectional.fromSTEB(10, 140, 10, 10),
               child: InkWell(
+                  key: Key('searchBar'),
                   onTap: () {
                     Navigator.push(
                       context,
@@ -330,6 +331,7 @@ Widget accidentChild(data, context) {
                                       ]),
                                       Row(children: [
                                         ElevatedButton(
+                                          key: Key('viewReport $i'),
                                           style: ElevatedButton.styleFrom(
                                             onPrimary: Colors.black87,
                                             primary: Color(0xFF92D9E3),
